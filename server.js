@@ -1416,25 +1416,3 @@ badboy.channel.send(embed)
 
 //////
 
-
-client.on('message', badboy => {
-    if(badboy.content.startsWith(prefix + "hug")){
-      
-let user = badboy.mentions.users.first();user.username
-
-if(!user) return badboy.reply("منشن الشخص")
-      let hugs = [
-        'https://cdn.discordapp.com/attachments/782532317729652757/797086131018924032/tenor.gif',
-        
-
-        ];
-  let hug1 = hugs[Math.floor(Math.random() * hugs.length)];
-  
-  var embed = new Discord.MessageEmbed()
-  .setTitle("HUG")
-     .setImage(`${hug1}`)
-.setFooter(`${badboy.author.username} has hug ${user.username}`)
-      badboy.channel.send(embed)
-   
-    }
-  })
