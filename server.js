@@ -731,7 +731,7 @@ client.on('message', message => {
     if (message.content.startsWith(`${prefix}bot`)) {
       const tnx = new Discord.MessageEmbed()
 .setAuthor(client.user.username,client.user.avatarURL())
-.setThumbnail(`https://cdn.discordapp.com/attachments/791223299136159785/791237362138087434/PicsArt_12-23-12.30.40.png`)
+.setThumbnail(`https://cdn.discordapp.com/attachments/771100905285484571/798636546882142208/image0.png`)
 .setColor("#E40004")
 .setTitle(`Info about ${client.user.username}.`)
 .addField('**My Ping**' , `${Date.now() - message.createdTimestamp}` + 'MS', true)
@@ -798,7 +798,7 @@ client.on("message", msg => {
     if (msg.member.hasPermission("MENTION_EVERYONE")) return;
     if (!msg.channel.guild) return;
     msg.delete();
-    msg.reply("**`You cant send everyone.**");
+    msg.reply("**You cant send everyone.**");
   }
 });
 
