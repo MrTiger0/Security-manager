@@ -1752,7 +1752,7 @@ client.on('message', james => {
 
 
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "Roles")) {
+  if (message.content.startsWith(prefix + "roles")) {
  let rolemap = message.guild.roles.cache
  .sort((a, b) => b.position - a.position)
  .map(r => r)
