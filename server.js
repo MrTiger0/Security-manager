@@ -1677,7 +1677,7 @@ let embed = new MessageEmbed()  // coded by LORD
 
 .setThumbnail(getvalueof.avatarURL())
 
-.setAuthor(getvalueof.username)  // coded by LORD
+.setAuthor(getvalueof.username)  
 
 .setDescription(`**LEVEL** - ${rcrank[getvalueof.id].level}
 **XP** - ${rcrank[getvalueof.id].points}/${rcrank[getvalueof.id].nextLvlXp}`)   // coded by LORD
@@ -1687,3 +1687,15 @@ let embed = new MessageEmbed()  // coded by LORD
 }  
 
 });
+//////
+
+client.on('message',message=>{
+  const got = require('got')
+  if(message.content.startsWith(prefix + "short")){
+    const args = message.content.split(" ").slice(1).join(" ")
+    if(!args === `https://${args}.com`)
+    got(`https://is.gd/create.php?format=simple&url=${args}`).then(Tamer=>{
+      message.channel.send(Tamer.body)
+    })
+  }
+})
