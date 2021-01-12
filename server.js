@@ -38,15 +38,29 @@ client.login("NzgyMzU2OTUxMTcwNDE2Njcw.X8LAsA.QYf90UhCwQvX7KfgQOMnIhHmwYA");
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.username}!`);
 client.user.setStatus("idle");
-client.user.setActivity(`z.help | Secure You Server ✔︎`, {type: "PLAYING"});
+client.user.setActivity(`z.help | coming soon`, {type: "PLAYING"});
 });
 
 //////
 
-client.on('message', message => {
-	if (message.content.startsWith(prefix + 'help')) {
-		const hyper = new Discord.MessageEmbed()
-			.setTitle(`
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "help")) {
+    if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    let help = new Discord.MessageEmbed()
+      .setColor(color)
+      .setAuthor(message.author.username, message.author.AvatarURL)
+      .setThumbnail(message.author.avatarURL())
+      .setTitle("")
+      .setURL(``) .setDescription(`
+
 🌐丨**Info**
 \`z.user\`
 \`z.server\`
@@ -69,33 +83,18 @@ client.on('message', message => {
 \`z.unban\` , \`z.banlist\`
 \`z.mute\` , \`z.unmute\`
 \`z.say\` 
-`)
-       .setColor('RANDOM')
-  .setDescription(`**
-📄・MY PREFIX ${prefix}
-📄・MY PING ${client.ws.ping}   **`);
-		message.channel.send(hyper);
-	}
-});
 
-///////
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "invite")) {
-    let invite = new Discord.MessageEmbed()
-      .setColor(color)
-      .setAuthor(message.author.username, message.author.displayAvatarURL)
-      .setThumbnail(message.author.avatarURL)
-      .setImage(
-        `https://cdn.discordapp.com/attachments/771100905285484571/794864349197238332/image0.jpg`
-      )
-      .setTitle("" + "**Click Here To Add Security**" + ``)
-      .setURL(
-        `https://discord.com/api/oauth2/authorize?client_id=782356951170416670&permissions=8&scope=bot`
-      );
-    message.channel.send(invite);
-    message.react("✉");
+
+
+[Invite](https://discord.com/api/oauth2/authorize?client_id=782356951170416670&permissions=8&scope=bot
+) - [Support](https://discord.gg/cetGQvWD3h) - [Website](https://security.zheerspiderman.repl.co/)
+
+`);
+
+    message.channel.send(help);
   }
 });
+
 ////////
 
 client.on('message', prof=>{
