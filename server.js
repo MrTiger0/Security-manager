@@ -1679,57 +1679,6 @@ let embed = new MessageEmbed()  // coded by LORD
 });
 //////
 
-client.on('message',message=>{
-  const got = require('got')
-  if(message.content.startsWith(prefix + "short")){
-    const args = message.content.split(" ").slice(1).join(" ")
-    if(!args === `https://${args}.com`)
-    got(`https://is.gd/create.php?format=simple&url=${args}`).then(Tamer=>{
-      message.channel.send(Tamer.body)
-    })
-  }
-})
-
-//////
-client.on("message", async message => {
-  if (message.content.toLowerCase() === prefix + "profile") {
-    message.channel.startTyping();
-    setTimeout(() => {
-      message.channel.stopTyping();
-    }, Math.random() * (1 - 3) + 1 * 200).then(
-      message.channel.send({
-        files: [
-          {
-            name: "prfoilebycutie.png",
-            attachment: `https://api.probot.io/profile/${message.author.id}`
-          }
-        ]
-      })
-    );
-  }
-});
-//////
-client.on('message', message => {
-if(message.content.startsWith(`${prefix}fruits`)) {
-  let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
-  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let we;
-  if(slots1 === slots2 && slots2 === slots3) {
-    we = "Win!"
-    client[client.id].points++;
-  } else {
-    we = "Lose!"
-  }
-  message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
-}
-});
-
-/////
-
-//////
-
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "roles")) {
@@ -1747,4 +1696,4 @@ message.channel.send(embed);
 
 /////
 
-//////
+
