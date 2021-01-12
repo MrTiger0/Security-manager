@@ -1416,3 +1416,20 @@ badboy.channel.send(embed)
 
 //////
 
+client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "vote")){
+	if (badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only") 
+
+let args = badboy.content.split(" ").slice(1).join(" ");
+if(!args) return badboy.reply("type your vote")
+    var embed = new Discord.MessageEmbed()
+   
+    .setDescription(`${args}`)
+ .setColor("BLUE")
+ badboy.channel.send(embed).then(badboy => {
+   badboy.react("👍")
+badboy.react("👎")
+ })
+  }
+})
+
