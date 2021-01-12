@@ -139,7 +139,7 @@ const ghallat = "❌";
 const ghallatw = "";
 const logosec = "";
 const warn = "⚠";
-const color = "#E40004";
+const color = "#11e9ed";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
 client.on("message", message => {
@@ -732,7 +732,7 @@ client.on('message', message => {
       const tnx = new Discord.MessageEmbed()
 .setAuthor(client.user.username,client.user.avatarURL())
 .setThumbnail(`https://cdn.discordapp.com/attachments/771100905285484571/798636546882142208/image0.png`)
-.setColor("#E40004")
+.setColor("#11e9ed")
 .setTitle(`Info about ${client.user.username}.`)
 .addField('**My Ping**' , `${Date.now() - message.createdTimestamp}` + 'MS', true)
 .addField('**Ram Usage**', `${(process.memoryUsage().rss / 1048576).toFixed()}MB`, true)
@@ -892,7 +892,7 @@ client.on("message", professor => {
       .setThumbnail(
         `https://cdn.discordapp.com/attachments/755636694035857438/777992625349197824/1.png`
       )
-      .setColor("#E40004")
+      .setColor("#11e9ed")
       .setTitle("AntiBot On")
       .setDescription(`The AntiBots Join Is On  | By <@${professor.author.id}>`)
       .setTimestamp();
@@ -920,7 +920,7 @@ client.on("message", professor => {
       .setThumbnail(
         `https://cdn.discordapp.com/attachments/755636694035857438/777992625092427786/2.png`
       )
-      .setColor("#E40004")
+      .setColor("#11e9ed")
       .setTitle("AntiBot Off")
       .setDescription(
         `The AntiBots Join Is Off  | By <@${professor.author.id}>`
@@ -976,7 +976,7 @@ client.on("message", message => {
     }
     message.delete();
     var embed = new Discord.MessageEmbed()
-      .setColor("#E40004")
+      .setColor("#11e9ed")
       .setDescription(`${args}`)
       .setFooter(`By ${message.author.tag}`);
     message.channel.send(embed);
@@ -1016,7 +1016,7 @@ client.on('message', message => {
      let embed = new Discord.MessageEmbed()
      .setAuthor(message.author.username , message.author.displayAvatarURL())
      .setDescription(`${banned.size} users are banned:**\n ${list}`)
- .setColor('E40004')
+ .setColor('11e9ed')
  
 message.channel.send(embed)
 });
@@ -1039,7 +1039,7 @@ if(!message.member.hasPermission("OWNERSHIP")) return message.reply('you dont ha
     var rn = args.slice(1).join(' ');
   let em =new Discord.MessageEmbed()
   .setTitle('Error :')
-  .setColor('E40004')
+  .setColor('11e9ed')
   .setDescription(`
   **Usage:**
  ${prefix}warn (user) (reason)
@@ -1112,7 +1112,7 @@ client.on('message', prof =>
     if(prof.content.startsWith(prefix + 'user')) {
         var professor = new Discord.MessageEmbed()
         .setThumbnail(prof.author.avatarURL())
-        .setColor('E40004')
+        .setColor('11e9ed')
         .setTitle('Your Info User.')
         .addField('> **Your Name**', `<@${prof.author.id}>`)
         .addField('> **Your ID**', `${prof.author.id}`)
@@ -1152,7 +1152,7 @@ if(message.content.startsWith(prefix + "server")){
 .addField("🔸Boost", `${message.guild.premiumSubscriptionCount}`)
 
 
-.setColor("#E40004")
+.setColor("#11e9ed")
 .setFooter(`Requsted by ${message.author.username}`)
     message.channel.send(EMBED)
   }
@@ -1267,7 +1267,7 @@ client.on("message", async message => {
       mute = await message.guild.roles.create({
         data: {
           name: "Muted",
-          color: "#40004",
+          color: "#11e9ed",
           permissions: []
         }
       });
@@ -1338,7 +1338,7 @@ client.on('message', async message => {
       .setTitle(`${user.username.endsWith(`'s`) ? user.username : user.username + "'s"} AVATAR`)
       .setImage(`${user.displayAvatarURL({ dynamic: true })}` + '?size=4096')
       .setTimestamp()
-      .setColor("RANDOM")
+      .setColor("#11e9ed")
     message.channel.send(embed)
   }
 })
@@ -1370,6 +1370,7 @@ client.on("message", message => {
  .setTitle(`Love Rate :heart: `)
  .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
  .setDescription(`${message.author} loves ${usser} ${onetoonehundred}%`)
+ .setColor("#11e9ed")
  message.channel.send(love)
  }
 }
@@ -1399,6 +1400,7 @@ let die = [
     .setImage(`${die}`)
     
     .setFooter(`Requsted by ${badboy.author.username}`)
+    .setColor("#11e9ed")
 badboy.channel.send(embed)
   
   }
@@ -1415,7 +1417,7 @@ if(!args) return badboy.reply("type your vote")
     var embed = new Discord.MessageEmbed()
    
     .setDescription(`${args}`)
- .setColor("BLUE")
+ .setColor("#11e9ed")
  badboy.channel.send(embed).then(badboy => {
    badboy.react("👍")
 badboy.react("👎")
@@ -1516,7 +1518,7 @@ client.on("message", async function(message) {
         .join("\n")}`;
       var embed = new Discord.MessageEmbed()
         .setAuthor("📑 | Guild Score Leaderboards", message.guild.iconURL())
-        .setColor("13B813")
+        .setColor("#11e9ed")
         .addField(
           `**:microphone2: | VOICE LEADERBOARD**`,
           `${voiceStr}   \n\n\n **:sparkles: More info ** \`${prefix}top voice\``,
@@ -1663,7 +1665,7 @@ if (!rcrank[getvalueof.id]) rcrank[getvalueof.id] = {points: 0, level: 1,nextLvl
 
 let embed = new MessageEmbed()  // coded by LORD
 
-.setColor("#ff2050")
+.setColor("#11e9ed")
 
 .setThumbnail(getvalueof.avatarURL())
 
@@ -1690,6 +1692,7 @@ client.on("message", message => {
  if (!rolemap) rolemap = "No roles";
 const embed = new Discord.MessageEmbed()
 .addField("Role List" , rolemap)
+.setColor("#11e9ed")
 message.channel.send(embed);
 }
 })
@@ -1708,7 +1711,7 @@ client.on(`message`, zalm => {
       .setDescription(`${zalm.author} Slapped ${zalmslap} 😂`)
       .setImage(`https://media.giphy.com/media/P1EomtpqQW34c/giphy.gif`)
       
-      .setColor("RANDOM"); 
+      .setColor("#11e9ed"); 
       zalm.channel.send(zalmembed);
 }
 });
@@ -1725,7 +1728,7 @@ client.on(`message`, zalm => {
       .setDescription(`${zalm.author} killed ${zalmkill} 🔫`)
       .setImage(`https://media.giphy.com/media/9tXn7DEOsjifNDEenF/giphy.gif`)
       
-      .setColor("RANDOM"); 
+      .setColor("#11e9ed"); 
       zalm.channel.send(zalmembed);
 }
 });
@@ -1742,7 +1745,7 @@ client.on(`message`, zalm => {
       .setDescription(`${zalm.author} kiss ${zalmkiss} 💋`)
       .setImage(``)
       
-      .setColor("RANDOM"); 
+      .setColor("#11e9ed"); 
       zalm.channel.send(zalmembed);
 }
 });
