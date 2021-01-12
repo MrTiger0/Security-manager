@@ -1738,7 +1738,7 @@ client.on(`message`, zalm => {
      if(!zalm.mentions.members.first()) return zalm.channel.send(`**Please mention someone**`);
      var zalmembed = new Discord.MessageEmbed()
       .setTitle('')
-      .setURL(``)
+      .setURL(`https://cdn.discordapp.com/attachments/771100905285484571/798650051315761162/image0.gif`)
       .setDescription(`${zalm.author} kiss ${zalmkiss} 💋`)
       .setImage(``)
       
