@@ -1722,7 +1722,7 @@ client.on(`message`, zalm => {
      var zalmembed = new Discord.MessageEmbed()
       .setTitle('')
       .setURL(``)
-      .setDescription(`${zalm.author} killed ${zalmkill} 😂`)
+      .setDescription(`${zalm.author} killed ${zalmkill} 🔫`)
       .setImage(`https://media.giphy.com/media/9tXn7DEOsjifNDEenF/giphy.gif`)
       
       .setColor("RANDOM"); 
@@ -1738,11 +1738,23 @@ client.on(`message`, zalm => {
      if(!zalm.mentions.members.first()) return zalm.channel.send(`**Please mention someone**`);
      var zalmembed = new Discord.MessageEmbed()
       .setTitle('')
-      .setURL(`https://giphy.com/gifs/love-girl-kiss-YDB4EF3U6i6IM`)
-      .setDescription(`${zalm.author} kiss ${zalmkiss} 😂`)
+      .setURL(``)
+      .setDescription(`${zalm.author} kiss ${zalmkiss} 💋`)
       .setImage(``)
       
       .setColor("RANDOM"); 
       zalm.channel.send(zalmembed);
 }
+});
+///////
+
+client.on('message', message => {
+   if(message.content.startsWith(prefix + "uinvites")) {
+    message.guild.fetchInvites().then(invs => {
+      let user = message.mentions.users.first() || message.author
+      let personalInvites = invs.filter(i => i.inviter.id === user.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+message.channel.send(`${user} Your invites ${inviteCount}.`);
+});
+  }
 });
