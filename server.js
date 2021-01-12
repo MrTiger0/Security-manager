@@ -1322,3 +1322,70 @@ client.on("message", async message => {
     message.channel.send(unmute);
   }
 });
+
+///////
+          
+client.on('message', async message => {
+      if (message.content.startsWith(`${prefix}avatar`)) {
+        var args = message.content.split(" ").slice(1).join(" ")
+  let use;
+
+  if (!args[0]) {
+    use = message.member;
+  } else {
+    if(!message.guild) return;
+    use = await message.guild.members.fetch(args[0].replace("<@!","").replace("<@", "").replace(">","")).catch(err => { return message.channel.send(":botno: | Please Mention a correct user or give a correct id of the user!") })
+  
+  }
+
+  if (!use) {
+    return message.channel.send("  Unable to find this person!")
+  }
+ 
+            
+ 
+console.log(use.user.avatarURL({dynamic: true, size: 1024}))
+let embed = new Discord.MessageEmbed()
+.setTitle(`${use.user.tag}`)
+.setDescription(`[Avatar link]`+`(${use.user.avatarURL({dynamic: true, size: 1024})})`)
+.setImage(`${use.user.avatarURL({dynamic: true, size: 1024})}`)
+.setColor(use.displayHexColor === "RANDOM" ? "#ffffff" : use.displayHexColor)
+message.channel.send(embed)
+
+}})
+//////
+
+          
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "love")) {
+ const onetoonehundred = Math.floor(Math.random() * 100) 
+ const usser = message.mentions.members.first()
+
+ if(!usser) {
+     const specify = new Discord.MessageEmbed()
+     .setDescription('Please mention a user!')
+     message.channel.send(specify)
+ } else {
+
+     if(usser.id === message.author.id) {
+         const love2 = new Discord.MessageEmbed()
+ .setTitle(`Love Rate :heart: `)
+ .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
+ .setDescription(`${message.author} loves ${usser} 100% ❤️ 
+ nah joke.`)
+ message.channel.send(love2)
+     } else {
+ 
+ const love = new Discord.MessageEmbed()
+ .setTitle(`Love Rate :heart: `)
+ .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
+ .setDescription(`${message.author} loves ${usser} ${onetoonehundred}%`)
+ message.channel.send(love)
+ }
+}
+}
+})
+
+          
+
+         
