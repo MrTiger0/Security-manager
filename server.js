@@ -1722,8 +1722,25 @@ client.on(`message`, zalm => {
      var zalmembed = new Discord.MessageEmbed()
       .setTitle('')
       .setURL(``)
-      .setDescription(`${zalm.author} Slapped ${zalmkill} 😂`)
+      .setDescription(`${zalm.author} killed ${zalmkill} 😂`)
       .setImage(`https://media.giphy.com/media/9tXn7DEOsjifNDEenF/giphy.gif`)
+      
+      .setColor("RANDOM"); 
+      zalm.channel.send(zalmembed);
+}
+});
+///////
+client.on(`message`, zalm => {
+    if (zalm.content.startsWith(prefix + "kiss")) {
+       if (!zalm.channel.guild) return zalm.channel.send('**This command is for servers only**');
+     var zalmkiss= zalm.mentions.members.first()
+ 
+     if(!zalm.mentions.members.first()) return zalm.channel.send(`**Please mention someone**`);
+     var zalmembed = new Discord.MessageEmbed()
+      .setTitle('')
+      .setURL(`https://media.giphy.com/media/YDB4EF3U6i6IM/giphy.gif`)
+      .setDescription(`${zalm.author} kiss ${zalmkiss} 😂`)
+      .setImage(``)
       
       .setColor("RANDOM"); 
       zalm.channel.send(zalmembed);
