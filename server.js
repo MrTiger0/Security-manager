@@ -1324,35 +1324,25 @@ client.on("message", async message => {
 });
 
 ///////
-          
+
 client.on('message', async message => {
-      if (message.content.startsWith(`${prefix}avatar`)) {
-        var args = message.content.split(" ").slice(1).join(" ")
-  let use;
-
-  if (!args[0]) {
-    use = message.member;
-  } else {
-    if(!message.guild) return;
-    use = await message.guild.members.fetch(args[0].replace("<@!","").replace("<@", "").replace(">","")).catch(err => { return message.channel.send(":botno: | Please Mention a correct user or give a correct id of the user!") })
-  
+  if (message.author.bot) return
+  if (!message.guild) return
+  if (!message.content.startsWith(prefix)) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+  const command = args.shift().toLowerCase();
+  if (command === "avatar") {
+    let user = message.mentions.members.first().user || message.guild.members.cache.get(args[0]).user
+    if (!user) user = message.author
+    let embed = new Discord.MessageEmbed()
+      .setTitle(`${user.username.endsWith(`'s`) ? user.username : user.username + "'s"} AVATAR`)
+      .setImage(`${user.displayAvatarURL({ dynamic: true })}` + '?size=4096')
+      .setTimestamp()
+      .setColor("RANDOM")
+    message.channel.send(embed)
   }
-
-  if (!use) {
-    return message.channel.send("  Unable to find this person!")
-  }
- 
-            
- 
-console.log(use.user.avatarURL({dynamic: true, size: 1024}))
-let embed = new Discord.MessageEmbed()
-.setTitle(`${use.user.tag}`)
-.setDescription(`[Avatar link]`+`(${use.user.avatarURL({dynamic: true, size: 1024})})`)
-.setImage(`${use.user.avatarURL({dynamic: true, size: 1024})}`)
-.setColor(use.displayHexColor === "RANDOM" ? "#ffffff" : use.displayHexColor)
-message.channel.send(embed)
-
-}})
+})
+       
 //////
 
           
@@ -1699,3 +1689,114 @@ client.on('message',message=>{
     })
   }
 })
+
+//////
+client.on("message", async message => {
+  if (message.content.toLowerCase() === prefix + "profile") {
+    message.channel.startTyping();
+    setTimeout(() => {
+      message.channel.stopTyping();
+    }, Math.random() * (1 - 3) + 1 * 200).then(
+      message.channel.send({
+        files: [
+          {
+            name: "prfoilebycutie.png",
+            attachment: `https://api.probot.io/profile/${message.author.id}`
+          }
+        ]
+      })
+    );
+  }
+});
+//////
+client.on('message', message => {
+if(message.content.startsWith(`${prefix}fruits`)) {
+  let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
+  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let we;
+  if(slots1 === slots2 && slots2 === slots3) {
+    we = "Win!"
+    client[client.id].points++;
+  } else {
+    we = "Lose!"
+  }
+  message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
+}
+});
+
+/////
+client.on('message', james => {
+      if(james.content === prefix + "hide") {
+      if(!james.channel.guild) return;
+      if(!james.member.hasPermission('MANAGE_CHANNELS')) return james.reply('You Dont Have Perms ❌');
+             james.channel.overwritePermissions(james.guild.id, {
+             READ_MESSAGES: false
+ })
+              james.channel.send('Channel Hided Successfully ! ✅  ')
+ }
+});
+client.on('message', james => {
+      if(james.content === prefix + "show") {
+      if(!james.channel.guild) return;
+      if(!james.member.hasPermission('MANAGE_CHANNELS')) return james.reply('❌');
+             james.channel.overwritePermissions(james.guild.id, {
+             READ_MESSAGES: true
+ })
+              james.channel.send('Done  ')
+ }
+})
+
+//////
+
+
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "Roles")) {
+ let rolemap = message.guild.roles.cache
+ .sort((a, b) => b.position - a.position)
+ .map(r => r)
+ .join(",");
+ if (rolemap.length > 1024) rolemap = "To many roles to display";
+ if (!rolemap) rolemap = "No roles";
+const embed = new Discord.MessageEmbed()
+.addField("Role List" , rolemap)
+message.channel.send(embed);
+}
+})
+
+/////
+client.on(`message`, zalm => {
+    if (zalm.content.startsWith(prefix + "slap")) {
+       if (!zalm.channel.guild) return zalm.channel.send('**This command is for servers only**');
+     var zalmslap = zalm.mentions.members.first()
+ 
+     if(!zalm.mentions.members.first()) return zalm.channel.send(`**Please mention someone**`);
+     var zalmembed = new Discord.MessageEmbed()
+      .setTitle('')
+      .setURL(``)
+      .setDescription(`${zalm.author} Slapped ${zalmslap} 😂`)
+      .setImage(`https://media.giphy.com/media/P1EomtpqQW34c/giphy.gif`)
+      
+      .setColor("RANDOM"); 
+      zalm.channel.send(zalmembed);
+}
+});
+
+//////
+client.on('message', message => {
+    if (message.content.startsWith(prefix + 'kill')) {
+        let user = message.mentions.users.first();
+        if (!user) {
+        }
+        let kill = [
+            'https://media.giphy.com/media/9tXn7DEOsjifNDEenF/giphy.gif',
+            ``
+        ];
+        message.channel.send({
+            embed: new Discord.MessageEmbed().setImage(
+                kill[Math.floor(Math.random() * kill.length)]
+            )
+        });
+    }
+});
