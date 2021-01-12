@@ -1784,19 +1784,3 @@ client.on(`message`, zalm => {
 });
 
 //////
-client.on('message', message => {
-    if (message.content.startsWith(prefix + 'kill')) {
-        let user = message.mentions.users.first();
-        if (!user) {
-        }
-        let kill = [
-            'https://media.giphy.com/media/9tXn7DEOsjifNDEenF/giphy.gif',
-            ``
-        ];
-        message.channel.send({
-            embed: new Discord.MessageEmbed().setImage(
-                kill[Math.floor(Math.random() * kill.length)]
-            )
-        });
-    }
-});
