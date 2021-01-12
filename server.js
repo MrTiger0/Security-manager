@@ -1325,24 +1325,20 @@ client.on("message", async message => {
 
 ///////
 
-client.on('message', async message => {
-  if (message.author.bot) return
-  if (!message.guild) return
-  if (!message.content.startsWith(prefix)) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-  const command = args.shift().toLowerCase();
-  if (command === prefix + "avatar") {
-    let user = message.mentions.members.first().user || message.guild.members.cache.get(args[0]).user
-    if (!user) user = message.author
-    let embed = new Discord.MessageEmbed()
-      .setTitle(`${user.username.endsWith(`'s`) ? user.username : user.username + "'s"} AVATAR`)
-      .setImage(`${user.displayAvatarURL({ dynamic: true })}` + '?size=4096')
-      .setTimestamp()
-      .setColor("#11e9ed")
-    message.channel.send(embed)
+
+  client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "avatar")){
+var user = badboy.mentions.users.first() || badboy.author;
+    if (user.bot || !badboy.guild) return;
+    
+    var embed = new Discord.MessageEmbed()
+.setFooter(`Requsted By ${badboy.author.username}`,badboy.author.displayAvatarURL({dynamic : true}))
+.setThumbnail(user.displayAvatarURL({dynamic : true}))
+
+badboy.channel.send(embed);
   }
 })
-       
+   
 //////
 
           
