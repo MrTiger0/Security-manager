@@ -1775,3 +1775,25 @@ if(message.content.startsWith(`${prefix}fruits`)) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
+
+//////
+client.on('message', james => {
+      if(james.content === prefix + "hide") {
+      if(!james.channel.guild) return;
+      if(!james.member.hasPermission('MANAGE_CHANNELS')) return james.reply('You Dont Have Perms ❌');
+             james.channel.overwritePermissions(james.guild.id, {
+             READ_MESSAGES: false
+ })
+              james.channel.send('Channel Hided Successfully ! ✅  ')
+ }
+});
+client.on('message', james => {
+      if(james.content === prefix + "show") {
+      if(!james.channel.guild) return;
+      if(!james.member.hasPermission('MANAGE_CHANNELS')) return james.reply('❌');
+             james.channel.overwritePermissions(james.guild.id, {
+             READ_MESSAGES: true
+ })
+              james.channel.send('Done')
+ }
+})
