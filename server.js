@@ -1331,7 +1331,7 @@ client.on('message', async message => {
   if (!message.content.startsWith(prefix)) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
-  if (command === "avatar") {
+  if (command === prefix + "avatar") {
     let user = message.mentions.members.first().user || message.guild.members.cache.get(args[0]).user
     if (!user) user = message.author
     let embed = new Discord.MessageEmbed()
@@ -1727,23 +1727,6 @@ client.on(`message`, zalm => {
       .setURL(``)
       .setDescription(`${zalm.author} killed ${zalmkill} 🔫`)
       .setImage(`https://media.giphy.com/media/9tXn7DEOsjifNDEenF/giphy.gif`)
-      
-      .setColor("#11e9ed"); 
-      zalm.channel.send(zalmembed);
-}
-});
-///////
-client.on(`message`, zalm => {
-    if (zalm.content.startsWith(prefix + "kiss")) {
-       if (!zalm.channel.guild) return zalm.channel.send('**This command is for servers only**');
-     var zalmkiss= zalm.mentions.members.first()
- 
-     if(!zalm.mentions.members.first()) return zalm.channel.send(`**Please mention someone**`);
-     var zalmembed = new Discord.MessageEmbed()
-      .setTitle('')
-      .setURL(`https://media.giphy.com/media/YDB4EF3U6i6IM/giphy.gif`)
-      .setDescription(`${zalm.author} kiss ${zalmkiss} 💋`)
-      .setImage(``)
       
       .setColor("#11e9ed"); 
       zalm.channel.send(zalmembed);
