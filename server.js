@@ -1696,4 +1696,19 @@ message.channel.send(embed);
 
 /////
 
-
+client.on(`message`, zalm => {
+    if (zalm.content.startsWith(prefix + "slap")) {
+       if (!zalm.channel.guild) return zalm.channel.send('**This command is for servers only**');
+     var zalmslap = zalm.mentions.members.first()
+ 
+     if(!zalm.mentions.members.first()) return zalm.channel.send(`**Please mention someone**`);
+     var zalmembed = new Discord.MessageEmbed()
+      .setTitle('')
+      .setURL(``)
+      .setDescription(`${zalm.author} Slapped ${zalmslap} 😂`)
+      .setImage(`https://media.giphy.com/media/P1EomtpqQW34c/giphy.gif`)
+      
+      .setColor("RANDOM"); 
+      zalm.channel.send(zalmembed);
+}
+});
