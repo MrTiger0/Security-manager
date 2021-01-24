@@ -62,9 +62,9 @@ client.on("message", async message => {
       .setURL(``) .setDescription(`
 
 **Info**
-\`user\` , \`server\` , \`ping\`
+\`userinfo\` , \`serverinfo\`
 \`bot\` , \`top\` , \`uinvites\`
-\`avatar\`
+\`avatar\` , \`ping\`
 
 **Security**
 \`anti kick\` , \`anti ban\`
@@ -76,8 +76,8 @@ client.on("message", async message => {
 
 **Moderation**
 \`lock\` , \`unlock\` , \`ban\` , \`kick\`
-\`unban\` , \`banlist\` , \`mute\` , \`unmute\`
-\`say\` , \`hide\` , \`show\`
+\`unban\` , \`banlist\` , \`mute\` , 
+\`unmute\` , \`say\` , \`hide\` , \`show\`
 
 [  Invite  ](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
 ) - [  Support  ](https://discord.gg/QZdDqjtdd3)
@@ -771,7 +771,7 @@ client.on('message', message => {
     if (message.content.startsWith(`${prefix}bot`)) {
       const tnx = new Discord.MessageEmbed()
 .setAuthor(client.user.username,client.user.avatarURL())
-.setThumbnail(`https://cdn.discordapp.com/attachments/771100905285484571/798636546882142208/image0.png`)
+.setThumbnail(`https://cdn.discordapp.com/attachments/772758556848029727/802994883378806824/image0.jpg`)
 .setColor("#11e9ed")
 .setTitle(`Info about ${client.user.username}.`)
 .addField('**My Ping**' , `${Date.now() - message.createdTimestamp}` + 'MS', true)
@@ -783,7 +783,7 @@ client.on('message', message => {
 .addField('**My ID**' , `[ ${client.user.id} ]` , true)
 .addField('**DiscordJS**' , `[ ${Discord.version} ]` , true)
 .addField('**NodeJS**' , `[ ${process.version} ]` , true)
-.addField('**Bot-Owners**' , `[MrZalm , Xalo Ramis]` , true)
+.addField('**Bot-Owners**' , `[MrZalm , NAQEB]` , true)
 .addField('**My Prefix**' , `[ ${prefix} ]` , true)
 .addField('**My Language**' , `[ Java Script ]` , true)
 .setFooter('Security')
@@ -951,23 +951,6 @@ client.on("message", message => {
 
 ///////
 
-const Dev = "769956996476043275";
-client.on("message", msg => {
-  if (msg.content.startsWith(prefix + "setavatar")) {
-    if (!Dev.includes(msg.author.id))
-      return msg.channel.send("you are not owner this Bot ❌");
-    var args = msg.content
-      .split(" ")
-      .slice("1")
-      .join(" ");
-    client.user.setAvatar(args);
-    msg.channel.send("image is change ✔️");
-  }
-});
-
-/////////
-
-////
 
 client.on('message', message => {
    if(message.channel.type === 'DM') return;
@@ -1047,7 +1030,7 @@ if(!message.member.hasPermission("OWNERSHIP")) return message.reply('you dont ha
 
 client.on('message', prof =>
 {
-    if(prof.content.startsWith(prefix + 'user')) {
+    if(prof.content.startsWith(prefix + 'userinfo')) {
         var professor = new Discord.MessageEmbed()
         .setThumbnail(prof.author.avatarURL())
         .setColor('11e9ed')
@@ -1076,7 +1059,7 @@ client.on("message", message => {
 
 client.on('message', message => {
  //
-if(message.content.startsWith(prefix + "server")){ 
+if(message.content.startsWith(prefix + "serverinfo")){ 
     var EMBED = new Discord.MessageEmbed()
     .setTitle("server info") 
     .addField("🔖server name", `${message.guild.name}`)
@@ -1263,101 +1246,6 @@ client.on("message", async message => {
 
 ///////
 
-
-  client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "avatar")){
-var user = badboy.mentions.users.first() || badboy.author;
-    if (user.bot || !badboy.guild) return;
-    
-    var embed = new Discord.MessageEmbed()
-.setFooter(`Requsted By ${badboy.author.username}`,badboy.author.displayAvatarURL({dynamic : true}))
-.setThumbnail(user.displayAvatarURL({dynamic : true}))
-
-badboy.channel.send(embed);
-  }
-})
-   
-//////
-
-          
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "love")) {
- const onetoonehundred = Math.floor(Math.random() * 100) 
- const usser = message.mentions.members.first()
-
- if(!usser) {
-     const specify = new Discord.MessageEmbed()
-     .setDescription('Please mention a user!')
-     message.channel.send(specify)
- } else {
-
-     if(usser.id === message.author.id) {
-         const love2 = new Discord.MessageEmbed()
- .setTitle(`Love Rate :heart: `)
- .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
- .setDescription(`${message.author} loves ${usser} 100% ❤️ 
- nah joke.`)
- message.channel.send(love2)
-     } else {
- 
- const love = new Discord.MessageEmbed()
- .setTitle(`Love Rate :heart: `)
- .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
- .setDescription(`${message.author} loves ${usser} ${onetoonehundred}%`)
- .setColor("#11e9ed")
- message.channel.send(love)
- }
-}
-}
-})
-
-//////
-
-
-client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "die")){
-    let args = badboy.content.split(" ").slice(1).join(" ")
-    if(!args) return badboy.reply("Please Mention Someone.")
-let user = badboy.mentions.users.first();user.username
-
-      if (user.id == badboy.author.id) return badboy.reply("You cannot use this command with yourself.")
-
-if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only")
-let die = [
- "https://media.tenor.com/images/751d6257579f90047c3eed57a642dd1c/tenor.gif"
-  ];
- 
-    
-    
-    let embed = new Discord.MessageEmbed()
-    .setTitle(`${badboy.author.username}:skull: :skull_and_crossbones: ${user.username}  `)
-    .setImage(`${die}`)
-    
-    .setFooter(`Requsted by ${badboy.author.username}`)
-    .setColor("#11e9ed")
-badboy.channel.send(embed)
-  
-  }
-})
-
-//////
-
-client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "vote")){
-	if (badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only") 
-
-let args = badboy.content.split(" ").slice(1).join(" ");
-if(!args) return badboy.reply("type your vote")
-    var embed = new Discord.MessageEmbed()
-   
-    .setDescription(`${args}`)
- .setColor("#11e9ed")
- badboy.channel.send(embed).then(badboy => {
-   badboy.react("👍")
-badboy.react("👎")
- })
-  }
-})
 
 var top = require("./top.json");
 function save() {
