@@ -61,33 +61,26 @@ client.on("message", async message => {
       .setTitle("")
       .setURL(``) .setDescription(`
 
-🌐丨**Info**
-\`A!user\`
-\`A!server\`
-\`A!ping\`
-\`A!bot\`
+**Info**
+\`A!user\` , \`A!server\` , \`A!ping\`
+\`A!bot\` , \`A!top\` , \`A!uinvites\`
 
-🔒丨**Security**
-\`A!anti kick\`
-\`A!anti ban\`
-\`A!anti roleC\`
-\`A!anti roleD\`
-\`A!anti channelC\`
-\`A!anti channelD\`
-\`A!anti time[0.1]\`
+**Security**
+\`A!anti kick\` , \`A!anti ban\`
+\`A!anti role\` , \`A!anti channel\`
 \`A!anti bot [on/off]\`
 
-⚙️丨**Moderation**
-\`A!lock\` , \`A!unlock\`
-\`A!ban\` , \`A!kick\`
-\`A!unban\` , \`A!banlist\`
-\`A!mute\` , \`A!unmute\`
-\`A!say\` 
+**game**
+\`A!roll\` , \`fruits\` , \`egame\`
+\`A!vote\`
 
+**Moderation**
+\`A!lock\` , \`A!unlock\` , \`A!ban\` , \`A!kick\`
+\`A!unban\` , \`A!banlist\` , \`A!mute\` , \`A!unmute\`
+\`A!say\` , \`A!hide\` , \`A!show\`
 
-
-[Invite](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
-) - [Support](https://discord.gg/QZdDqjtdd3)
+[  Invite  ](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
+) - [  Support  ](https://discord.gg/QZdDqjtdd3)
 
 `);
 
@@ -1639,42 +1632,6 @@ message.channel.send(embed);
 })
 
 /////
-
-client.on(`message`, zalm => {
-    if (zalm.content.startsWith(prefix + "slap")) {
-       if (!zalm.channel.guild) return zalm.channel.send('**This command is for servers only**');
-     var zalmslap = zalm.mentions.members.first()
- 
-     if(!zalm.mentions.members.first()) return zalm.channel.send(`**Please mention someone**`);
-     var zalmembed = new Discord.MessageEmbed()
-      .setTitle('')
-      .setURL(``)
-      .setDescription(`${zalm.author} Slapped ${zalmslap} 😂`)
-      .setImage(`https://media.giphy.com/media/P1EomtpqQW34c/giphy.gif`)
-      
-      .setColor("#11e9ed"); 
-      zalm.channel.send(zalmembed);
-}
-});
-///////
-client.on(`message`, zalm => {
-    if (zalm.content.startsWith(prefix + "kill")) {
-       if (!zalm.channel.guild) return zalm.channel.send('**This command is for servers only**');
-     var zalmkill = zalm.mentions.members.first()
- 
-     if(!zalm.mentions.members.first()) return zalm.channel.send(`**Please mention someone**`);
-     var zalmembed = new Discord.MessageEmbed()
-      .setTitle('')
-      .setURL(``)
-      .setDescription(`${zalm.author} killed ${zalmkill} 🔫`)
-      .setImage(`https://media.giphy.com/media/9tXn7DEOsjifNDEenF/giphy.gif`)
-      
-      .setColor("#11e9ed"); 
-      zalm.channel.send(zalmembed);
-}
-});
-///////
-
 client.on('message', message => {
    if(message.content.startsWith(prefix + "uinvites")) {
     message.guild.fetchInvites().then(invs => {
@@ -1724,3 +1681,52 @@ client.on('message', james => {
               james.channel.send('Done')
  }
 })
+////////
+client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "game")){
+let args = badboy.content.split(" ").slice(0);
+var user = badboy.mentions.users.first() || badboy.author;
+    if (user.bot || !badboy.guild) return;
+
+ if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only")
+let win = [
+ '🙃 🙃 🙃  win',
+ '🙃 🤨 🤪 lose',
+ '🙃 🤨 🙃 lose',
+ ' 😋 😋 😋 win',
+ ' 😘  😘  😘  win', 
+ ' ☹️ ☹️ 😘 lose',
+ 
+  ];
+            
+            let an = win[Math.floor(Math.random() * win.length)];
+
+  var embed = new Discord.MessageEmbed()
+  .setColor("RANDOM")
+  .setDescription(`${an}`)
+ badboy.channel.send(embed)
+  }
+
+})
+///////
+client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "vote")){
+	if (badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only") 
+
+let args = badboy.content.split(" ").slice(1).join(" ");
+if(!args) return badboy.reply("type your vote")
+    var embed = new Discord.MessageEmbed()
+   
+    .setDescription(`${args}`)
+ .setColor("BLUE")
+ badboy.channel.send(embed).then(badboy => {
+   badboy.react("👍")
+badboy.react("👎")
+ })
+  }
+})
+///////
+client.on(message , aymen => {
+  if(aymen.content==prefix + "roll")
+  aymen.channel.send("1🎲 , 2🎲 , 3🎲 , 4🎲 , 5🎲 , 6🎲 , 7🎲 , 8🎲 , 9🎲 , 10🎲");
+} 
