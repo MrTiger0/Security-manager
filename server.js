@@ -38,7 +38,7 @@ client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.tbkwP1cQQzoXa4Zz13HS7ir866w");
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.username}!`);
 client.user.setStatus("idle");
-client.user.setActivity(`z.help | Anti Vandalism Is Here`, {type: "PLAYING"});
+client.user.setActivity(`A!help | Anti Vandalism Is Here`, {type: "PLAYING"});
 });
 
 //////
