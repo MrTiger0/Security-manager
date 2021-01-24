@@ -62,27 +62,27 @@ client.on("message", async message => {
       .setURL(``) .setDescription(`
 
 🌐丨**Info**
-\`z.user\`
-\`z.server\`
-\`z.ping\`
-\`z.bot\`
+\`A!user\`
+\`A!server\`
+\`A!ping\`
+\`A!bot\`
 
 🔒丨**Security**
-\`z.anti kick\`
-\`z.anti ban\`
-\`z.anti roleC\`
-\`z.anti roleD\`
-\`z.anti channelC\`
-\`z.anti channelD\`
-\`z.anti time[0.1]\`
-\`z.anti bot [on/off]\`
+\`A!anti kick\`
+\`A!anti ban\`
+\`A!anti roleC\`
+\`A!anti roleD\`
+\`A!anti channelC\`
+\`A!anti channelD\`
+\`A!anti time[0.1]\`
+\`A!anti bot [on/off]\`
 
 ⚙️丨**Moderation**
-\`z.lock\` , \`z.unlock\`
-\`z.ban\` , \`z.kick\`
-\`z.unban\` , \`z.banlist\`
-\`z.mute\` , \`z.unmute\`
-\`z.say\` 
+\`A!lock\` , \`A!unlock\`
+\`A!ban\` , \`A!kick\`
+\`A!unban\` , \`A!banlist\`
+\`A!mute\` , \`A!unmute\`
+\`A!say\` 
 
 
 
