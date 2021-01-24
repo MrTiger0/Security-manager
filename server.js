@@ -1700,7 +1700,3 @@ badboy.react("👎")
   }
 })
 ///////
-client.on(message , aymen => {
-  if(aymen.content==prefix + "roll")
-  aymen.channel.send("1🎲 , 2🎲 , 3🎲 , 4🎲 , 5🎲 , 6🎲 , 7🎲 , 8🎲 , 9🎲 , 10🎲");
-} 
