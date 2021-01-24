@@ -1682,32 +1682,6 @@ client.on('message', james => {
  }
 })
 ////////
-client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "game")){
-let args = badboy.content.split(" ").slice(0);
-var user = badboy.mentions.users.first() || badboy.author;
-    if (user.bot || !badboy.guild) return;
-
- if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only")
-let win = [
- '🙃 🙃 🙃  win',
- '🙃 🤨 🤪 lose',
- '🙃 🤨 🙃 lose',
- ' 😋 😋 😋 win',
- ' 😘  😘  😘  win', 
- ' ☹️ ☹️ 😘 lose',
- 
-  ];
-            
-            let an = win[Math.floor(Math.random() * win.length)];
-
-  var embed = new Discord.MessageEmbed()
-  .setColor("RANDOM")
-  .setDescription(`${an}`)
- badboy.channel.send(embed)
-  }
-
-})
 ///////
 client.on('message', badboy => {
   if(badboy.content.startsWith(prefix + "vote")){
