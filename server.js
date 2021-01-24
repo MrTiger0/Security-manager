@@ -58,26 +58,25 @@ client.on("message", async message => {
       .setColor(color)
       .setAuthor(message.author.username, message.author.AvatarURL)
       .setThumbnail(message.author.avatarURL())
-      .setTitle("")
+      .setTitle("Help Command")
       .setURL(``) .setDescription(`
 
 **Info**
-\`A!user\` , \`A!server\` , \`A!ping\`
-\`A!bot\` , \`A!top\` , \`A!uinvites\`
+\`user\` , \`server\` , \`ping\`
+\`bot\` , \`top\` , \`uinvites\`
 
 **Security**
-\`A!anti kick\` , \`A!anti ban\`
-\`A!anti role\` , \`A!anti channel\`
-\`A!anti bot [on/off]\`
+\`anti kick\` , \`anti ban\`
+\`anti role\` , \`anti channel\`
+\`anti bot [on/off]\`
 
 **game**
-\`A!roll\` , \`fruits\` , \`egame\`
-\`A!vote\`
+\`fruits\` , \`vote\`
 
 **Moderation**
-\`A!lock\` , \`A!unlock\` , \`A!ban\` , \`A!kick\`
-\`A!unban\` , \`A!banlist\` , \`A!mute\` , \`A!unmute\`
-\`A!say\` , \`A!hide\` , \`A!show\`
+\`lock\` , \`unlock\` , \`ban\` , \`kick\`
+\`unban\` , \`banlist\` , \`mute\` , \`unmute\`
+\`say\` , \`hide\` , \`show\`
 
 [  Invite  ](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
 ) - [  Support  ](https://discord.gg/QZdDqjtdd3)
