@@ -31,14 +31,14 @@ const dateFormat = require("dateformat");
 var table = require("table").table;
 const Discord = require("discord.js");
 const cmd = require("node-cmd");
-const prefix = "z.";
+const prefix = "A!";
 const cooldown = new Set()
 const cdtime =5;
-client.login("");
+client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.tbkwP1cQQzoXa4Zz13HS7ir866w");
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.username}!`);
 client.user.setStatus("idle");
-client.user.setActivity(`z.help | coming soon`, {type: "PLAYING"});
+client.user.setActivity(`z.help | Anti Vandalism Is Here`, {type: "PLAYING"});
 });
 
 //////
@@ -86,8 +86,8 @@ client.on("message", async message => {
 
 
 
-[Invite](https://discord.com/api/oauth2/authorize?client_id=782356951170416670&permissions=8&scope=bot
-) - [Support](https://discord.gg/cetGQvWD3h) - [Website](https://security.zheerspiderman.repl.co/)
+[Invite](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
+) - [Support](https://discord.gg/QZdDqjtdd3)
 
 `);
 
