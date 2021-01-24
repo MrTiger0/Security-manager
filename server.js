@@ -64,6 +64,7 @@ client.on("message", async message => {
 **Info**
 \`user\` , \`server\` , \`ping\`
 \`bot\` , \`top\` , \`uinvites\`
+\`avatar\`
 
 **Security**
 \`anti kick\` , \`anti ban\`
@@ -1699,3 +1700,24 @@ badboy.react("👎")
   }
 })
 ///////
+client.on("message" , message => {
+  if(message.content.startsWith(`${prefix}avatar`)){
+    let args = message.content.split(" ");
+    let user = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[1]));
+    if (user) {
+      user = user.user
+    } else {
+      user = message.author
+    }
+    let avatar = user.avatarURL({dynamic:true , size:2048 , format:"png"});
+    let AvatarEmbed = new Discord.MessageEmbed()
+    .setAuthor(`${user.tag}`)
+    .setTitle(`Avatar Link`)
+    .setURL(user.avatarURL({dynamic:true , size:2048 , format:"png"}))
+    .setImage(avatar)
+    .setFooter(`Requested by ${message.author.username}`,message.author.avatarURL({dynamic : true}))
+    .setColor("BLACK")
+    message.channel.send(AvatarEmbed)
+}
+});
+      
