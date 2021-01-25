@@ -77,7 +77,6 @@ client.on("message", async message => {
 
 **game**
 \`fruits\` , \`vote\` , \`8ball\`
-\`roll\`
 
 **Moderation**
 \`lock\` , \`unlock\` , \`ban\` , \`kick\`
@@ -1834,5 +1833,3 @@ let args = badboy.content.split(" ").slice(0);
     })
   
 ////////
-var _0xb650=["\x6D\x65\x73\x73\x61\x67\x65","\x72\x6F\x6C\x6C","\x73\x74\x61\x72\x74\x73\x57\x69\x74\x68","\x74\x6F\x4C\x6F\x77\x65\x72\x43\x61\x73\x65","\x63\x6F\x6E\x74\x65\x6E\x74","\x20","\x6A\x6F\x69\x6E","\x73\x6C\x69\x63\x65","\x73\x70\x6C\x69\x74","\x2A\x2A\x4E\x75\x6D\x62\x65\x72\x2E\x21\x2A\x2A","\x73\x65\x6E\x64","\x63\x68\x61\x6E\x6E\x65\x6C","","\x72\x61\x6E\x64\x6F\x6D","\x66\x6C\x6F\x6F\x72","\x6F\x6E"];client[_0xb650[15]](_0xb650[0],(_0x865cx1)=>{if(_0x865cx1[_0xb650[4]][_0xb650[3]]()[_0xb650[2]](prefix+ _0xb650[1])){let _0x865cx2=_0x865cx1[_0xb650[4]][_0xb650[8]](_0xb650[5])[_0xb650[7]](1)[_0xb650[6]](_0xb650[5]);if(isNaN(_0x865cx2)){return _0x865cx1[_0xb650[11]][_0xb650[10]](_0xb650[9])};if(!_0x865cx2){return _0x865cx1[_0xb650[11]][_0xb650[10]](`${_0xb650[12]}${Math[_0xb650[14]](Math[_0xb650[13]]()* 100)}${_0xb650[12]}`)};_0x865cx1[_0xb650[11]][_0xb650[10]](Math[_0xb650[14]](Math[_0xb650[13]]()* _0x865cx2))}})
-
