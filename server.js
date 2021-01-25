@@ -994,6 +994,15 @@ client.on('message', prof =>
         .setTitle('Your Info User.')
         .addField('**Your Name**', `<@${prof.author.id}>`)
         .addField('**Your ID**', `${prof.author.id}`)
+        .addField('**Joined Server At',
+          moment(prof.joinedAt).format("D/M/YYYY h:mm a"),
+          true
+        )
+        .addField('**Joined Discord At',
+          moment(prof.author.createdAt).format("D/M/YYYY h:mm a "),
+          true
+        )
+
         .addField('**Create User**',prof.author.createdAt.toLocaleString())
         prof.channel.send(professor);
     }
