@@ -1728,3 +1728,12 @@ badboy.channel.send(embed)
   }
 });
 /////
+client.on('message', message => {
+  if (message.content.startsWith(prefix + "bans")) {
+    if (!message.channel.guild) return;
+    message.channel
+    message.guild.fetchBans()
+      .then(bans => message.channel.send(`:small_orange_diamond: **Server Ban List :** ${bans.size} `))
+      .catch(console.error);
+  }
+});
