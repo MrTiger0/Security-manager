@@ -1751,25 +1751,3 @@ badboy.channel.send(embed)
   }
 })
 //////
-///////
-client.on('message', message => {
-  if(message.content.startsWith(prefix + "kiss")) {
-     let args = message.content.split(" ").slice(1).join(" ")
-    if(!args) return message.reply("**Please Mention Someone**")
-let user = message.mentions.users.first();user.username
-
-      if (user.id == message.author.id) return message.reply("**You cannot use this command with yourself**")
-if(message.author.bot || !message.guild) return message.reply("**this command for server only**")
- 
-var image = ' https://cdn.discordapp.com/attachments/769994779064139836/803155980883460106/image8.gif '
-          
-
- message.channel.send({
-          embed: new Discord.MessageEmbed()
-          .setFooter(``)
-          .setTitle(`${message.author.username} \`\`kissed\`\` ${user.username}`)
-          .setImage(` ${image} `)
-             
-      });
-  }
-});
