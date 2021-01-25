@@ -1588,6 +1588,15 @@ client.on("message", async message => {
 //////
 client.on("message", message => {
   if (message.content.startsWith(prefix + "love")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
  const onetoonehundred = Math.floor(Math.random() * 100) 
  const usser = message.mentions.members.first()
 
@@ -1659,6 +1668,15 @@ client.on('message', message => {
 /////
 client.on("message", message => {
   if (message.content.startsWith(prefix + "kiss")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     let args = message.content.split(" ").slice(1);
     let hug = [
       
@@ -1737,6 +1755,15 @@ client.on('message', message => {
 /////
 client.on("message", message => {
   if (message.content.startsWith(prefix + "slap")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     let args = message.content.split(" ").slice(1);
     let hug = [
       
@@ -1748,17 +1775,17 @@ client.on("message", message => {
       "https://cdn.discordapp.com/attachments/769994779064139836/803385330224201769/image3.gif",
       "https://cdn.discordapp.com/attachments/769994779064139836/803385330802884668/image6.gif",
       "https://cdn.discordapp.com/attachments/769994779064139836/803385331323109396/image8.gif",
-      "",
-      "",  
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803387217036443648/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803387217682104401/image1.gif",  
+      "https://cdn.discordapp.com/attachments/769994779064139836/803387218341003354/image3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803387219661684766/image8.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803387220902805574/image9.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803387876850925578/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803387877580603412/image3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803387877882069072/image4.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803388024716001300/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803388399318728714/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803388399586115604/image1.gif",
       
     ];
     
@@ -1795,7 +1822,7 @@ client.on("message", message => {
     }
     const ghembed = new Discord.MessageEmbed()
       .setColor("#0000")
-      .setTitle(`not , Please Mention Someone.`);
+      .setTitle(`not you , Please Mention Someone.`);
     message.channel.send({
       embed: ghembed
     });
