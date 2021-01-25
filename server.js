@@ -1751,25 +1751,19 @@ badboy.channel.send(embed)
   }
 })
 //////
-client.on('message', message => {
-  if(message.content.startsWith(prefix + "kiss")) {
-     let args = message.content.split(" ").slice(1).join(" ")
-    if(!args) return message.reply("**Please Mention Someone**")
-let user = message.mentions.users.first();user.username
-
-      if (user.id == message.author.id) return message.reply("**You cannot use this command with yourself**")
-if(message.author.bot || !message.guild) return message.reply("**this command for server only**")
- 
-var image = ' https://cdn.discordapp.com/attachments/769994779064139836/803155980883460106/image8.gif '
-
-
- message.channel.send({
-          embed: new Discord.MessageEmbed()
-          .setFooter(``)
-          .setTitle(`${message.author.username} \`\`kissed\`\` ${user.username}`)
-          .setImage(` ${image} `)
-             
-      });
-  }
-});
 ///////
+client.on('message', message => {
+var cats = ["https://cdn.discordapp.com/attachments/768516177176821780/799794909165912064/a74abfc0fa25c35353066b37443e74ae.gif",
+          "https://cdn.discordapp.com/attachments/768516177176821780/797174157074235402/234082934.gif",
+          "https://cdn.discordapp.com/attachments/768516177176821780/791305523295027241/image0.gif",
+          "https://cdn.discordapp.com/attachments/768516177176821780/790957590363373629/tenor_5.gif",
+          "https://cdn.discordapp.com/attachments/768516177176821780/769903036511289344/a_63b0376d661574f09c421c7277afda02.gif"]
+  var args = message.content.split("").slice(1);
+    if(message.content.startsWith(prefix +"kiss")) {
+         var cat = new Discord.RichEmbed()
+         .setTimestamp()
+         .setColor("RANDOM")
+         .setImage(cats[Math.floor(Math.random() * cats.length)])
+message.channel.sendEmbed(cat);
+    }
+});
