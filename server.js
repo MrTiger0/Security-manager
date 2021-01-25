@@ -1677,3 +1677,69 @@ client.on('message', message => {
   }
 });
 /////
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "kiss")) {
+    let args = message.content.split(" ").slice(1);
+    let hug = [
+      
+    
+      "https://cdn.discordapp.com/attachments/772791507798327310/772805181342744586/unnamed.gif",
+      "https://cdn.discordapp.com/attachments/761208351551389706/772489010379358228/photofunky.gif",
+      "https://cdn.discordapp.com/attachments/771434839726489621/772492395388469269/tenor-3.gif",
+      "https://cdn.discordapp.com/attachments/761208351551389706/772492795817754664/f668922eff7ee42c542c43d514ff2043.gif",
+      "https://cdn.discordapp.com/attachments/761208351551389706/772493094368706580/d48b407691e0af3bb3a6671aeda8a410.gif",
+      "https://cdn.discordapp.com/attachments/761208351551389706/772512985482526760/received_277995710194576.gif",
+      "https://cdn.discordapp.com/attachments/761208351551389706/772514568228175882/received_402813147552176.gif",
+      "https://cdn.discordapp.com/attachments/771434839726489621/772517356966248468/received_401225741008479.gif",
+      "https://cdn.discordapp.com/attachments/772401922476605440/772453694875631636/image0-3.gif",  
+      "https://cdn.discordapp.com/attachments/772791507798327310/772797780414300160/giphy_1.gif",
+      "https://cdn.discordapp.com/attachments/772791507798327310/772797769102131230/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f.gif",
+      "https://cdn.discordapp.com/attachments/772791507798327310/772797722527793183/tenor.gif",
+      "https://cdn.discordapp.com/attachments/772791507798327310/772797610355458068/Friends-Benefits.gif",
+      "https://cdn.discordapp.com/attachments/772791507798327310/772797609999204372/tenor_2.gif",
+      "https://cdn.discordapp.com/attachments/772791507798327310/772797779562070018/d44092373237a7e45fcce10ca219f6da.gif",
+      "https://cdn.discordapp.com/attachments/772401922476605440/772800119459414066/tenor.gif",
+      "https://cdn.discordapp.com/attachments/772791507798327310/772797767906492416/6bfe37a3b6c9223c55293e1c9afc7bc0.gif",
+      "https://cdn.discordapp.com/attachments/772791507798327310/772804611597533194/5Txx.gif",
+      
+    ];
+    
+    
+    
+    
+    let hugresult = Math.floor(Math.random() * hug.length);
+    if (!args[0]) {
+      const ghembed = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setTitle(`Please Mention Someone.`)
+        .setImage("");
+      message.channel.send({
+        embed: ghembed
+      });
+      return;
+    }
+    if (
+      !message.mentions.members.first().user.username ===
+      message.mentions.has(message.author)
+    ) {
+      const hembed = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setTitle(
+          `${
+            message.mentions.members.first().user.username
+          } __**ئــەو مـــاچــــە بـــۆتــــۆ**__`
+        )
+        .setImage(hug[hugresult]);
+      message.channel.send({
+        embed: hembed
+      });
+      return;
+    }
+    const ghembed = new Discord.MessageEmbed()
+      .setColor("RANDOM")
+      .setTitle(`کـــاکــــە خــــۆت نـــــا کـــــەســــێ تر`);
+    message.channel.send({
+      embed: ghembed
+    });
+  }
+});
