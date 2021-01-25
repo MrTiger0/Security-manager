@@ -1830,6 +1830,6 @@ let args = badboy.content.split(" ").slice(0);
 
         }
   }
-    })
+    });
   
 ////////
