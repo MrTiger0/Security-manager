@@ -71,6 +71,10 @@ client.on("message", async message => {
 \`anti role\` , \`anti channel\`
 \`anti bot [on/off]\`
 
+**fun**
+\`kiss\` , \`slap\` , \`die\`
+\`kill\` , \`love\`
+
 **game**
 \`fruits\` , \`vote\`
 
@@ -78,6 +82,7 @@ client.on("message", async message => {
 \`lock\` , \`unlock\` , \`ban\` , \`kick\`
 \`unban\` , \`banlist\` , \`mute\` , 
 \`unmute\` , \`say\` , \`hide\` , \`show\`
+\`vkick\`
 
 [  Invite  ](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
 ) - [  Support  ](https://discord.gg/QZdDqjtdd3)
@@ -1785,7 +1790,7 @@ let user = message.mentions.users.first();user.username
       if (user.id == message.author.id) return message.reply("**You cannot use this command with yourself**")
 if(message.author.bot || !message.guild) return message.reply("**this command for server only**")
  
-var image =['https://cdn.discordapp.com/attachments/769994779064139836/803155980217090048/image6.gif','https://cdn.discordapp.com/attachments/769994779064139836/803155980883460106/image8.gif']
+var image = ' https://cdn.discordapp.com/attachments/769994779064139836/803155980883460106/image8.gif '
 
 
  message.channel.send({
