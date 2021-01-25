@@ -1753,17 +1753,16 @@ badboy.channel.send(embed)
 //////
 ///////
 client.on('message', message => {
-var cats = ["https://cdn.discordapp.com/attachments/768516177176821780/799794909165912064/a74abfc0fa25c35353066b37443e74ae.gif",
+var embed = ["https://cdn.discordapp.com/attachments/768516177176821780/799794909165912064/a74abfc0fa25c35353066b37443e74ae.gif",
           "https://cdn.discordapp.com/attachments/768516177176821780/797174157074235402/234082934.gif",
           "https://cdn.discordapp.com/attachments/768516177176821780/791305523295027241/image0.gif",
           "https://cdn.discordapp.com/attachments/768516177176821780/790957590363373629/tenor_5.gif",
           "https://cdn.discordapp.com/attachments/768516177176821780/769903036511289344/a_63b0376d661574f09c421c7277afda02.gif"]
   var args = message.content.split("").slice(1);
     if(message.content.startsWith(prefix +"kiss")) {
-         var cat = new Discord.RichEmbed()
-         .setTimestamp()
+         var embed = new Discord.RichEmbed()
          .setColor("RANDOM")
-         .setImage(cats[Math.floor(Math.random() * cats.length)])
-message.channel.sendEmbed(cat);
+         .setImage(`${kiss}`)
+message.channel.sendEmbed(embed);
     }
 });
