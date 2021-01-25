@@ -795,64 +795,72 @@ message.channel.send(tnx)
 ///////
 
 client.on("message", message => {
-  if (!message.guild) return;
-  if (message.author.bot) return;
-  let args = message.content.split(" ");
-  let command = args[0].toLowerCase();
-  if (command === prefix + "clear") {
+  if (!message.channel.guild) return;
+  if (message.content.startsWith(prefix + "clear")) {
+    if (!message.channel.guild)
+      return message.channel
+        .send("**This Command is Just For Servers**")
+        .then(m => m.delete(5000));
+    if (!message.member.hasPermission("ADMINISTRATOR"))
+      return message.channel.send(
+        "**You Do not have permission** `ADMINISTRATOR`"
+      );
+    let args = message.content
+      .split(" ")
+      .join(" ")
+      .slice(2 + prefix.length);
+    let request = `Requested By ${message.author.username}`;
+    message.channel
+      .send(`**Are You sure you want to clear the chat?**`)
+      .then(msg => {
+        msg
+          .react("✅")
+          .then(() => msg.react("❌"))
+          .then(() => msg.react("✅"));
 
-    if (!message.member.hasPermission("MANAGE_MESSAGES"))
-      return message.channel.send(
-        `❌ You are missing the permission \`MANAGE MESSAGES\`.`
-      );
-    if (!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))
-      return message.channel.send(
-        `❌ I Am missing the permission \`MANAGE MESSAGES\`.`
-      );
-    if (!args[1]) {
-      message.channel
-        .bulkDelete(100)
-        .then(m =>
+        let reaction1Filter = (reaction, user) =>
+          reaction.emoji.name === "✅" && user.id === message.author.id;
+        let reaction2Filter = (reaction, user) =>
+          reaction.emoji.name === "❌" && user.id === message.author.id;
+
+        let reaction1 = msg.createReactionCollector(reaction1Filter, {
+          time: 12000
+        });
+        let reaction2 = msg.createReactionCollector(reaction2Filter, {
+          time: 12000
+        });
+        reaction1.on("collect", r => {
+          message.channel.send(`Chat will delete`).then(m => m.delete(5000));
+          var msg;
+          msg = parseInt();
+
           message.channel
-            .send(`**Deleted ${m.size} messages**`)
-            .then(p => p.delete({ timeout: 3000 }))
-        );
-    } else {
-      message.delete().then(n => {
-        message.channel
-          .bulkDelete(args[1])
-          .then(m =>
-            message.channel
-              .send(`**Deleted ${m.size} messages**`)
-              .then(p => p.delete({ timeout: 3000 }))
-          );
+            .fetchMessages({ limit: msg })
+            .then(messages => message.channel.bulkDelete(messages))
+            .catch(console.error);
+          message.channel
+            .sendMessage("", {
+              embed: {
+                title: "`` Chat Deleted ``",
+                color: 0x06df00,
+                footer: {}
+              }
+            })
+            .then(msg => {
+              msg.delete(3000);
+            });
+        });
+        reaction2.on("collect", r => {
+          message.channel
+            .send(`**Chat deletion cancelled**`)
+            .then(m => m.delete(5000));
+          msg.delete();
+        });
       });
-    }
-  }
-});
-////////
-
-client.on("message", msg => {
-  if (msg.author.bot) return;
-  if (msg.content.includes("@everyone")) {
-    if (msg.member.hasPermission("MENTION_EVERYONE")) return;
-    if (!msg.channel.guild) return;
-    msg.delete();
-    msg.reply("**You cant send everyone.**");
   }
 });
 
 ////////
-
-client.on("message", msg => {
-  if (msg.author.bot) return;
-  if (msg.content.includes("@here")) {
-    if (msg.member.hasPermission("MENTION_EVERYONE")) return;
-    if (!msg.channel.guild) return;
-    msg.delete();
-    msg.reply("**You cant send here.**");
-  }
-});
 
 ////////
 
@@ -1533,6 +1541,15 @@ message.channel.send(`${user} Your invites ${inviteCount}.`);
 ///////
 client.on('message', message => {
 if(message.content.startsWith(`${prefix}fruits`)) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
   let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
   let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
   let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
@@ -1573,6 +1590,15 @@ client.on('message', james => {
 ///////
 client.on('message', badboy => {
   if(badboy.content.startsWith(prefix + "vote")){
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
 	if (badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only") 
 
 let args = badboy.content.split(" ").slice(1).join(" ");
@@ -1590,6 +1616,15 @@ badboy.react("👎")
 ///////
 client.on("message" , message => {
   if(message.content.startsWith(`${prefix}avatar`)){
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     let args = message.content.split(" ");
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[1]));
     if (user) {
@@ -1609,3 +1644,135 @@ client.on("message" , message => {
 }
 });
       
+///////
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "vkick")) {
+    let args = message.content.split(" ");
+    let user = message.guild.member(
+      message.mentions.users.first() || message.guild.members.cache.get(args[1])
+    );
+    if (!message.channel.guild || message.author.bot) return;
+    if (!message.guild.member(message.author).hasPermission("MOVE_MEMBERS"))
+      return message.channel.send("Please Check Your Permission");
+    if (!message.guild.member(client.user).hasPermission("MOVE_MEMBERS"))
+      return message.channel.send("Please Check My Permission");
+    if (!message.member.voice.channel)
+      return message.channel.send("Your are not in voice channel");
+    if (!user) return message.channel.send(`**>>> ${prefix}vkick <@mention or id>**`);
+    if (!message.guild.member(user).voice.channel)
+      return message.channel.send(
+        `**${user.user.username}** Has not in Voice channel`
+      );
+    await user.voice.kick()
+    message.channel.send(
+      `**${user.user.username}** has been kicked from **Voice Channel**`
+    )
+  }
+});
+//////
+client.on('message', message => {
+  if(message.content.startsWith(prefix + "slap")) {
+     let args = message.content.split(" ").slice(1).join(" ")
+    if(!args) return message.reply("**Please Mention Someone**")
+let user = message.mentions.users.first();user.username
+
+      if (user.id == message.author.id) return message.reply("**You cannot use this command with yourself**")
+if(message.author.bot || !message.guild) return message.reply("**this command for server only**")
+ 
+var image = ' https://media.discordapp.net/attachments/790668583419510794/801426474212786206/1_3aJviL20aQQ9XNeBrAVl3A.gif?width=1178&height=613 '
+
+ message.channel.send({
+          embed: new Discord.MessageEmbed()
+          .setFooter(`Code By JxA And Shark`)
+          .setTitle(`${message.author.username} \`\`Slaped\`\` ${user.username}`)
+          .setImage(` ${image} `)
+             
+      });
+  }
+});
+//////
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "love")) {
+ const onetoonehundred = Math.floor(Math.random() * 100) 
+ const usser = message.mentions.members.first()
+
+ if(!usser) {
+     const specify = new Discord.MessageEmbed()
+     .setDescription('Please mention a user!')
+     message.channel.send(specify)
+ } else {
+
+     if(usser.id === message.author.id) {
+         const love2 = new Discord.MessageEmbed()
+ .setTitle(`Love Rate :heart: `)
+ .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
+ .setDescription(`${message.author} loves ${usser} 100% ❤️ 
+ nah joke.`)
+ message.channel.send(love2)
+     } else {
+ 
+ const love = new Discord.MessageEmbed()
+ .setTitle(`Love Rate :heart: `)
+ .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
+ .setDescription(`${message.author} loves ${usser} ${onetoonehundred}%`)
+ message.channel.send(love)
+ }
+}
+}
+})
+//////
+client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "kill")){
+    
+let args = badboy.content.split(" ").slice(1).join(" ")
+if(!args) return badboy.channel.send("Please Mention Someone.")
+
+let user = badboy.mentions.users.first();user.username
+
+        if(user.bot) return badboy.channel.send(`Cant do this command for Bot.`);
+ 
+      if (user.id == badboy.author.id) return badboy.channel.send("You cannot use this command with yourself.")
+
+if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only")
+
+
+    let kill = [
+
+'https://i.kym-cdn.com/photos/images/original/001/890/995/e1c.gif',
+ 
+      ];
+      var embed = new Discord.MessageEmbed()
+      .setTitle(`${badboy.author.username} has kill ${user.username}`)
+      .setImage(`${kill}`)
+      .setFooter(`Requsted By ${badboy.author.username}`)
+      
+  badboy.channel.send(embed)
+    
+  }
+})
+/////
+client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "die")){
+    let args = badboy.content.split(" ").slice(1).join(" ")
+    if(!args) return badboy.reply("Please Mention Someone.")
+let user = badboy.mentions.users.first();user.username
+
+      if (user.id == badboy.author.id) return badboy.reply("You cannot use this command with yourself.")
+
+if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only")
+let die = [
+ "https://media.tenor.com/images/751d6257579f90047c3eed57a642dd1c/tenor.gif"
+  ];
+ 
+    
+    
+    let embed = new Discord.MessageEmbed()
+    .setTitle(`${badboy.author.username}:skull: :skull_and_crossbones: ${user.username}  `)
+    .setImage(`${die}`)
+    
+    .setFooter(`Requsted by ${badboy.author.username}`)
+badboy.channel.send(embed)
+  
+  }
+})
+//////
