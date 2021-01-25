@@ -1776,3 +1776,23 @@ badboy.channel.send(embed)
   }
 })
 //////
+client.on('message', message => {
+  if(message.content.startsWith(prefix + "kiss")) {
+     let args = message.content.split(" ").slice(1).join(" ")
+    if(!args) return message.reply("**Please Mention Someone**")
+let user = message.mentions.users.first();user.username
+
+      if (user.id == message.author.id) return message.reply("**You cannot use this command with yourself**")
+if(message.author.bot || !message.guild) return message.reply("**this command for server only**")
+ 
+var image = ' https://cdn.discordapp.com/attachments/769994779064139836/803153490766462976/image0.gif '
+
+ message.channel.send({
+          embed: new Discord.MessageEmbed()
+          .setFooter(`Code By JxA And Shark`)
+          .setTitle(`${message.author.username} \`\`Slaped\`\` ${user.username}`)
+          .setImage(` ${image} `)
+             
+      });
+  }
+});
