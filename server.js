@@ -80,9 +80,9 @@ client.on("message", async message => {
 
 **Moderation**
 \`lock\` , \`unlock\` , \`ban\` , \`kick\`
-\`unban\` , \`bans\` , \`mute\` , 
+\`unban\` , \`mute\` , \`vkick\`
 \`unmute\` , \`say\` , \`hide\` , \`show\`
-\`vkick\`
+
 
 [  Invite  ](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
 ) - [  Support  ](https://discord.gg/QZdDqjtdd3) - [  Website  ](https://aerial-catkin-jumbo.glitch.me/)
@@ -934,15 +934,6 @@ client.on("message", message => {
 
 ///////
 
-client.on('message', message => {
-  if (message.content.startsWith(prefix + "bans")) {
-    if (!message.channel.guild) return;
-    message.channel
-    message.guild.fetchBans()
-      .then(bans => message.channel.send(`:small_orange_diamond: **Server Ban List :** ${bans.size} `))
-      .catch(console.error);
-  }
-});
 
 ////////
 
@@ -997,63 +988,21 @@ if(!message.member.hasPermission("OWNERSHIP")) return message.reply('you dont ha
 
 //////
 
+client.on('message', prof =>
+{
+    if(prof.content.startsWith(prefix + 'userinfo')) {
+        var professor = new Discord.MessageEmbed()
+        .setThumbnail(prof.author.avatarURL())
+        .setColor('11e9ed')
+        .setTitle('Your Info User.')
+        .addField('**Your Name**', `<@${prof.author.id}>`)
+        .addField('**Your ID**', `${prof.author.id}`)
+        .addField('**Create User**',prof.author.createdAt.toLocaleString())
+        prof.channel.send(professor);
+    }
+})
 
 /////////
-
-client.on("message", message => {
- if (message.content.startsWith(prefix + "user")) {
-
-if(!alone.channel.guild) return;
-message.delete()
-
- var message = new Discord.MessageEmbed()
-
-
- .setTitle("**CODE BY ALONE**")
-
-
-.setThumbnail(client.user.avatarURL())
-
-
-  .setTitle('**USER CODE BY ALONE**')
-
-  .addField('**Name**', `${message.author.tag}`)
-
-  .addField('**ID**', `${message.author.id}`) 
-
-  .addField('**MENTION**', `<@${message.author.id}>`)
-
-  .addField(
-          "**JOINED SERVER AT :**   ",
-          moment(message.joinedAt).format("D/M/YYYY h:mm a "),
-          true
-        )
-        .addField(
-          "**JOINED DISCORD AT :**    ",
-          moment(message.author.createdAt).format("D/M/YYYY h:mm a "),
-          true
-        )
-        
- .setColor("RANDOM")
-
-
-.setFooter(`Requsted By ${message.author.username}`, message.author.avatarURL({dynamic : true}))
-
-.setAuthor(
-         `${message.guild.name}`,
-         message.guild.iconURL({
-           dynamic: true
-         })
-       )
-
-
- .setTimestamp()
-
-message.channel.send(embed)
-
- }
-
-})
 
 //////
 
@@ -1744,4 +1693,38 @@ if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for ser
     
   }
 })
+/////
+client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "iq")){
+    const iq = [
+'5',
+'6',
+'10',
+'17',
+'20',
+'15',
+'24',
+'30',
+'35',
+'40',
+'43',
+'45',
+'50',
+'55',
+'60',
+'75',
+'85',
+'90',
+'99',
+'100',
+    ];
+                let an = iq[Math.floor(Math.random() * iq.length)];
+                var embed = new Discord.MessageEmbed()
+.setDescription(${badboy.author.username} your iq has ${an})
+.setColor("BLUE")
+.setFooter(Requsted By ${badboy.author.tag}, badboy.author.avatarURL({dynamic : true}))
+.setThumbnail(${badboy.guild.iconURL({dynamic : true})})
+badboy.channel.send(embed)
+  }
+});
 /////
