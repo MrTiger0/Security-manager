@@ -1726,28 +1726,3 @@ if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for ser
   }
 })
 /////
-client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "die")){
-    let args = badboy.content.split(" ").slice(1).join(" ")
-    if(!args) return badboy.reply("Please Mention Someone.")
-let user = badboy.mentions.users.first();user.username
-
-      if (user.id == badboy.author.id) return badboy.reply("You cannot use this command with yourself.")
-
-if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only")
-let die = ["
-https://media.tenor.com/images/751d6257579f90047c3eed57a642dd1c/tenor.gif"
-];
-          
-    
-    
-    let embed = new Discord.MessageEmbed()
-    .setTitle(`${badboy.author.username}:skull: :skull_and_crossbones: ${user.username}  `)
-    .setImage(`${die}`)
-    
-    .setFooter(`Requsted by ${badboy.author.username}`)
-badboy.channel.send(embed)
-  
-  }
-})
-//////
