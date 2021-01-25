@@ -1683,7 +1683,7 @@ var image = ' https://media.discordapp.net/attachments/790668583419510794/801426
 
  message.channel.send({
           embed: new Discord.MessageEmbed()
-          .setFooter(`Code By JxA And Shark`)
+          .setFooter(``)
           .setTitle(`${message.author.username} \`\`Slaped\`\` ${user.username}`)
           .setImage(` ${image} `)
              
@@ -1785,11 +1785,11 @@ let user = message.mentions.users.first();user.username
       if (user.id == message.author.id) return message.reply("**You cannot use this command with yourself**")
 if(message.author.bot || !message.guild) return message.reply("**this command for server only**")
  
-var image = ' https://cdn.discordapp.com/attachments/769994779064139836/803153490766462976/image0.gif '
+var image = ' https://cdn.discordapp.com/attachments/769994779064139836/803153490766462976/image0.gif ' , ' https://cdn.discordapp.com/attachments/769994779064139836/803155980217090048/image6.gif '
 
  message.channel.send({
           embed: new Discord.MessageEmbed()
-          .setFooter(`Code By JxA And Shark`)
+          .setFooter(``)
           .setTitle(`${message.author.username} \`\`Slaped\`\` ${user.username}`)
           .setImage(` ${image} `)
              
