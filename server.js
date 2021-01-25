@@ -1585,26 +1585,6 @@ client.on("message", async message => {
   }
 });
 //////
-client.on('message', message => {
-  if(message.content.startsWith(prefix + "slap")) {
-     let args = message.content.split(" ").slice(1).join(" ")
-    if(!args) return message.reply("**Please Mention Someone**")
-let user = message.mentions.users.first();user.username
-
-      if (user.id == message.author.id) return message.reply("**You cannot use this command with yourself**")
-if(message.author.bot || !message.guild) return message.reply("**this command for server only**")
- 
-var image = ' https://media.discordapp.net/attachments/790668583419510794/801426474212786206/1_3aJviL20aQQ9XNeBrAVl3A.gif?width=1178&height=613 '
-
- message.channel.send({
-          embed: new Discord.MessageEmbed()
-          .setFooter(``)
-          .setTitle(`${message.author.username} \`\`Slaped\`\` ${user.username}`)
-          .setImage(` ${image} `)
-             
-      });
-  }
-});
 //////
 client.on("message", message => {
   if (message.content.startsWith(prefix + "love")) {
@@ -1761,13 +1741,13 @@ client.on("message", message => {
     let hug = [
       
     
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803155979838554112/image5.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803155979596202024/image4.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803155978723655681/image2.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803385329490460702/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803385330224201769/image3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803385330802884668/image6.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803385331323109396/image8.gif",
       "",
       "",  
       "",
