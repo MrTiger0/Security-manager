@@ -76,7 +76,7 @@ client.on("message", async message => {
 \`kill\` , \`love\`
 
 **game**
-\`fruits\` , \`vote\` , \`8ball\`
+\`fruits\` , \`vote\`
 
 **Moderation**
 \`lock\` , \`unlock\` , \`ban\` , \`kick\`
@@ -800,72 +800,41 @@ message.channel.send(tnx)
 ///////
 
 client.on("message", message => {
-  if (!message.channel.guild) return;
-  if (message.content.startsWith(prefix + "clear")) {
-    if (!message.channel.guild)
-      return message.channel
-        .send("**This Command is Just For Servers**")
-        .then(m => m.delete(5000));
-    if (!message.member.hasPermission("ADMINISTRATOR"))
+  if (!message.guild) return;
+  if (message.author.bot) return;
+  let args = message.content.split(" ");
+  let command = args[0].toLowerCase();
+  if (command === prefix + "clear") {
+
+    if (!message.member.hasPermission("MANAGE_MESSAGES"))
       return message.channel.send(
-        "**You Do not have permission** `ADMINISTRATOR`"
+        `❌ You are missing the permission \`MANAGE MESSAGES\`.`
       );
-    let args = message.content
-      .split(" ")
-      .join(" ")
-      .slice(2 + prefix.length);
-    let request = `Requested By ${message.author.username}`;
-    message.channel
-      .send(`**Are You sure you want to clear the chat?**`)
-      .then(msg => {
-        msg
-          .react("✅")
-          .then(() => msg.react("❌"))
-          .then(() => msg.react("✅"));
-
-        let reaction1Filter = (reaction, user) =>
-          reaction.emoji.name === "✅" && user.id === message.author.id;
-        let reaction2Filter = (reaction, user) =>
-          reaction.emoji.name === "❌" && user.id === message.author.id;
-
-        let reaction1 = msg.createReactionCollector(reaction1Filter, {
-          time: 12000
-        });
-        let reaction2 = msg.createReactionCollector(reaction2Filter, {
-          time: 12000
-        });
-        reaction1.on("collect", r => {
-          message.channel.send(`Chat will delete`).then(m => m.delete(5000));
-          var msg;
-          msg = parseInt();
-
+    if (!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))
+      return message.channel.send(
+        `❌ I Am missing the permission \`MANAGE MESSAGES\`.`
+      );
+    if (!args[1]) {
+      message.channel
+        .bulkDelete(100)
+        .then(m =>
           message.channel
-            .fetchMessages({ limit: msg })
-            .then(messages => message.channel.bulkDelete(messages))
-            .catch(console.error);
-          message.channel
-            .sendMessage("", {
-              embed: {
-                title: "`` Chat Deleted ``",
-                color: 0x06df00,
-                footer: {}
-              }
-            })
-            .then(msg => {
-              msg.delete(3000);
-            });
-        });
-        reaction2.on("collect", r => {
-          message.channel
-            .send(`**Chat deletion cancelled**`)
-            .then(m => m.delete(5000));
-          msg.delete();
-        });
+            .send(`**Deleted ${m.size} messages**`)
+            .then(p => p.delete({ timeout: 3000 }))
+        );
+    } else {
+      message.delete().then(n => {
+        message.channel
+          .bulkDelete(args[1])
+          .then(m =>
+            message.channel
+              .send(`**Deleted ${m.size} messages**`)
+              .then(p => p.delete({ timeout: 3000 }))
+          );
       });
+    }
   }
 });
-
-////////
 
 ////////
 
@@ -1804,32 +1773,3 @@ var image = ' https://cdn.discordapp.com/attachments/769994779064139836/80315598
 });
 ///////
 
-client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "8ball")){
-let args = badboy.content.split(" ").slice(0);
-        let question = args.slice(1).join(" ");
-
-        if(!question) return badboy.reply('You need to specify a question!');
-        else {
-            let answers = [
-            'Yes',
-            'No',
-            'Maybe',
-            'Of course!',
-            'I don\'t know...',
-        
-‎        ];  
-            let response = answers[Math.floor(Math.random() * answers.length)];
-
-            let embed = new Discord.MessageEmbed()
-                .setTitle('8ball')
-                .setColor("RANDOM")
-                .addField('Question: ', question)
-                .addField('Answer: ', response);
-            badboy.channel.send(embed)
-
-        }
-  }
-    });
-  
-////////
