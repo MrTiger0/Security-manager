@@ -157,7 +157,7 @@ client.on("message", message => {
       roleCrLimits: 3,
       time: 0.1
     };
-  if (message.content.startsWith(prefix + "anti")) {
+  if (message.content.startsWith(prefix + "anti-")) {
     if (!message.member.hasPermission("OWNERSHIP")) return;
     if (message.content.startsWith(prefix + "anti-ban")) {
       if (!num)
