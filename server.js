@@ -1774,7 +1774,8 @@ var image = ' https://cdn.discordapp.com/attachments/769994779064139836/80315598
 });
 ///////
 antilink.json and write in it {}
-const antilink = JSON.parse(fs.readFileSync('./data/antilink.json' , 'utf8'));
+const antilink = {'/.antilink.json'}
+JSON.parse(fs.readFileSync('./antilink.json' , 'utf8'));
 
 client.on('message', message => {
     if(message.content.startsWith(prefix + "antilink-off")) {
