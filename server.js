@@ -1735,10 +1735,10 @@ let user = badboy.mentions.users.first();user.username
       if (user.id == badboy.author.id) return badboy.reply("You cannot use this command with yourself.")
 
 if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only")
-let die = ["https://media.tenor.com/images/751d6257579f90047c3eed57a642dd1c/tenor.gif"
-          "https://cdn.discordapp.com/attachments/769994779064139836/803155977910091816/image0.gif"
-          "https://cdn.discordapp.com/attachments/769994779064139836/803155978396106752/image1.gif"];
- 
+let die = ["
+https://media.tenor.com/images/751d6257579f90047c3eed57a642dd1c/tenor.gif"
+];
+          
     
     
     let embed = new Discord.MessageEmbed()
