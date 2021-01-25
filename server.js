@@ -1694,39 +1694,6 @@ if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for ser
   }
 })
 /////
-client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "iq")){
-    const iq = [
-'5',
-'6',
-'10',
-'17',
-'20',
-'15',
-'24',
-'30',
-'35',
-'40',
-'43',
-'45',
-'50',
-'55',
-'60',
-'75',
-'85',
-'90',
-'99',
-'100',
-    ];
-                let an = iq[Math.floor(Math.random() * iq.length)];
-                var embed = new Discord.MessageEmbed()
-.setDescription(${badboy.author.username} your iq has ${an})
-.setColor("BLUE")
-.setFooter(Requsted By ${badboy.author.tag}, badboy.author.avatarURL({dynamic : true}))
-.setThumbnail(${badboy.guild.iconURL({dynamic : true})})
-badboy.channel.send(embed)
-  }
-});
 /////
 client.on('message', message => {
   if (message.content.startsWith(prefix + "bans")) {
