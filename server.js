@@ -171,7 +171,7 @@ client.on("message", message => {
         `**${rast}  Changed To : ${config[message.guild.id].banLimit} **`
       );
     }
-    if (message.content.startsWith(prefix + "antikick")) {
+    if (message.content.startsWith(prefix + "anti kick")) {
       if (!num)
         return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
@@ -183,7 +183,7 @@ client.on("message", message => {
         `**${rast}  Changed To : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "antirole")) {
+    if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
         return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
@@ -195,7 +195,7 @@ client.on("message", message => {
         `**${rast}  Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "antirole")) {
+    if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
         return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
@@ -207,7 +207,7 @@ client.on("message", message => {
         `**${rast}  Changed To : ${config[message.guild.id].roleCrLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "antichannel")) {
+    if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
         return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
@@ -219,7 +219,7 @@ client.on("message", message => {
         `**${rast}  Changed To : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "antichannel")) {
+    if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
         return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
@@ -231,7 +231,7 @@ client.on("message", message => {
         `**${rast}  Changed To : ${config[message.guild.id].chaCrLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "antitime")) {
+    if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
         return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
