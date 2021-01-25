@@ -1710,7 +1710,7 @@ client.on("message", message => {
     let hugresult = Math.floor(Math.random() * hug.length);
     if (!args[0]) {
       const ghembed = new Discord.MessageEmbed()
-        .setColor("RANDOM")
+        .setColor("#0000")
         .setTitle(`Please Mention Someone.`)
         .setImage("");
       message.channel.send({
@@ -1723,11 +1723,11 @@ client.on("message", message => {
       message.mentions.has(message.author)
     ) {
       const hembed = new Discord.MessageEmbed()
-        .setColor("RANDOM")
+        .setColor("#0000")
         .setTitle(
           `${
             message.mentions.members.first().user.username
-          } __**ئــەو مـــاچــــە بـــۆتــــۆ**__`
+          } kissed`
         )
         .setImage(hug[hugresult]);
       message.channel.send({
@@ -1736,8 +1736,86 @@ client.on("message", message => {
       return;
     }
     const ghembed = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setTitle(`کـــاکــــە خــــۆت نـــــا کـــــەســــێ تر`);
+      .setColor("#0000")
+      .setTitle(`not you , Please Mention Someone.`);
+    message.channel.send({
+      embed: ghembed
+    });
+  }
+});
+//////
+
+client.on('message', message => {
+  if (message.content.startsWith(prefix + "bans")) {
+    if (!message.channel.guild) return;
+    message.channel
+    message.guild.fetchBans()
+      .then(bans => message.channel.send(`:small_orange_diamond: **Server Ban List :** ${bans.size} `))
+      .catch(console.error);
+  }
+});
+/////
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "slap")) {
+    let args = message.content.split(" ").slice(1);
+    let hug = [
+      
+    
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",  
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      
+    ];
+    
+    
+    
+    
+    let hugresult = Math.floor(Math.random() * hug.length);
+    if (!args[0]) {
+      const ghembed = new Discord.MessageEmbed()
+        .setColor("#0000")
+        .setTitle(`Please Mention Someone.`)
+        .setImage("");
+      message.channel.send({
+        embed: ghembed
+      });
+      return;
+    }
+    if (
+      !message.mentions.members.first().user.username ===
+      message.mentions.has(message.author)
+    ) {
+      const hembed = new Discord.MessageEmbed()
+        .setColor("#0000")
+        .setTitle(
+          `${
+            message.mentions.members.first().user.username
+          } slaped`
+        )
+        .setImage(hug[hugresult]);
+      message.channel.send({
+        embed: hembed
+      });
+      return;
+    }
+    const ghembed = new Discord.MessageEmbed()
+      .setColor("#0000")
+      .setTitle(`not , Please Mention Someone.`);
     message.channel.send({
       embed: ghembed
     });
