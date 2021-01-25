@@ -1704,3 +1704,30 @@ client.on('message', message => {
       .catch(console.error);
   }
 });
+/////
+var cats = [
+ 
+  "https://i.pinimg.com/736x/c8/bd/a9/c8bda99ff35a1aca879a77d8dfb84dd2.jpg",
+  "https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216671.5403_tunyra_n.jpg",
+  "https://i.ytimg.com/vi/TEb8RP_dn84/maxresdefault.jpg",
+  "https://www.tvovermind.com/wp-content/uploads/2018/03/Tokyo-Ghoul-640x407.jpg",
+  "https://i2.wp.com/twincitiesgeek.com/wp-content/uploads/2020/03/Deku.jpg",
+  "https://filmdaily.co/wp-content/uploads/2020/05/anime-memes_lede.jpg",
+  "https://wallpaperaccess.com/full/44729.jpg",
+  "https://events.muskingumlibrary.org/images/events/muskingumlibrary/anime.jpg",
+  "https://pbs.twimg.com/profile_images/1087124894075236352/O9cDVYG__400x400.jpg",
+  "https://assets.puzzlefactory.pl/puzzle/181/098/original.jpg",
+  "https://g.foolcdn.com/editorial/images/578170/anime-cartoon-closeup-of-a-face-with-red-eyes.jpg",
+  "https://static.fandomspot.com/images/06/7234/00-featured-izuku-midoriya-boku-no-hero-academia-anime-screenshot.jpg",
+  "https://jw-webmagazine.com/wp-content/uploads/2020/03/Kimetsu-no-YaibaDemon-Slayer.jpg",
+  "https://howlfestival.com/wp-content/uploads/2020/09/naruto.jpg",
+  "https://dw9to29mmj727.cloudfront.net/properties/2016/2462-Boruto_BDSet06_400x320.jpg"
+  ]
+      client.on('message', message => {
+          var args = message.content.split(" ").slice(1);
+      if(message.content.startsWith(prefix + 'image')) {
+           var cat = new Discord.RichEmbed()
+  .setImage(cats[Math.floor(Math.random() * cats.length)])
+  message.channel.sendEmbed(cat);
+      }
+});
