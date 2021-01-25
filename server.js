@@ -67,9 +67,9 @@ client.on("message", async message => {
 \`avatar\` , \`ping\`
 
 **Security**
-\`anti kick\` , \`anti ban\`
-\`anti role\` , \`anti channel\`
-\`anti bot [on/off]\`
+\`anti-kick\` , \`anti-ban\`
+\`anti-role\` , \`anti-channel\`
+\`anti-bot [on/off]\`
 
 **fun**
 \`kiss\` , \`slap\` , \`die\`
@@ -85,7 +85,7 @@ client.on("message", async message => {
 \`vkick\`
 
 [  Invite  ](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
-) - [  Support  ](https://discord.gg/QZdDqjtdd3)
+) - [  Support  ](https://discord.gg/QZdDqjtdd3) - [  Website  ](https://aerial-catkin-jumbo.glitch.me/)
 
 `);
 
@@ -163,88 +163,88 @@ client.on("message", message => {
     };
   if (message.content.startsWith(prefix + "anti")) {
     if (!message.member.hasPermission("OWNERSHIP")) return;
-    if (message.content.startsWith(prefix + "anti ban")) {
+    if (message.content.startsWith(prefix + "anti-ban")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].banLimit = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].banLimit} **`
+        `**${rast}  Changed To : ${config[message.guild.id].banLimit} **`
       );
     }
-    if (message.content.startsWith(prefix + "anti kick")) {
+    if (message.content.startsWith(prefix + "anti-kick")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].kickLimits = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].kickLimits}**`
+        `**${rast}  Changed To : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti role")) {
+    if (message.content.startsWith(prefix + "anti-role")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].roleDelLimit = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].roleDelLimit}**`
+        `**${rast}  Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti role")) {
+    if (message.content.startsWith(prefix + "anti-role")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].roleCrLimits = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].roleCrLimits}**`
+        `**${rast}  Changed To : ${config[message.guild.id].roleCrLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti channel")) {
+    if (message.content.startsWith(prefix + "anti-channel")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].chaDelLimit}**`
+        `**${rast}  Changed To : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti channel")) {
+    if (message.content.startsWith(prefix + "anti-channel")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].chaCrLimit = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].chaCrLimit}**`
+        `**${rast}  Changed To : ${config[message.guild.id].chaCrLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti time")) {
+    if (message.content.startsWith(prefix + "anti-time")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].time = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].time}**`
+        `**${rast}  Changed To : ${config[message.guild.id].time}**`
       );
     }
     fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
@@ -721,7 +721,7 @@ client.on("guildMemberRemove", async member => {
 });
 let antibots = JSON.parse(fs.readFileSync("./antibots.json", "utf8")); //require antihack.json file
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "anti bot on")) {
+  if (message.content.startsWith(prefix + "anti-bot on")) {
     if (!message.channel.guild) return;
     if (!message.member.hasPermission("OWNERSHIP")) return;
     antibots[message.guild.id] = {
@@ -738,7 +738,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "anti bot off")) {
+  if (message.content.startsWith(prefix + "anti-bot off")) {
     if (!message.channel.guild) return;
     if (!message.member.hasPermission("OWNERSHIP")) return;
     antibots[message.guild.id] = {
