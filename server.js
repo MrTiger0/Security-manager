@@ -80,7 +80,7 @@ client.on("message", async message => {
 
 **Moderation**
 \`lock\` , \`unlock\` , \`ban\` , \`kick\`
-\`unban\` , \`banlist\` , \`mute\` , 
+\`unban\` , \`bans\` , \`mute\` , 
 \`unmute\` , \`say\` , \`hide\` , \`show\`
 \`vkick\`
 
@@ -934,26 +934,15 @@ client.on("message", message => {
 
 ///////
 
-
 client.on('message', message => {
-   if(message.channel.type === 'DM') return;
-   if(message.content.toLowerCase() === prefix + 'banlist') {
-    let banslist = []
-    message.guild.fetchBans().then(banned  => {
-      let list = banned.map(user => user.user.tag).join('\n');
- 
- 
- 
-     let embed = new Discord.MessageEmbed()
-     .setAuthor(message.author.username , message.author.displayAvatarURL())
-     .setDescription(`${banned.size} users are banned:**\n ${list}`)
- .setColor('11e9ed')
- 
-message.channel.send(embed)
+  if (message.content.startsWith(prefix + "bans")) {
+    if (!message.channel.guild) return;
+    message.channel
+    message.guild.fetchBans()
+      .then(bans => message.channel.send(`:small_orange_diamond: **Server Ban List :** ${bans.size} `))
+      .catch(console.error);
+  }
 });
- 
-   }
- })
 
 ////////
 
@@ -1011,18 +1000,59 @@ if(!message.member.hasPermission("OWNERSHIP")) return message.reply('you dont ha
 
 /////////
 
-client.on('message', prof =>
-{
-    if(prof.content.startsWith(prefix + 'userinfo')) {
-        var professor = new Discord.MessageEmbed()
-        .setThumbnail(prof.author.avatarURL())
-        .setColor('11e9ed')
-        .setTitle('Your Info User.')
-        .addField('> **Your Name**', `<@${prof.author.id}>`)
-        .addField('> **Your ID**', `${prof.author.id}`)
-        .addField('> **Create User**',prof.author.createdAt.toLocaleString())
-        prof.channel.send(professor);
-    }
+client.on("message", message => {
+ if (message.content.startsWith(prefix + "user")) {
+
+if(!alone.channel.guild) return;
+message.delete()
+
+ var message = new Discord.MessageEmbed()
+
+
+ .setTitle("**CODE BY ALONE**")
+
+
+.setThumbnail(client.user.avatarURL())
+
+
+  .setTitle('**USER CODE BY ALONE**')
+
+  .addField('**Name**', `${message.author.tag}`)
+
+  .addField('**ID**', `${message.author.id}`) 
+
+  .addField('**MENTION**', `<@${message.author.id}>`)
+
+  .addField(
+          "**JOINED SERVER AT :**   ",
+          moment(message.joinedAt).format("D/M/YYYY h:mm a "),
+          true
+        )
+        .addField(
+          "**JOINED DISCORD AT :**    ",
+          moment(message.author.createdAt).format("D/M/YYYY h:mm a "),
+          true
+        )
+        
+ .setColor("RANDOM")
+
+
+.setFooter(`Requsted By ${message.author.username}`, message.author.avatarURL({dynamic : true}))
+
+.setAuthor(
+         `${message.guild.name}`,
+         message.guild.iconURL({
+           dynamic: true
+         })
+       )
+
+
+ .setTimestamp()
+
+message.channel.send(embed)
+
+ }
+
 })
 
 //////
@@ -1138,17 +1168,6 @@ var embed = new Discord.MessageEmbed()
   }
 })
 ///////
-
-client.on("message", message => {
-  
-  if (message.content.includes("discord.gg")) {
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-      message.delete();
-      message.reply("**you can't send link**");
-      message.react("🚫");
-    }
-  }
-});
 
 //////
 client.on("message", async message => {
