@@ -62,26 +62,23 @@ client.on("message", async message => {
       .setURL(``) .setDescription(`
 
 **Info**
-\`userinfo\` , \`serverinfo\`
-\`bot\` , \`top\` , \`uinvites\`
-\`avatar\` , \`ping\`
+\`userinfo\`,\`serverinfo\`
+\`bot\`,\`top\`,\`uinvites\`
+\`avatar\`,\`ping\`
 
 **Security**
-\`anti-kick\` , \`anti-ban\`
-\`anti-role\` , \`anti-channel\`
+\`anti-kick\`,\`anti-ban\`
+\`anti-role\`,\`anti-channel\`
 \`anti-bot [on/off]\`
 
 **fun**
-\`kiss\` , \`slap\` , \`die\`
-\`kill\` , \`love\`
-
-**game**
-\`fruits\` , \`vote\`
+\`kiss\`,\`slap\`,\`die\`
+\`kill\`,\`love\`,\`vote\`
 
 **Moderation**
-\`lock\` , \`unlock\` , \`ban\` , \`kick\`
-\`unban\` , \`mute\` , \`vkick\`
-\`unmute\` , \`say\` , \`hide\` , \`show\`
+\`lock\`,\`unlock\`,\`ban\`,\`kick\`
+\`unban\`,\`mute\`,\`vkick\`,\`bans\`
+\`unmute\`,\`say\`,\`hide\`,\`show\`
 
 
 [  Invite  ](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot
@@ -828,9 +825,9 @@ i cant delete more than 100 messages
       .then(msgs => {
         message.channel
           .send(
-            `\`\`\`js
+            `
 ${msgs.size} messages cleared
-\`\`\``
+`
           )
           .then(messages => messages.delete({ timeout: 5000 }));
       });
@@ -1482,31 +1479,6 @@ message.channel.send(`${user} Your invites ${inviteCount}.`);
   }
 });
 ///////
-client.on('message', message => {
-if(message.content.startsWith(`${prefix}fruits`)) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-  let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
-  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let we;
-  if(slots1 === slots2 && slots2 === slots3) {
-    we = "Win!"
-    client[client.id].points++;
-  } else {
-    we = "Lose!"
-  }
-  message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
-}
-});
 
 //////
 client.on('message', james => {
@@ -1705,29 +1677,3 @@ client.on('message', message => {
   }
 });
 /////
-var cats = [
- 
-  "https://i.pinimg.com/736x/c8/bd/a9/c8bda99ff35a1aca879a77d8dfb84dd2.jpg",
-  "https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216671.5403_tunyra_n.jpg",
-  "https://i.ytimg.com/vi/TEb8RP_dn84/maxresdefault.jpg",
-  "https://www.tvovermind.com/wp-content/uploads/2018/03/Tokyo-Ghoul-640x407.jpg",
-  "https://i2.wp.com/twincitiesgeek.com/wp-content/uploads/2020/03/Deku.jpg",
-  "https://filmdaily.co/wp-content/uploads/2020/05/anime-memes_lede.jpg",
-  "https://wallpaperaccess.com/full/44729.jpg",
-  "https://events.muskingumlibrary.org/images/events/muskingumlibrary/anime.jpg",
-  "https://pbs.twimg.com/profile_images/1087124894075236352/O9cDVYG__400x400.jpg",
-  "https://assets.puzzlefactory.pl/puzzle/181/098/original.jpg",
-  "https://g.foolcdn.com/editorial/images/578170/anime-cartoon-closeup-of-a-face-with-red-eyes.jpg",
-  "https://static.fandomspot.com/images/06/7234/00-featured-izuku-midoriya-boku-no-hero-academia-anime-screenshot.jpg",
-  "https://jw-webmagazine.com/wp-content/uploads/2020/03/Kimetsu-no-YaibaDemon-Slayer.jpg",
-  "https://howlfestival.com/wp-content/uploads/2020/09/naruto.jpg",
-  "https://dw9to29mmj727.cloudfront.net/properties/2016/2462-Boruto_BDSet06_400x320.jpg"
-  ]
-      client.on('message', message => {
-          var args = message.content.split(" ").slice(1);
-      if(message.content.startsWith(prefix + 'image')) {
-           var cat = new Discord.RichEmbed()
-  .setImage(cats[Math.floor(Math.random() * cats.length)])
-  message.channel.sendEmbed(cat);
-      }
-});
