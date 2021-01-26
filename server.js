@@ -2014,7 +2014,7 @@ if (cooldown.has(message.author.id)) {
       "https://cdn.discordapp.com/attachments/769994779064139836/803530936506515486/AltruisticLawfulGuineapig-small.gif",
       "https://cdn.discordapp.com/attachments/769994779064139836/803530709603844096/a28517ec5813e96729c7b68b993e62fe.gif",
       "https://cdn.discordapp.com/attachments/769994779064139836/803530609368629248/tenor_11.gif",
-      ""https://cdn.discordapp.com/attachments/769994779064139836/803530518960275486/tenor_9.gif,
+      "https://cdn.discordapp.com/attachments/769994779064139836/803530518960275486/tenor_9.gif",
       "https://cdn.discordapp.com/attachments/769994779064139836/803529745080909854/tenor_5.gif",
       "https://cdn.discordapp.com/attachments/769994779064139836/803529639313014804/tenor_3.gif",
       "https://cdn.discordapp.com/attachments/769994779064139836/803529688991006725/tenor_4.gif",
