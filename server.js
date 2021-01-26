@@ -1628,37 +1628,7 @@ if (cooldown.has(message.author.id)) {
 }
 }
 })
-//////
-client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "kill")){
-    
-let args = badboy.content.split(" ").slice(1).join(" ")
-if(!args) return badboy.channel.send("Please Mention Someone.")
 
-let user = badboy.mentions.users.first();user.username
-
-        if(user.bot) return badboy.channel.send(`Cant do this command for Bot.`);
- 
-      if (user.id == badboy.author.id) return badboy.channel.send("You cannot use this command with yourself.")
-
-if(badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only")
-
-
-    let kill = [
-
-'https://i.kym-cdn.com/photos/images/original/001/890/995/e1c.gif',
- 
-      ];
-      var embed = new Discord.MessageEmbed()
-      .setTitle(`${badboy.author.username} has kill ${user.username}`)
-      .setImage(`${kill}`)
-      .setFooter(`Requsted By ${badboy.author.username}`)
-      
-  badboy.channel.send(embed)
-    
-  }
-})
-/////
 /////
 client.on('message', message => {
   if (message.content.startsWith(prefix + "bans")) {
