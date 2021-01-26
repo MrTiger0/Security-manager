@@ -161,9 +161,9 @@ client.on("message", message => {
     if (message.author.id !== message.guild.ownerID) return;
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.reply("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send(
+        return message.reply(
           "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].banLimit = num;
@@ -173,9 +173,9 @@ client.on("message", message => {
     }
     if (message.content.startsWith(prefix + "anti kick")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.reply("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send(
+        return message.reply(
           "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].kickLimits = num;
@@ -185,21 +185,21 @@ client.on("message", message => {
     }
     if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.reply("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send(
+        return message.reply(
           "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].roleDelLimit = num;
-      message.channel.send(
+      message.reply(
         `**${rast}  Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.reply("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send(
+        return message.reply(
           "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].roleCrLimits = num;
@@ -209,9 +209,9 @@ client.on("message", message => {
     }
     if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.reply("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send(
+        return message.reply(
           "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].chaDelLimit = num;
@@ -221,9 +221,9 @@ client.on("message", message => {
     }
     if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.reply("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send(
+        return message.reply(
           "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].chaCrLimit = num;
@@ -233,9 +233,9 @@ client.on("message", message => {
     }
     if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.reply("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send(
+        return message.reply(
           "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].time = num;
@@ -429,7 +429,7 @@ client.on("roleDelete", async channel => {
         .ban()
         .catch(e =>
           channel.guild.owner.send(
-            `**${warn} | ${entry.username} Tryed To \`Delete\` Many \`Rolea\` .**`
+            `**${warn} | ${entry.username} Tryed To \`Delete\` Many \`Role\` .**`
           )
         );
       anti[channel.guild.id + entry.id].actions = "0";
@@ -773,7 +773,7 @@ client.on('message', message => {
       const tnx = new Discord.MessageEmbed()
 .setAuthor(client.user.username,client.user.avatarURL())
 .setThumbnail(`https://cdn.discordapp.com/attachments/772758556848029727/802994883378806824/image0.jpg`)
-.setColor("#11e9ed")
+.setColor("#808080")
 .setTitle(`Info about ${client.user.username}.`)
 .addField('**My Ping**' , `${Date.now() - message.createdTimestamp}` + 'MS', true)
 .addField('**Ram Usage**', `${(process.memoryUsage().rss / 1048576).toFixed()}MB`, true)
@@ -920,7 +920,7 @@ client.on("message", message => {
     }
     message.delete();
     var embed = new Discord.MessageEmbed()
-      .setColor("#11e9ed")
+      .setColor("#808080")
       .setDescription(`${args}`)
       .setFooter(`By ${message.author.tag}`);
     message.channel.send(embed);
@@ -946,7 +946,7 @@ if(!message.member.hasPermission("OWNERSHIP")) return message.reply('you dont ha
     var rn = args.slice(1).join(' ');
   let em =new Discord.MessageEmbed()
   .setTitle('Error :')
-  .setColor('11e9ed')
+  .setColor('808080')
   .setDescription(`
   **Usage:**
  ${prefix}warn (user) (reason)
@@ -989,7 +989,7 @@ client.on('message', prof =>
     if(prof.content.startsWith(prefix + 'userinfo')) {
         var professor = new Discord.MessageEmbed()
         .setThumbnail(prof.author.avatarURL())
-        .setColor('11e9ed')
+        .setColor('808080')
         .setTitle('Your Info User.')
         .addField('**Your Name**', `<@${prof.author.id}>`)
         .addField('**Your ID**', `${prof.author.id}`)
@@ -1035,7 +1035,7 @@ if(message.content.startsWith(prefix + "serverinfo")){
 .addField("🔸Boost", `${message.guild.premiumSubscriptionCount}`)
 
 
-.setColor("#11e9ed")
+.setColor("#808080")
 .setFooter(`Requsted by ${message.author.username}`)
     message.channel.send(EMBED)
   }
@@ -1139,7 +1139,7 @@ client.on("message", async message => {
       mute = await message.guild.roles.create({
         data: {
           name: "Muted",
-          color: "#11e9ed",
+          color: "#808080",
           permissions: []
         }
       });
@@ -1261,7 +1261,7 @@ client.on("message", async function(message) {
       .join("\n")}`;
     var embed = new Discord.MessageEmbed()
       .setAuthor("📑| Guild Score Leaderboards", message.guild.iconURL())
-      .setColor("13B813")
+      .setColor("#808080")
       .addField(
         `**:speech_balloon: | TEXT LEADERBOARD**`,
         `${textStr}   \n\n\n **? |  More info: \`${prefix}top text\`**`,
@@ -1291,7 +1291,7 @@ client.on("message", async function(message) {
         .join("\n")}`;
       var embed = new Discord.MessageEmbed()
         .setAuthor("📑 | Guild Score Leaderboards", message.guild.iconURL())
-        .setColor("#11e9ed")
+        .setColor("#808080")
         .addField(
           `**:microphone2: | VOICE LEADERBOARD**`,
           `${voiceStr}   \n\n\n **:sparkles: More info ** \`${prefix}top voice\``,
@@ -1379,7 +1379,7 @@ client.on("message", async function(message) {
             )
             .setFooter(message.author.tag, message.author.displayAvatarURL())
             .setTimestamp()
-            .setColor("13B813");
+            .setColor("#808080");
           message.channel.send({ embed: embed });
         }
       }
@@ -1438,7 +1438,7 @@ if (!rcrank[getvalueof.id]) rcrank[getvalueof.id] = {points: 0, level: 1,nextLvl
 
 let embed = new MessageEmbed()  // coded by LORD
 
-.setColor("#11e9ed")
+.setColor("#808080")
 
 .setThumbnail(getvalueof.avatarURL())
 
@@ -1465,7 +1465,7 @@ client.on("message", message => {
  if (!rolemap) rolemap = "No roles";
 const embed = new Discord.MessageEmbed()
 .addField("Role List" , rolemap)
-.setColor("#11e9ed")
+.setColor("#808080")
 message.channel.send(embed);
 }
 })
@@ -1524,7 +1524,7 @@ if(!args) return badboy.reply("type your vote")
     var embed = new Discord.MessageEmbed()
    
     .setDescription(`${args}`)
- .setColor("BLUE")
+ .setColor("#808080")
  badboy.channel.send(embed).then(badboy => {
    badboy.react("👍")
 badboy.react("👎")
@@ -1557,7 +1557,7 @@ if (cooldown.has(message.author.id)) {
     .setURL(user.avatarURL({dynamic:true , size:2048 , format:"png"}))
     .setImage(avatar)
     .setFooter(`Requested by ${message.author.username}`,message.author.avatarURL({dynamic : true}))
-    .setColor("BLACK")
+    .setColor("#808080")
     message.channel.send(AvatarEmbed)
 }
 });
@@ -1711,7 +1711,7 @@ if (cooldown.has(message.author.id)) {
     let hugresult = Math.floor(Math.random() * hug.length);
     if (!args[0]) {
       const ghembed = new Discord.MessageEmbed()
-        .setColor("#0000")
+        .setColor("#808080")
         .setTitle(`Please Mention Someone.`)
         .setImage("");
       message.channel.send({
@@ -1724,7 +1724,7 @@ if (cooldown.has(message.author.id)) {
       message.mentions.has(message.author)
     ) {
       const hembed = new Discord.MessageEmbed()
-        .setColor("#0000")
+        .setColor("#808080")
         .setTitle(
           `${
             message.mentions.members.first().user.username
@@ -1737,7 +1737,7 @@ if (cooldown.has(message.author.id)) {
       return;
     }
     const ghembed = new Discord.MessageEmbed()
-      .setColor("#0000")
+      .setColor("#808080")
       .setTitle(`not you , Please Mention Someone.`);
     message.channel.send({
       embed: ghembed
@@ -1798,7 +1798,7 @@ if (cooldown.has(message.author.id)) {
     let hugresult = Math.floor(Math.random() * hug.length);
     if (!args[0]) {
       const ghembed = new Discord.MessageEmbed()
-        .setColor("#0000")
+        .setColor("#808080")
         .setTitle(`Please Mention Someone.`)
         .setImage("");
       message.channel.send({
@@ -1811,7 +1811,7 @@ if (cooldown.has(message.author.id)) {
       message.mentions.has(message.author)
     ) {
       const hembed = new Discord.MessageEmbed()
-        .setColor("#0000")
+        .setColor("#808080")
         .setTitle(
           `${
             message.mentions.members.first().user.username
@@ -1824,7 +1824,7 @@ if (cooldown.has(message.author.id)) {
       return;
     }
     const ghembed = new Discord.MessageEmbed()
-      .setColor("#0000")
+      .setColor("#808080")
       .setTitle(`not you , Please Mention Someone.`);
     message.channel.send({
       embed: ghembed
