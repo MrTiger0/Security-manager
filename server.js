@@ -81,7 +81,7 @@ client.on("message", async message => {
 \`unmute\`,\`say\`,\`hide\`,\`show\`
 
 
-[  Invite  ](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot) - [  Support  ](https://discord.gg/QZdDqjtdd3) - [  Website  ](https://aerial-catkin-jumbo.glitch.me/)
+[**Invite**](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot) - [**Support**](https://discord.gg/QZdDqjtdd3) - [**Website**](https://aerial-catkin-jumbo.glitch.me/)
 
 `);
 
@@ -133,7 +133,7 @@ const ghallat = "";
 const ghallatw = "";
 const logosec = "";
 const warn = "";
-const color = "#0000";
+const color = "#808080";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
 client.on("message", message => {
@@ -158,7 +158,7 @@ client.on("message", message => {
       time: 0.1
     };
   if (message.content.startsWith(prefix + "anti")) {
-    if (!message.member.hasPermission("OWNERSHIP")) return;
+    if (message.author.id !== message.guild.ownerID) return;
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
         return message.channel.send("**" + ghallat + "  Type A `Number` .**");
