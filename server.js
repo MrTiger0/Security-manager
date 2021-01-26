@@ -37,7 +37,7 @@ const cdtime =5;
 client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.p74xmlUYGUJZbFeV2i_5qYdwLyM");
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.username}!`);
-client.user.setStatus("idle");
+client.user.setStatus("online");
 client.user.setActivity(`A!help | Anti Vandalism Is Here`, {type: "PLAYING"});
 });
 
@@ -73,7 +73,8 @@ client.on("message", async message => {
 
 **fun**
 \`kiss\`,\`slap\`,\`die\`
-\`kill\`,\`love\`,\`vote\`
+\`kill\`,\`love\`,\`hug\`
+\`vote\`
 
 **Moderation**
 \`lock\`,\`unlock\`,\`ban\`,\`kick\`
@@ -1669,81 +1670,6 @@ client.on('message', message => {
   }
 });
 /////
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "kiss")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    let args = message.content.split(" ").slice(1);
-    let hug = [
-      
-    
-      "https://cdn.discordapp.com/attachments/772791507798327310/772805181342744586/unnamed.gif",
-      "https://cdn.discordapp.com/attachments/761208351551389706/772489010379358228/photofunky.gif",
-      "https://cdn.discordapp.com/attachments/771434839726489621/772492395388469269/tenor-3.gif",
-      "https://cdn.discordapp.com/attachments/761208351551389706/772492795817754664/f668922eff7ee42c542c43d514ff2043.gif",
-      "https://cdn.discordapp.com/attachments/761208351551389706/772493094368706580/d48b407691e0af3bb3a6671aeda8a410.gif",
-      "https://cdn.discordapp.com/attachments/761208351551389706/772512985482526760/received_277995710194576.gif",
-      "https://cdn.discordapp.com/attachments/761208351551389706/772514568228175882/received_402813147552176.gif",
-      "https://cdn.discordapp.com/attachments/771434839726489621/772517356966248468/received_401225741008479.gif",
-      "https://cdn.discordapp.com/attachments/772401922476605440/772453694875631636/image0-3.gif",  
-      "https://cdn.discordapp.com/attachments/772791507798327310/772797780414300160/giphy_1.gif",
-      "https://cdn.discordapp.com/attachments/772791507798327310/772797769102131230/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f.gif",
-      "https://cdn.discordapp.com/attachments/772791507798327310/772797722527793183/tenor.gif",
-      "https://cdn.discordapp.com/attachments/772791507798327310/772797610355458068/Friends-Benefits.gif",
-      "https://cdn.discordapp.com/attachments/772791507798327310/772797609999204372/tenor_2.gif",
-      "https://cdn.discordapp.com/attachments/772791507798327310/772797779562070018/d44092373237a7e45fcce10ca219f6da.gif",
-      "https://cdn.discordapp.com/attachments/772401922476605440/772800119459414066/tenor.gif",
-      "https://cdn.discordapp.com/attachments/772791507798327310/772797767906492416/6bfe37a3b6c9223c55293e1c9afc7bc0.gif",
-      "https://cdn.discordapp.com/attachments/772791507798327310/772804611597533194/5Txx.gif",
-      
-    ];
-    
-    
-    
-    
-    let hugresult = Math.floor(Math.random() * hug.length);
-    if (!args[0]) {
-      const ghembed = new Discord.MessageEmbed()
-        .setColor("#808080")
-        .setTitle(`Please Mention Someone.`)
-        .setImage("");
-      message.channel.send({
-        embed: ghembed
-      });
-      return;
-    }
-    if (
-      !message.mentions.members.first().user.username ===
-      message.mentions.has(message.author)
-    ) {
-      const hembed = new Discord.MessageEmbed()
-        .setColor("#808080")
-        .setTitle(
-          `${
-            message.mentions.members.first().user.username
-          } kissed`
-        )
-        .setImage(hug[hugresult]);
-      message.channel.send({
-        embed: hembed
-      });
-      return;
-    }
-    const ghembed = new Discord.MessageEmbed()
-      .setColor("#808080")
-      .setTitle(`not you , Please Mention Someone.`);
-    message.channel.send({
-      embed: ghembed
-    });
-  }
-});
 //////
 
 client.on('message', message => {
@@ -1816,6 +1742,310 @@ if (cooldown.has(message.author.id)) {
           `${
             message.mentions.members.first().user.username
           } slaped`
+        )
+        .setImage(hug[hugresult]);
+      message.channel.send({
+        embed: hembed
+      });
+      return;
+    }
+    const ghembed = new Discord.MessageEmbed()
+      .setColor("#808080")
+      .setTitle(`not you , Please Mention Someone.`);
+    message.channel.send({
+      embed: ghembed
+    });
+  }
+});
+///////
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "kiss")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    let args = message.content.split(" ").slice(1);
+    let hug = [
+      
+    
+      "https://cdn.discordapp.com/attachments/769994779064139836/803521322965663794/tumblr_mrbfd6WfJq1rhumgro6_500.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803521323359404072/d03a1f196fa3b13ba0e249e31d272e84.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803521323636490240/image1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803521565845225482/tenor.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803521723534016522/tenor_1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803521856052396042/tumblr_mo5jwhNuYn1s4dyyio1_500.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803521940949827584/3da84dfcb0b5ac7d-gif-gifs-anime-kiss-pairings-blood-plus-blood-hagi-anime-gif.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803522186031661106/unnamed.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803522358970286080/tenor_2.gif",  
+      "https://cdn.discordapp.com/attachments/769994779064139836/803522583395696670/original.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803522828229148682/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803522828493258802/image1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803523333819727882/image1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803523493958123571/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803155980883460106/image8.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803155980497321994/image7.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803155980217090048/image6.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803153490766462976/image0.gif",
+      
+    ];
+    
+    
+    
+    
+    let hugresult = Math.floor(Math.random() * hug.length);
+    if (!args[0]) {
+      const ghembed = new Discord.MessageEmbed()
+        .setColor("#808080")
+        .setTitle(`Please Mention Someone.`)
+        .setImage("");
+      message.channel.send({
+        embed: ghembed
+      });
+      return;
+    }
+    if (
+      !message.mentions.members.first().user.username ===
+      message.mentions.has(message.author)
+    ) {
+      const hembed = new Discord.MessageEmbed()
+        .setColor("#808080")
+        .setTitle(
+          `${
+            message.mentions.members.first().user.username
+          } kissed`
+        )
+        .setImage(hug[hugresult]);
+      message.channel.send({
+        embed: hembed
+      });
+      return;
+    }
+    const ghembed = new Discord.MessageEmbed()
+      .setColor("#808080")
+      .setTitle(`not you , Please Mention Someone.`);
+    message.channel.send({
+      embed: ghembed
+    });
+  }
+});
+//////
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "kill")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    let args = message.content.split(" ").slice(1);
+    let hug = [
+      
+    
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526286877524018/tenor_5.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526329093455882/fEGibVl.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526373117394944/giphy.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526485482668062/dd87a41414e26cd4cef3cc2ca1fbb24b.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526548074004500/4aaa6be04951c49d5350cbf1bcf492f0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526699920130059/JauntyWeightyBellsnake-size_restricted.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803527062664249364/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803527062916562974/image1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803527299684892722/tumblr_na9ichz0A61tfow4ao1_500.gif",  
+      "https://cdn.discordapp.com/attachments/769994779064139836/803527886790197248/tumblr_msti05qu8J1qd70o6o3_500.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803527976591425566/tenor_6.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803528021972877372/tenor_7.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803528282133495828/19d88805de4e47b7c22090256ef381e2.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803528712553103400/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803528712976465920/image1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803528713555017758/image2.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803528914902319114/tenor.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803528970569383956/image0.gif",
+      
+    ];
+    
+    
+    
+    
+    let hugresult = Math.floor(Math.random() * hug.length);
+    if (!args[0]) {
+      const ghembed = new Discord.MessageEmbed()
+        .setColor("#808080")
+        .setTitle(`Please Mention Someone.`)
+        .setImage("");
+      message.channel.send({
+        embed: ghembed
+      });
+      return;
+    }
+    if (
+      !message.mentions.members.first().user.username ===
+      message.mentions.has(message.author)
+    ) {
+      const hembed = new Discord.MessageEmbed()
+        .setColor("#808080")
+        .setTitle(
+          `${
+            message.mentions.members.first().user.username
+          } killed`
+        )
+        .setImage(hug[hugresult]);
+      message.channel.send({
+        embed: hembed
+      });
+      return;
+    }
+    const ghembed = new Discord.MessageEmbed()
+      .setColor("#808080")
+      .setTitle(`not you , Please Mention Someone.`);
+    message.channel.send({
+      embed: ghembed
+    });
+  }
+});
+///////
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "die")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    let args = message.content.split(" ").slice(1);
+    let hug = [
+      
+    
+      "https://cdn.discordapp.com/attachments/769994779064139836/803524271216525312/tenor.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803524331543855124/original.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803524712855502868/7233e8468dd1899b5aaa9b6dd132ef0b.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803524768515096576/original_1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803525088468926474/original_2.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803525147356430378/200.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803525350230327346/tenor_2.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803525403477409802/tenor_3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803525879971053618/image1.gif",  
+      "https://cdn.discordapp.com/attachments/769994779064139836/803525880415518750/image2.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803525880831672340/image3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526667158552618/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526667669864479/image1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526667946950687/image2.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803526668814778388/image3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803155977910091816/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803537318539034624/b92c8ebfb6198a5a82b889ab7cd560e6105e8efc_hq.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803537436730589224/57cd41df06b3cbd1ad237ff83bfae0cb.gif",
+      
+    ];
+    
+    
+    
+    
+    let hugresult = Math.floor(Math.random() * hug.length);
+    if (!args[0]) {
+      const ghembed = new Discord.MessageEmbed()
+        .setColor("#808080")
+        .setTitle(`Please Mention Someone.`)
+        .setImage("");
+      message.channel.send({
+        embed: ghembed
+      });
+      return;
+    }
+    if (
+      !message.mentions.members.first().user.username ===
+      message.mentions.has(message.author)
+    ) {
+      const hembed = new Discord.MessageEmbed()
+        .setColor("#808080")
+        .setTitle(
+          `${
+            message.mentions.members.first().user.username
+          } die`
+        )
+        .setImage(hug[hugresult]);
+      message.channel.send({
+        embed: hembed
+      });
+      return;
+    }
+    const ghembed = new Discord.MessageEmbed()
+      .setColor("#808080")
+      .setTitle(`not you , Please Mention Someone.`);
+    message.channel.send({
+      embed: ghembed
+    });
+  }
+});
+//////
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "hug")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    let args = message.content.split(" ").slice(1);
+    let hug = [
+      
+    
+      "https://cdn.discordapp.com/attachments/769994779064139836/803533072590438420/e8ad42ce923a185a0354f09012e48aaa.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803532481000505394/image3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803532480698908672/image2.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803532480048267294/image1.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803532479704989696/image0.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803532443986034698/c57f8c4d1a64770c4422d47ab6208dc3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803532383721619506/ba1a2582508c8026ed31b0aa36d2946b.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803532268038782976/200.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803531380990410792/tenor.gif",  
+      "https://cdn.discordapp.com/attachments/769994779064139836/803531080950087740/11f79f6fd4eaa0154a1b3054bb2bc291.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803530936506515486/AltruisticLawfulGuineapig-small.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803530709603844096/a28517ec5813e96729c7b68b993e62fe.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803530609368629248/tenor_11.gif",
+      ""https://cdn.discordapp.com/attachments/769994779064139836/803530518960275486/tenor_9.gif,
+      "https://cdn.discordapp.com/attachments/769994779064139836/803529745080909854/tenor_5.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803529639313014804/tenor_3.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803529688991006725/tenor_4.gif",
+      "https://cdn.discordapp.com/attachments/769994779064139836/803530461292003328/tenor_8.gif",
+      
+    ];
+    
+    
+    
+    
+    let hugresult = Math.floor(Math.random() * hug.length);
+    if (!args[0]) {
+      const ghembed = new Discord.MessageEmbed()
+        .setColor("#808080")
+        .setTitle(`Please Mention Someone.`)
+        .setImage("");
+      message.channel.send({
+        embed: ghembed
+      });
+      return;
+    }
+    if (
+      !message.mentions.members.first().user.username ===
+      message.mentions.has(message.author)
+    ) {
+      const hembed = new Discord.MessageEmbed()
+        .setColor("#808080")
+        .setTitle(
+          `${
+            message.mentions.members.first().user.username
+          } hug`
         )
         .setImage(hug[hugresult]);
       message.channel.send({
