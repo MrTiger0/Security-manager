@@ -67,8 +67,8 @@ client.on("message", async message => {
 \`avatar\`,\`ping\`
 
 **Security**
-\`antikick\`,\`antiban\`
-\`antirole\`,\`antichannel\`
+\`anti kick\`,\`anti ban\`
+\`anti role\`,\`anti channel\`
 \`anti bot [on/off]\`
 
 **fun**
