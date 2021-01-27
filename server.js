@@ -162,7 +162,7 @@ client.on("message", message => {
     if (message.author.id !== message.guild.ownerID) return;
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
-        return message.reply("**" + ghallat + "  Type A `Number` .**");
+        return message.reply("Type A `Number`");
       if (isNaN(num))
         return message.reply(
           "**" + ghallat + "  Only Type A `Number` .**"
