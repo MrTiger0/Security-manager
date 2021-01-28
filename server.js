@@ -37,7 +37,7 @@ const getYoutubeID = require("get-youtube-id");
 const yt_api_key = "AIzaSyAXaeBh837k38o_lwSADet8UTO7X21DGsY";
 const pretty = require("pretty-ms");
 const prefix = "A!";
-client.login("");
+client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.lgwldEu4ZbToOSnO1LTywOIPUH0"");
 const queue = new Map();
 var table = require("table").table;
 const Discord = require("discord.js");
