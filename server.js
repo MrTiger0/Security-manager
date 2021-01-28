@@ -99,23 +99,6 @@ client.on("ready", () => {
   console.log(`Users: ${client.users.size}`);
   client.user.setActivity(`Type ${prefix}help`, { type: "Playing" });
 });
-
-// =================================[ voice active ]===================================
-client.on("message", message => {
-  if (!message.guild) return;
-  if (message.content === prefix + "join") {
-    if (message.member.voiceChannel) {
-      message.member.voiceChannel
-        .join()
-        .then(connection => {
-          message.reply("**Joined**");
-        })
-        .catch(console.log);
-    } else {
-      message.reply("**Firs You Join A Voice**");
-    }
-  }
-});
 // =================================[ roles ]===================================
 client.on("message", message => {
   if (message.content === prefix + "roles") {
@@ -226,24 +209,7 @@ client.on("message", message => {
 client.on("error", err => {
   console.log(err);
 });
-// ======================================[member count chat]======================================
-client.on("message", message => {
-  if (message.content == prefix + "member") {
-    const embed = new Discord.RichEmbed().setDescription(`**Cases oF Members :  
-  (online) : ${
-    message.guild.members.filter(m => m.presence.status == "online").size
-  }
-  (Busy) : ${message.guild.members.filter(m => m.presence.status == "dnd").size}
-  (idle) : ${
-    message.guild.members.filter(m => m.presence.status == "idle").size
-  }   
-  (offline) : ${
-    message.guild.members.filter(m => m.presence.status == "offline").size
-  } 
-  (All) : ${message.guild.memberCount}**`);
-    message.channel.send({ embed });
-  }
-});
+
 // ============== (botinfio) =============
 
 client.on("message", message => {
@@ -460,33 +426,6 @@ client.on("message", message => {
     message.channel.send({ embed: embed });
   }
 });
-//$$// ======== { • anti everyone • }======== //
-client.on("message", msg => {
-  if (msg.author.bot) return;
-  if (msg.content.includes("@everyone", "here")) {
-    if (msg.member.hasPermission("MENTION_EVERYONE")) return;
-    if (!msg.channel.guild) return;
-    msg.delete();
-    msg.reply("```You cant send everyone .```");
-  }
-});
-
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "invite")) {
-    let invite = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setAuthor(message.author.username, message.author.displayAvatarURL)
-      .setThumbnail(message.author.avatarURL)
-      .setTitle("✅ Invite Link  ✅")
-      .setURL(
-        `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8`
-      )
-      .setImage(
-        "https://media.discordapp.net/attachments/760941000767701042/761923542886645770/image0.gif"
-      );
-    message.channel.sendEmbed(invite);
-  }
-});
 // ======== { • user • }======== //
 client.on("message", message => {
   if (message.content.startsWith(prefix + "user")) {
@@ -530,25 +469,6 @@ client.on("message", message => {
       )
       .setThumbnail(heg.avatarURL);
     message.channel.send(id);
-  }
-}); // ======== { • anti reklam • }======== //
-client.on("message", msg => {
-  if (msg.author.bot) return;
-  if (msg.content.includes("http")) {
-    if (msg.member.hasPermission("MANAGE_EMOJIS")) return;
-    if (!msg.channel.guild) return;
-    msg.delete();
-    msg.reply("```You cant send link .```");
-  }
-});
-// ======== { • anti here • }======== //
-client.on("message", msg => {
-  if (msg.author.bot) return;
-  if (msg.content.includes("@here")) {
-    if (msg.member.hasPermission("MENTION_EVERYONE")) return;
-    if (!msg.channel.guild) return;
-    msg.delete();
-    msg.reply("```You cant send here .```");
   }
 });
 // ======== { • bn • }======== //
