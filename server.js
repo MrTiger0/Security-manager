@@ -34,7 +34,7 @@ const cmd = require("node-cmd");
 const prefix = "A!";
 const cooldown = new Set()
 const cdtime =5;
-client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.p74xmlUYGUJZbFeV2i_5qYdwLyM");
+client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.ZD8jP-DLnv6sVU3ObIzrEaoeFcY");
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.username}!`);
 client.user.setStatus("online");
