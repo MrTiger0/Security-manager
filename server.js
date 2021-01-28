@@ -34,7 +34,7 @@ const cmd = require("node-cmd");
 const prefix = "A!";
 const cooldown = new Set()
 const cdtime =5;
-client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.lLYvhds0bKGZu6XZ48MpPSvVYMU");
+client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.p74xmlUYGUJZbFeV2i_5qYdwLyM");
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.username}!`);
 client.user.setStatus("online");
@@ -120,19 +120,18 @@ client.on('message', prof=>{
   
   
 })
-// ======== { • playing • }======== //
-client.on("ready", () => {
-  console.log(`${client.user.tag}`);
-  console.log(`Guilds: ${client.guilds.size}`);
-  console.log(`Users: ${client.users.size}`);
-  client.user.setActivity(`Type ${prefix}help`, { type: "Playing" });
-});
 
+//////
 
-// ======== { • security • }======== //
-const tpoints = {};
-const vpoints = {};
+const rast = "";
+const rastw = "";
+const ghallat = "";
+const ghallatw = "";
+const logosec = "";
+const warn = "";
+const color = "#808080";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
+let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
 client.on("message", message => {
   if (!message.channel.guild) return;
   let user = anti[message.guild.id + message.author.id];
@@ -148,190 +147,112 @@ client.on("message", message => {
     config[message.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
+      chaCrLimit: 3,
       roleCrLimits: 3,
       time: 0.1
     };
   if (message.content.startsWith(prefix + "anti")) {
-    if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send(
-        "**❌ | Only `OwnerShip` Can Use This Command .**"
-      );
+    if (message.author.id !== message.guild.ownerID) return;
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
-        return message.channel.send(
-          "**❌ | Type A `Number` After Commands .**"
-        );
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send("**❌ | Only Type `Number` .**");
+        return message.channel.send(
+          "**" + ghallat + "  Only Type A `Number` .**"
+        );
       config[message.guild.id].banLimit = num;
       message.channel.send(
-        `**✔️ | Changed \`Anti Ban\` To : ${config[message.guild.id].banLimit} **`
+        `**${rast}  Changed To : ${config[message.guild.id].banLimit} **`
       );
     }
     if (message.content.startsWith(prefix + "anti kick")) {
       if (!num)
-        return message.channel.send(
-          "**❌ | Type A `Number` After Commands .**"
-        );
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send("**❌ | Only Type `Number` .**");
+        return message.channel.send(
+          "**" + ghallat + "  Only Type A `Number` .**"
+        );
       config[message.guild.id].kickLimits = num;
       message.channel.send(
-        `**✔️ | Changed \`Anti Kick\` To : ${config[message.guild.id].kickLimits}**`
+        `**${rast}  Changed To : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti roleD")) {
+    if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+      if (isNaN(num))
         return message.channel.send(
-          "**❌ | Type A `Number` After Commands .**"
+          "**" + ghallat + "  Only Type A `Number` .**"
         );
-      if (isNaN(num))
-        return message.channel.send("**❌ | Only Type `Number` .**");
       config[message.guild.id].roleDelLimit = num;
-      message.channel.send(
-        `**✔️ | Changed \`Role Delete\` To : ${config[message.guild.id].roleDelLimit}**`
+      message.reply(
+        `**${rast}  Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
-    } ////////////////mrfix
-    if (message.content.startsWith(prefix + "anti roleC")) {
+    }
+    if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
-        return message.channel.send(
-          "**❌ | Type A `Number` After Commands .**"
-        ); ////////////////mrfix
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send("**❌ | Only Type `Number` .**");
+        return message.channel.send(
+          "**" + ghallat + "  Only Type A `Number` .**"
+        );
       config[message.guild.id].roleCrLimits = num;
       message.channel.send(
-        `**✔️ | Changed \`Role Create\` To : ${config[message.guild.id].roleCrLimits}**`
+        `**${rast}  Changed To : ${config[message.guild.id].roleCrLimits}**`
       );
-    } ////////////////mrfix
-    if (message.content.startsWith(prefix + "anti channelD")) {
+    }
+    if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
-        return message.channel.send(
-          "**❌ | Type A `Number` After Commands .**"
-        ); ////////////////mrfix
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send("**❌ | Only Type `Number` .**");
+        return message.channel.send(
+          "**" + ghallat + "  Only Type A `Number` .**"
+        );
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
-        ////////////////mrfix
-        `**✔️ | Changed \`Channel Delete\` To : ${config[message.guild.id].chaDelLimit}**`
+        `**${rast}  Changed To : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti channelC")) {
+    if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
-        return message.channel.send(
-          "**❌ | Type A `Number` After Commands .**"
-        ); ////////////////mrfix
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send("**❌ | Only Type `Number` .**");
+        return message.channel.send(
+          "**" + ghallat + "  Only Type A `Number` .**"
+        );
       config[message.guild.id].chaCrLimit = num;
       message.channel.send(
-        `**✔️ | Changed \`Channel Create\` To : ${config[message.guild.id].chaCrLimit}**`
+        `**${rast}  Changed To : ${config[message.guild.id].chaCrLimit}**`
       );
-    } ////////////////mrfix
+    }
     if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
-        return message.channel.send(
-          "**❌ | Type A `Number` After Commands .**"
-        );
+        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send("**❌ | Only Type `Number` .**");
+        return message.channel.send(
+          "**" + ghallat + "  Only Type A `Number` .**"
+        );
       config[message.guild.id].time = num;
       message.channel.send(
-        `**✔️ | Changed \`Time\` To : ${config[message.guild.id].time}**`
+        `**${rast}  Changed To : ${config[message.guild.id].time}**`
       );
     }
-  }
-  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
-    if (e) throw e;
-  });
-  fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
-    if (e) throw e;
-  });
-});
-client.on("channelDelete", async channel => {
-  const entry1 = await channel.guild
-    .fetchAuditLogs({
-      type: "CHANNEL_DELETE"
-    }) ////////////////mrfix
-    .then(audit => audit.entries.first());
-  console.log(entry1.executor.username);
-  const entry = entry1.executor;
-  if (!config[channel.guild.id])
-    config[channel.guild.id] = {
-      banLimit: 3,
-      chaDelLimit: 3,
-      chaCrLimit: 3,
-      roleDelLimit: 3,
-      kickLimits: 3,
-      roleCrLimits: 3,
-      time: 0.1
-    }; ////////////////mrfix
-  if (!anti[channel.guild.id + entry.id]) {
-    anti[channel.guild.id + entry.id] = {
-      actions: 1
-    };
-    setTimeout(() => {
-      anti[channel.guild.id + entry.id].actions = "0";
-    }, config[channel.guild.id].time * 1000);
-  } else {
-    anti[channel.guild.id + entry.id].actions = Math.floor(
-      anti[channel.guild.id + entry.id].actions + 1
-    );
-    console.log("TETS");
-    setTimeout(() => {
-      anti[channel.guild.id + entry.id].actions = "0";
-    }, config[channel.guild.id].time * 1000);
-    if (
-      anti[channel.guild.id + entry.id].actions >=
-      config[channel.guild.id].chaDelLimit
+    fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
+      e
     ) {
-      channel.guild.members
-        .get(entry.id)
-        .ban()
-        .catch(e =>
-          channel.guild.owner.send(
-            `**❗️ | ${entry.username} Has \`Delete\` Many Channels .**`
-          )
-        );
-      anti[channel.guild.id + entry.id].actions = "0";
-      fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
-        e
-      ) {
-        if (e) throw e;
-      });
-      fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
-        e
-      ) {
-        if (e) throw e;
-      });
-    }
+      if (e) throw e;
+    });
+    fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
+      e
+    ) {
+      if (e) throw e;
+    });
   }
-
-  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
-    if (e) throw e;
-  });
-  fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
-    if (e) throw e;
-  });
 });
 
 client.on("channelCreate", async channel => {
-  if (!["text", "category", "voice"].includes(channel.type.toLowerCase()))
-    return;
-  if (!config[channel.guild.id])
-    config[channel.guild.id] = {
-      banLimit: 3,
-      chaDelLimit: 3,
-      chaCrLimit: 3,
-      roleDelLimit: 3,
-      kickLimits: 3,
-      roleCrLimits: 3,
-      time: 0.1
-    };
   const entry1 = await channel.guild
     .fetchAuditLogs({
       type: "CHANNEL_CREATE"
@@ -339,7 +260,15 @@ client.on("channelCreate", async channel => {
     .then(audit => audit.entries.first());
   console.log(entry1.executor.username);
   const entry = entry1.executor;
-
+  if (!config[channel.guild.id])
+    config[channel.guild.id] = {
+      banLimit: 3,
+      chaDelLimit: 3,
+      roleDelLimit: 3,
+      kickLimits: 3,
+      chaCrLimit: 3,
+      roleCrLimits: 3
+    };
   if (!anti[channel.guild.id + entry.id]) {
     anti[channel.guild.id + entry.id] = {
       actions: 1
@@ -359,16 +288,16 @@ client.on("channelCreate", async channel => {
       anti[channel.guild.id + entry.id].actions >=
       config[channel.guild.id].chaCrLimit
     ) {
-      channel.guild.members
+      channel.guild.members.cache
         .get(entry.id)
         .ban()
         .catch(e =>
           channel.guild.owner.send(
-            `**❗️ | ${entry.username} Has \`Create\` Many Channels .**`
+            `**${warn} | ${entry.username} Tryed To \`Create\` Many \`Channels\` .**`
           )
         );
       anti[channel.guild.id + entry.id].actions = "0";
-      fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
+      fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
         e
       ) {
         if (e) throw e;
@@ -379,17 +308,82 @@ client.on("channelCreate", async channel => {
         if (e) throw e;
       });
     }
-    ////////////////mrfix
-    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
-      if (e) throw e;
-    });
-    fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
-      e
-    ) {
-      if (e) throw e;
-    });
   }
-}); ////////////////mrfix
+
+  fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(e) {
+    if (e) throw e;
+  });
+  fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
+    if (e) throw e;
+  });
+});
+
+client.on("channelDelete", async channel => {
+  const entry1 = await channel
+    .fetchAuditLogs({
+      type: "CHANNEL_DELETE"
+    })
+    .then(audit => audit.entries.first());
+  console.log(entry1.executor.username);
+  const entry = entry1.executor;
+  if (!config[channel.guild.id])
+    config[channel.guild.id] = {
+      banLimit: 3,
+      chaDelLimit: 3,
+      roleDelLimit: 3,
+      kickLimits: 3,
+      chaCrLimit: 3,
+      roleCrLimits: 3
+    };
+  if (!anti[channel.guild.id + entry.id]) {
+    anti[channel.guild.id + entry.id] = {
+      actions: 1
+    };
+    setTimeout(() => {
+      anti[channel.guild.id + entry.id].actions = "0";
+    }, config[channel.guild.id].time * 1000);
+  } else {
+    anti[channel.guild.id + entry.id].actions = Math.floor(
+      anti[channel.guild.id + entry.id].actions + 1
+    );
+    console.log("TETS");
+    setTimeout(() => {
+      anti[channel.guild.id + entry.id].actions = "0";
+    }, config[channel.guild.id].time * 1000);
+    if (
+      anti[channel.guild.id + entry.id].actions >=
+      config[channel.guild.id].chaDelLimit
+    ) {
+      channel.guild.members.cache
+        .get(entry.id)
+        .ban()
+        .catch(e =>
+          channel.guild.owner.send(
+            `**${warn} | ${entry.username} Tryed To \`Delete\` Many \`Channels\` .**`
+          )
+        );
+      anti[channel.guild.id + entry.id].actions = "0";
+      fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
+        e
+      ) {
+        if (e) throw e;
+      });
+      fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
+        e
+      ) {
+        if (e) throw e;
+      });
+    }
+  }
+
+  fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(e) {
+    if (e) throw e;
+  });
+  fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
+    if (e) throw e;
+  });
+});
+
 client.on("roleDelete", async channel => {
   const entry1 = await channel.guild
     .fetchAuditLogs({
@@ -402,11 +396,10 @@ client.on("roleDelete", async channel => {
     config[channel.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3,
-      time: 0.1
+      chaCrLimit: 3,
+      roleCrLimits: 3
     };
   if (!anti[channel.guild.id + entry.id]) {
     anti[channel.guild.id + entry.id] = {
@@ -427,16 +420,16 @@ client.on("roleDelete", async channel => {
       anti[channel.guild.id + entry.id].actions >=
       config[channel.guild.id].roleDelLimit
     ) {
-      channel.guild.members
+      channel.guild.members.cache
         .get(entry.id)
         .ban()
         .catch(e =>
           channel.guild.owner.send(
-            `**❗️ | ${entry.username} Has \`Delete\` Many Roles .**`
+            `**${warn} | ${entry.username} Tryed To \`Delete\` Many \`Role\` .**`
           )
         );
       anti[channel.guild.id + entry.id].actions = "0";
-      fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
+      fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
         e
       ) {
         if (e) throw e;
@@ -449,7 +442,7 @@ client.on("roleDelete", async channel => {
     }
   }
 
-  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+  fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(e) {
     if (e) throw e;
   });
   fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
@@ -469,11 +462,10 @@ client.on("roleCreate", async channel => {
     config[channel.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3,
-      time: 0.1
+      chaCrLimit: 3,
+      roleCrLimits: 3
     };
   if (!anti[channel.guild.id + entry.id]) {
     anti[channel.guild.id + entry.id] = {
@@ -494,16 +486,16 @@ client.on("roleCreate", async channel => {
       anti[channel.guild.id + entry.id].actions >=
       config[channel.guild.id].roleCrLimits
     ) {
-      channel.guild.members
+      channel.guild.members.cache
         .get(entry.id)
         .ban()
         .catch(e =>
           channel.guild.owner.send(
-            `**❗️ | ${entry.username} Has \`Create\` Many Roles .**`
+            `**${warn} | ${entry.username} Tryed To \`Create\` Many \`Roles\` .**`
           )
         );
       anti[channel.guild.id + entry.id].actions = "0";
-      fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
+      fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
         e
       ) {
         if (e) throw e;
@@ -516,7 +508,7 @@ client.on("roleCreate", async channel => {
     }
   }
 
-  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+  fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(e) {
     if (e) throw e;
   });
   fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
@@ -530,43 +522,43 @@ client.on("guildBanAdd", async (guild, user) => {
       type: "MEMBER_BAN_ADD"
     })
     .then(audit => audit.entries.first());
-  console.log("ban: " + entry1.executor.username);
+  console.log(entry1.executor.username);
   const entry = entry1.executor;
   if (!config[guild.id])
     config[guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3,
-      time: 0.1
+      chaCrLimit: 3,
+      roleCrLimits: 3
     };
   if (!anti[guild.id + entry.id]) {
     anti[guild.id + entry.id] = {
       actions: 1
     };
     setTimeout(() => {
-      anti[guild.id + entry.id].actions = 0;
+      anti[guild.id + entry.id].actions = "0";
     }, config[guild.id].time * 1000);
   } else {
     anti[guild.id + entry.id].actions = Math.floor(
       anti[guild.id + entry.id].actions + 1
     );
+    console.log("TETS");
     setTimeout(() => {
-      anti[guild.id + entry.id].actions = 0;
+      anti[guild.id + entry.id].actions = "0";
     }, config[guild.id].time * 1000);
     if (anti[guild.id + entry.id].actions >= config[guild.id].banLimit) {
-      guild.members
+      guild.members.cache
         .get(entry.id)
         .ban()
         .catch(e =>
           guild.owner.send(
-            `**❗️ | ${entry.username} Has \`Ban\` Many Members .**`
+            `**${warn} | ${entry.username} Tryed To \`Ban\` Many \`Members\` .**`
           )
         );
-      anti[guild.id + entry.id].actions = 0;
-      fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
+      anti[guild.id + entry.id].actions = "0";
+      fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
         e
       ) {
         if (e) throw e;
@@ -579,7 +571,7 @@ client.on("guildBanAdd", async (guild, user) => {
     }
   }
 
-  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+  fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(e) {
     if (e) throw e;
   });
   fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
@@ -599,18 +591,17 @@ client.on("guildKickAdd", async (guild, user) => {
     config[guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3,
-      time: 0.1
+      chaCrLimit: 3,
+      roleCrLimits: 3
     };
   if (!anti[guild.id + entry.id]) {
     anti[guild.id + entry.id] = {
       actions: 1
     };
     setTimeout(() => {
-      anti[guild.id + entry.id].actions = 0;
+      anti[guild.id + entry.id].actions = "0";
     }, config[guild.id].time * 1000);
   } else {
     anti[guild.id + entry.id].actions = Math.floor(
@@ -618,19 +609,19 @@ client.on("guildKickAdd", async (guild, user) => {
     );
     console.log("TETS");
     setTimeout(() => {
-      anti[guild.id + entry.id].actions = 0;
+      anti[guild.id + entry.id].actions = "0";
     }, config[guild.id].time * 1000);
     if (anti[guild.id + entry.id].actions >= config[guild.id].banLimit) {
-      guild.members
+      guild.members.cache
         .get(entry.id)
         .ban()
         .catch(e =>
           guild.owner.send(
-            `**❗️ | ${entry.username} Has \`Kick\` Many Members .**`
+            `**${warn} | ${entry.username} Tryed To \`Kick\` Many \`Members\` .**`
           )
         );
-      anti[guild.id + entry.id].actions = 0;
-      fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
+      anti[guild.id + entry.id].actions = "0";
+      fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
         e
       ) {
         if (e) throw e;
@@ -643,13 +634,13 @@ client.on("guildKickAdd", async (guild, user) => {
     }
   }
 
-  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+  fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(e) {
     if (e) throw e;
   });
   fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
     if (e) throw e;
   });
-}); ////////////////mrfix
+});
 
 client.on("guildMemberRemove", async member => {
   const entry1 = await member.guild
@@ -662,22 +653,21 @@ client.on("guildMemberRemove", async member => {
       })
       .then(audit => audit.entries.first());
     const entry = entry2.executor;
-    if (!config[member.guild.id])
-      config[guild.id] = {
+    if (!config[member.id])
+      config[member.id] = {
         banLimit: 3,
         chaDelLimit: 3,
-        chaCrLimit: 3,
         roleDelLimit: 3,
         kickLimits: 3,
-        roleCrLimits: 3,
-        time: 0.1
+        chaCrLimit: 3,
+        roleCrLimits: 3
       };
     if (!anti[member.guild.id + entry.id]) {
       anti[member.guild.id + entry.id] = {
         actions: 1
-      }; ////////////////mrfix
+      };
       setTimeout(() => {
-        anti[member.guild.id + entry.id].actions = 0;
+        anti[member.guild.id + entry.id].actions = "0";
       }, config[member.guild.id].time * 1000);
     } else {
       anti[member.guild.id + entry.id].actions = Math.floor(
@@ -685,39 +675,33 @@ client.on("guildMemberRemove", async member => {
       );
       console.log("TETS");
       setTimeout(() => {
-        anti[member.guild.id + entry.id].actions = 0;
-      }, config[member.guild.id].time * 1000 || 30000);
+        anti[member.guild.id + entry.id].actions = "0";
+      }, config[member.guild.id].time * 1000);
       if (
-        ////////////////mrfix
         anti[member.guild.id + entry.id].actions >=
         config[member.guild.id].kickLimits
       ) {
-        member.guild.members
+        member.guild.members.cache
           .get(entry.id)
           .ban()
           .catch(e =>
             member.owner.send(
-              `**❗️ | ${entry.username} Has \`Kick\` Many Members .**`
+              `**${warn} | ${entry.username} Tryed To \`Ban\` Many \`Members\` .**`
             )
           );
-        anti[member.guild.id + entry.id].actions = 0;
-        fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
-          e
-        ) {
-          ////////////////mrfix
+        anti[member.guild.id + entry.id].actions = "0";
+        fs.writeFile("./configg.json", JSON.stringify(config), function(e) {
           if (e) throw e;
         });
-        fs.writeFile(
-          "./antigreff.json",
-          JSON.stringify(anti, null, 2),
-          function(e) {
-            if (e) throw e;
-          }
-        );
+        fs.writeFile("./antigreff.json", JSON.stringify(anti), function(e) {
+          if (e) throw e;
+        });
       }
-    } ////////////////mrfix
+    }
 
-    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+    fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
+      e
+    ) {
       if (e) throw e;
     });
     fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
@@ -726,4 +710,54 @@ client.on("guildMemberRemove", async member => {
       if (e) throw e;
     });
   }
+});
+let antibots = JSON.parse(fs.readFileSync("./antibots.json", "utf8")); //require antihack.json file
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti bot on")) {
+    if (!message.channel.guild) return;
+   if (message.author.id !== message.guild.ownerID) return;
+    antibots[message.guild.id] = {
+      onoff: "On"
+    };
+    message.channel.send(`**${rast}  AntiBot Is \`Enable\` .**`);
+    fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti bot off")) {
+    if (!message.channel.guild) return;
+   if (message.author.id !== message.guild.ownerID) return;
+    antibots[message.guild.id] = {
+      onoff: "Off"
+    };
+    message.channel.send(`**${rast}  AntiBot Is \`Disable\` .**`);
+    fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+
+client.on("guildMemberAdd", member => {
+  if (!antibots[member.guild.id])
+    antibots[member.guild.id] = {
+      onoff: "on"
+    };
+  if (antibots[member.guild.id].onoff === "Off") return;
+  if (member.user.bot) return member.kick();
+});
+
+fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
+  if (err)
+    console.error(err).catch(err => {
+      console.error(err);
+    });
 });
