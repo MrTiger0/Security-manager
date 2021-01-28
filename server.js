@@ -1,4 +1,6 @@
-require("events").EventEmitter.defaultMaxListeners = 200;
+process.on("warning", e => console.warn(e.stack));
+process.setMaxListeners(0);
+require("events").EventEmitter.defaultMaxListeners = 50;
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -7,91 +9,117 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+  http.get(`http://numerous-bristle-expansion.glitch.me`);
 }, 280000);
-
-const { Client, RichEmbed } = require("discord.js");
+const { Client, MessageEmbed } = require("discord.js");
 var { Util } = require("discord.js");
-const { prefix, devs, fix } = require("./config");
 const client = new Client({ disableEveryone: true });
-const ytdl = require("ytdl-core");
 const canvas = require("canvas");
+const Canvas = require("canvas");
 const convert = require("hh-mm-ss");
-const fetchVideoInfo = require("youtube-info");
 const botversion = require("./package.json").version;
-const simpleytapi = require("simple-youtube-api");
 const moment = require("moment");
 const fs = require("fs");
 const util = require("util");
 const gif = require("gif-search");
-const opus = require("node-opus");
 const ms = require("ms");
 const jimp = require("jimp");
+const math = require("math-expression-evaluator");
 const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
-const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyAXaeBh837k38o_lwSADet8UTO7X21DGsY");
-const hastebins = require("hastebin-gen");
-const getYoutubeID = require("get-youtube-id");
-const yt_api_key = "AIzaSyAXaeBh837k38o_lwSADet8UTO7X21DGsY";
-const pretty = require("pretty-ms");
-const prefix = "A!";
-client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.lgwldEu4ZbToOSnO1LTywOIPUH0"");
-const queue = new Map();
 var table = require("table").table;
 const Discord = require("discord.js");
-// ==================== ( help ) ==================== //
+const cmd = require("node-cmd");
+const prefix = "A!";
+const cooldown = new Set()
+const cdtime =5;
+client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.lLYvhds0bKGZu6XZ48MpPSvVYMU");
+client.on("ready", async () => {
+  console.log(`Logged in as ${client.user.username}!`);
+client.user.setStatus("online");
+client.user.setActivity(`A!help | Anti Vandalism Is Here`, {type: "PLAYING"});
+});
 
-client.on("message", fixup => {
-  if (fixup.content === prefix + "help") {
-    let Dashboard = `First Part For Everyone** :
-> A!member
-> A!invite
-> A!join
-> A!roles
-> A!allbots
-> A!ping
-> A!botinfo
-> A!savatar
-> A!sbot
-> A!user
-> A!avatar
-**Second Page For Roles** :
-> A!lock
-> A!unlock
-> A!banlist
-> A!unban + id , all
-> A!clear
-> A!kick
-> A!ban
-**Third Page For Protection** :
-> A!anti ban [ Number ]
-> A!anti kick [ Number ]
-> A!anti channelC [ Number ]
-> A!anti channelD [ Number ]
-> A!anti roleC [ Number ]
-> A!anti roleD [ Number ]
-> A!anti time [ Number ]
-> A!antibots [ on / off ]
-> A!settings
-`;
+//////
 
-    var addserver = `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8`;
-    var SUPPORT = `https://discord.gg/W9mReJa`;
-    let mrfixup = new Discord.RichEmbed()
-      .setTitle(`Helpful Links`)
-      .setDescription(
-        `**${Dashboard}**
-**[Add To Your Server ](${addserver})** | **[ Server Support](${SUPPORT})**`
-      )
-      .setImage(
-        "https://media.discordapp.net/attachments/761172557860044801/769153741676085258/image0.gif"
-      );
-    fixup.react("✅");
-    fixup.channel.send(mrfixup);
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "help")) {
+    if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    let help = new Discord.MessageEmbed()
+      .setColor(color)
+      .setAuthor(message.author.username, message.author.AvatarURL)
+      .setThumbnail(message.author.avatarURL())
+      .setTitle("Help Command")
+      .setURL(``) .setDescription(`
+
+**Info**
+\`userinfo\`,\`serverinfo\`
+\`bot\`,\`top\`,\`uinvites\`
+\`avatar\`,\`ping\`,\`vote\`
+
+**Security**
+\`anti kick\`,\`anti ban\`
+\`anti role\`,\`anti channel\`
+\`anti bot [on/off]\`
+
+**Moderation**
+\`lock\`,\`unlock\`,\`ban\`,\`kick\`
+\`unban\`,\`mute\`,\`unmute\`,\`bans\`
+\`vkick\`,\`say\`,\`hide\`,\`show\`
+
+
+[**Invite**](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot) - [**Support**](https://discord.gg/QZdDqjtdd3) - [**Website**](https://aerial-catkin-jumbo.glitch.me/)
+
+`);
+
+    message.channel.send(help);
   }
 });
+
+////////
+
+client.on('message', prof=>{
+ 
+    if(prof.content.startsWith(prefix + 'lock'))
+    {
+       if(!prof.guild.me.hasPermission('MANAGE_CHANNELS'))return prof.reply('**i dont hava premission `MANAGE_CHANNELS`:pleading_face: **')
+  if(!prof.member.hasPermission('MANAGE_CHANNELS'))return prof.reply('**you dont hava`MANAGE_CHANNELS`Permission.!**')
+  
+  prof.channel.overwritePermissions([{
+      id:prof.guild.id,
+      deny:['SEND_MESSAGES'],
+    }]).then(p=>{
+        var professor = new Discord.MessageEmbed()
+        prof.channel.send(`🔒丨**has been locked**`);
+    })
+  
+    }
+    if(prof.content.startsWith(prefix + 'unlock'))
+    {
+       if(!prof.guild.me.hasPermission('MANAGE_CHANNELS'))return prof.reply('**i dont hava premission `MANAGE_CHANNELS`:pleading_face: **')
+  if(!prof.member.hasPermission('MANAGE_CHANNELS'))return prof.reply('**you dont hava`MANAGE_CHANNELS`Permission.!**')
+  
+  prof.channel.overwritePermissions([{
+      id:prof.guild.id,
+      allow:['SEND_MESSAGES'],
+    }]).then(p=>{
+        var professor = new Discord.MessageEmbed()
+        prof.channel.send(`🔓丨**has been unlocked**`);
+    })
+  
+    }
+  
+  
+})
 // ======== { • playing • }======== //
 client.on("ready", () => {
   console.log(`${client.user.tag}`);
@@ -174,40 +202,6 @@ client.on("message", message => {
       );
     message.channel.sendEmbed(Embed11);
   }
-});
-
-// ======================================[close open]======================================
-
-client.on("message", message => {
-  if (message.content === prefix + "lock") {
-    if (!message.channel.guild) return message.reply("❌ |Chat Locked 🔒 **");
-
-    if (!message.member.hasPermission("MANAGE_MESSAGES"))
-      return message.reply("❌ | You Dont have permission");
-    message.channel
-      .overwritePermissions(message.guild.id, {
-        SEND_MESSAGES: false
-      })
-      .then(() => {
-        message.reply("** ✔ | lock chat **");
-      });
-  }
-  if (message.content === prefix + "unlock") {
-    if (!message.channel.guild) return message.reply("❌ | not server");
-
-    if (!message.member.hasPermission("MANAGE_MESSAGES"))
-      return message.reply("❌ |You Dont have permission");
-    message.channel
-      .overwritePermissions(message.guild.id, {
-        SEND_MESSAGES: true
-      })
-      .then(() => {
-        message.reply("** ✔ | Chat Unlocked 🔓 **");
-      });
-  }
-});
-client.on("error", err => {
-  console.log(err);
 });
 
 // ============== (botinfio) =============
