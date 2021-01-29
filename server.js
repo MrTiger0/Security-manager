@@ -47,9 +47,9 @@ client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.vCpdsNqD2hQOHZ5w7fIWJ9fgWKs");
 client.on("message",message => {
   if(message.content.startsWith(prefix+ "help")) 
 var embed = new Discord.MessageEmbed()
-  .setDescription(`Commands bot 
-  
-<:fcbe593471c3219e:761876602350731275>丨**Info**
+  .setDescription(`
+
+<a:A37B6C5C13714FB78C0C8A176C7373C0:804627432913109052>丨**Info**
 \`userinfo\`
 \`serverinfo\`
 \`uinvites\`
