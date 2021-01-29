@@ -1724,28 +1724,14 @@ client.on("message", message => {
 //=================================[ settings ]==============================//
 client.on("message", message => {
   if (message.content === prefix + "settings") {
-    if (bot_owner.includes(message.id))
       if (!message.member.hasPermission("OWNERSHIP"))
         return message.channel.send(
-          ghallat + "** | Sorry , But You Dont Have `OWNERSHIP` .**"
-        );
+         "Sorry , But You Dont Have `OWNERSHIP`");
     if (!message.channel.guild)
-      return message.channel.send(
-        ghallat + "** | Sorry This Command Only For Servers .**"
-      );
+      return message.channel.send("Sorry This Command Only For Servers"");
     let embed = new Discord.MessageEmbed()
-      .setTitle(
-        emojibadge +
-          "** | ClickHere To Add **" +
-          `${client.user.username}` +
-          "** .**"
-      )
-      .setURL(
-        "https://discordapp.com/oauth2/authorize?client_id=" +
-          `${client.user.id}` +
-          "&scope=bot&permissions=2080374975"
-      )
-
+      .setTitle(""$
+      .setURL("")
       .setDescription(
         `**${trueemo} | Anti Ban Is : ${config[message.guild.id].banLimit}
 •••••
@@ -1761,7 +1747,7 @@ ${trueemo} | Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
 •••••
 ${trueemo} | Anti Time Is : ${config[message.guild.id].time}**`
       )
-      .setColor(color)
+      .setColor("#080808")
       .setThumbnail(message.author.avatarURL())
       .setFooter(`${message.author.tag}`, message.author.avatarURL());
     message.channel.send(embed);
