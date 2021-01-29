@@ -763,7 +763,7 @@ fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
     });
 });
 
-=================================[ roles ]===================================
+//=================================[ roles ]===================================//
 client.on("message", message => {
   if (message.content.startsWith(prefix + "roles")) {
  let rolemap = message.guild.roles.cache
@@ -779,7 +779,7 @@ message.channel.send(embed);
 }
 })
 
-=================================[ uinvites ]=============================
+//=================================[ uinvites ]=============================//
 
 client.on('message', message => {
    if(message.content.startsWith(prefix + "uinvites")) {
@@ -792,7 +792,7 @@ message.channel.send(`${user} Your invites ${inviteCount}.`);
   }
 });
 
-=================================[ ban & unban]==================================
+//=================================[ ban & unban]==================================//
 
 client.on('message', async message => {
 	if(message.author.bot || message.channel.type === 'dm') return;
@@ -850,7 +850,7 @@ client.on("message", message => {
   }
 });
 
-=================================[ mute ]=================================
+//=================================[ mute ]=================================//
 
 client.on("message", async message => {
   let args = message.content.split(" ");
@@ -894,7 +894,7 @@ client.on("message", async message => {
   }
 });
 
-=================================[ unmute ]===============================
+//=================================[ unmute ]===============================//
 
 client.on("message", async message => {
   let args = message.content.split(" ");
@@ -929,7 +929,7 @@ client.on("message", async message => {
   }
 });
 
-=================================[ serverinfo ]===========================
+//=================================[ serverinfo ]===========================//
 
 client.on('message', message => {
  //
@@ -953,7 +953,7 @@ if(message.content.startsWith(prefix + "serverinfo")){
   }
 })
 
-=================================[ userinfo ]=============================
+//=================================[ userinfo ]=============================//
 
 client.on('message', prof =>
 {
@@ -973,7 +973,7 @@ client.on('message', prof =>
     }
 })
 
-=================================[ kick ]=================================
+//=================================[ kick ]=================================//
 
 client.on('message', message => {
   if(message.author.bot) return;
@@ -992,7 +992,7 @@ var embed = new Discord.MessageEmbed()
   }
 })
 
-=================================[ hide & show ]==========================
+//=================================[ hide & show ]==========================//
 
 client.on('message', james => {
       if(james.content === prefix + "hide") {
@@ -1015,7 +1015,7 @@ client.on('message', james => {
  }
 })
 
-=================================[ vote ]=================================
+//=================================[ vote ]=================================//
 
 client.on('message', badboy => {
   if(badboy.content.startsWith(prefix + "vote")){
@@ -1043,7 +1043,7 @@ badboy.react("👎")
   }
 })
 
-=================================[ vkick ]================================
+//=================================[ vkick ]================================//
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "vkick")) {
@@ -1070,7 +1070,7 @@ client.on("message", async message => {
   }
 });
 
-=================================[ avatar ]===============================
+//=================================[ avatar ]===============================//
 client.on("message" , message => {
   if(message.content.startsWith(`${prefix}avatar`)){
 if (cooldown.has(message.author.id)) {
@@ -1101,7 +1101,7 @@ if (cooldown.has(message.author.id)) {
 }
 });
 
-=================================[ love ]=================================
+//=================================[ love ]=================================//
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "love")) {
@@ -1142,7 +1142,7 @@ if (cooldown.has(message.author.id)) {
 }
 })
 
-=================================[ bans ]=================================
+//=================================[ bans ]=================================//
 
 client.on('message', message => {
   if (message.content.startsWith(prefix + "bans")) {
@@ -1154,7 +1154,7 @@ client.on('message', message => {
   }
 });
 
-=================================[ rank ]=================================
+//=================================[ rank ]=================================//
 
 const rcrank = JSON.parse(fs.readFileSync("rcrank.json", "utf8")); 
 
@@ -1222,7 +1222,7 @@ let embed = new MessageEmbed()
 
 });
 
-=================================[ ping ]=================================
+//=================================[ ping ]=================================//
 
 client.on("message", message => {
   if (message.author.bot) return;
@@ -1235,7 +1235,7 @@ client.on("message", message => {
   }
 });
 
-=================================[ botinfo ]==============================
+//=================================[ botinfo ]==============================//
 
 client.on('message', message => { 
     if (message.content.startsWith(`${prefix}bot`)) {
@@ -1262,7 +1262,7 @@ message.channel.send(tnx)
 } 
 });
 
-=================================[ say ]==================================
+//=================================[ say ]==================================//
 
 client.on("message", message => {
   let commands = message.content.split(" ");
@@ -1290,7 +1290,7 @@ client.on("message", message => {
   }
 });
 
-=================================[ warn ]=================================
+//=================================[ warn ]=================================//
 
 client.on('message', message => {
  
@@ -1338,7 +1338,7 @@ if(!message.member.hasPermission("OWNERSHIP")) return message.reply('you dont ha
 }
 });
 
-=================================[ clear ]================================
+//=================================[ clear ]================================//
 
 client.on("message", async message => {
   let command = message.content.toLowerCase().split(" ")[0];
@@ -1377,7 +1377,7 @@ ${msgs.size} messages cleared
   }
 });
 
-=================================[ kick & ban ]================================
+//=================================[ kick & ban ]================================//
 
 
 client.on("message", async message => {
