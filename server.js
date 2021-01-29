@@ -1567,7 +1567,7 @@ if (cooldown.has(message.author.id)) {
 
 //=================================[ anti problem ]==============================//
 
-const antilink = {'./antilink.json'}JSON.parse(fs.readFileSync('./antilink.json' , 'utf8'));
+let antilink = JSON.parse(fs.readFileSync("./antilink.json", "utf8"));
 client.on('message', message => {
     if(message.content.startsWith(prefix + "antilink-off")) {
        if(!message.channel.guild) return ;
@@ -1672,7 +1672,7 @@ client.on('message', message => {
             }
         if(antilink[message.guild.id].onoff === 'Off') return;
         message.delete()
-    return message.reply(error)
+    return message.reply(message)
     }
 });
 
