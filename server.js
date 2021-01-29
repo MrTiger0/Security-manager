@@ -1722,34 +1722,3 @@ client.on("message", message => {
 
 
 //=================================[ settings ]==============================//
-client.on("message", message => {
-  if (message.content === prefix + "settings") {
-      if (!message.member.hasPermission("OWNERSHIP"))
-        return message.channel.send(
-         "Sorry , But You Dont Have `OWNERSHIP`");
-    if (!message.channel.guild)
-      return message.channel.send("Sorry This Command Only For Servers"");
-    let embed = new Discord.MessageEmbed()
-      .setTitle(""$
-      .setURL("")
-      .setDescription(
-        `**${trueemo} | Anti Ban Is : ${config[message.guild.id].banLimit}
-•••••
-${trueemo} | Anti Kick Is : ${config[message.guild.id].kickLimits}
-•••••
-${trueemo} | Anti ChannelD Is : ${config[message.guild.id].chaDelLimit}
-•••••
-${trueemo} | Anti ChannelC Is : ${config[message.guild.id].chaCrLimit}
-•••••
-${trueemo} | Anti RoleD Is : ${config[message.guild.id].roleDelLimit}
-•••••
-${trueemo} | Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
-•••••
-${trueemo} | Anti Time Is : ${config[message.guild.id].time}**`
-      )
-      .setColor("#080808")
-      .setThumbnail(message.author.avatarURL())
-      .setFooter(`${message.author.tag}`, message.author.avatarURL());
-    message.channel.send(embed);
-  }
-});
