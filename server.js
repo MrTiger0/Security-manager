@@ -1680,7 +1680,7 @@ client.on('message', message => {
 client.on("message", message => {
   if (message.content === prefix + "settings") {
      if (message.author.id !== message.guild.ownerID) return;
-        return message.channel.send(
+          message.channel.send(
           "Sorry , But You Dont Have `OWNERSHIP`."
         );
     if (!message.channel.guild)
