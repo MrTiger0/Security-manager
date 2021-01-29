@@ -1719,3 +1719,53 @@ client.on("message", message => {
     return message.reply(`**${warn} | Please Dont Swear .**`);
   }
 });
+
+
+//=================================[ settings ]==============================//
+
+client.on("message", message => {
+  if (message.content === prefix + "settings") {
+    if (bot_owner.includes(message.id))
+    if (message.author.id !== message.guild.ownerID) return;
+        return message.channel.send(
+          ghallat + "** | Sorry , But You Dont Have `OWNERSHIP` .**"
+        );
+    if (!message.channel.guild)
+      return message.channel.send(
+        ghallat + "** | Sorry This Command Only For Servers .**"
+      );
+    let embed = new Discord.MessageEmbed()
+      .setTitle(
+        emojibadge +
+          "** | ClickHere To Add **" +
+          `${client.user.username}` +
+          "** .**"
+      )
+      .setURL(
+        "https://discordapp.com/oauth2/authorize?client_id=" +
+          `${client.user.id}` +
+          "&scope=bot&permissions=2080374975"
+      )
+
+      .setDescription(
+        `**${trueemo} | Anti Ban Is : ${config[message.guild.id].banLimit}
+•••••
+${trueemo} | Anti Kick Is : ${config[message.guild.id].kickLimits}
+•••••
+${trueemo} | Anti ChannelD Is : ${config[message.guild.id].chaDelLimit}
+•••••
+${trueemo} | Anti ChannelC Is : ${config[message.guild.id].chaCrLimit}
+•••••
+${trueemo} | Anti RoleD Is : ${config[message.guild.id].roleDelLimit}
+•••••
+${trueemo} | Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
+•••••
+${trueemo} | Anti Time Is : ${config[message.guild.id].time}**`
+      )
+      .setColor(fixcolor)
+      .setThumbnail(message.author.avatarURL())
+      .setImage(fixlogo)
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send({ embed });
+  }
+});
