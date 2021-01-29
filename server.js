@@ -44,81 +44,41 @@ client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.vCpdsNqD2hQOHZ5w7fIWJ9fgWKs");
 
 //////
 
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "help")) {
-    if (cooldown.has(message.author.id)) {
-      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
+client.on("message",message => {
+  if(message.content.startsWith(prefix+ "help")) 
+var embed = new Discord.MessageEmbed()
+  .setDescription(`Commands bot 
+  
+  1-test
+  
+  2-test
+  
+  3-test
+  
+  4-test
+  
+  5-test
+  
+  6-test
+  
+  7-test
+  
+  8-test
+  
+  9-test
+  
+ 10-test
 
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    let help = new Discord.MessageEmbed()
-      .setColor(color)
-      .setAuthor(message.author.username, message.author.AvatarURL)
-      .setThumbnail(message.author.avatarURL())
-      .setTitle("Help Command")
-      .setURL(``) .setDescription(`
-
-**For Members Commands**
+`)
  
- \`helpmembers\`
-
-**For Moderations Commands**
-
- \`helpModerations\`
-
-**For Security Commands**
-
- \`helpsecurity\`
+.setColor('#FF0000')
+message.channel.send(embed);
 
 
-[**Invite**](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot)
-[**Support**](https://discord.gg/QZdDqjtdd3)
-[**Website**](https://aerial-catkin-jumbo.glitch.me/)
-[**Vote**](https://top.gg/bot/711328570374619207)
+}
 
-`);
+); 
 
-    message.channel.send(help);
-  }
-});
-
-////////
-
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "helpmembers")) {
-    if (cooldown.has(message.author.id)) {
-      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    let help = new Discord.MessageEmbed()
-      .setColor(color)
-      .setAuthor(message.author.username, message.author.AvatarURL)
-      .setThumbnail(message.author.avatarURL())
-      .setTitle("Help Command")
-      .setURL(``) .setDescription(`
-
-
-Test
-Test
-Test
-Test
-
-
-
-`);
-
-    message.channel.send(help);
-  }
-});
 ///////
 
 client.on('message', prof=>{
