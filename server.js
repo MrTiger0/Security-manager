@@ -63,8 +63,9 @@ client.on("message", async message => {
 
 **Info**
 \`userinfo\`,\`serverinfo\`
-\`bot\`,\`top\`,\`uinvites\`
+\`bot\`,\`rank\`,\`uinvites\`
 \`avatar\`,\`ping\`,\`vote\`
+\`love\`
 
 **Security**
 \`anti kick\`,\`anti ban\`
