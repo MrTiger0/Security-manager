@@ -1568,4 +1568,103 @@ if (cooldown.has(message.author.id)) {
 //=================================[ anti problem ]==============================//
 
 
+var memes =["https ://cdn.discordapp.com/attachments/771701204370849842/798894896068165652/download.jpg","https: //cdn.discordapp.com/attachments/771701204370849842/798894918537314304/download_1.jpg","https ://cdn.discordapp.com/attachments/771701204370849842/798894940175859752/download_2.jpg","https: //cdn.discordapp.com/attachments/771701204370849842/798894960320446484/images.jpg","https ://cdn.discordapp.com/attachments/771701204370849842/798894979858563082/images_1.jpg","https: //cdn.discordapp.com/attachments/771701204370849842/798895019674566686/images_2.jpg","https ://cdn.discordapp.com/attachments/771701204370849842/798895039962284082/images_3.jpg","https: //cdn.discordapp.com/attachments/771701204370849842/798895060723826708/images_4.jpg"]
+  client.on('message', message => {
+   
+  if(message.content.startsWith(prefix + 'memes')) {
+   if(!message.channel.guild) return message.reply('** U CANT TYPE HERE**');
+   var embed = new Discord.MessageEmbed()
+  .setImage(memes[Math.floor(Math.random() * memes.length)])
+   .setColor('RANDOM')
+  message.channel.send(embed);
+  }
+  });
+
 //=================================[ settings ]==============================//
+const password = [
+'dxm8fb0d', 
+'kaekvl90bd', 
+'snvvl66fnvc', 
+'nbbx5588sfd',
+'kahAG556780NBBD',
+'cmnb5nbv',
+'shark191',
+'jkhckn00ghh6',
+'08bvjj4jhf',
+'hfgif97bjkk',
+
+  ]; 
+  
+client.on('message', alone => {
+if (alone.content.startsWith(prefix + 'hack')) {
+  if(!alone.channel.guild) return alone.reply('** This command only for servers **');
+var ALONE = new Discord.MessageEmbed()
+
+.setTitle("**HACKING DONE PASSWORD**")
+
+.setColor("BLACK")
+
+.setDescription(`${password[Math.floor(Math.random() * password.length)]}`)
+
+
+
+
+         
+      .setTimestamp()
+
+ .setFooter(`Requsted by: ${alone.author.username}`)
+
+ alone.react("🕵️")
+
+      .setThumbnail(alone.author.avatarURL())
+         
+
+alone.channel.send(ALONE)
+
+}
+});
+
+
+const gmail = [
+'dbanarse@me.com',
+'keijser@yahoo.com',
+'markjugg@verizon.net',
+'kosact@icloud.com',
+'treeves@live.com',
+'sherzodr@aol.com',
+'hling@me.com',
+'ilyaz@comcast.net',
+'suresh@yahoo.ca',
+'boftx@comcast.net',
+  ];
+  
+client.on('message', alone => {
+if (alone.content.startsWith(prefix + 'hack')) {
+  if(!alone.channel.guild) return alone.reply('** This command only for servers **');
+var ALONE = new Discord.MessageEmbed()
+
+.setTitle("**HACKING DONE GMAIL**")
+
+.setColor("BLACK")
+
+.setDescription(`${gmail[Math.floor(Math.random() * gmail.length)]}`)
+
+
+
+
+         
+      .setTimestamp()
+
+ .setFooter(`Requsted by: ${alone.author.username}`)
+
+ alone.react("🕵️️")
+
+      .setThumbnail(alone.author.avatarURL())
+         
+
+alone.channel.send(ALONE)
+
+}
+});
+
+//////////
