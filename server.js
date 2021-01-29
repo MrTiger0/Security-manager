@@ -82,6 +82,7 @@ if (cooldown.has(message.author.id)) {
 \`anti channelC\`[Number]
 \`anti channelD\`[Number]
 \`anti bot [on/off]\`
+\`anti link [on/off]\`
 \`settings\`
 
 <:3A9FB0D306D04D4DA81A701891114B4B:804633626834239488>丨**Moderation**
@@ -1626,7 +1627,7 @@ if (cooldown.has(message.author.id)) {
 
 let antilink = JSON.parse(fs.readFileSync("./antilink.json", "utf8"));
 client.on('message', message => {
-    if(message.content.startsWith(prefix + "antilink-off")) {
+    if(message.content.startsWith(prefix + "anti link off")) {
        if(!message.channel.guild) return ;
       let gg = new Discord.MessageEmbed()
       .setTitle('Error  :')
@@ -1644,7 +1645,7 @@ onoff: 'Off',
 let done = new Discord.MessageEmbed()
       .setTitle('Done   :')
       .setColor("Gray")
-      .setDescription(' Done disable the antilink  ✅')
+      .setDescription(' Done disable the antilink  🔴')
       .setAuthor(message.author.username
   ,message.author.avatarURL())
    .setThumbnail(message.author.avatarURL())
@@ -1660,7 +1661,7 @@ message.channel.send(done)
  
         })
         client.on('message', message => {
-    if(message.content.startsWith(prefix + "antilink-on")) {
+    if(message.content.startsWith(prefix + "anti link on")) {
             let gg = new Discord.MessageEmbed()
       .setTitle('Error  :')
       .setColor("Gray")
@@ -1676,7 +1677,7 @@ onoff: 'On',
 let done = new Discord.MessageEmbed()
       .setTitle('Done   :')
       .setColor("Gray")
-      .setDescription(' Done enable the antilink ✅ ')
+      .setDescription(' Done enable the antilink 🟢 ')
       .setAuthor(message.author.username
   ,message.author.avatarURL())
    .setThumbnail(message.author.avatarURL())
@@ -1689,14 +1690,14 @@ message.channel.send(done)
           });
             });
           }else{
-            if(message.content==prefix+'antilink') {
+            if(message.content==prefix+'anti link') {
               let error = new Discord.MessageEmbed()
       .setTitle('Error   :')
       .setColor("Gray")
       .setDescription(`
       Cmd :
-      ${prefix}antilink-on for enable the antilink 
-       ${prefix}antilink-off for disable the antilink 
+      ${prefix}anti link on for enable the antilink 
+      ${prefix}anti link off for disable the antilink 
       `)
       .setAuthor(message.author.username
   ,message.author.avatarURL())
