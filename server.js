@@ -1695,8 +1695,8 @@ message.channel.send(done)
       .setColor("Gray")
       .setDescription(`
       Cmd :
-      ${prefix}anti link on for enable the antilink 
-      ${prefix}anti link off for disable the antilink 
+      ${prefix}anti link on for enable the anti link 
+      ${prefix}anti link off for disable the anti link 
       `)
       .setAuthor(message.author.username
   ,message.author.avatarURL())
@@ -1734,57 +1734,3 @@ client.on('message', message => {
 });
 
 //=================================[ settings ]==============================//
-client.on("message", message => {
-  if (message.content === prefix + "settings") {
-     if (message.author.id !== message.guild.ownerID) return;
-          message.channel.send(
-          "Sorry , But You Dont Have `OWNERSHIP`."
-        );
-    if (!message.channel.guild)
-      return message.channel.send(
-        "Sorry This Command Only For Servers."
-      );
-    let embed = new Discord.MessageEmbed()
-      .setTitle("")
-       
-      .setURL("")
-       
-      .setDescription(
-
-
-
-
-        `Anti Ban Is : 🟢
-${config[message.guild.id].banLimit}
-
-•••••
-Anti Kick Is : 🟢
-
-${config[message.guild.id].kickLimits}
-•••••
-Anti ChannelD Is : 🟢
-
-${config[message.guild.id].chaDelLimit}
-•••••
-Anti ChannelC Is : 🟢
-
-${config[message.guild.id].chaCrLimit}
-•••••
-Anti RoleD Is : 🟢
-
-${config[message.guild.id].roleDelLimit}
-•••••
-Anti RoleC Is : 🟢
-
-${config[message.guild.id].roleCrLimits}
-•••••
-Anti Time Is : 🟢
-
- ${config[message.guild.id].time}`
-      )
-      .setColor(color)
-      .setThumbnail(message.author.avatarURL())
-      .setFooter(`${message.author.tag}`, message.author.avatarURL());
-    message.channel.send({ embed });
-  }
-});
