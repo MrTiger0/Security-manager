@@ -78,7 +78,7 @@ client.on("message", async message => {
 \`vkick\`,\`say\`,\`hide\`,\`show\`
 
 
-[**Invite**](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot) - [**Support**](https://discord.gg/QZdDqjtdd3) - [**Website**](https://aerial-catkin-jumbo.glitch.me/)
+[**Invite**](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot) - [**Support**](https://discord.gg/QZdDqjtdd3) - [**Website**](https://aerial-catkin-jumbo.glitch.me/) - [**Vote**](https://top.gg/bot/711328570374619207)
 
 `);
 
