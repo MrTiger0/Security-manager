@@ -35,10 +35,11 @@ const prefix = "A!";
 const cooldown = new Set()
 const cdtime =5;
 client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.vCpdsNqD2hQOHZ5w7fIWJ9fgWKs");
-client.on("ready", async () => {
-  console.log(`Logged in as ${client.user.username}!`);
-client.user.setStatus("online");
-client.user.setActivity(`A!help | Anti Vandalism Is Here`, {type: "PLAYING"});
+ client.on("ready", () => {
+  console.log(`${client.user.tag}`);
+  console.log(`Guilds: ${client.guilds.size}`);
+  console.log(`Users: ${client.users.size}`);
+  client.user.setActivity(`Type ${prefix}help | Anti Vandalism Is Here`, { Type: "Playing" });
 });
 
 //////
@@ -1439,5 +1440,75 @@ client.on("message", async message => {
         )
       )
       .catch(console.error);
+  }
+});
+//=================================[ move all ]==============================//
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "moveall")) {
+    if (!message.member.hasPermission("MOVE_MEMBERS"))
+      return message.channel.send("**:x: You Dont Have Perms `MOVE_MEMBERS`**");
+    if (!message.guild.member(client.user).hasPermission("MOVE_MEMBERS"))
+      return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
+    if (message.member.voiceChannel == null)
+      return message.channel.send(`**You Have To Be In Room Voice**`);
+    var author = message.member.voiceChannelID;
+    var m = message.guild.members.filter(m => m.voiceChannel);
+    message.guild.members
+      .filter(m => m.voiceChannel)
+      .forEach(m => {
+        m.setVoiceChannel(author);
+      });
+    message.channel.send(
+      `**Success Moved All To Your Channel**`
+    );
+  }
+});
+
+//////
+client.on("message", message => {
+  if (!message.channel.guild) return;
+  if (message.content.startsWith(prefix + "move")) {
+    if (message.member.hasPermission("MOVE_MEMBERS")) {
+      if (message.mentions.users.size === 0) {
+        return message.channel.send(
+          "``To use the command type this command" + prefix + "move [USER]``"
+        );
+      }
+      if (message.member.voiceChannel != null) {
+        if (message.mentions.members.first().voiceChannel != null) {
+          var authorchannel = message.member.voiceChannelID;
+          var usermentioned = message.mentions.members.first().id;
+          var embed = new Discord.RichEmbed()
+            .setTitle("Succes!")
+            .setColor("#080808")
+            .setDescription(
+              `You have withdrawn<@${usermentioned}> to Your voice rum✅ `
+            );
+          var embed = new Discord.RichEmbed()
+            .setTitle(`You are Moved in ${message.guild.name}`)
+            .setColor("#080808")
+            .setDescription(
+              `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
+            );
+          message.guild.members
+            .get(usermentioned)
+            .setVoiceChannel(authorchannel)
+            .then(m => message.channel.send(embed));
+          message.guild.members.get(usermentioned).send(embed);
+        } else {
+          message.channel.send(
+            "``You can not withdraw" +
+              message.mentions.members.first() +
+              " `This member must be in a vocal rome`"
+          );
+        }
+      } else {
+        message.channel.send(
+          "**``You must be in an audio ROM in order to pull the member out to you``**"
+        );
+      }
+    } else {
+      message.react("❗️");
+    }
   }
 });
