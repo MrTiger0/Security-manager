@@ -85,7 +85,7 @@ var embed = new Discord.MessageEmbed()
 
 `)
  
-.setColor('080808')
+.setColor('GRAY')
 message.channel.send(embed);
 
 
@@ -727,7 +727,7 @@ client.on("message", message => {
     antibots[message.guild.id] = {
       onoff: "On"
     };
-    message.channel.send(`AntiBot Is Enable : <:mars_52:800272124102180864>`);
+    message.channel.send(`AntiBot Is Enable : <:717644656955097120:779801624058527794>`);
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
         console.error(err).catch(err => {
@@ -744,7 +744,7 @@ client.on("message", message => {
     antibots[message.guild.id] = {
       onoff: "Off"
     };
-    message.channel.send(`AntiBot Is Disable : <:mars_51:800272124060631042>`);
+    message.channel.send(`AntiBot Is Disable : <:717644657420533831:779801621756248144>`);
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
         console.error(err).catch(err => {
