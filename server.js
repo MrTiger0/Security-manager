@@ -62,38 +62,34 @@ if (cooldown.has(message.author.id)) {
       .setTitle(`Click Here To Add : Anti Vandalism`)
       .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`) .setDescription(`
 
-<a:A37B6C5C13714FB78C0C8A176C7373C0:804627432913109052>丨**Info**
-\`userinfo\`
-\`serverinfo\`
-\`uinvites\`
-\`avatar\`
-\`ping\`
-\`vote\`
-\`love\`
-\`rank\`
-\`bot\`
+<a:A37B6C5C13714FB78C0C8A176C7373C0:804627432913109052>丨**Info Commands**
+\`A!userinfo\`
+\`A!serverinfo\`
+\`A!ping\`
+\`A!bot\`
 
-<:4EA1E0F6B489405E9205202A70C602B3:804633627199012874>丨**Security**
-\`anti kick\`[Number]
-\`anti ban\`[Number]
-\`anti roleC\`[Number]
-\`anti roleD\`[Number]
-\`anti channelC\`[Number]
-\`anti channelD\`[Number]
-\`anti bot [on/off]\`
-\`settings\`
+<:3A9FB0D306D04D4DA81A701891114B4B:804633626834239488>丨**Moderation Commands**
+\`A!lock\`
+\`A!unlock\`
+\`A!clear\`
+\`A!ban\` : @User
+\`A!kick\`: @User
+\`A!unban\`: Id / all
+\`A!mute\`: @User / Id
+\`A!unmute\`: @User / Id
+\`A!bans\`,
 
-<:3A9FB0D306D04D4DA81A701891114B4B:804633626834239488>丨**Moderation**
-\`lock\`,\`unlock\`,
-\`ban\` : @User
-\`kick\`: @User
-\`unban\`: Id / all
-\`mute\`: @User / Id
-\`unmute\`: @User / Id
-\`move\`: @user / all
-\`vkick\`: @User / Id
-\`hide\`,\`show\`
-\`bans\`,
+<:4EA1E0F6B489405E9205202A70C602B3:804633627199012874>丨**Security Commands**
+\`A!anti kick\`[Number]
+\`A!anti ban\`[Number]
+\`A!anti roleC\`[Number]
+\`A!anti roleD\`[Number]
+\`A!anti channelC\`[Number]
+\`A!anti channelD\`[Number]
+\`A!anti bot [on/off]\`
+\`A!settings\`
+
+
 
 [Support](https://discord.gg/QZdDqjtdd3) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
 
@@ -835,43 +831,7 @@ fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
     });
 });
 
-//=================================[ roles ]===================================//
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "roles")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
 
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
- let rolemap = message.guild.roles.cache
- .sort((a, b) => b.position - a.position)
- .map(r => r)
- .join(",");
- if (rolemap.length > 1024) rolemap = "To many roles to display";
- if (!rolemap) rolemap = "No roles";
-const embed = new Discord.MessageEmbed()
-.addField("Role List" , rolemap)
-.setColor("#808080")
-message.channel.send(embed);
-}
-})
-
-//=================================[ uinvites ]=============================//
-
-client.on('message', message => {
-   if(message.content.startsWith(prefix + "uinvites")) {
-    message.guild.fetchInvites().then(invs => {
-      let user = message.mentions.users.first() || message.author
-      let personalInvites = invs.filter(i => i.inviter.id === user.id);
-      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-message.channel.send(`🎫 Your invites ${inviteCount}`);
-});
-  }
-});
 
 //=================================[ ban & unban]==================================//
 
@@ -1091,165 +1051,6 @@ var embed = new Discord.MessageEmbed()
   }
 })
 
-//=================================[ hide & show ]==========================//
-
-client.on('message', james => {
-      if(james.content === prefix + "hide") {
-      if(!james.channel.guild) return;
-      if(!james.member.hasPermission('MANAGE_CHANNELS')) return james.reply('You Dont Have Perms ❌');
-             james.channel.overwritePermissions(james.guild.id, {
-             READ_MESSAGES: false
- })
-              james.channel.send('Channel Hided Successfully ! ✅  ')
- }
-});
-client.on('message', james => {
-      if(james.content === prefix + "show") {
-      if(!james.channel.guild) return;
-      if(!james.member.hasPermission('MANAGE_CHANNELS')) return james.reply('❌');
-             james.channel.overwritePermissions(james.guild.id, {
-             READ_MESSAGES: true
- })
-              james.channel.send('Done')
- }
-})
-
-//=================================[ vote ]=================================//
-
-client.on('message', badboy => {
-  if(badboy.content.startsWith(prefix + "vote")){
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-	if (badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only") 
-
-let args = badboy.content.split(" ").slice(1).join(" ");
-if(!args) return badboy.reply("type your vote")
-    var embed = new Discord.MessageEmbed()
-   
-    .setDescription(`${args}`)
- .setColor("#808080")
- badboy.channel.send(embed).then(badboy => {
-   badboy.react("👍")
-badboy.react("👎")
- })
-  }
-})
-
-//=================================[ vkick ]================================//
-
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "vkick")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    let args = message.content.split(" ");
-    let user = message.guild.member(
-      message.mentions.users.first() || message.guild.members.cache.get(args[1])
-    );
-    if (!message.channel.guild || message.author.bot) return;
-    if (!message.guild.member(message.author).hasPermission("MOVE_MEMBERS"))
-      return message.channel.send("Please Check Your Permission");
-    if (!message.guild.member(client.user).hasPermission("MOVE_MEMBERS"))
-      return message.channel.send("Please Check My Permission");
-    if (!message.member.voice.channel)
-      return message.channel.send("Your are not in voice channel");
-    if (!user) return message.channel.send(`${prefix}vkick <@mention or id>`);
-    if (!message.guild.member(user).voice.channel)
-      return message.channel.send(
-        `**${user.user.username}** Has not in Voice channel`
-      );
-    await user.voice.kick()
-    message.channel.send(
-      `**${user.user.username}** has been kicked from **Voice Channel**`
-    )
-  }
-});
-
-//=================================[ avatar ]===============================//
-client.on("message" , message => {
-  if(message.content.startsWith(`${prefix}avatar`)){
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    let args = message.content.split(" ");
-    let user = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[1]));
-    if (user) {
-      user = user.user
-    } else {
-      user = message.author
-    }
-    let avatar = user.avatarURL({dynamic:true , size:2048 , format:"png"});
-    let AvatarEmbed = new Discord.MessageEmbed()
-    .setAuthor(`${user.tag}`)
-    .setTitle(`Avatar Link`)
-    .setURL(user.avatarURL({dynamic:true , size:2048 , format:"png"}))
-    .setImage(avatar)
-    .setFooter(`Requested by ${message.author.username}`,message.author.avatarURL({dynamic : true}))
-    .setColor("#808080")
-    message.channel.send(AvatarEmbed)
-}
-});
-
-//=================================[ love ]=================================//
-
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "love")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
- const onetoonehundred = Math.floor(Math.random() * 100) 
- const usser = message.mentions.members.first()
-
- if(!usser) {
-     const specify = new Discord.MessageEmbed()
-     .setDescription('Please mention a user!')
-     message.channel.send(specify)
- } else {
-
-     if(usser.id === message.author.id) {
-         const love2 = new Discord.MessageEmbed()
- .setTitle(`Love Rate :heart: `)
- .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
- .setDescription(`${message.author} loves ${usser} 100% ❤️ 
- nah joke.`)
- message.channel.send(love2)
-     } else {
- 
- const love = new Discord.MessageEmbed()
- .setTitle(`Love Rate :heart: `)
- .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
- .setDescription(`${message.author} loves ${usser} ${onetoonehundred}%`)
- message.channel.send(love)
- }
-}
-}
-})
-
 //=================================[ bans ]=================================//
 
 client.on('message', message => {
@@ -1260,74 +1061,6 @@ client.on('message', message => {
       .then(bans => message.channel.send(`📋 Server Ban List : ${bans.size} `))
       .catch(console.error);
   }
-});
-
-//=================================[ rank ]=================================//
-
-const rcrank = JSON.parse(fs.readFileSync("rcrank.json", "utf8")); 
-
-client.on('message', message => {
-
-if (!rcrank[message.author.id])
- rcrank[message.author.id]={points:0,level:0,nextLvlXp:200};
-
-if (message.author.bot) return;
-
-rcrank[message.author.id].points = Math.floor(rcrank[message.author.id].points + 1); 
-
-if (rcrank[message.author.id].nextLvlXp <= rcrank[message.author.id].points) {
-
-rcrank[message.author.id].level = Math.floor(rcrank[message.author.id].level + 1);
-
-rcrank[message.author.id].nextLvlXp = Math.floor(rcrank[message.author.id].points * 20);
-
-message.channel.send(`**${message.author.username}, You leveld up to __${rcrank[message.author.id].level}__**`);
-
-};
-
-fs.writeFile('rcrank.json', JSON.stringify(rcrank), (err) => {  
-
-if (err) console.error(err);
-
-});
-
-})  
-
-client.on("message", async message => {
-
-if (message.author.bot) return; 
-
-if(!message.channel.guild) return;
-
-if (message.content.startsWith(prefix + "rank")) {
-
-var ment = message.mentions.users.first();
-
-var getvalueof;  
-
-if(ment) {getvalueof = ment;}else{getvalueof = message.author;}
-
-if(getvalueof.id === client.user.id) {return message.channel.send("😉 | I am on level 100")}  
-
-if(getvalueof.bot) {return message.channel.send("Bot not have levels")}
-
-if (!rcrank[getvalueof.id]) rcrank[getvalueof.id] = {points: 0, level: 1,nextLvlXp:200};
-
-let embed = new MessageEmbed()  
-
-.setColor("#808080")
-
-.setThumbnail(getvalueof.avatarURL())
-
-.setAuthor(getvalueof.username)  
-
-.setDescription(`**LEVEL** - ${rcrank[getvalueof.id].level}
-**XP** - ${rcrank[getvalueof.id].points}/${rcrank[getvalueof.id].nextLvlXp}`)  
-
- message.channel.send(embed)
-
-}  
-
 });
 
 //=================================[ ping ]=================================//
@@ -1370,7 +1103,6 @@ message.channel.send(tnx)
 } 
 });
 
-//=================================[ say ]==================================//
 
 //=================================[ warn ]=================================//
 
@@ -1530,94 +1262,6 @@ client.on("message", async message => {
         )
       )
       .catch(console.error);
-  }
-});
-//=================================[ move all ]==============================//
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "moveall")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    if (!message.member.hasPermission("MOVE_MEMBERS"))
-      return message.channel.send("You Dont Have Perms `MOVE_MEMBERS`");
-    if (!message.guild.member(client.user).hasPermission("MOVE_MEMBERS"))
-      return message.reply("I Dont Have Perms `MOVE_MEMBERS`");
-    if (message.member.voiceChannel == null)
-      return message.channel.send(`You Have To Be In Room Voice`);
-    var author = message.member.voiceChannelID;
-    var m = message.guild.members.filter(m => m.voiceChannel);
-    message.guild.members
-      .filter(m => m.voiceChannel)
-      .forEach(m => {
-        m.setVoiceChannel(author);
-      });
-    message.channel.send(
-      `Success Moved All To Your Channel`
-    );
-  }
-});
-
-//////
-client.on("message", message => {
-  if (!message.channel.guild) return;
-  if (message.content.startsWith(prefix + "move")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    if (message.member.hasPermission("MOVE_MEMBERS")) {
-      if (message.mentions.users.size === 0) {
-        return message.channel.send(
-          "``To use the command type this command" + prefix + "move [USER]``"
-        );
-      }
-      if (message.member.voiceChannel != null) {
-        if (message.mentions.members.first().voiceChannel != null) {
-          var authorchannel = message.member.voiceChannelID;
-          var usermentioned = message.mentions.members.first().id;
-          var embed = new Discord.RichEmbed()
-            .setTitle("Succes!")
-            .setColor("#080808")
-            .setDescription(
-              `You have withdrawn<@${usermentioned}> to Your voice rum✅ `
-            );
-          var embed = new Discord.RichEmbed()
-            .setTitle(`You are Moved in ${message.guild.name}`)
-            .setColor("#080808")
-            .setDescription(
-              `<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}`
-            );
-          message.guild.members
-            .get(usermentioned)
-            .setVoiceChannel(authorchannel)
-            .then(m => message.channel.send(embed));
-          message.guild.members.get(usermentioned).send(embed);
-        } else {
-          message.channel.send(
-            "``You can not withdraw" +
-              message.mentions.members.first() +
-              " `This member must be in a vocal rome`"
-          );
-        }
-      } else {
-        message.channel.send(
-          "``You must be in an audio ROM in order to pull the member out to you``"
-        );
-      }
-    } else {
-      message.react("✅");
-    }
   }
 });
 
