@@ -994,31 +994,31 @@ var embed = new Discord.MessageEmbed()
 
 =================================[ hide & show ]==========================
 
-client.on('message', message => {
-      if(message.content === prefix + "hide") {
-      if(!message.channel.guild) return;
-      if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply('You Dont Have Perms ❌');
-             message.channel.overwritePermissions(message.guild.id, {
+client.on('message', james => {
+      if(james.content === prefix + "hide") {
+      if(!james.channel.guild) return;
+      if(!james.member.hasPermission('MANAGE_CHANNELS')) return james.reply('You Dont Have Perms ❌');
+             james.channel.overwritePermissions(james.guild.id, {
              READ_MESSAGES: false
  })
-              message.channel.send('Channel Hided Successfully ! ✅  ')
+              james.channel.send('Channel Hided Successfully ! ✅  ')
  }
 });
-client.on('message', message => {
-      if(message.content === prefix + "show") {
-      if(!message.channel.guild) return;
-      if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply('❌');
-             message.channel.overwritePermissions(message.guild.id, {
+client.on('message', james => {
+      if(james.content === prefix + "show") {
+      if(!james.channel.guild) return;
+      if(!james.member.hasPermission('MANAGE_CHANNELS')) return james.reply('❌');
+             james.channel.overwritePermissions(james.guild.id, {
              READ_MESSAGES: true
  })
-              message.channel.send('Done')
+              james.channel.send('Done')
  }
 })
 
 =================================[ vote ]=================================
 
-client.on('message', message => {
-  if(message.content.startsWith(prefix + "vote")){
+client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "vote")){
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -1028,17 +1028,17 @@ if (cooldown.has(message.author.id)) {
     setTimeout(() => {
       cooldown.delete(message.author.id);
     }, cdtime * 1000);
-	if (message.author.bot || !message.guild) return message.reply("this command for server only") 
+	if (badboy.author.bot || !badboy.guild) return badboy.reply("this command for server only") 
 
-let args = message.content.split(" ").slice(1).join(" ");
+let args = badboy.content.split(" ").slice(1).join(" ");
 if(!args) return badboy.reply("type your vote")
     var embed = new Discord.MessageEmbed()
    
     .setDescription(`${args}`)
  .setColor("#808080")
-message.channel.send(embed).then(message => {
-   meessage.react("👍")
-message.react("👎")
+ badboy.channel.send(embed).then(badboy => {
+   badboy.react("👍")
+badboy.react("👎")
  })
   }
 })
