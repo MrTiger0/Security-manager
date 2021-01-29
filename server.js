@@ -81,7 +81,6 @@ if (cooldown.has(message.author.id)) {
 \`anti channelC\`[Number]
 \`anti channelD\`[Number]
 \`anti bot [on/off]\`
-\`anti link [on/off]\`
 \`settings\`
 
 <:3A9FB0D306D04D4DA81A701891114B4B:804633626834239488>丨**Moderation**
@@ -1622,115 +1621,59 @@ if (cooldown.has(message.author.id)) {
   }
 });
 
-//=================================[ anti problem ]==============================//
-
-let antilink = JSON.parse(fs.readFileSync("./antilink.json", "utf8"));
-client.on('message', message => {
-    if(message.content.startsWith(prefix + "anti link off")) {
-       if(!message.channel.guild) return ;
-      let gg = new Discord.MessageEmbed()
-      .setTitle('Error  :')
-      .setColor("Gray")
-      .setDescription(`**Sorry But You Dont Have Permission** \`MANAGE_GUILD\``)
-      .setAuthor(message.author.username
-  ,message.author.avatarURL())
-   .setThumbnail(message.author.avatarURL())
-
-
-        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(gg);
-antilink[message.guild.id] = {
-onoff: 'Off',
-}
-let done = new Discord.MessageEmbed()
-      .setTitle('Done   :')
-      .setColor("Gray")
-      .setDescription(' Done disable the antilink  🔴')
-      .setAuthor(message.author.username
-  ,message.author.avatarURL())
-   .setThumbnail(message.author.avatarURL())
- .setFooter(`Requsted by: ${message.author.username}`)
-message.channel.send(done)
-          fs.writeFile("./data/antilink.json", JSON.stringify(antilink), (err) => {
-            if (err) console.error(err)
-            .catch(err => {
-              console.error(err);
-          });
-            });
-          }
- 
-        })
-        client.on('message', message => {
-    if(message.content.startsWith(prefix + "anti link on")) {
-            let gg = new Discord.MessageEmbed()
-      .setTitle('Error  :')
-      .setColor("Gray")
-      .setDescription(`**Sorry But You Dont Have Permission** \`MANAGE_GUILD\``)
-      .setAuthor(message.author.username
-  ,message.author.avatarURL())
-   .setThumbnail(message.author.avatarURL())
-        if(!message.channel.guild) return ;
-        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(gg);
-antilink[message.guild.id] = {
-onoff: 'On',
-}
-let done = new Discord.MessageEmbed()
-      .setTitle('Done   :')
-      .setColor("Gray")
-      .setDescription(' Done enable the antilink 🟢 ')
-      .setAuthor(message.author.username
-  ,message.author.avatarURL())
-   .setThumbnail(message.author.avatarURL())
- .setFooter(`Requsted by: ${message.author.username}`)
-message.channel.send(done)
-          fs.writeFile("./data/antilink.json", JSON.stringify(antilink), (err) => {
-            if (err) console.error(err)
-            .catch(err => {
-              console.error(err);
-          });
-            });
-          }else{
-            if(message.content==prefix+'anti link') {
-              let error = new Discord.MessageEmbed()
-      .setTitle('Error   :')
-      .setColor("Gray")
-      .setDescription(`
-      Cmd :
-      ${prefix}anti link on for enable the anti link 
-      ${prefix}anti link off for disable the anti link 
-      `)
-      .setAuthor(message.author.username
-  ,message.author.avatarURL())
-   .setThumbnail(message.author.avatarURL())
- .setFooter(`Requsted by: ${message.author.username}`)
-message.channel.send(error)
-            }
-          }
- 
-        })
-client.on('message', message => {
-   let er = new Discord.MessageEmbed()
-      .setTitle('Anti  link :')
-      .setColor("Gray")
-      .setDescription(`The anti link is on you cant send this message`)
-      .setAuthor(message.author.username
-  ,message.author.avatarURL())
-   .setThumbnail(message.author.avatarURL())
-
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('https:/')||
-    message.content.includes('http')||
-    message.content.includes('.com')||
-    message.content.includes('.gg')||
-    message.content.includes('.it')
-    ){
-            if(!antilink[message.guild.id]) antilink[message.guild.id] = {
-        onoff: 'Off'
- 
-            }
-        if(antilink[message.guild.id].onoff === 'Off') return;
-        message.delete()
-    return message.reply(message)
-    }
-});
 
 //=================================[ settings ]==============================//
+client.on("message", message => {
+  if (message.content === prefix + "settings") {
+     if (message.author.id !== message.guild.ownerID) return;
+          message.channel.send(
+          "Sorry , But You Dont Have `OWNERSHIP`."
+        );
+    if (!message.channel.guild)
+      return message.channel.send(
+        "Sorry This Command Only For Servers."
+      );
+    let embed = new Discord.MessageEmbed()
+      .setTitle("")
+       
+      .setURL("")
+       
+      .setDescription(
+
+
+
+
+        `Anti Ban Is : 🟢
+${config[message.guild.id].banLimit}
+
+•••••
+Anti Kick Is : 🟢
+
+${config[message.guild.id].kickLimits}
+•••••
+Anti ChannelD Is : 🟢
+
+${config[message.guild.id].chaDelLimit}
+•••••
+Anti ChannelC Is : 🟢
+
+${config[message.guild.id].chaCrLimit}
+•••••
+Anti RoleD Is : 🟢
+
+${config[message.guild.id].roleDelLimit}
+•••••
+Anti RoleC Is : 🟢
+
+${config[message.guild.id].roleCrLimits}
+•••••
+Anti Time Is : 🟢
+
+ ${config[message.guild.id].time}`
+      )
+      .setColor(color)
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send({ embed });
+  }
+});
