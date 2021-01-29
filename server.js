@@ -32,6 +32,7 @@ var table = require("table").table;
 const Discord = require("discord.js");
 const cmd = require("node-cmd");
 const prefix = "A!";
+const devs:["769956996476043275"]
 const cooldown = new Set()
 const cdtime =5;
 client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.vCpdsNqD2hQOHZ5w7fIWJ9fgWKs");
