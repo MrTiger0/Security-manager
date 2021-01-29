@@ -59,8 +59,7 @@ if (cooldown.has(message.author.id)) {
       .setColor(color)
       .setAuthor(message.author.username, message.author.AvatarURL)
       .setThumbnail(message.author.avatarURL())
-      .setTitle("Click Here To Add : " +
-          ${client.user.username}")
+      .setTitle("")
       .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`) .setDescription(`
 
 <a:A37B6C5C13714FB78C0C8A176C7373C0:804627432913109052>丨**Info**
