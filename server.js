@@ -1567,6 +1567,157 @@ if (cooldown.has(message.author.id)) {
 
 //=================================[ anti problem ]==============================//
 
+let swear = JSON.parse(fs.readFileSync("./swear.json", "utf8"));
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti swear off")) {
+    if (!message.channel.guild) return;
+      if (!message.member.hasPermission("MANAGE_GUILD"))
+        return message.channel.send(
+          
+            "Sorry , But You Dont Have `MANAGE_GUILD` Permission ."
+        );
+    swear[message.guild.id] = {
+      onoff: "Off"
+    };
+    message.channel.send(`AntiSwear Is \`Disable\`.`);
+    fs.writeFile("./swear.json", JSON.stringify(swear), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti swear on")) {
+    if (!message.channel.guild) return;
+      if (!message.member.hasPermission("MANAGE_GUILD"))
+        return message.channel.send(
+          
+            "Sorry , But You Dont Have `MANAGE_GUILD` Permission."
+        );
+    swear[message.guild.id] = {
+      onoff: "On"
+    };
+    message.channel.send(`AntiSwear Is \`Enable\`.`);
+    fs.writeFile("./swear.json", JSON.stringify(swear), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+const configswear = require("./config2.json");
+client.on("message", message => {
+  var args = message.content.split(/[ ]+/);
+  if (
+    configswear.FILTER_LIST.some(word =>
+      message.content.toLowerCase().includes(word)
+    )
+  ) {
+    if (!message.channel.guild) return;
+    if (!swear[message.guild.id])
+      swear[message.guild.id] = {
+        onoff: "Off"
+      };
+    if (swear[message.guild.id].onoff === "Off") return;
+    message.delete();
+    return message.reply(`Please Dont Swear.`);
+  }
+});
+////////problem
+
+let spread = JSON.parse(fs.readFileSync("./spread.json", "utf8"));
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti problem off")) {
+    if (!message.channel.guild) return;
+      if (!message.member.hasPermission("MANAGE_GUILD"))
+        return message.channel.send(
+          
+            "Sorry , But You Dont Have `MANAGE_GUILD` Permission."
+        );
+    spread[message.guild.id] = {
+      onoff: "Off"
+    };
+    message.channel.send(`**AntiProblem Is \`Disable\` .**`);
+    fs.writeFile("./spread.json", JSON.stringify(spread), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti problem on")) {
+    if (!message.channel.guild) return;
+  
+      if (!message.member.hasPermission("MANAGE_GUILD"))
+        return message.channel.send(
+          
+            "Sorry , But You Dont Have `MANAGE_GUILD` Permission."
+        );
+    spread[message.guild.id] = {
+      onoff: "On"
+    };
+    message.channel.send(`AntiProblem Is \`Enable\`.`);
+    fs.writeFile("./spread.json", JSON.stringify(spread), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+client.on("message", message => {
+  var args = message.content.split(/[ ]+/);
+  if (message.content.includes("http")) {
+    if (message.member.hasPermission("MANAGE_EMOJIS")) return;
+    if (!message.channel.guild) return;
+    if (!spread[message.guild.id])
+      spread[message.guild.id] = {
+        onoff: "Off"
+      };
+    if (spread[message.guild.id].onoff === "Off") return;
+    message.delete();
+    return message.reply(
+      `You Dont Have \`MANAGE_EMOJIS\` Permission.`
+    );
+  }
+});
+client.on("message", message => {
+  var args = message.content.split(/[ ]+/);
+  if (message.content.includes("@everyone")) {
+    if (message.member.hasPermission("MENTION_EVERYONE")) return;
+    if (!message.channel.guild) return;
+    if (!spread[message.guild.id])
+      spread[message.guild.id] = {
+        onoff: "Off"
+      };
+    if (spread[message.guild.id].onoff === "Off") return;
+    message.delete();
+    return message.reply(
+      `You Dont Have \`MENTION_EVERYONE\` Permission.`
+    );
+  }
+});
+client.on("message", message => {
+  var args = message.content.split(/[ ]+/);
+  if (message.content.includes("@here")) {
+    if (message.member.hasPermission("MENTION_EVERYONE")) return;
+    if (!message.channel.guild) return;
+    if (!spread[message.guild.id])
+      spread[message.guild.id] = {
+        onoff: "Off"
+      };
+    if (spread[message.guild.id].onoff === "Off") return;
+    message.delete();
+    return message.reply(
+      `You Dont Have \`MENTION_EVERYONE\` Permission .`
+    );
+  }
+});
 
 //=================================[ settings ]==============================//
 client.on("message", message => {
@@ -1580,32 +1731,40 @@ client.on("message", message => {
         "Sorry This Command Only For Servers."
       );
     let embed = new Discord.MessageEmbed()
-      .setTitle(
-        
-          "ClickHere To Add" +
-          `${client.user.username}` +
-          "."
-      )
-      .setURL(
-        "https://discordapp.com/oauth2/authorize?client_id=" +
-          `${client.user.id}` +
-          "&scope=bot&permissions=2080374975"
-      )
-
+      .setTitle("")
+       
+      .setURL("")
+       
       .setDescription(
-        ` | Anti Ban Is : ${config[message.guild.id].banLimit}
+
+
+
+
+        `🟢 | Anti Ban Is : ${config[message.guild.id].banLimit}
+
 •••••
-| Anti Kick Is : ${config[message.guild.id].kickLimits}
+
+🟢 | Anti Kick Is : ${config[message.guild.id].kickLimits}
+
 •••••
-| Anti ChannelD Is : ${config[message.guild.id].chaDelLimit}
+
+🟢 | Anti ChannelD Is : ${config[message.guild.id].chaDelLimit}
+
 •••••
-| Anti ChannelC Is : ${config[message.guild.id].chaCrLimit}
+
+🟢 | Anti ChannelC Is : ${config[message.guild.id].chaCrLimit}
+
 •••••
-| Anti RoleD Is : ${config[message.guild.id].roleDelLimit}
+
+🟢 | Anti RoleD Is : ${config[message.guild.id].roleDelLimit}
+
 •••••
-| Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
+
+🟢 | Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
+
 •••••
-| Anti Time Is : ${config[message.guild.id].time}**`
+
+🟢 | Anti Time Is : ${config[message.guild.id].time}`
       )
       .setColor("#080808")
       .setThumbnail(message.author.avatarURL())
