@@ -62,25 +62,23 @@ client.on("message", async message => {
       .setTitle("Help Command")
       .setURL(``) .setDescription(`
 
-**Info**
-\`userinfo\`,\`serverinfo\`
-\`bot\`,\`rank\`,\`uinvites\`
-\`avatar\`,\`ping\`,\`vote\`
-\`love\`
+**For Members Commands**
+ 
+ \`helpmembers\`
 
-**Security**
-\`anti kick\`,\`anti ban\`
-\`anti role\`,\`anti channel\`
-\`anti bot [on/off]\`
+**For Moderations Commands**
 
-**Moderation**
-\`lock\`,\`unlock\`,\`ban\`,\`kick\`
-\`unban\`,\`mute\`,\`unmute\`,\`bans\`
-\`vkick\`,\`say\`,\`hide\`,\`show\`
-\`move [@user/all]
+ \`helpModerations\`
+
+**For Security Commands**
+
+ \`helpsecurity\`
 
 
-[**Invite**](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot) - [**Support**](https://discord.gg/QZdDqjtdd3) - [**Website**](https://aerial-catkin-jumbo.glitch.me/) - [**Vote**](https://top.gg/bot/711328570374619207)
+[**Invite**](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot)
+[**Support**](https://discord.gg/QZdDqjtdd3)
+[**Website**](https://aerial-catkin-jumbo.glitch.me/)
+[**Vote**](https://top.gg/bot/711328570374619207)
 
 `);
 
@@ -89,6 +87,39 @@ client.on("message", async message => {
 });
 
 ////////
+
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "helpmembers")) {
+    if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**⏱ | Please wait for 5 second**`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    let help = new Discord.MessageEmbed()
+      .setColor(color)
+      .setAuthor(message.author.username, message.author.AvatarURL)
+      .setThumbnail(message.author.avatarURL())
+      .setTitle("Help Command")
+      .setURL(``) .setDescription(`
+
+
+Test
+Test
+Test
+Test
+
+
+
+`);
+
+    message.channel.send(help);
+  }
+});
+///////
 
 client.on('message', prof=>{
  
@@ -102,7 +133,7 @@ client.on('message', prof=>{
       deny:['SEND_MESSAGES'],
     }]).then(p=>{
         var professor = new Discord.MessageEmbed()
-        prof.channel.send(`🔒丨**has been locked**`);
+        prof.channel.send(`🔒丨has been locked`);
     })
   
     }
@@ -116,7 +147,7 @@ client.on('message', prof=>{
       allow:['SEND_MESSAGES'],
     }]).then(p=>{
         var professor = new Discord.MessageEmbed()
-        prof.channel.send(`🔓丨**has been unlocked**`);
+        prof.channel.send(`🔓丨has been unlocked`);
     })
   
     }
@@ -190,7 +221,7 @@ client.on("message", message => {
           "**" + ghallat + "  Only Type A `Number` .**"
         );
       config[message.guild.id].roleDelLimit = num;
-      message.reply(
+      message.channel.send(
         `**${rast}  Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
@@ -722,7 +753,7 @@ client.on("message", message => {
     antibots[message.guild.id] = {
       onoff: "On"
     };
-    message.channel.send(`**${rast}  AntiBot Is \`Enable\` .**`);
+    message.channel.send(`AntiBot Is Enable : <:mars_52:800272124102180864>`);
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
         console.error(err).catch(err => {
@@ -739,7 +770,7 @@ client.on("message", message => {
     antibots[message.guild.id] = {
       onoff: "Off"
     };
-    message.channel.send(`**${rast}  AntiBot Is \`Disable\` .**`);
+    message.channel.send(`AntiBot Is Disable : <:mars_51:800272124060631042>`);
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
         console.error(err).catch(err => {
