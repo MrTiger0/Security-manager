@@ -59,8 +59,9 @@ if (cooldown.has(message.author.id)) {
       .setColor(color)
       .setAuthor(message.author.username, message.author.AvatarURL)
       .setThumbnail(message.author.avatarURL())
-      .setTitle("")
-      .setURL(``) .setDescription(`
+      .setTitle("Click Here To Add : " +
+          ${client.user.username}")
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`) .setDescription(`
 
 <a:A37B6C5C13714FB78C0C8A176C7373C0:804627432913109052>丨**Info**
 \`userinfo\`
@@ -81,6 +82,7 @@ if (cooldown.has(message.author.id)) {
 \`anti channelC\`[Number]
 \`anti channelD\`[Number]
 \`anti bot [on/off]\`
+\`settings\`
 
 <:3A9FB0D306D04D4DA81A701891114B4B:804633626834239488>丨**Moderation**
 \`lock\`,\`unlock\`,
@@ -104,39 +106,94 @@ if (cooldown.has(message.author.id)) {
 
 ///////
 
-client.on('message', prof=>{
- 
-    if(prof.content.startsWith(prefix + 'lock'))
-    {
-       if(!prof.guild.me.hasPermission('MANAGE_CHANNELS'))return prof.reply('**i dont hava premission `MANAGE_CHANNELS`:pleading_face: **')
-  if(!prof.member.hasPermission('MANAGE_CHANNELS'))return prof.reply('**you dont hava`MANAGE_CHANNELS`Permission.!**')
-  
-  prof.channel.overwritePermissions([{
-      id:prof.guild.id,
-      deny:['SEND_MESSAGES'],
-    }]).then(p=>{
-        var professor = new Discord.MessageEmbed()
-        prof.channel.send(`🔒丨has been locked`);
-    })
-  
-    }
-    if(prof.content.startsWith(prefix + 'unlock'))
-    {
-       if(!prof.guild.me.hasPermission('MANAGE_CHANNELS'))return prof.reply('**i dont hava premission `MANAGE_CHANNELS`:pleading_face: **')
-  if(!prof.member.hasPermission('MANAGE_CHANNELS'))return prof.reply('**you dont hava`MANAGE_CHANNELS`Permission.!**')
-  
-  prof.channel.overwritePermissions([{
-      id:prof.guild.id,
-      allow:['SEND_MESSAGES'],
-    }]).then(p=>{
-        var professor = new Discord.MessageEmbed()
-        prof.channel.send(`🔓丨has been unlocked`);
-    })
-  
-    }
-  
-  
-})
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "invite")) {
+    let invite = new Discord.MessageEmbed()
+      .setColor(color)
+      .setAuthor(message.author.username, message.author.displayAvatarURL)
+      .setThumbnail(message.author.avatarURL)
+      .setTitle(
+        "" +
+          "Click Here To Add : " +
+          `${client.user.username}`
+      )
+      .setURL(
+        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
+      );
+    message.channel.send(invite);
+  }
+});
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "lock")) {
+    if (!message.channel.guild)
+      return message.channel.send(
+        "Sorry This Command Only For Servers."
+      );
+
+    if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
+    if (!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS"))
+      return;
+    message.channel.updateOverwrite(message.guild.id, {
+      SEND_MESSAGES: false
+    });
+    const lock = new Discord.MessageEmbed()
+      .setTitle(
+        "" +
+          "Click Here To Add : " +
+          `${client.user.username}`
+      )
+      .setURL(
+        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
+      )
+      .setColor(color)
+      .setDescription(
+        `🔒 | Locked Channel
+Channel Name : <#${message.channel.id}>
+Locked By : <@${message.author.id}>
+Channel Status : Send Message : ${ghallatw}
+`
+      )
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send(lock);
+  }
+});
+
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "unlock")) {
+    if (!message.channel.guild)
+      return message.channel.send(
+        "Sorry This Command Only For Servers."
+      );
+
+    if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
+    if (!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS"))
+      return;
+    message.channel.updateOverwrite(message.guild.id, {
+      SEND_MESSAGES: null
+    });
+    const unlock = new Discord.MessageEmbed()
+      .setTitle(
+        "" +
+          "Click Here To Add : " +
+          `${client.user.username}`
+      )
+      .setURL(
+        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
+      )
+      .setColor(color)
+      .setDescription(
+        `🔓 | UnLocked Channel
+Channel Name : <#${message.channel.id}>
+Locked By : <@${message.author.id}>
+Channel Status : Send Message : ${rastw}
+`
+      )
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send(unlock);
+  }
+});
 
 //////
 
@@ -1698,7 +1755,7 @@ client.on("message", message => {
 
 
         `Anti Ban Is : 🟢
-        ${config[message.guild.id].banLimit}
+${config[message.guild.id].banLimit}
 
 •••••
 Anti Kick Is : 🟢
@@ -1725,7 +1782,7 @@ Anti Time Is : 🟢
 
  ${config[message.guild.id].time}`
       )
-      .setColor("#080808")
+      .setColor(color)
       .setThumbnail(message.author.avatarURL())
       .setFooter(`${message.author.tag}`, message.author.avatarURL());
     message.channel.send({ embed });
