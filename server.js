@@ -34,7 +34,7 @@ const cmd = require("node-cmd");
 const prefix = "A!";
 const cooldown = new Set()
 const cdtime =5;
-client.login(".XsBaWw.vCpdsNqD2hQOHZ5w7fIWJ9fgWKs");
+client.login("");
  client.on("ready", () => {
   console.log(`${client.user.tag}`);
   console.log(`Guilds: ${client.guilds.size}`);
@@ -44,8 +44,8 @@ client.login(".XsBaWw.vCpdsNqD2hQOHZ5w7fIWJ9fgWKs");
 
 //////
 
-client.on("message",message => {
-  if(message.content.startsWith(prefix+ "help")) 
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "help")) {
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -55,8 +55,12 @@ if (cooldown.has(message.author.id)) {
     setTimeout(() => {
       cooldown.delete(message.author.id);
     }, cdtime * 1000);
-var embed = new Discord.MessageEmbed()
-  .setDescription(`
+    let help = new Discord.MessageEmbed()
+      .setColor(color)
+      .setAuthor(message.author.username, message.author.AvatarURL)
+      .setThumbnail(message.author.avatarURL())
+      .setTitle("")
+      .setURL(``) .setDescription(`
 
 <a:A37B6C5C13714FB78C0C8A176C7373C0:804627432913109052>丨**Info**
 \`userinfo\`
@@ -88,19 +92,15 @@ var embed = new Discord.MessageEmbed()
 \`move\`: @user / all
 \`vkick\`: @User / Id
 \`hide\`,\`show\`
-\`bans\`,\`say\`
+\`bans\`,
 
 [Invite](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot) - [Support](https://discord.gg/QZdDqjtdd3) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
 
-`)
- 
-.setColor('GRAY')
-message.channel.send(embed);
+`);
 
-
-}
-
-); 
+    message.channel.send(help);
+  }
+});
 
 ///////
 
