@@ -49,29 +49,43 @@ client.on("message",message => {
 var embed = new Discord.MessageEmbed()
   .setDescription(`Commands bot 
   
-  1-test
-  
-  2-test
-  
-  3-test
-  
-  4-test
-  
-  5-test
-  
-  6-test
-  
-  7-test
-  
-  8-test
-  
-  9-test
-  
- 10-test
+<:fcbe593471c3219e:761876602350731275>丨**Info**
+\`userinfo\`
+\`serverinfo\`
+\`uinvites\`
+\`avatar\`
+\`ping\`
+\`vote\`
+\`love\`
+\`rank\`
+\`bot\`
+
+<:4EA1E0F6B489405E9205202A70C602B3:804633627199012874>丨**Security**
+\`anti kick\`[Number]
+\`anti ban\`[Number]
+\`anti roleC\`[Number]
+\`anti roleD\`[Number]
+\`anti channelC\`[Number]
+\`anti channelD\`[Number]
+\`anti bot [on/off]\`
+
+<:3A9FB0D306D04D4DA81A701891114B4B:804633626834239488>丨**Moderation**
+\`lock\`,\`unlock\`,
+\`ban\` : @User
+\`kick\`: @User
+\`unban\`: Id / all
+\`mute\`: @User / Id
+\`unmute\`: @User / Id
+\`move\`: @user / all
+\`vkick\`: @User / Id
+\`hide\`,\`show\`
+\`bans\`,\`say\`
+
+[Invite](https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot) - [Support](https://discord.gg/QZdDqjtdd3) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
 
 `)
  
-.setColor('#FF0000')
+.setColor('080808')
 message.channel.send(embed);
 
 
