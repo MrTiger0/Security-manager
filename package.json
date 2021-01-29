@@ -1,7 +1,7 @@
 {
-  "name": "MrZALM",
+  "name": "MrFix",
   "version": "2.1.0",
-  "description": "MrZALM",
+  "description": "MrFix",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
