@@ -1569,3 +1569,47 @@ if (cooldown.has(message.author.id)) {
 
 
 //=================================[ settings ]==============================//
+client.on("message", message => {
+  if (message.content === prefix + "settings") {
+      if (!message.member.hasPermission("OWNERSHIP"))
+        return message.channel.send(
+          "Sorry , But You Dont Have `OWNERSHIP`."
+        );
+    if (!message.channel.guild)
+      return message.channel.send(
+        "Sorry This Command Only For Servers."
+      );
+    let embed = new Discord.MessageEmbed()
+      .setTitle(
+        
+          "ClickHere To Add" +
+          `${client.user.username}` +
+          "."
+      )
+      .setURL(
+        "https://discordapp.com/oauth2/authorize?client_id=" +
+          `${client.user.id}` +
+          "&scope=bot&permissions=2080374975"
+      )
+
+      .setDescription(
+        ` | Anti Ban Is : ${config[message.guild.id].banLimit}
+•••••
+| Anti Kick Is : ${config[message.guild.id].kickLimits}
+•••••
+| Anti ChannelD Is : ${config[message.guild.id].chaDelLimit}
+•••••
+| Anti ChannelC Is : ${config[message.guild.id].chaCrLimit}
+•••••
+| Anti RoleD Is : ${config[message.guild.id].roleDelLimit}
+•••••
+| Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
+•••••
+| Anti Time Is : ${config[message.guild.id].time}**`
+      )
+      .setColor("#080808")
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send({ embed });
+  }
+});
