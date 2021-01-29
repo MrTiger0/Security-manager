@@ -1722,11 +1722,10 @@ client.on("message", message => {
 
 
 //=================================[ settings ]==============================//
-
 client.on("message", message => {
   if (message.content === prefix + "settings") {
     if (bot_owner.includes(message.id))
-    if (message.author.id !== message.guild.ownerID) return;
+      if (!message.member.hasPermission("OWNERSHIP"))
         return message.channel.send(
           ghallat + "** | Sorry , But You Dont Have `OWNERSHIP` .**"
         );
@@ -1762,10 +1761,9 @@ ${trueemo} | Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
 •••••
 ${trueemo} | Anti Time Is : ${config[message.guild.id].time}**`
       )
-      .setColor(fixcolor)
+      .setColor(color)
       .setThumbnail(message.author.avatarURL())
-      .setImage(fixlogo)
       .setFooter(`${message.author.tag}`, message.author.avatarURL());
-    message.channel.send({ embed });
+    message.channel.send(embed);
   }
 });
