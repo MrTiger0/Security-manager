@@ -1621,7 +1621,7 @@ client.on("message", message => {
     if (spread[message.guild.id].onoff === "Off") return;
     message.delete();
     return message.reply(
-      `**${warn} | You Dont Have \`MANAGE_EMOJIS\` Permission .**`
+      `**You Dont Have \`MANAGE_EMOJIS\` Permission .**`
     );
   }
 });
@@ -1637,7 +1637,7 @@ client.on("message", message => {
     if (spread[message.guild.id].onoff === "Off") return;
     message.delete();
     return message.reply(
-      `**${warn} | You Dont Have \`MENTION_EVERYONE\` Permission .**`
+      `**You Dont Have \`MENTION_EVERYONE\` Permission .**`
     );
   }
 });
@@ -1653,7 +1653,7 @@ client.on("message", message => {
     if (spread[message.guild.id].onoff === "Off") return;
     message.delete();
     return message.reply(
-      `**${warn} | You Dont Have \`MENTION_EVERYONE\` Permission .**`
+      `**You Dont Have \`MENTION_EVERYONE\` Permission .**`
     );
   }
 });
@@ -1716,7 +1716,7 @@ client.on("message", message => {
       };
     if (swear[message.guild.id].onoff === "Off") return;
     message.delete();
-    return message.reply(`**${warn} | Please Dont Swear .**`);
+    return message.reply(`**Please Dont Swear .**`);
   }
 });
 
