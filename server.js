@@ -465,7 +465,7 @@ anti[channel.guild.id + entry.id].actions = "0";
   });
 });
 
-   client.on("channelDelete", async channel => {
+ client.on("channelDelete", async channel => {
   const entry1 = await channel.guild
     .fetchAuditLogs({
       type: "CHANNEL_DELETE"
@@ -486,7 +486,36 @@ anti[channel.guild.id + entry.id].actions = "0";
     anti[channel.guild.id + entry.id] = {
       actions: 1
     };
+    setTimeout(() => {
+      anti[channel.guild.id + entry.id].actions = "0";
+    }, config[channel.guild.id].time * 1000);
+  } else {
+    anti[channel.guild.id + entry.id].actions = Math.floor(
+      anti[channel.guild.id + entry.id].actions + 1
+    );
+    console.log("TETS");
+    setTimeout(() => {
+      anti[channel.guild.id + entry.id].actions = "0";
+    }, config[channel.guild.id].time * 1000);
+    if (
+      anti[channel.guild.id + entry.id].actions >=
+      config[channel.guild.id].chaDelLimit
+    ) { 
 
+channel.guild.members.cache
+        .get(entry.id)
+        .ban()
+        .catch(e => {
+          let warndelchan = new Discord.MessageEmbed()
+            .setTitle(`${client.user.username}`)
+            .setColor(color)
+            .setFooter(`Server : ${channel.guild.name}`)
+            .setDescription(
+              `${entry.username} Tryed To \`Delete\` Many \`Channels\` .`
+            );
+
+          channel.guild.owner.send(warndelchan);
+        });
       anti[channel.guild.id + entry.id].actions = "0";
       fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
         e
@@ -508,6 +537,7 @@ anti[channel.guild.id + entry.id].actions = "0";
     if (e) throw e;
   });
 });
+ 
 
  
 
