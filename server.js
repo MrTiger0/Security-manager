@@ -192,12 +192,6 @@ Channel Status : Send Message : ${rastw}
 
 //////
 
-const rast = "";
-const rastw = "";
-const ghallat = "";
-const ghallatw = "";
-const logosec = "";
-const warn = "";
 const color = "#808080";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
@@ -227,29 +221,26 @@ if (message.content.startsWith(prefix + "anti")) {
         let anti = new Discord.MessageEmbed()
           .setTitle(`${client.user.username}`)
           .setDescription(
-            "Sorry , Only `OWNERSHIP` Can Use This Command ."
+            "**Sorry , Only `OWNERSHIP` Can Use This Command .**"
           )
           .setColor(color)
-          .setThumbnail(message.author.avatarURL())
-          .setFooter(`${message.author.tag}`, message.author.avatarURL());
-
+         
         return message.channel.send(anti);
       }
     {
       let typeanum = new Discord.MessageEmbed()
         .setTitle(`${client.user.username}`)
-        .setDescription("Type A Number .")
+        .setDescription("**Type A Number .**")
         .setColor(color)
-        .setThumbnail(message.author.avatarURL())
-        .setFooter(`${message.author.tag}`, message.author.avatarURL());
+        
 
       {
         let onlyanum = new Discord.MessageEmbed()
           .setTitle(`${client.user.username}`)
-          .setDescription("Only Type A Number .")
+          .setDescription("**Only Type A Number .**")
           .setColor(color)
-          .setThumbnail(message.author.avatarURL())
-          .setFooter(`${message.author.tag}`, message.author.avatarURL());
+         
+      
 
 if (message.content.startsWith(prefix + "anti ban")) {
           if (!num) return message.channel.send(typeanum);
@@ -257,12 +248,9 @@ if (message.content.startsWith(prefix + "anti ban")) {
           config[message.guild.id].banLimit = num;
           {
             let ban = new Discord.MessageEmbed()
-              .setTitle(`${client.user.username}`)
               .setColor(color)
-              .setThumbnail(message.author.avatarURL())
-              .setFooter(`${message.author.tag}`, message.author.avatarURL())
               .setDescription(
-                `Changed \`Anti Ban\` To : ${config[message.guild.id].banLimit} .`
+                `**Changed \`Anti Ban\` To : ${config[message.guild.id].banLimit} .**`
               );
 
             message.channel.send(ban);
@@ -274,82 +262,67 @@ if (message.content.startsWith(prefix + "anti ban")) {
           config[message.guild.id].kickLimits = num;
           {
             let ban = new Discord.MessageEmbed()
-              .setTitle(`${client.user.username}`)
               .setColor(color)
-              .setThumbnail(message.author.avatarURL())
-              .setFooter(`${message.author.tag}`, message.author.avatarURL())
               .setDescription(
-                `Changed \`Anti Kick\` To : ${config[message.guild.id].kickLimits} .`
+                `**Changed \`Anti Kick\` To : ${config[message.guild.id].kickLimits} .**`
               );
 
             message.channel.send(ban);
           }
         }
 
-if (message.content.startsWith(prefix + "anti role")) {
+if (message.content.startsWith(prefix + "anti roleC")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].roleDelLimit = num;
           {
             let roled = new Discord.MessageEmbed()
-              .setTitle(`${client.user.username}`)
               .setColor(color)
-              .setThumbnail(message.author.avatarURL())
-              .setFooter(`${message.author.tag}`, message.author.avatarURL())
               .setDescription(
-                `Changed \`Anti RoleD\` To : ${config[message.guild.id].roleDelLimit} .`
+                `**Changed \`Anti RoleD\` To : ${config[message.guild.id].roleDelLimit} .**`
               );
 
             message.channel.send(roled);
           }
         }
-        if (message.content.startsWith(prefix + "anti role")) {
+        if (message.content.startsWith(prefix + "anti roleD")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].roleCrLimits = num;
           {
             let rolec = new Discord.MessageEmbed()
-              .setTitle(`${client.user.username}`)
               .setColor(color)
-              .setThumbnail(message.author.avatarURL())
-              .setFooter(`${message.author.tag}`, message.author.avatarURL())
               .setDescription(
-                `Changed \`Anti RoleC\` To : ${config[message.guild.id].roleCrLimits} .`
+                `**Changed \`Anti RoleC\` To : ${config[message.guild.id].roleCrLimits} .**`
               );
 
             message.channel.send(rolec);
           }
         }
 
-if (message.content.startsWith(prefix + "anti channel")) {
+if (message.content.startsWith(prefix + "anti channelC")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].chaDelLimit = num;
           {
             let ban = new Discord.MessageEmbed()
-              .setTitle(`${client.user.username}`)
               .setColor(color)
-              .setThumbnail(message.author.avatarURL())
-              .setFooter(`${message.author.tag}`, message.author.avatarURL())
               .setDescription(
-                `Changed \`Anti ChannelD\` To : ${config[message.guild.id].chaDelLimit} .`
+                `**Changed \`Anti ChannelD\` To : ${config[message.guild.id].chaDelLimit} .**`
               );
 
             message.channel.send(ban);
           }
         }
-        if (message.content.startsWith(prefix + "anti channel")) {
+        if (message.content.startsWith(prefix + "anti channelD")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].chaCrLimit = num;
           {
             let ban = new Discord.MessageEmbed()
-              .setTitle(`${client.user.username}`)
               .setColor(color)
-              .setThumbnail(message.author.avatarURL())
-              .setFooter(`${message.author.tag}`, message.author.avatarURL())
               .setDescription(
-                `Changed \`Anti ChannelC\` To : ${config[message.guild.id].chaCrLimit} .`
+                `**Changed \`Anti ChannelC\` To : ${config[message.guild.id].chaCrLimit} .**`
               );
 
             message.channel.send(ban);
@@ -362,12 +335,9 @@ if (message.content.startsWith(prefix + "anti time")) {
           config[message.guild.id].time = num;
           {
             let ban = new Discord.MessageEmbed()
-              .setTitle(`${client.user.username}`)
               .setColor(color)
-              .setThumbnail(message.author.avatarURL())
-              .setFooter(`${message.author.tag}`, message.author.avatarURL())
               .setDescription(
-                `Changed \`Anti Time\` To : ${config[message.guild.id].time} .`
+                `**Changed \`Anti Time\` To : ${config[message.guild.id].time} .**`
               );
 
             message.channel.send(ban);
@@ -433,11 +403,10 @@ client.on("channelCreate", async channel => {
         .ban()
         .catch(e => {
           let warncrchan = new Discord.MessageEmbed()
-            .setTitle(`${client.user.username}`)
             .setColor(color)
             .setFooter(`Server : ${channel.guild.name}`)
             .setDescription(
-              `${entry.username} Tryed To \`Create\` Many \`Channels\` .`
+              `**${entry.username} Tryed To \`Create\` Many \`Channels\` .**`
             );
 
           channel.guild.owner.send(warncrchan);
@@ -507,11 +476,10 @@ channel.guild.members.cache
         .ban()
         .catch(e => {
           let warndelchan = new Discord.MessageEmbed()
-            .setTitle(`${client.user.username}`)
             .setColor(color)
             .setFooter(`Server : ${channel.guild.name}`)
             .setDescription(
-              `${entry.username} Tryed To \`Delete\` Many \`Channels\` .`
+              `**${entry.username} Tryed To \`Delete\` Many \`Channels\` .**`
             );
 
           channel.guild.owner.send(warndelchan);
@@ -537,9 +505,6 @@ channel.guild.members.cache
     if (e) throw e;
   });
 });
- 
-
- 
 
  
 client.on("roleDelete", async channel => {
@@ -583,11 +548,10 @@ client.on("roleDelete", async channel => {
         .ban()
         .catch(e => {
           let warndelrole = new Discord.MessageEmbed()
-            .setTitle(`${client.user.username}`)
             .setColor(color)
             .setFooter(`Server : ${channel.guild.name}`)
             .setDescription(
-              `${entry.username} Tryed To \`Delete\` Many \`Roles\` .`
+              `**${entry.username} Tryed To \`Delete\` Many \`Roles\` .**`
             );
 
 channel.guild.owner.send(warndelrole);
@@ -657,11 +621,10 @@ client.on("roleCreate", async channel => {
         .ban()
         .catch(e => {
           let warncrrole = new Discord.MessageEmbed()
-            .setTitle(`${client.user.username}`)
             .setColor(color)
             .setFooter(`Server : ${channel.guild.name}`)
             .setDescription(
-              `${entry.username} Tryed To \`Create\` Many \`Roles\` .`
+              `**${entry.username} Tryed To \`Create\` Many \`Roles\` .**`
             );
 
           channel.guild.owner.send(warncrrole);
@@ -730,12 +693,11 @@ actions: 1
         .get(entry.id)
         .ban()
         .catch(e => {
-          let warnban1 = new Discord.MessageEmbed()
-            .setTitle(`${client.user.username}`)
+          let warnban1 = new Discord.MessageEmbed()          
             .setColor(color)
             .setFooter(`Server : ${guild.guild.name}`)
             .setDescription(
-              `${entry.username} Tryed To \`Ban\` Many \`Members\` .`
+              `**${entry.username} Tryed To \`Ban\` Many \`Members\` .**`
             );
 guild.owner.send(warnban1);
         });
@@ -798,12 +760,11 @@ client.on("guildKickAdd", async (guild, user) => {
         .get(entry.id)
         .ban()
         .catch(e => {
-          let warnkick1 = new Discord.MessageEmbed()
-            .setTitle(`${client.user.username}`)
+          let warnkick1 = new Discord.MessageEmbed()    
             .setColor(color)
             .setFooter(`Server : ${guild.guild.name}`)
             .setDescription(
-              `${entry.username} Tryed To \`Kick\` Many \`Members\` .`
+              `**${entry.username} Tryed To \`Kick\` Many \`Members\` .**`
             );
 
 guild.owner.send(warnkick1);
@@ -874,11 +835,10 @@ client.on("guildMemberRemove", async member => {
           .ban()
           .catch(e => {
             let warnban2 = new Discord.MessageEmbed()
-              .setTitle(`${client.user.username}`)
               .setColor(color)
               .setFooter(`Server : ${guild.guild.name}`)
               .setDescription(
-                `${entry.username} Tryed To \`Ban\` Many \`Members\` .`
+                `**${entry.username} Tryed To \`Ban\` Many \`Members\` .**`
               );
 
 guild.owner.send(warnban2);
