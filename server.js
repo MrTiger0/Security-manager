@@ -88,7 +88,6 @@ if (cooldown.has(message.author.id)) {
 \`A!anti channelD\`[Number]
 \`A!anti bot [on/off]\`
 \`A!anti problem [on/off]\`
-\`A!settings\`
 
 [Support](https://discord.gg/QZdDqjtdd3) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
 
@@ -1349,57 +1348,6 @@ client.on("message", async message => {
       .catch(console.error);
   }
 });
-
-
-//=================================[ settings ]==============================//
-client.on("message", message => {
-  if (message.content === prefix + "settings") {
-    if (message.author.id !== message.guild.owner.user.id) {
-          message.channel.send(
-          "Sorry , But You Dont Have `OWNERSHIP`."
-        );
-    if (!message.channel.guild)
-      return message.channel.send(
-        "Sorry This Command Only For Servers."
-      );
-    let embed = new Discord.MessageEmbed()
-      .setTitle("")
-       
-      .setURL("")
-       
-      .setDescription(
-
-
-
-
-`Anti Ban Is : ${config[message.guild.id].banLimit}
-🟢
-•••••
-Anti Kick Is : ${config[message.guild.id].kickLimits}
-🟢
-•••••
-Anti ChannelD Is : ${config[message.guild.id].chaDelLimit}
-🟢
-•••••
-Anti ChannelC Is : ${config[message.guild.id].chaCrLimit}
-🟢
-•••••
-Anti RoleD Is : ${config[message.guild.id].roleDelLimit}
-🟢
-•••••
-Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
-🟢
-•••••
-Anti Time Is : ${config[message.guild.id].time}
-🟢`
-      )
-      .setColor(color)
-      .setThumbnail(message.author.avatarURL())
-      .setFooter(`${message.author.tag}`, message.author.avatarURL());
-    message.channel.send({ embed });
-  }
-});
-
 
 
 //////////////
