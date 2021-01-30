@@ -1354,7 +1354,7 @@ client.on("message", async message => {
 //=================================[ settings ]==============================//
 client.on("message", message => {
   if (message.content === prefix + "settings") {
-     if (message.author.id !== message.guild.ownerID)
+    if (message.author.id !== message.guild.owner.user.id) {
           message.channel.send(
           "Sorry , But You Dont Have `OWNERSHIP`."
         );
