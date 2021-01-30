@@ -87,9 +87,8 @@ if (cooldown.has(message.author.id)) {
 \`A!anti channelC\`[Number]
 \`A!anti channelD\`[Number]
 \`A!anti bot [on/off]\`
+\`A!anti problem [on/off]\`
 \`A!settings\`
-
-
 
 [Support](https://discord.gg/QZdDqjtdd3) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
 
