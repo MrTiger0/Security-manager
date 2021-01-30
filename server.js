@@ -250,7 +250,7 @@ if (message.content.startsWith(prefix + "anti ban")) {
             let ban = new Discord.MessageEmbed()
               .setColor(color)
               .setDescription(
-                `**Changed \`Anti Ban\` To : ${config[message.guild.id].banLimit} .**`
+                `**Changed \`Anti Ban\` To :  ${config[message.guild.id].banLimit} **`
               );
 
             message.channel.send(ban);
@@ -264,7 +264,7 @@ if (message.content.startsWith(prefix + "anti ban")) {
             let ban = new Discord.MessageEmbed()
               .setColor(color)
               .setDescription(
-                `**Changed \`Anti Kick\` To : ${config[message.guild.id].kickLimits} .**`
+                `**Changed \`Anti Kick\` To :  ${config[message.guild.id].kickLimits} **`
               );
 
             message.channel.send(ban);
@@ -279,7 +279,7 @@ if (message.content.startsWith(prefix + "anti roleC")) {
             let roled = new Discord.MessageEmbed()
               .setColor(color)
               .setDescription(
-                `**Changed \`Anti RoleD\` To : ${config[message.guild.id].roleDelLimit} .**`
+                `**Changed \`Anti RoleD\` To :  ${config[message.guild.id].roleDelLimit} **`
               );
 
             message.channel.send(roled);
@@ -293,7 +293,7 @@ if (message.content.startsWith(prefix + "anti roleC")) {
             let rolec = new Discord.MessageEmbed()
               .setColor(color)
               .setDescription(
-                `**Changed \`Anti RoleC\` To : ${config[message.guild.id].roleCrLimits} .**`
+                `**Changed \`Anti RoleC\` To :  ${config[message.guild.id].roleCrLimits} **`
               );
 
             message.channel.send(rolec);
@@ -308,7 +308,7 @@ if (message.content.startsWith(prefix + "anti channelC")) {
             let ban = new Discord.MessageEmbed()
               .setColor(color)
               .setDescription(
-                `**Changed \`Anti ChannelD\` To : ${config[message.guild.id].chaDelLimit} .**`
+                `**Changed \`Anti ChannelD\` To :  ${config[message.guild.id].chaDelLimit} **`
               );
 
             message.channel.send(ban);
@@ -322,7 +322,7 @@ if (message.content.startsWith(prefix + "anti channelC")) {
             let ban = new Discord.MessageEmbed()
               .setColor(color)
               .setDescription(
-                `**Changed \`Anti ChannelC\` To : ${config[message.guild.id].chaCrLimit} .**`
+                `**Changed \`Anti ChannelC\` To :  ${config[message.guild.id].chaCrLimit} **`
               );
 
             message.channel.send(ban);
@@ -337,7 +337,7 @@ if (message.content.startsWith(prefix + "anti time")) {
             let ban = new Discord.MessageEmbed()
               .setColor(color)
               .setDescription(
-                `**Changed \`Anti Time\` To : ${config[message.guild.id].time} .**`
+                `**Changed \`Anti Time\` To :  ${config[message.guild.id].time} **`
               );
 
             message.channel.send(ban);
@@ -1355,7 +1355,7 @@ client.on("message", async message => {
 //=================================[ settings ]==============================//
 client.on("message", message => {
   if (message.content === prefix + "settings") {
-     if (message.author.id !== message.guild.ownerID) return;
+     if (message.author.id !== message.guild.ownerID)
           message.channel.send(
           "Sorry , But You Dont Have `OWNERSHIP`."
         );
@@ -1373,33 +1373,26 @@ client.on("message", message => {
 
 
 
-        `Anti Ban Is : 🟢
-${config[message.guild.id].banLimit}
-
+`Anti Ban Is : ${config[message.guild.id].banLimit}
+🟢
 •••••
-Anti Kick Is : 🟢
-
-${config[message.guild.id].kickLimits}
+Anti Kick Is : ${config[message.guild.id].kickLimits}
+🟢
 •••••
-Anti ChannelD Is : 🟢
-
-${config[message.guild.id].chaDelLimit}
+Anti ChannelD Is : ${config[message.guild.id].chaDelLimit}
+🟢
 •••••
-Anti ChannelC Is : 🟢
-
-${config[message.guild.id].chaCrLimit}
+Anti ChannelC Is : ${config[message.guild.id].chaCrLimit}
+🟢
 •••••
-Anti RoleD Is : 🟢
-
-${config[message.guild.id].roleDelLimit}
+Anti RoleD Is : ${config[message.guild.id].roleDelLimit}
+🟢
 •••••
-Anti RoleC Is : 🟢
-
-${config[message.guild.id].roleCrLimits}
+Anti RoleC Is : ${config[message.guild.id].roleCrLimits}
+🟢
 •••••
-Anti Time Is : 🟢
-
- ${config[message.guild.id].time}`
+Anti Time Is : ${config[message.guild.id].time}
+🟢`
       )
       .setColor(color)
       .setThumbnail(message.author.avatarURL())
