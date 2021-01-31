@@ -783,13 +783,15 @@ client.on("guildMemberRemove", async member => {
 
 //////
 
+let antibots = JSON.parse(fs.readFileSync("./antibots.json", "utf8")); //require antihack.json file
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti bot on")) {
-   if (message.author.id !== message.guild.ownerID) return;
+    if (!message.channel.guild) return;
+    if (!message.member.hasPermission("OWNERSHIP")) return;
     antibots[message.guild.id] = {
       onoff: "On"
     };
-    message.channel.send(`**AntiBot Is \`Enable\` 🟢**`);
+    message.channel.send(`**${rast}  AntiBot Is \`Enable\` .**`);
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
         console.error(err).catch(err => {
@@ -801,11 +803,12 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti bot off")) {
-   if (message.author.id !== message.guild.ownerID) return;
+    if (!message.channel.guild) return;
+    if (!message.member.hasPermission("OWNERSHIP")) return;
     antibots[message.guild.id] = {
       onoff: "Off"
     };
-    message.channel.send(`**AntiBot Is \`Disable\` 🔴**`);
+    message.channel.send(`**${rast}  AntiBot Is \`Disable\` .**`);
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
         console.error(err).catch(err => {
@@ -818,7 +821,7 @@ client.on("message", message => {
 client.on("guildMemberAdd", member => {
   if (!antibots[member.guild.id])
     antibots[member.guild.id] = {
-      onoff: "Off"
+      onoff: "on"
     };
   if (antibots[member.guild.id].onoff === "Off") return;
   if (member.user.bot) return member.kick();
@@ -830,6 +833,7 @@ fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       console.error(err);
     });
 });
+
 
 //=================================[ ban & unban]==================================//
 
