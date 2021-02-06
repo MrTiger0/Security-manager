@@ -68,22 +68,22 @@ if (cooldown.has(message.author.id)) {
 \`A!bot\`
 
 **Security Number**
-\`A!anti kick\`**<Number>**
-\`A!anti ban\`**<Number>**
-\`A!anti role\`**<Number>**
-\`A!anti channel\`**<Number>**
+\`A!anti kick\` **<Number>**
+\`A!anti ban\` **<Number>**
+\`A!anti role\` **<Number>**
+\`A!anti channel\` **<Number>**
 
 **Srcurity On/Off**
-\`A!anti bot\`**<on/off>**
-\`A!anti problem\`**<on/off>**
-\`A!anti hack\`**<on/off>**
+\`A!anti bot\` **<on/off>**
+\`A!anti problem\` **<on/off>**
+\`A!anti hack\` **<on/off>**
 
 **Moderation Commands**
 \`A!lock\`
 \`A!unlock\`
-\`A!ban\` : @**User**
-\`A!kick\`: @**User**
-\`A!unban\`: **Id** / **all**
+\`A!ban\` : @User
+\`A!kick\`: @User
+\`A!unban\`: Id / all
 
 
 [Support](https://discord.gg/Z7JgEkGtak) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
