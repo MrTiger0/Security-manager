@@ -34,7 +34,7 @@ const cmd = require("node-cmd");
 const prefix = "A!";
 const cooldown = new Set()
 const cdtime =5;
-client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.jXsCqh_FwJiNuFFBS5yJUXfRjhc");
+client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.xJGT99ejAlFrIc8p37chv0hjngQ");
  client.on("ready", () => {
   console.log(`${client.user.tag}`);
   console.log(`Guilds: ${client.guilds.size}`);
@@ -62,28 +62,28 @@ if (cooldown.has(message.author.id)) {
       .setTitle(`Click Here To Add : Anti Vandalism`)
       .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`) .setDescription(`
 
-丨**Info Commands**
+**Info Commands**
 \`A!userinfo\`
 \`A!serverinfo\`
 \`A!bot\`
 
-丨**Security Number**
-\`A!anti kick\`<Number>
-\`A!anti ban\`<Number>
-\`A!anti role\`<Number>
-\`A!anti channel\`<Number>
+**Security Number**
+\`A!anti kick\`**<Number>**
+\`A!anti ban\`**<Number>**
+\`A!anti role\`**<Number>**
+\`A!anti channel\`**<Number>**
 
-丨**Srcurity On/Off**
-\`A!anti bot\`<on/off>
-\`A!anti problem\`<on/off>
-\`A!anti hack\`<on/off>
+**Srcurity On/Off**
+\`A!anti bot\`**<on/off>**
+\`A!anti problem\`**<on/off>**
+\`A!anti hack\`**<on/off>**
 
-丨**Moderation Commands**
+**Moderation Commands**
 \`A!lock\`
 \`A!unlock\`
-\`A!ban\` : @User
-\`A!kick\`: @User
-\`A!unban\`: Id / all
+\`A!ban\` : @**User**
+\`A!kick\`: @**User**
+\`A!unban\`: **Id** / **all**
 
 
 [Support](https://discord.gg/Z7JgEkGtak) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
