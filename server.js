@@ -47,7 +47,7 @@ client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.9TTPI6L1zzs2lS707a3kCXWydj4");
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
 if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
     cooldown.add(message.author.id);
@@ -65,18 +65,18 @@ if (cooldown.has(message.author.id)) {
 **Info Commands**
 \`A!userinfo\`
 \`A!serverinfo\`
-\`A!bot\`
+\`A!botinfo\`
 
 **Security Number**
-\`A!anti kick\` **<Number>**
-\`A!anti ban\` **<Number>**
-\`A!anti role\` **<Number>**
-\`A!anti channel\` **<Number>**
+\`A!anti kick\` **Number**
+\`A!anti ban\` **Number**
+\`A!anti role\` **Number**
+\`A!anti channel\` **Number**
 
 **Srcurity On/Off**
-\`A!anti bot\` **<on/off>**
-\`A!anti problem\` **<on/off>**
-\`A!anti hack\` **<on/off>**
+\`A!anti bot\` **on-off**
+\`A!anti problem\` **on-off**
+\`A!anti hack\` **on-off**
 
 **Moderation Commands**
 \`A!lock\`
@@ -110,14 +110,8 @@ client.on("message", async message => {
       SEND_MESSAGES: false
     });
     const lock = new Discord.MessageEmbed()
-      .setTitle(
-        "" +
-          "Click Here To Add : " +
-          `${client.user.username}`
-      )
-      .setURL(
-        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
-      )
+      .setTitle("")
+      .setURL(``)
       .setColor(color)
       .setDescription(
         `🔒 | Locked Channel
@@ -146,14 +140,8 @@ client.on("message", async message => {
       SEND_MESSAGES: null
     });
     const unlock = new Discord.MessageEmbed()
-      .setTitle(
-        "" +
-          "Click Here To Add : " +
-          `${client.user.username}`
-      )
-      .setURL(
-        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
-      )
+      .setTitle("")
+      .setURL(``)
       .setColor(color)
       .setDescription(
         `🔓 | UnLocked Channel
@@ -169,7 +157,6 @@ Channel Status : Send Message : ${rastw}
 });
 
 //////
-
 const rast = "<:482D5187109F49E9BA37CA4EEEE235AE:804633625919488020>";
 const rastw = "";
 const ghallat = "<:23AF05F497814E4392729DF5705EBDAB:804633546210672672>";
@@ -177,7 +164,6 @@ const ghallatw = "";
 const logosec = "";
 const warn = "⚠️";
 const color = "#000000";
-
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
 client.on("message", message => {
@@ -202,89 +188,89 @@ client.on("message", message => {
       time: 0.1
     };
   if (message.content.startsWith(prefix + "anti")) {
-    if (message.author.id !== message.guild.ownerID) return;
-    if (message.content.startsWith(prefix + "anti ban")) {
+   if (message.author.id !== message.guild.ownerID) return;
+  if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + "  Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].banLimit = num;
       message.channel.send(
-        `**${rast}  Changed To : ${config[message.guild.id].banLimit} **`
+        `**${rast} | Changed To : ${config[message.guild.id].banLimit} **`
       );
     }
     if (message.content.startsWith(prefix + "anti kick")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + "  Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].kickLimits = num;
       message.channel.send(
-        `**${rast}  Changed To : ${config[message.guild.id].kickLimits}**`
+        `**${rast} | Changed To : ${config[message.guild.id].kickLimits}**`
       );
     }
     if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + "  Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].roleDelLimit = num;
       message.channel.send(
-        `**${rast}  Changed To : ${config[message.guild.id].roleDelLimit}**`
+        `**${rast} | Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + "  Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].roleCrLimits = num;
       message.channel.send(
-        `**${rast}  Changed To : ${config[message.guild.id].roleCrLimits}**`
+        `**${rast} | Changed To : ${config[message.guild.id].roleCrLimits}**`
       );
     }
     if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + "  Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
-        `**${rast}  Changed To : ${config[message.guild.id].chaDelLimit}**`
+        `**${rast} | Changed To : ${config[message.guild.id].chaDelLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + "  Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].chaCrLimit = num;
       message.channel.send(
-        `**${rast}  Changed To : ${config[message.guild.id].chaCrLimit}**`
+        `**${rast} | Changed To : ${config[message.guild.id].chaCrLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
-        return message.channel.send("**" + ghallat + "  Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + "  Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].time = num;
       message.channel.send(
-        `**${rast}  Changed To : ${config[message.guild.id].time}**`
+        `**${rast} | Changed To : ${config[message.guild.id].time}**`
       );
     }
     fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
@@ -473,7 +459,7 @@ client.on("roleDelete", async channel => {
         .ban()
         .catch(e =>
           channel.guild.owner.send(
-            `**${warn} | ${entry.username} Tryed To \`Delete\` Many \`Role\` .**`
+            `**${warn} | ${entry.username} Tryed To \`Delete\` Many \`Roles\` .**`
           )
         );
       anti[channel.guild.id + entry.id].actions = "0";
@@ -771,7 +757,7 @@ client.on("message", message => {
     antibots[message.guild.id] = {
       onoff: "On"
     };
-    message.channel.send(`AntiBot Is \`Enable\` <:5A83C5019F2E4ACA9B84017C3E88099B:804633625874006026>`);
+    message.channel.send(`AntiBot Is **Enable** | <:5A83C5019F2E4ACA9B84017C3E88099B:804633625874006026>`);
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
         console.error(err).catch(err => {
@@ -788,7 +774,7 @@ client.on("message", message => {
     antibots[message.guild.id] = {
       onoff: "Off"
     };
-    message.channel.send(`AntiBot Is \`Disable\` <:1E90573CBC844AACA4B451B869CC2A1C:804633626028802068>`);
+    message.channel.send(`AntiBot Is **Disable** | <:1E90573CBC844AACA4B451B869CC2A1C:804633626028802068>`);
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
         console.error(err).catch(err => {
@@ -879,7 +865,7 @@ client.on('message', message => {
  //
 if(message.content.startsWith(prefix + "serverinfo")) { 
 if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
     cooldown.add(message.author.id);
@@ -900,7 +886,7 @@ if (cooldown.has(message.author.id)) {
 .addField("**Boost**", `${message.guild.premiumSubscriptionCount}`)
 
 
-.setColor("#808080")
+.setColor("#000000")
 .setFooter(`Requsted by ${message.author.username}`)
     message.channel.send(EMBED)
   }
@@ -912,7 +898,7 @@ client.on('message', prof =>
 {
     if(prof.content.startsWith(prefix + 'userinfo')) {
 if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ | Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
     cooldown.add(message.author.id);
@@ -922,7 +908,7 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
         var professor = new Discord.MessageEmbed()
         .setThumbnail(prof.author.avatarURL())
-        .setColor('808080')
+        .setColor('000000')
         .setTitle('Your Info User.')
         .addField('**Your Name**', `<@${prof.author.id}>`)
         .addField('**Your ID**', `${prof.author.id}`)
@@ -959,11 +945,20 @@ var embed = new Discord.MessageEmbed()
 //=================================[ botinfo ]==============================//
 
 client.on('message', message => { 
-    if (message.content.startsWith(`${prefix}bot`)) {
+    if (message.content.startsWith(`${prefix}botinfo`)) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
       const tnx = new Discord.MessageEmbed()
 .setAuthor(client.user.username,client.user.avatarURL())
 .setThumbnail(`https://cdn.discordapp.com/attachments/772758556848029727/802994883378806824/image0.jpg`)
-.setColor("#808080")
+.setColor("#000000")
 .setTitle(`Info about ${client.user.username}.`)
 .addField('**My Ping**' , `${Date.now() - message.createdTimestamp}` + 'MS', true)
 .addField('**Ram Usage**', `${(process.memoryUsage().rss / 1048576).toFixed()}MB`, true)
@@ -1012,7 +1007,7 @@ if(!message.member.hasPermission("OWNERSHIP")) return message.reply('you dont ha
 
 
  let ffg = new Discord.MessageEmbed()
-  .setColor("#080808")
+  .setColor("#000000")
   .setTimestamp()
   .setTitle('Warned!')
   .setDescription(`
@@ -1114,7 +1109,7 @@ client.on("message", message => {
     spread[message.guild.id] = {
       onoff: "Off"
     };
-    message.channel.send(`AntiProblem Is \`Disable\` <:1E90573CBC844AACA4B451B869CC2A1C:804633626028802068>`);
+    message.channel.send(`AntiProblem Is **Disable** | <:1E90573CBC844AACA4B451B869CC2A1C:804633626028802068>`);
     fs.writeFile("./spread.json", JSON.stringify(spread), err => {
       if (err)
         console.error(err).catch(err => {
@@ -1135,7 +1130,7 @@ client.on("message", message => {
     spread[message.guild.id] = {
       onoff: "On"
     };
-    message.channel.send(`AntiProblem Is \`Enable\` <:5A83C5019F2E4ACA9B84017C3E88099B:804633625874006026>`);
+    message.channel.send(`AntiProblem Is **Enable** | <:5A83C5019F2E4ACA9B84017C3E88099B:804633625874006026>`);
     fs.writeFile("./spread.json", JSON.stringify(spread), err => {
       if (err)
         console.error(err).catch(err => {
@@ -1210,12 +1205,12 @@ client.on("message", message => {
       };
     if (antihack[message.guild.id].onoff === "Off")
       return [
-        message.channel.send(`AntiHack Is \`Enable\` <:5A83C5019F2E4ACA9B84017C3E88099B:804633625874006026>`),
+        message.channel.send(`AntiHack Is **Enable** | <:5A83C5019F2E4ACA9B84017C3E88099B:804633625874006026>`),
         (antihack[message.guild.id].onoff = "On")
       ];
     if (antihack[message.guild.id].onoff === "On")
       return [
-        message.channel.send(`AntiHack Is \`Disable\` <:1E90573CBC844AACA4B451B869CC2A1C:804633626028802068>`),
+        message.channel.send(`AntiHack Is **Disable** | <:1E90573CBC844AACA4B451B869CC2A1C:804633626028802068>`),
         (antihack[message.guild.id].onoff = "Off")
       ];
     fs.writeFile("./antihack.json", JSON.stringify(antihack), err => {
@@ -1224,5 +1219,53 @@ client.on("message", message => {
           console.error(err);
         });
     });
+  }
+});
+
+/////////
+client.on("message", message => {
+  if (message.content === prefix + "settings") {
+     if (message.author.id !== message.guild.ownerID) return;
+    if (!message.channel.guild)
+      return message.channel.send(
+        "Sorry This Command Only For Servers."
+      );
+    let embed = new Discord.MessageEmbed()
+      .setTitle("")
+       
+      .setURL("")
+       
+      .setDescription(
+
+
+        `**Anti Ban Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+${config[message.guild.id].banLimit}
+•••••
+**Anti Kick Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+${config[message.guild.id].kickLimits}
+•••••
+**Anti ChannelD Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+${config[message.guild.id].chaDelLimit}
+•••••
+**Anti ChannelC Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+${config[message.guild.id].chaCrLimit}
+•••••
+**Anti RoleD Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+${config[message.guild.id].roleDelLimit}
+•••••
+**Anti RoleC Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+${config[message.guild.id].roleCrLimits}
+•••••
+**Anti Time Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+${config[message.guild.id].time}
+•••••
+**Anti Bot Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+${config[message.guild.id].antibots}`
+
+          )
+      .setColor(color)
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send({ embed });
   }
 });
