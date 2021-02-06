@@ -68,15 +68,15 @@ if (cooldown.has(message.author.id)) {
 \`A!bot\`
 
 **Security Number**
-\`A!anti kick\` **<Number>**
-\`A!anti ban\` **<Number>**
-\`A!anti role\` **<Number>**
-\`A!anti channel\` **<Number>**
+\`A!anti kick\` <Number>
+\`A!anti ban\` <Number>
+\`A!anti role\` <Number>
+\`A!anti channel\` <Number>
 
 **Srcurity On/Off**
-\`A!anti bot\` **<on/off>**
-\`A!anti problem\` **<on/off>**
-\`A!anti hack\` **<on/off>**
+\`A!anti bot\` <on/off>
+\`A!anti problem\` <on/off>
+\`A!anti hack\` <on/off>
 
 **Moderation Commands**
 \`A!lock\`
@@ -176,7 +176,7 @@ const ghallat = "<:23AF05F497814E4392729DF5705EBDAB:804633546210672672>";
 const ghallatw = "";
 const logosec = "";
 const warn = "⚠️";
-const color = "#080808";
+const color = "#000000";
 
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
