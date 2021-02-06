@@ -1225,6 +1225,15 @@ client.on("message", message => {
 /////////
 client.on("message", message => {
   if (message.content === prefix + "settings") {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
      if (message.author.id !== message.guild.ownerID) return;
     if (!message.channel.guild)
       return message.channel.send(
@@ -1257,10 +1266,7 @@ ${config[message.guild.id].roleDelLimit}
 ${config[message.guild.id].roleCrLimits}
 •••••
 **Anti Time Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
-${config[message.guild.id].time}
-•••••
-**Anti Bot Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
-${config[message.guild.id].antibots}`
+${config[message.guild.id].time}`
 
           )
       .setColor(color)
