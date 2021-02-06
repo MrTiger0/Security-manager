@@ -86,7 +86,7 @@ if (cooldown.has(message.author.id)) {
 \`A!unban\`: Id / all
 
 
-[Support](https://discord.gg/QZdDqjtdd3) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
+[Support](https://discord.gg/Z7JgEkGtak) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
 
 `);
 
