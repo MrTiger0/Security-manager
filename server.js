@@ -1202,7 +1202,7 @@ client.on("message", message => {
       return message.reply("**This Command Only For Servers**");
     if (!message.member.hasPermission("MANAGE_GUILD"))
       return message.channel.send(
-‎        "**Sorry , But You Dont Have `MANAGE_GUILD` Permission .**"
+        "**Sorry , But You Dont Have `MANAGE_GUILD` Permission .**"
       );
     if (!antihack[message.guild.id])
       antihack[message.guild.id] = {
