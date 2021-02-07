@@ -1277,3 +1277,12 @@ ${config[message.guild.id].time}`
     message.channel.send({ embed });
   }
 });
+
+//////////
+
+client.on("message",message => {
+  if(message.content.startsWith(prefix + "linkbot")) 
+  message.channel.send("https://discord.com/api/oauth2/authorize?client_id=711328570374619207&permissions=8&scope=bot");
+}
+
+);
