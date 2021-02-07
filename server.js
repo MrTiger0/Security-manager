@@ -162,7 +162,7 @@ const rastw = "";
 const ghallat = "<:23AF05F497814E4392729DF5705EBDAB:804633546210672672>";
 const ghallatw = "";
 const logosec = "";
-const warn = "⚠️";
+const warn = "<:806579089543790592:807899226352517122>";
 const color = "#000000";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
@@ -1247,25 +1247,25 @@ if (cooldown.has(message.author.id)) {
       .setDescription(
 
 
-        `**Anti Ban Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+        `**Anti Ban Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].banLimit}
 •••••
-**Anti Kick Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+**Anti Kick Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].kickLimits}
 •••••
-**Anti ChannelD Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+**Anti ChannelD Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].chaDelLimit}
 •••••
-**Anti ChannelC Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+**Anti ChannelC Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].chaCrLimit}
 •••••
-**Anti RoleD Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+**Anti RoleD Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].roleDelLimit}
 •••••
-**Anti RoleC Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+**Anti RoleC Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].roleCrLimits}
 •••••
-**Anti Time Is** : <a:A675CFF340C34C92ADF06B8071278FC5:804627429930434560>
+**Anti Time Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].time}`
 
           )
