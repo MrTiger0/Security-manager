@@ -70,8 +70,10 @@ if (cooldown.has(message.author.id)) {
 **Security Number**
 \`A!anti kick\` : **Number**
 \`A!anti ban\` : **Number**
-\`A!anti role\` : **Number**
-\`A!anti channel\` : **Number**
+\`A!anti channelD\` : **Number**
+\`A!anti channelC\` : **Number**
+\`A!anti roleD\` : **Number**
+\`A!anti roleC\` : **Number**
 
 **Srcurity On/Off**
 \`A!anti bot\` : **on-off**
@@ -213,7 +215,7 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti role")) {
+    if (message.content.startsWith(prefix + "anti roleD")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
@@ -225,7 +227,7 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti role")) {
+    if (message.content.startsWith(prefix + "anti roleC")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
@@ -237,7 +239,7 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].roleCrLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti channel")) {
+    if (message.content.startsWith(prefix + "anti channelD")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
@@ -249,7 +251,7 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti channel")) {
+    if (message.content.startsWith(prefix + "anti channelC")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
