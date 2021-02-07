@@ -158,10 +158,10 @@ Send Message : ${rastw}
 
 //////
 const rast = "<:482D5187109F49E9BA37CA4EEEE235AE:804633625919488020>";
-const rastw = "";
+const rastw = "<:717640712312586373:807900756740669480>";
 const ghallat = "<:23AF05F497814E4392729DF5705EBDAB:804633546210672672>";
-const ghallatw = "";
-const logosec = "";
+const ghallatw = "<:717640712144945271:807900787068895253>";
+const logosec = "<:762E9CF485EF4B36AC0A5634A698F153:804633625944653855>";
 const warn = "<:806579089543790592:807899226352517122>";
 const color = "#000000";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
