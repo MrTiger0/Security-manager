@@ -76,7 +76,7 @@ if (cooldown.has(message.author.id)) {
 **Srcurity On/Off**
 \`A!anti bot\` : **on-off**
 \`A!anti problem\` : **on-off**
-\`A!anti hack\` : **on-off**
+\`A!anti subversive\` : **on-off**
 
 **Moderation Commands**
 \`A!lock\`
@@ -1184,7 +1184,7 @@ client.on("message", message => {
 ///////////////////////////
 let antihack = JSON.parse(fs.readFileSync("./antihack.json", "utf8"));
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "anti hack")) {
+  if (message.content.startsWith(prefix + "anti subversive")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
     if (!message.member.hasPermission("MANAGE_GUILD"))
@@ -1197,12 +1197,12 @@ client.on("message", message => {
       };
     if (antihack[message.guild.id].onoff === "Off")
       return [
-        message.channel.send(`AntiHack Is **Enable** | <:5A83C5019F2E4ACA9B84017C3E88099B:804633625874006026>`),
+        message.channel.send(`AntiSubversive Is **Enable** | <:5A83C5019F2E4ACA9B84017C3E88099B:804633625874006026>`),
         (antihack[message.guild.id].onoff = "On")
       ];
     if (antihack[message.guild.id].onoff === "On")
       return [
-        message.channel.send(`AntiHack Is **Disable** | <:1E90573CBC844AACA4B451B869CC2A1C:804633626028802068>`),
+        message.channel.send(`AntiSubversive Is **Disable** | <:1E90573CBC844AACA4B451B869CC2A1C:804633626028802068>`),
         (antihack[message.guild.id].onoff = "Off")
       ];
     fs.writeFile("./antihack.json", JSON.stringify(antihack), err => {
@@ -1286,63 +1286,3 @@ client.on('message', message=> {
     }
 });
 
-////////////
-let swear = JSON.parse(fs.readFileSync("./swear.json", "utf8"));
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "anti swear off")) {
-    if (!message.channel.guild)
-      if (!message.member.hasPermission("MANAGE_GUILD"))
-        return message.channel.send(
-          ghallat +
-            " | Sorry , But You Dont Have MANAGE_GUILD Permission ."
-        );
-    swear[message.guild.id] = {
-      onoff: "Off"
-    };
-    message.channel.send(**${rast} | AntiSwear Is \Disable` .`);
-    fs.writeFile("./swear.json", JSON.stringify(swear), err => {
-      if (err)
-        console.error(err).catch(err => {
-          console.error(err);
-        });
-    });
-  }
-});
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "anti swear on")) {
-    if (!message.channel.guild) return;
-      if (!message.member.hasPermission("MANAGE_GUILD"))
-        return message.channel.send(
-          ghallat +
-            " | Sorry , But You Dont Have MANAGE_GUILD Permission ."
-        );
-    swear[message.guild.id] = {
-      onoff: "On"
-    };
-    message.channel.send(`${rast} | AntiSwear Is `Enable` .`);
-    fs.writeFile("./swear.json", JSON.stringify(swear), err => {
-      if (err)
-        console.error(err).catch(err => {
-          console.error(err);
-        });
-    });
-  }
-});
-const configswear = require("./config2.json");
-client.on("message", message => {
-  var args = message.content.split(/[ ]+/);
-  if (
-    configswear.FILTER_LIST.some(word =>
-      message.content.toLowerCase().includes(word)
-    )
-  ) {
-    if (!message.channel.guild) return;
-    if (!swear[message.guild.id])
-      swear[message.guild.id] = {
-        onoff: "Off"
-      };
-    if (swear[message.guild.id].onoff === "Off") return;
-    message.delete();
-    return message.reply(`**${warn} | Please Dont Swear .**`);
-  }
-});
