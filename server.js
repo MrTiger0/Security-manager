@@ -70,10 +70,8 @@ if (cooldown.has(message.author.id)) {
 **Security Number**
 \`A!anti kick\` : **Number**
 \`A!anti ban\` : **Number**
-\`A!anti channelD\` : **Number**
-\`A!anti channelC\` : **Number**
-\`A!anti roleD\` : **Number**
-\`A!anti roleC\` : **Number**
+\`A!anti role\` : **Number**
+\`A!anti channel\` : **Number**
 
 **Srcurity On/Off**
 \`A!anti bot\` : **on-off**
@@ -215,7 +213,7 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti roleD")) {
+    if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
@@ -227,41 +225,33 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti roleC")) {
+    if (message.content.startsWith(prefix + "anti role")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("");
       if (isNaN(num))
-        return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
-        );
+        return message.channel.send("");
       config[message.guild.id].roleCrLimits = num;
-      message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].roleCrLimits}**`
-      );
+      message.channel.send(``);
     }
-    if (message.content.startsWith(prefix + "anti channelD")) {
+    if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type `Number` .**"
         );
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
         `**${rast} | Changed To : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti channelC")) {
+    if (message.content.startsWith(prefix + "anti channel")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("");
       if (isNaN(num))
-        return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
-        );
+        return message.channel.send("");
       config[message.guild.id].chaCrLimit = num;
-      message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].chaCrLimit}**`
-      );
+      message.channel.send(``);
     }
     if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
