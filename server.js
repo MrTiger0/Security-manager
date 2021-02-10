@@ -1285,3 +1285,64 @@ client.on('message', message=> {
     message.reply(`**My Prefix Is** : \`${prefix}\``)
     }
 });
+
+////////////
+let swear = JSON.parse(fs.readFileSync("./swear.json", "utf8"));
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti swear off")) {
+    if (!message.channel.guild)
+      if (!message.member.hasPermission("MANAGE_GUILD"))
+        return message.channel.send(
+          ghallat +
+            " | Sorry , But You Dont Have MANAGE_GUILD Permission ."
+        );
+    swear[message.guild.id] = {
+      onoff: "Off"
+    };
+    message.channel.send(**${rast} | AntiSwear Is \Disable` .`);
+    fs.writeFile("./swear.json", JSON.stringify(swear), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti swear on")) {
+    if (!message.channel.guild) return;
+      if (!message.member.hasPermission("MANAGE_GUILD"))
+        return message.channel.send(
+          ghallat +
+            " | Sorry , But You Dont Have MANAGE_GUILD Permission ."
+        );
+    swear[message.guild.id] = {
+      onoff: "On"
+    };
+    message.channel.send(`${rast} | AntiSwear Is `Enable` .`);
+    fs.writeFile("./swear.json", JSON.stringify(swear), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+const configswear = require("./config2.json");
+client.on("message", message => {
+  var args = message.content.split(/[ ]+/);
+  if (
+    configswear.FILTER_LIST.some(word =>
+      message.content.toLowerCase().includes(word)
+    )
+  ) {
+    if (!message.channel.guild) return;
+    if (!swear[message.guild.id])
+      swear[message.guild.id] = {
+        onoff: "Off"
+      };
+    if (swear[message.guild.id].onoff === "Off") return;
+    message.delete();
+    return message.reply(`**${warn} | Please Dont Swear .**`);
+  }
+});
