@@ -96,10 +96,11 @@ if (cooldown.has(message.author.id)) {
 
 ///////
 
-client.on('message', message =>{
-  if(message.content.startsWith(prefix + "lock")) { 
+//////
 
-    var embed = new Discord.MessageEmbed()
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "lock")) {
+  var embed = new Discord.MessageEmbed()
     .setDescription(`**You Have 20s To Type The Password [1 To 10]**`)
 
     message.channel.awaitMessages(response => response.content === '1','2','3','4','5','6','7','8','9','10', {  
@@ -107,41 +108,60 @@ client.on('message', message =>{
       time: 200000,
       errors: ['time'],    
     })
-  
-    .then(() => {
-      if(!message.member.hasPermission('MANAGE_CHANNELS')) return 
-      message.reply(' ** You dont have `MANAGE_CHANNELS` permission **');
 
+    if (!message.channel.guild)
+      return message.channel.send(
+        "Sorry This Command Only For Servers."
+      );
 
-  let everyone = message.guild.roles.cache.find(message => message.name === '@everyone');
-          message.channel.createOverwrite(everyone, {
-                 SEND_MESSAGES: false
-              })
-              .then((collected) => {
-                const embed = new Discord.MessageEmbed()
-                  message.channel.send(`**🔒 <#${message.channel.id}>has Been Locked**`)
-                  
-                     
-                  
- });
-});
-}
- });
-   client.on('message', message =>{
-if(message.content === prefix + "unlock"){
-if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply(' ** You dont have `MANAGE_CHANNELS` permission **');
-let everyone = message.guild.roles.cache.find(message => message.name === '@everyone');
-        message.channel.createOverwrite(everyone, {
-               SEND_MESSAGES: true
-            }).then(() => {
-                const embed = new Discord.MessageEmbed()
-                message.channel.send(`**🔓 <#${message.channel.id}>Has Been Unlocked**`)
-                
-})
-}
+    if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
+    if (!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS"))
+      return;
+    message.channel.updateOverwrite(message.guild.id, {
+      SEND_MESSAGES: false
+    });
+    const lock = new Discord.MessageEmbed()
+      .setColor(color)
+      .setDescription(
+        `🔒 | Locked Channel
+Channel Name : <#${message.channel.id}>
+Locked By : <@${message.author.id}>
+Send Message : ${ghallatw}
+`
+      )
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send(lock);
+  }
 });
 
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "unlock")) {
+    if (!message.channel.guild)
+      return message.channel.send(
+        "Sorry This Command Only For Servers."
+      );
 
+    if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
+    if (!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS"))
+      return;
+    message.channel.updateOverwrite(message.guild.id, {
+      SEND_MESSAGES: null
+    });
+    const unlock = new Discord.MessageEmbed()
+      .setColor(color)
+      .setDescription(
+        `🔓 | UnLocked Channel
+Channel Name : <#${message.channel.id}>
+Locked By : <@${message.author.id}>
+Send Message : ${rastw}
+`
+      )
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send(unlock);
+  }
+});
 
 
 //////
