@@ -100,7 +100,6 @@ if (cooldown.has(message.author.id)) {
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "lock")) {
-  var embed = new Discord.MessageEmbed()
     .setDescription(`**You Have 20s To Type The Password [1 To 10]**`)
 
     message.channel.awaitMessages(response => response.content === '1','2','3','4','5','6','7','8','9','10', {  
