@@ -100,13 +100,6 @@ if (cooldown.has(message.author.id)) {
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "lock")) {
-    .setDescription(`**You Have 20s To Type The Password [1 To 10]**`)
-
-    message.channel.awaitMessages(response => response.content === '1','2','3','4','5','6','7','8','9','10', {  
-      max: 1,
-      time: 200000,
-      errors: ['time'],    
-    })
 
     if (!message.channel.guild)
       return message.channel.send(
