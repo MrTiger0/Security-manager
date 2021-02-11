@@ -96,17 +96,13 @@ if (cooldown.has(message.author.id)) {
 
 ///////
 
-
-////////
-
 client.on('message', message =>{
   if(message.content.startsWith(prefix + "lock")) { 
 
     var embed = new Discord.MessageEmbed()
-    .setDescription(`**You Have 20s To Type The Password**`)
-    message.channel.send(embed)
+    .setDescription(`**You Have 20s To Type The Password [1 To 10]**`)
 
-    message.channel.awaitMessages(response => response.content === '1234', {  
+    message.channel.awaitMessages(response => response.content === '1','2','3','4','5','6','7','8','9','10', {  
       max: 1,
       time: 200000,
       errors: ['time'],    
@@ -123,11 +119,10 @@ client.on('message', message =>{
               })
               .then((collected) => {
                 const embed = new Discord.MessageEmbed()
-                  .setColor(color)
-                  .setDescription(`**🔒 <#${message.channel.id}>has Been Locked**`)
-                  .setFooter(`By ${message.author.username}`)
-                  message.channel.send(embed)            
-                  console.log(collected.author)
+                  message.channel.send(`**🔒 <#${message.channel.id}>has Been Locked**`)
+                  
+                     
+                  
  });
 });
 }
@@ -140,13 +135,14 @@ let everyone = message.guild.roles.cache.find(message => message.name === '@ever
                SEND_MESSAGES: true
             }).then(() => {
                 const embed = new Discord.MessageEmbed()
-                .setColor(color)
-                .setDescription(`**🔓 <#${message.channel.id}>Has Been Unlocked**`)
-                .setFooter(`By ${message.author.username}`)
-                message.channel.send(embed)
+                message.channel.send(`**🔓 <#${message.channel.id}>Has Been Unlocked**`)
+                
 })
 }
 });
+
+
+
 
 //////
 const rast = "<:482D5187109F49E9BA37CA4EEEE235AE:804633625919488020>";
