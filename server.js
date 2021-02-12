@@ -58,7 +58,6 @@ if (cooldown.has(message.author.id)) {
     let help = new Discord.MessageEmbed()
       .setColor(color)
       .setAuthor(message.author.username, message.author.AvatarURL)
-      .setThumbnail(message.author.avatarURL())
       .setTitle(`Click Here To Add : Anti Vandalism`)
       .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`) .setDescription(`
 
@@ -895,14 +894,14 @@ if (cooldown.has(message.author.id)) {
 client.on('message', prof =>
 {
     if(prof.content.startsWith(prefix + 'userinfo')) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+if (cooldown.has(prof.author.id)) {
+      return prof.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
-    cooldown.add(message.author.id);
+    cooldown.add(prof.author.id);
 
     setTimeout(() => {
-      cooldown.delete(message.author.id);
+      cooldown.delete(prof.author.id);
     }, cdtime * 1000);
         var professor = new Discord.MessageEmbed()
         .setThumbnail(prof.author.avatarURL())
