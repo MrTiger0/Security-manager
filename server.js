@@ -157,7 +157,8 @@ Send Message : ${rastw}
 });
 //////
 
-if (message.content.startsWith(`${prefix}lockall`)) {
+client.on("message", async message => {
+if (message.content.startsWith(prefix + "lockall")) {
         if (!message.member.hasPermission(["ADMINISTRATOR"])) return message.reply('You can\'t use this command!')
         const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
         if (args[1] === 'on') {
