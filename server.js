@@ -74,7 +74,7 @@ if (cooldown.has(message.author.id)) {
 \`A!anti roleC\` : **Number**
 \`A!anti channelD\` : **Number**
 \`A!anti channelC\` : **Number**
-\`anti time\` : **Number**
+\`A!anti time\` : **Number**
 \`A!settings\`
 
 **Srcurity On/Off**
