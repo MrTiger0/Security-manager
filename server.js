@@ -157,7 +157,7 @@ Send Message : ${rastw}
 });
 //////
 
-client.on("message", async args => {
+client.on("message", args => {
     if (args.content.startsWith(`${prefix}closeall`)) {
         if (!args.member.hasPermission("ADMINISTRATOR")) return args.reply('You can\'t use this command!')
         const channels = args.guild.channels.cache.filter(ch => ch.type !== 'category');
