@@ -192,7 +192,7 @@ client.on("message", message => {
       time: 0.1
     };
   if (message.content.startsWith(prefix + "anti")) {
-   if (message.author.id !== message.guild.ownerID) return message.reply('You can\'t use this command!')
+   if (message.author.id !== message.guild.ownerID) return;
   if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
