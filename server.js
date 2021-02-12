@@ -58,7 +58,6 @@ if (cooldown.has(message.author.id)) {
     let help = new Discord.MessageEmbed()
       .setColor(color)
       .setAuthor(message.author.username, message.author.AvatarURL)
-      .setThumbnail(message.author.avatarURL())
       .setTitle(`Click Here To Add : Anti Vandalism`)
       .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`) .setDescription(`
 
