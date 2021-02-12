@@ -158,7 +158,7 @@ Send Message : ${rastw}
 //////
 
 client.on("message", async message => {
-if (message.content.startsWith(prefix + "lockall")) {
+if (message.content.startsWith(prefix + "closeall")) {
         if (!message.member.hasPermission(["ADMINISTRATOR"])) return message.reply('You can\'t use this command!')
         const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
         if (message[1] === 'on') {
