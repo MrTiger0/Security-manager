@@ -58,7 +58,7 @@ if (cooldown.has(message.author.id)) {
     let help = new Discord.MessageEmbed()
       .setColor(color)
       .setAuthor(message.author.username, message.author.AvatarURL)
-      .setThumbnail(message.author.avatarURL())
+      .setThumbnail(``)
       .setTitle(`Click Here To Add : Anti Vandalism`)
       .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`) .setDescription(`
 
@@ -70,8 +70,11 @@ if (cooldown.has(message.author.id)) {
 **Security Number**
 \`A!anti kick\` : **Number**
 \`A!anti ban\` : **Number**
-\`A!anti role\` : **Number**
-\`A!anti channel\` : **Number**
+\`A!anti roleD\` : **Number**
+\`A!anti roleC\` : **Number**
+\`A!anti channelD\` : **Number**
+\`A!anti channelC\` : **Number**
+\`anti time\` : **Number**
 \`A!settings\`
 
 **Srcurity On/Off**
@@ -214,7 +217,7 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti role")) {
+    if (message.content.startsWith(prefix + "anti roleD")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
@@ -226,15 +229,16 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti role")) {
+    if (message.content.startsWith(prefix + "anti roleC")) {
       if (!num)
-        return message.channel.send("");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send("");
+        return message.channel.send("**" + ghallat + " | Only Type A `Number` .**");
       config[message.guild.id].roleCrLimits = num;
-      message.channel.send(``);
+      message.channel.send(
+       `**${rast} | Changed To : ${config[message.guild.id].roleCrLimit}`);
     }
-    if (message.content.startsWith(prefix + "anti channel")) {
+    if (message.content.startsWith(prefix + "anti channelD")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
@@ -246,13 +250,14 @@ client.on("message", message => {
         `**${rast} | Changed To : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "anti channel")) {
+    if (message.content.startsWith(prefix + "anti channelC")) {
       if (!num)
-        return message.channel.send("");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
-        return message.channel.send("");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       config[message.guild.id].chaCrLimit = num;
-      message.channel.send(``);
+      message.channel.send(
+          `**${rast} | Changed To : ${config[message.guild.id].chaCrLimit}`);
     }
     if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
@@ -1216,6 +1221,7 @@ client.on("message", message => {
 });
 
 /////////
+
 client.on("message", message => {
  if (message.content === prefix + "settings") {
 if (cooldown.has(message.author.id)) {
@@ -1246,11 +1252,17 @@ ${config[message.guild.id].banLimit}
 **Anti Kick Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].kickLimits}
 •••••
-**Anti Channel Is** : <:709602528232341545:807899198175313921>
-${config[message.guild.id].chaDelLimit} , ${config[message.guild.id].chaCrLimit}
+**Anti ChannelD Is** : <:709602528232341545:807899198175313921>
+${config[message.guild.id].chaDelLimit}
 •••••
-**Anti Role Is** : <:709602528232341545:807899198175313921>
-${config[message.guild.id].roleDelLimit} , ${config[message.guild.id].roleCrLimits}
+**Anti ChannelC Is** : <:709602528232341545:807899198175313921>
+${config[message.guild.id].chaCrLimit}
+•••••
+**Anti RoleD Is** : <:709602528232341545:807899198175313921>
+${config[message.guild.id].roleDelLimit}
+•••••
+**Anti RoleC Is** : <:709602528232341545:807899198175313921>
+${config[message.guild.id].roleCrLimits}
 •••••
 **Anti Time Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].time}`
@@ -1262,6 +1274,7 @@ ${config[message.guild.id].time}`
     message.channel.send({ embed });
   }
 });
+
 
 //////////
 
