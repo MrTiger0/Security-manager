@@ -39,7 +39,7 @@ client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.9TTPI6L1zzs2lS707a3kCXWydj4");
   console.log(`${client.user.tag}`);
   console.log(`Guilds: ${client.guilds.size}`);
   console.log(`Users: ${client.users.size}`);
-  client.user.setActivity(`Type ${prefix}help | Anti Vandalism Is Here`, { Type: "Playing" });
+  client.user.setActivity(`${prefix}help`, { Type: "Playing" });
 });
 
 //////
@@ -1215,7 +1215,7 @@ client.on("message", message => {
 
 /////////
 client.on("message", message => {
-  if (message.content === prefix + "settings") {
+ if (message.content === prefix + "settings") {
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -1245,13 +1245,13 @@ ${config[message.guild.id].banLimit}
 ${config[message.guild.id].kickLimits}
 •••••
 **Anti ChannelD Is** : <:709602528232341545:807899198175313921>
-${config[message.guild.id].chaDelLimit}
+${config[message.guild.id].chaDelLimit} , ${config[message.guild.id].chaCrLimit}
 •••••
 **Anti ChannelC Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].chaCrLimit}
 •••••
 **Anti RoleD Is** : <:709602528232341545:807899198175313921>
-${config[message.guild.id].roleDelLimit}
+${config[message.guild.id].roleDelLimit} , ${config[message.guild.id].roleCrLimits}
 •••••
 **Anti RoleC Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].roleCrLimits}
