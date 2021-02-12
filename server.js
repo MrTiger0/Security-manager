@@ -157,31 +157,31 @@ Send Message : ${rastw}
 });
 //////
 
-client.on("message", async message => {
-if (message.content.startsWith(prefix + "closeall")) {
-        if (!message.member.hasPermission(["ADMINISTRATOR"])) return message.reply('You can\'t use this command!')
-        const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
-        if (message[1] === 'on') {
+client.on("message", async args => {
+    if (args.content.startsWith(`${prefix}closeall`)) {
+        if (!args.member.hasPermission("ADMINISTRATOR")) return args.reply('You can\'t use this command!')
+        const channels = args.guild.channels.cache.filter(ch => ch.type !== 'category');
+        if (args[1] === 'on') {
             channels.forEach(channel => {
-                channel.updateOverwrite(message.guild.roles.everyone, {
+                channel.updateOverwrite(args.guild.roles.everyone, {
                     SEND_MESSAGES: false
                 }).then(() => {
                     channel.setName(channel.name += `🔒`)
                 })
             })
-            return message.channel.send('Locked all channels');
-        } else if (message[1] === 'off') {
+            return args.channel.send('Locked all channels');
+        } else if (args[1] === 'off') {
             channels.forEach(channel => {
-                channel.updateOverwrite(message.guild.roles.everyone, {
+                channel.updateOverwrite(args.guild.roles.everyone, {
                     SEND_MESSAGES: true
                 }).then(() => {
                     channel.setName(channel.name.replace('🔒', ''))
                 })
             })
-            return message.channel.send('Unlocked all channels')
+            return args.channel.send('Unlocked all channels')
         }
-}
-    });
+    }
+          });
 
 //////
 const rast = "<:482D5187109F49E9BA37CA4EEEE235AE:804633625919488020>";
