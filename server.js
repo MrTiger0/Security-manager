@@ -161,7 +161,7 @@ client.on("message", async message => {
 if (message.content.startsWith(prefix + "lockall")) {
         if (!message.member.hasPermission(["ADMINISTRATOR"])) return message.reply('You can\'t use this command!')
         const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
-        if (args[1] === 'on') {
+        if (message[1] === 'on') {
             channels.forEach(channel => {
                 channel.updateOverwrite(message.guild.roles.everyone, {
                     SEND_MESSAGES: false
@@ -170,7 +170,7 @@ if (message.content.startsWith(prefix + "lockall")) {
                 })
             })
             return message.channel.send('Locked all channels');
-        } else if (args[1] === 'off') {
+        } else if (message[1] === 'off') {
             channels.forEach(channel => {
                 channel.updateOverwrite(message.guild.roles.everyone, {
                     SEND_MESSAGES: true
@@ -180,7 +180,8 @@ if (message.content.startsWith(prefix + "lockall")) {
             })
             return message.channel.send('Unlocked all channels')
         }
-    }
+}
+    });
 
 //////
 const rast = "<:482D5187109F49E9BA37CA4EEEE235AE:804633625919488020>";
