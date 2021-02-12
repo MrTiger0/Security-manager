@@ -155,7 +155,31 @@ Send Message : ${rastw}
     message.channel.send(unlock);
   }
 });
+//////
 
+if (message.content.startsWith(`${prefix}lockall`)) {
+        if (!message.member.hasPermission(["ADMINISTRATOR"])) return message.reply('You can\'t use this command!')
+        const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
+        if (args[1] === 'on') {
+            channels.forEach(channel => {
+                channel.updateOverwrite(message.guild.roles.everyone, {
+                    SEND_MESSAGES: false
+                }).then(() => {
+                    channel.setName(channel.name += `🔒`)
+                })
+            })
+            return message.channel.send('Locked all channels');
+        } else if (args[1] === 'off') {
+            channels.forEach(channel => {
+                channel.updateOverwrite(message.guild.roles.everyone, {
+                    SEND_MESSAGES: true
+                }).then(() => {
+                    channel.setName(channel.name.replace('🔒', ''))
+                })
+            })
+            return message.channel.send('Unlocked all channels')
+        }
+    }
 
 //////
 const rast = "<:482D5187109F49E9BA37CA4EEEE235AE:804633625919488020>";
@@ -189,8 +213,7 @@ client.on("message", message => {
       time: 0.1
     };
   if (message.content.startsWith(prefix + "anti")) {
-   if (message.author.id !== message.guild.ownerID) return;
- message.reply("Test");
+   if (message.author.id !== message.guild.ownerID) return message.reply('You can\'t use this command!')
   if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
