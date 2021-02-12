@@ -72,6 +72,7 @@ if (cooldown.has(message.author.id)) {
 \`A!anti ban\` : **Number**
 \`A!anti role\` : **Number**
 \`A!anti channel\` : **Number**
+\`A!settings\`
 
 **Srcurity On/Off**
 \`A!anti bot\` : **on-off**
@@ -189,6 +190,7 @@ client.on("message", message => {
     };
   if (message.content.startsWith(prefix + "anti")) {
    if (message.author.id !== message.guild.ownerID) return;
+ message.reply("Test");
   if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
