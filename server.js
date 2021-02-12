@@ -1245,17 +1245,11 @@ ${config[message.guild.id].banLimit}
 **Anti Kick Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].kickLimits}
 •••••
-**Anti ChannelD Is** : <:709602528232341545:807899198175313921>
+**Anti Channel Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].chaDelLimit} , ${config[message.guild.id].chaCrLimit}
 •••••
-**Anti ChannelC Is** : <:709602528232341545:807899198175313921>
-${config[message.guild.id].chaCrLimit}
-•••••
-**Anti RoleD Is** : <:709602528232341545:807899198175313921>
+**Anti Role Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].roleDelLimit} , ${config[message.guild.id].roleCrLimits}
-•••••
-**Anti RoleC Is** : <:709602528232341545:807899198175313921>
-${config[message.guild.id].roleCrLimits}
 •••••
 **Anti Time Is** : <:709602528232341545:807899198175313921>
 ${config[message.guild.id].time}`
