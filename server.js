@@ -49,9 +49,18 @@ client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.9TTPI6L1zzs2lS707a3kCXWydj4");
 
 client.on('message', message => {
 	if (message.content.startsWith(prefix + "help")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
 		const metasploit = new Discord.MessageEmbed()
-			.setTitle(`Bot Commands`)
-       .setColor('RANDOM')
+			.setAuthor(message.author.username, message.author.AvatarURL)
+       .setColor(color)
   .setDescription(`
   
 
@@ -87,7 +96,7 @@ client.on('message', message => {
 📄・MY PING [${client.ws.ping}]
 
 
-[  **Server Support**  ](https://discord.gg/Z7JgEkGtak) - [  **Invite Bot**  ](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) - [  **Website**  ](https://aerial-catkin-jumbo.glitch.me/) - [  **Vote**  ](https://top.gg/bot/711328570374619207)
+[Server Support](https://discord.gg/Z7JgEkGtak) - [Invite Bot](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
 `);
 		message.channel.send(metasploit);
 	}
