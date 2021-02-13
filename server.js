@@ -99,6 +99,35 @@ if (cooldown.has(message.author.id)) {
 
 ///////
 
+client.on('message', message => {
+	if (message.content.startsWith(prefix + "help")) {
+		const metasploit = new Discord.MessageEmbed()
+			.setTitle(`Bot Commands`)
+       .setColor('RANDOM')
+  .setDescription(`
+  
+**Security Number**
+\`A!anti kick\` : **Number**
+\`A!anti ban\` : **Number**
+\`A!anti roleD\` : **Number**
+\`A!anti roleC\` : **Number**
+\`A!anti channelD\` : **Number**
+\`A!anti channelC\` : **Number**
+\`A!anti time\` : **Number**
+\`A!settings\`
+
+**Srcurity On/Off**
+\`A!anti bot\` : **on-off**
+\`A!anti problem\` : **on-off**
+\`A!anti subversive\` : **on-off**
+
+  
+📄・MY PREFIX ${prefix}
+📄・MY PING ${client.ws.ping}`);
+		message.channel.send(metasploit);
+	}
+});
+
 //////
 
 client.on("message", async message => {
