@@ -44,63 +44,114 @@ client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.9TTPI6L1zzs2lS707a3kCXWydj4");
 
 //////
 
-
-///////
-
-client.on('message', message => {
-	if (message.content.startsWith(prefix + "help")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+client.on('message', badboy => {
+  if(badboy.content.startsWith(prefix + "help")){
+if (cooldown.has(badboy.author.id)) {
+      return badboy.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
-    cooldown.add(message.author.id);
+    cooldown.add(badboy.author.id);
 
     setTimeout(() => {
-      cooldown.delete(message.author.id);
+      cooldown.delete(badboy.author.id);
     }, cdtime * 1000);
-		const metasploit = new Discord.MessageEmbed()
-			.setAuthor(message.author.username, message.author.AvatarURL)
-       .setColor(color)
-  .setDescription(`
-  
+         if(badboy.author.bot || !badboy.guild) return badboy.reply("**This Command For Server Only**")
+         var embed = new Discord.MessageEmbed()
+         .setColor(color)
+         .setDescription(`**Send Help Here 🔓\nSend in DM 🔒**`)
+         badboy.channel.send(embed).then(async badboy1 => {
+    await  badboy1.react("🔓")
+        badboy1.react("🔒")
+    const filter = (reaction, user) =>
+        reaction.emoji.name === '🔓' && user.id === badboy.author.id;
+        const filter1 = (reaction, user) =>
+        reaction.emoji.name === '🔒' && user.id === badboy.author.id;
+ const yes = badboy1.createReactionCollector(filter, {time: 300000})
+        const no = badboy1.createReactionCollector(filter1, {time: 300000})
+        
+yes.on('collect', bbb => {
+ 
+  badboy1.delete()
+var embed = new Discord.MessageEmbed()
+ .setColor(color)
+.setDescription(`
 
 **Info Commands**
-\`A!userinfo\`
-\`A!serverinfo\`
-\`A!botinfo\`
+\`${prefix}userinfo\`
+\`${prefix}serverinfo\`
+\`${prefix}botinfo\`
 
 **Security Number**
-\`A!anti kick\` : **Number**
-\`A!anti ban\` : **Number**
-\`A!anti roleD\` : **Number**
-\`A!anti roleC\` : **Number**
-\`A!anti channelD\` : **Number**
-\`A!anti channelC\` : **Number**
-\`A!anti time\` : **Number**
-\`A!settings\`
+\`${prefix}anti kick\` : **Number**
+\`${prefix}anti ban\` : **Number**
+\`${prefix}anti channelD\` : **Number**
+\`${prefix}anti channelC\` : **Number**
+\`${prefix}anti roleD\` : **Number**
+\`${prefix}anti roleC\` : **Number**
+\`${prefix}anti time\` : **Number**
+\`${prefix}settings\`
 
-**Srcurity On/Off**
-\`A!anti bot\` : **on-off**
-\`A!anti problem\` : **on-off**
-\`A!anti subversive\` : **on-off**
+**__Security On/Off__**
+
+\`${prefix}anti bot\` : **on-off**
+\`${prefix}anti problem\` : **on-off**
+\`${prefix}anti subversive\` : **on-off**
 
 **Moderation Commands**
-\`A!lock\`
-\`A!unlock\`
-\`A!ban\` : **@User**
-\`A!kick\` : **@User**
-\`A!unban\` : **Id** / **all**
+\`${prefix}lock\`
+\`${prefix}unlock\`
+\`${prefix}kick\` : **@user**
+\`${prefix}ban\` : **@user**
+\`${prefix}unban\` : **id** / **all**
 
-  
-📄・MY PREFIX [${prefix}]
-📄・MY PING [${client.ws.ping}]
+[Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) - [Support](https://discord.gg/Z7JgEkGtak) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
+`)
+badboy.channel.send(embed)
 
+})
+no.on('collect', nnn => {
+  badboy1.delete()
+  var embed10 = new Discord.MessageEmbed()
+  .setColor(color)
+.setDescription(`
 
-[Server Support](https://discord.gg/Z7JgEkGtak) - [Invite Bot](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
-`);
-		message.channel.send(metasploit);
-	}
-});
+**Info Commands**
+\`${prefix}userinfo\`
+\`${prefix}serverinfo\`
+\`${prefix}botinfo\`
+
+**Security Number**
+\`${prefix}anti kick\` : **Number**
+\`${prefix}anti ban\` : **Number**
+\`${prefix}anti channelD\` : **Number**
+\`${prefix}anti channelC\` : **Number**
+\`${prefix}anti roleD\` : **Number**
+\`${prefix}anti roleC\` : **Number**
+\`${prefix}anti time\` : **Number**
+\`${prefix}settings\`
+
+**__Security On/Off__**
+
+\`${prefix}anti bot\` : **on-off**
+\`${prefix}anti problem\` : **on-off**
+\`${prefix}anti subversive\` : **on-off**
+
+**Moderation Commands**
+\`${prefix}lock\`
+\`${prefix}unlock\`
+\`${prefix}kick\` : **@user**
+\`${prefix}ban\` : **@user**
+\`${prefix}unban\` : **id** / **all**
+
+[Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) - [Support](https://discord.gg/Z7JgEkGtak) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
+`)
+badboy.channel.send("**Look DM**")
+badboy.author.send(embed10)
+})
+         })     
+  }
+})
+
 
 //////
 
