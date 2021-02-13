@@ -58,6 +58,7 @@ if (cooldown.has(badboy.author.id)) {
          if(badboy.author.bot || !badboy.guild) return badboy.reply("**This Command For Server Only**")
          var embed = new Discord.MessageEmbed()
          .setColor(color)
+         .setAuthor(message.author.username, message.author.AvatarURL)
          .setDescription(`**Send Help Here 🔓\nSend in DM 🔒**`)
          badboy.channel.send(embed).then(async badboy1 => {
     await  badboy1.react("🔓")
@@ -91,8 +92,7 @@ var embed = new Discord.MessageEmbed()
 \`${prefix}anti time\` : **Number**
 \`${prefix}settings\`
 
-**__Security On/Off__**
-
+**Security On/Off**
 \`${prefix}anti bot\` : **on-off**
 \`${prefix}anti problem\` : **on-off**
 \`${prefix}anti subversive\` : **on-off**
