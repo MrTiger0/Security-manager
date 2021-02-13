@@ -44,22 +44,16 @@ client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.9TTPI6L1zzs2lS707a3kCXWydj4");
 
 //////
 
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "help")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
 
-    cooldown.add(message.author.id);
+///////
 
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    let help = new Discord.MessageEmbed()
-      .setColor(color)
-      .setAuthor(message.author.username, message.author.AvatarURL)
-      .setTitle(`Click Here To Add : Anti Vandalism`)
-      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`) .setDescription(`
+client.on('message', message => {
+	if (message.content.startsWith(prefix + "help")) {
+		const metasploit = new Discord.MessageEmbed()
+			.setTitle(`Bot Commands`)
+       .setColor('RANDOM')
+  .setDescription(`
+  
 
 **Info Commands**
 \`A!userinfo\`
@@ -84,46 +78,17 @@ if (cooldown.has(message.author.id)) {
 **Moderation Commands**
 \`A!lock\`
 \`A!unlock\`
-\`A!ban\` : @User
-\`A!kick\` : @User
-\`A!unban\` : Id / all
+\`A!ban\` : **@User**
+\`A!kick\` : **@User**
+\`A!unban\` : **Id** / **all**
+
+  
+📄・MY PREFIX [${prefix}]
+📄・MY PING [${client.ws.ping}]
 
 
-[Support](https://discord.gg/Z7JgEkGtak) - [Website](https://aerial-catkin-jumbo.glitch.me/) - [Vote](https://top.gg/bot/711328570374619207)
-
+[  **Server Support**  ](https://discord.gg/Z7JgEkGtak) - [  **Invite Bot**  ](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) - [  **Website**  ](https://aerial-catkin-jumbo.glitch.me/) - [  **Vote**  ](https://top.gg/bot/711328570374619207)
 `);
-
-    message.channel.send(help);
-  }
-});
-
-///////
-
-client.on('message', message => {
-	if (message.content.startsWith(prefix + "help")) {
-		const metasploit = new Discord.MessageEmbed()
-			.setTitle(`Bot Commands`)
-       .setColor('RANDOM')
-  .setDescription(`
-  
-**Security Number**
-\`A!anti kick\` : **Number**
-\`A!anti ban\` : **Number**
-\`A!anti roleD\` : **Number**
-\`A!anti roleC\` : **Number**
-\`A!anti channelD\` : **Number**
-\`A!anti channelC\` : **Number**
-\`A!anti time\` : **Number**
-\`A!settings\`
-
-**Srcurity On/Off**
-\`A!anti bot\` : **on-off**
-\`A!anti problem\` : **on-off**
-\`A!anti subversive\` : **on-off**
-
-  
-📄・MY PREFIX ${prefix}
-📄・MY PING ${client.ws.ping}`);
 		message.channel.send(metasploit);
 	}
 });
