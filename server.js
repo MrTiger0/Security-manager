@@ -67,8 +67,8 @@ if (cooldown.has(badboy.author.id)) {
         reaction.emoji.name === '🔓' && user.id === badboy.author.id;
         const filter1 = (reaction, user) =>
         reaction.emoji.name === '🔒' && user.id === badboy.author.id;
- const yes = badboy1.createReactionCollector(filter, {time: 30000})
-        const no = badboy1.createReactionCollector(filter1, {time: 30000})
+ const yes = badboy1.createReactionCollector(filter, {time: 300000})
+        const no = badboy1.createReactionCollector(filter1, {time: 300000})
         
 yes.on('collect', bbb => {
  
