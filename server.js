@@ -61,7 +61,7 @@ if (cooldown.has(badboy.author.id)) {
          .setAuthor(badboy.author.username, badboy.author.AvatarURL)
          .setDescription(`**Send Help Here 🔓\nSend in DM 🔒**`)
          badboy.channel.send(embed).then(async badboy1 => {
-    await  badboy1.react("🔓")
+        badboy1.react("🔓")
         badboy1.react("🔒")
     const filter = (reaction, user) =>
         reaction.emoji.name === '🔓' && user.id === badboy.author.id;
