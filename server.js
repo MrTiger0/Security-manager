@@ -61,14 +61,14 @@ if (cooldown.has(badboy.author.id)) {
          .setAuthor(badboy.author.username, badboy.author.AvatarURL)
          .setDescription(`**Send Help Here 🔓\nSend in DM 🔒**`)
          badboy.channel.send(embed).then(async badboy1 => {
-        badboy1.react("🔓")
+     await   badboy1.react("🔓")
         badboy1.react("🔒")
     const filter = (reaction, user) =>
         reaction.emoji.name === '🔓' && user.id === badboy.author.id;
         const filter1 = (reaction, user) =>
         reaction.emoji.name === '🔒' && user.id === badboy.author.id;
- const yes = badboy1.createReactionCollector(filter, {time: 300000})
-        const no = badboy1.createReactionCollector(filter1, {time: 300000})
+ const yes = badboy1.createReactionCollector(filter, {time: 30000})
+        const no = badboy1.createReactionCollector(filter1, {time: 30000})
         
 yes.on('collect', bbb => {
  
