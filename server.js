@@ -61,30 +61,30 @@ if (cooldown.has(message.author.id)) {
       .setDescription(`
 
 **Info Commands**
-\`A!user\`
-\`A!server\`
-\`A!bot\`
+\`q!user\`
+\`q!server\`
+\`q!bot\`
 
 **Security Number**
-\`A!anti kick\` : **Number**
-\`A!anti ban\` : **Number**
-\`A!anti roleD\` : **Number**
-\`A!anti roleC\` : **Number**
-\`A!anti channelD\` : **Number**
-\`A!anti channelC\` : **Number**
-\`A!anti time\` : **Number**
-\`A!settings\`
+\`q!anti kick\` : **Number**
+\`q!anti ban\` : **Number**
+\`q!anti roleD\` : **Number**
+\`q!anti roleC\` : **Number**
+\`q!anti channelD\` : **Number**
+\`q!anti channelC\` : **Number**
+\`q!anti time\` : **Number**
+\`q!settings\`
 
 **Srcurity On/Off**
-\`A!anti bot\` : **on-off**
-\`A!anti problem\` : **on-off**
+\`q!anti bot\` : **on-off**
+\`q!anti problem\` : **on-off**
 
 **Moderation Commands**
-\`A!lock\`
-\`A!unlock\`
-\`A!ban\` : @User
-\`A!kick\` : @User
-\`A!unban\` : Id / all
+\`w!lock\`
+\`q!unlock\`
+\`q!ban\` : @**User**
+\`q!kick\` : @**User**
+\`q!unban\` : **Id** / **all**
 
 
 [ **Invite Bot** ](https://discord.com/api/oauth2/authorize?client_id=811722944912162836&permissions=8&scope=bot) - [ **Support Server** ](https://discord.gg/yMf6kWVZKB)
@@ -156,12 +156,12 @@ Send Message : ${rastw}
 
 
 //////
-const rast = "";
-const rastw = "";
-const ghallat = "";
-const ghallatw = "";
+const rast = "<:3626FA51DBD64815983FB2218F90BF20:812411653794430988>";
+const rastw = "<:3626FA51DBD64815983FB2218F90BF20:812411653794430988>";
+const ghallat = "<:CBC89BE048CF4C5AAB38F87C661962BE:812411654003621989>";
+const ghallatw = "<:CBC89BE048CF4C5AAB38F87C661962BE:812411654003621989>";
 const logosec = "";
-const warn = "";
+const warn = "<:29E818FD898148B1A054C208A3280C88:812411653806096393>";
 const color = "#000000";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
