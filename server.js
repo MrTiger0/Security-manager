@@ -99,7 +99,15 @@ if (cooldown.has(message.author.id)) {
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "lock")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
 
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild)
       return message.channel.send(
         "Sorry This Command Only For Servers."
@@ -128,6 +136,15 @@ Send Message : ${ghallatw}
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "unlock")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild)
       return message.channel.send(
         "Sorry This Command Only For Servers."
@@ -187,6 +204,15 @@ client.on("message", message => {
       time: 0.1
     };
   if (message.content.startsWith(prefix + "anti")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
   if (message.author.id !== message.guild.ownerID) return;
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
@@ -747,6 +773,15 @@ client.on("guildMemberRemove", async member => {
 let antibots = JSON.parse(fs.readFileSync("./antibots.json", "utf8")); //require antihack.json file
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti bot on")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild) return;
     if (message.author.id !== message.guild.ownerID) return;
     antibots[message.guild.id] = {
@@ -764,6 +799,15 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti bot off")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild) return;
    if (message.author.id !== message.guild.ownerID) return;
     antibots[message.guild.id] = {
@@ -806,9 +850,17 @@ fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
 
 client.on("message", message => {
   if (message.content.startsWith(`${prefix}bot`)) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     const tnx = new Discord.MessageEmbed()
       .setAuthor(client.user.username, client.user.avatarURL())
-
       .setColor(color)
       .setTitle(`Info about ${client.user.username}.`)
       .addField(
@@ -824,6 +876,7 @@ client.on("message", message => {
       .addField("**Name Bot**", `[ ${client.user.tag} ]`, true)
       .addField("**ID Bot**", `[ ${client.user.id} ]`, true)
       .addField("**Prefix Bot**", `[ ${prefix} ]`, true)
+      .addField("**Owner-Bot**", `<@790232202134421554>`, true)
       .addField("**Bot Language**", `[ Java Script ]`, true)
       .setFooter("Security");
 
@@ -874,6 +927,15 @@ client.on("message", message => {
 
 client.on("message", prof => {
   if (prof.content.startsWith(prefix + "user")) {
+if (cooldown.has(prof.author.id)) {
+      return prof.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(prof.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(prof.author.id);
+    }, cdtime * 1000);
     var professor = new Discord.MessageEmbed()
       .setAuthor(client.user.username)
       .setThumbnail(client.user.avatarURL())
@@ -893,100 +955,30 @@ client.on("message", prof => {
 
 //////////////mute
 
-client.on("message", async message => {
-  let args = message.content.split(" ");
-  let user =
-    message.mentions.users.first() || message.guild.members.cache.get(args[1]);
-  if (message.content.startsWith(prefix + "mute")) {
-    if (!message.guild.member(message.author).hasPermission("MUTE_MEMBERS"))
-      return message.channel.send(
-        "**Please Check Your Permission MUTE_MEBMERS**"
-      );
-    if (!message.guild.member(client.user).hasPermission("MUTE_MEMBERS"))
-      return message.channel.send(
-        "**Please Check My Permission MUTE_MEBMERS**"
-      );
-    if (!user)
-      return message.channel.send(`**>>> ${prefix}mute <@mention Or ID>**`);
-    let mute = message.guild.roles.cache.find(role => role.name === "Muted");
-    if (!mute)
-      mute = await message.guild.roles.create({
-        data: {
-          name: "Muted",
-          color: "#0000",
-          permissions: []
-        }
-      });
-    message.guild.channels.cache.forEach(async channel => {
-      await channel.createOverwrite(mute, {
-        SEND_MESSAGES: false,
-        ADD_REACTIONS: false
-      });
-    });
-    message.guild.member(user).roles.add(mute);
-    message.channel.send(`**${user.username} has been muted!**`);
-  }
-  if (message.content.toLowerCase() === `${prefix}help mute`) {
-    let mute = new Discord.MessageEmbed()
-      .setTitle(`Command: Mute `)
-      .addField("Usage", `${prefix}mute @user`)
-      .addField("Information", "Mute Members");
-    message.channel.send(mute);
-  }
-});
-
-//////////unmute
-
-client.on("message", async message => {
-  let args = message.content.split(" ");
-  let user = message.mentions.users.first();
-  if (message.content.startsWith(prefix + "unmute")) {
-    if (!message.guild.member(message.author).hasPermission("MUTE_MEMBERS"))
-      return message.channel.send(
-        "**Please Check Your Permission MUTE_MEBMERS**"
-      );
-    if (!message.guild.member(client.user).hasPermission("MUTE_MEMBERS"))
-      return message.channel.send(
-        "**Please Check My Permission MUTE_MEBMERS**"
-      );
-    if (!user)
-      return message.channel.send(`**>>> ${prefix}unmute <@mention Or ID>**`);
-    let mute = message.guild.roles.cache.find(role => role.name === "Muted");
-    message.guild.channels.cache.forEach(async channel => {
-      await channel.createOverwrite(mute, {
-        SEND_MESSAGES: false,
-        ADD_REACTIONS: false
-      });
-    });
-    message.guild.member(user).roles.remove(mute);
-    message.channel.send(`**removed mute from ${user.username}!**`);
-  }
-  if (message.content.toLowerCase() === `${prefix}help unmute`) {
-    let unmute = new Discord.MessageEmbed()
-      .setTitle(`Command: unmute `)
-      .addField("Usage", `${prefix}unmute @user`)
-      .addField("Information", "unmute Members");
-    message.channel.send(unmute);
-  }
-});
-
-//////////
-
 //////
 
 client.on("message", prof => {
   if (prof.content.startsWith(prefix + "server")) {
+if (cooldown.has(prof.author.id)) {
+      return prof.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(prof.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(prof.author.id);
+    }, cdtime * 1000);
     var professor = new Discord.MessageEmbed()
       .setAuthor(prof.guild.name)
       .setColor(color)
       .setThumbnail(prof.guild.iconURL())
       .setTitle("**Info Server**")
-      .addField(" ⚠️| **Server Name:**", `${prof.guild.name}`)
+      .addField(" 📑| **Server Name:**", `${prof.guild.name}`)
       .addField(" 👑| **Owner Server:**", `${prof.guild.owner}`)
-      .addField(" 🔰| **Server ID:**", `${prof.guild.id}`)
-      .addField(" ✅| **Created:**", `${prof.guild.createdAt.toLocaleString()}`)
-      .addField(" 🚦| **Members:**", `${prof.guild.memberCount}`)
-      .addField(" 🔳| **Channels:**", `${prof.guild.channels.cache.size}`)
+      .addField(" 🆔| **Server ID:**", `${prof.guild.id}`)
+      .addField(" 📆| **Created:**", `${prof.guild.createdAt.toLocaleString()}`)
+      .addField(" 👥| **Members:**", `${prof.guild.memberCount}`)
+      .addField(" 🎙| **Channels:**", `${prof.guild.channels.cache.size}`)
       .addField(" 🌐| **Region**:", `${prof.guild.region}`)
       .addField(" **Roles:**", ` ${prof.guild.roles.cache.size}`)
       .setFooter(`Requested | ${prof.author.tag}`, prof.author.avatarURL())
@@ -1064,6 +1056,15 @@ client.on("message", async message => {
 ///////
 client.on("message", message => {
   if (message.content === prefix + "settings") {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
      if (message.author.id !== message.guild.ownerID) return;
     if (!message.channel.guild)
       return message.channel.send(
@@ -1117,6 +1118,15 @@ ${config[message.guild.id].roleCrLimits}
 let spread = JSON.parse(fs.readFileSync("./spread.json", "utf8"));
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti problem off")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild) return;
       if (!message.member.hasPermission("MANAGE_GUILD"))
         return message.channel.send(
@@ -1137,6 +1147,15 @@ client.on("message", message => {
 });
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti problem on")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild) return;
       if (!message.member.hasPermission("MANAGE_GUILD"))
         return message.channel.send(
