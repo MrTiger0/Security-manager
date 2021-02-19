@@ -88,7 +88,7 @@ if (cooldown.has(message.author.id)) {
 \`A!unban\` : Id / all
 
 
-[Support]() - [Website]()
+[ **Invite Bot** ](https://discord.com/api/oauth2/authorize?client_id=811722944912162836&permissions=8&scope=bot) - [ **Support Server** ](https://discord.gg/yMf6kWVZKB)
 
 `);
 
