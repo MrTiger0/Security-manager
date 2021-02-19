@@ -80,7 +80,7 @@ if (cooldown.has(message.author.id)) {
 \`q!anti problem\` : **on-off**
 
 **Moderation Commands**
-\`w!lock\`
+\`q!lock\`
 \`q!unlock\`
 \`q!ban\` : @**User**
 \`q!kick\` : @**User**
