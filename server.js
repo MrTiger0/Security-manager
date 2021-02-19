@@ -58,7 +58,7 @@ if (cooldown.has(message.author.id)) {
     let help = new Discord.MessageEmbed()
       .setColor(color)
       .setAuthor(message.author.username, message.author.AvatarURL)
-      .setTitle(`Click Here To Add : Anti Vandalism`)
+      .setTitle(`Click Here To Add : Security Classic`)
       .setURL(``) .setDescription(`
 
 **Info Commands**
