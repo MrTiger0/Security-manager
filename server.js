@@ -62,9 +62,9 @@ if (cooldown.has(message.author.id)) {
       .setURL(``) .setDescription(`
 
 **Info Commands**
-\`A!userinfo\`
-\`A!serverinfo\`
-\`A!botinfo\`
+\`A!user\`
+\`A!server\`
+\`A!bot\`
 
 **Security Number**
 \`A!anti kick\` : **Number**
@@ -79,7 +79,6 @@ if (cooldown.has(message.author.id)) {
 **Srcurity On/Off**
 \`A!anti bot\` : **on-off**
 \`A!anti problem\` : **on-off**
-\`A!anti subversive\` : **on-off**
 
 **Moderation Commands**
 \`A!lock\`
