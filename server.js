@@ -39,7 +39,7 @@ client.on("ready", async () => {
   console.log(`${client.user.username} Ready .`);
   console.log(`${client.guilds.cache.size} Servers .`);
   console.log(`${client.users.cache.size} Users .`);
-  client.user.setActivity(prefix + "help | Coming soon", {
+  client.user.setActivity(prefix + "help - Anti Vandalism Is One", {
     type: "PLAYING"
   });
 });
@@ -1069,3 +1069,19 @@ client.on("message",message => {
   }
   });
       
+//////////
+
+client.on("message",message => {
+  if(message.content.startsWith(prefix + "invite")) 
+  message.channel.send("https://discord.com/oauth2/authorize?client_id=711328570374619207&permissions=21474836398&scope=bot");
+}
+
+);
+
+///////
+client.on("message",message => {
+  if(message.content.startsWith(prefix + "vote")) 
+  message.channel.send("https://top.gg/bot/711328570374619207");
+}
+
+);
