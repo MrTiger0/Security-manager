@@ -1191,7 +1191,7 @@ client.on("message",message => {
 
 //////
 client.on('message', carnage => {
-    if(carnage.content.startsWith(prefix + 'iq')) {
+    if(carnage.content.startsWith(prefix + "iq")) {
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -1209,7 +1209,7 @@ if (cooldown.has(message.author.id)) {
 
 //////
 client.on('message', carnage => {
-    if(carnage.content.startsWith(prefix + 'ship')) {
+    if(carnage.content.startsWith(prefix + "ship")) {
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -1227,7 +1227,7 @@ if (cooldown.has(message.author.id)) {
 
 /////
 client.on('message', carnage => {
-    if(carnage.content.startsWith(prefix + 'gay')) {
+    if(carnage.content.startsWith(prefix + "gay")) {
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
