@@ -1176,15 +1176,6 @@ if (cooldown.has(message.author.id)) {
 
 client.on("message",message => {
   if(message.content.startsWith(prefix + "invite")) 
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
   message.channel.send("https://discord.com/oauth2/authorize?client_id=711328570374619207&permissions=21474836398&scope=bot");
 }
 
@@ -1193,15 +1184,6 @@ if (cooldown.has(message.author.id)) {
 ///////
 client.on("message",message => {
   if(message.content.startsWith(prefix + "vote")) 
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
   message.channel.send("https://top.gg/bot/711328570374619207");
 }
 
