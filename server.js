@@ -183,7 +183,7 @@ if (cooldown.has(message.author.id)) {
     setTimeout(() => {
       cooldown.delete(message.author.id);
     }, cdtime * 1000);
-  if (message.author.id !== message.guild.ownerID) 
+  if (message.author.id !== message.guild.ownerID) return;
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
         return message.channel.send("**" + ghallat + " | Type A <Number> .**");
