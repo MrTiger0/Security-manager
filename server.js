@@ -1190,8 +1190,8 @@ client.on("message",message => {
 );
 
 //////
-client.on('message', carnage => {
-    if(carnage.content.startsWith(prefix + "iq")) {
+client.on("message", message => {
+    if(message.content.startsWith(prefix + "iq")) {
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -1202,14 +1202,14 @@ if (cooldown.has(message.author.id)) {
       cooldown.delete(message.author.id);
     }, cdtime * 1000);
         const lvl = Math.floor(Math.random() * 100) + 1 ;
-        const owner = carnage.author ;
-        return carnage.channel.send(`IQ Level is ${lvl}% 🧠`)
+        const owner = message.author ;
+        return message.channel.send(`IQ Level is ${lvl}% 🧠`)
     }
 });
 
 //////
-client.on('message', carnage => {
-    if(carnage.content.startsWith(prefix + "ship")) {
+client.on("message", message => {
+    if(message.content.startsWith(prefix + "ship")) {
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -1220,14 +1220,14 @@ if (cooldown.has(message.author.id)) {
       cooldown.delete(message.author.id);
     }, cdtime * 1000);
         const lvl = Math.floor(Math.random() * 100) + 1 ;
-        const owner = carnage.author ;
-        return carnage.channel.send(`IQ Level is ${lvl}% <:4FE09E8A92C5470B870CB958C5A7216F:813184354628927529>`)
+        const owner = message.author ;
+        return message.channel.send(`IQ Level is ${lvl}% <:4FE09E8A92C5470B870CB958C5A7216F:813184354628927529>`)
     }
 });
 
 /////
-client.on('message', carnage => {
-    if(carnage.content.startsWith(prefix + "gay")) {
+client.on("message", message => {
+    if(message.content.startsWith(prefix + "gay")) {
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -1238,7 +1238,7 @@ if (cooldown.has(message.author.id)) {
       cooldown.delete(message.author.id);
     }, cdtime * 1000);
         const lvl = Math.floor(Math.random() * 100) + 1 ;
-        const owner = carnage.author ;
-        return carnage.channel.send(`IQ Level is ${lvl}% <:998AB84CAB8A43CDB9DD356B1783157F:813184352510148608>`)
+        const owner = message.author ;
+        return message.channel.send(`IQ Level is ${lvl}% <:998AB84CAB8A43CDB9DD356B1783157F:813184352510148608>`)
     }
 });
