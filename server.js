@@ -57,12 +57,13 @@ client.on("message", async message => {
 [ Invite ](https://discord.com/oauth2/authorize?client_id=711328570374619207&permissions=21474836398&scope=bot)  -  [ Support ](https://discord.gg/tnMzVGj8yT)  -  [ Website ](https://aerial-catkin-jumbo.glitch.me/)
 
 <:D237646538914FD39A0B144DA35AB584:813144028883320832> General
-${prefix}botinfo - ${prefix}serverinfo - ${prefix}userinfo
+\`${prefix}botinfo\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
+\`${prefix}invite\` - \`${prefix}vote\`
 <:47A7E1944A2244649B93FDD70CB2826A:813144028589457439> Security
-${prefix}anti - ${prefix}settings
+\`${prefix}anti\` - \`${prefix}settings\`
 <:36501D170F3F433C8D2A51EA39A0519F:813144028547252276> Moderation
-${prefix}lock - ${prefix}unlock - ${prefix}kick
-${prefix}ban - ${prefix}unban
+\`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\`
+\`${prefix}ban\` - \`${prefix}unban\`
 
 `);
     message.channel.send(help);
