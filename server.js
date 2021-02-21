@@ -974,7 +974,6 @@ let swear = JSON.parse(fs.readFileSync("./swear.json", "utf8"));
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti swear off")) {
     if (!message.channel.guild) return;
-    if (bot_owner.includes(message.id))
       if (!message.member.hasPermission("MANAGE_GUILD"))
         return message.channel.send(
           ghallat +
@@ -995,7 +994,6 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti swear on")) {
     if (!message.channel.guild) return;
-    if (bot_owner.includes(message.id))
       if (!message.member.hasPermission("MANAGE_GUILD"))
         return message.channel.send(
           ghallat +
