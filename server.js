@@ -1031,7 +1031,7 @@ const embed = new Discord.MessageEmbed()
     .addField('Members',`**[${msg.guild.memberCount}]**`,true)
     .addField('Channels',`**[${msg.guild.channels.cache.size}]**`,true)
     .addField('Region',`**[${msg.guild.region}]**`,true)
-    .addField('Owner Bot',`@<769956996476043275>`,true)
+    .addField('Owner Bot',`<@769956996476043275>`,true)
     .addField('Roles', `**[ ${msg.guild.roles.cache.size} ]**`, true)
 msg.channel.send(embed);
 }
