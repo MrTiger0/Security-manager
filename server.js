@@ -31,58 +31,70 @@ const dateFormat = require("dateformat");
 var table = require("table").table;
 const Discord = require("discord.js");
 const cmd = require("node-cmd");
-const prefix = ".";
-const cooldown = new Set()
-const cdtime =5;
-client.login("NzkxNjAwODI2MzEyOTQ5NzYw.X-RhuA.ljAILpCWZQgBlyMQWefdcc6vKjk");
- client.on("ready", () => {
-  console.log(`${client.user.tag}`);
-  console.log(`Guilds: ${client.guilds.size}`);
-  console.log(`Users: ${client.users.size}`);
-  client.user.setActivity(`${prefix}help`, { Type: "Playing" });
+const prefix = "*";
+client.login("https:/uth2/authorize?client_id=778689847396401214&permissions=8&scope=bot");
+client.on("ready", async () => {
+  console.log(`${client.user.username} Ready .`);
+  console.log(`${client.guilds.cache.size} Servers .`);
+  console.log(`${client.users.cache.size} Users .`);
+  client.user.setActivity(prefix + "help | Special Security .", {
+    type: "PLAYING"
+  });
 });
-
-//////
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
-      .setAuthor(message.author.username, message.author.AvatarURL)
-      .setDescription(`
-
-
+      .setAuthor(message.author.username, message.author.displayAvatarURL)
+      .setThumbnail(message.author.avatarURL)
+      .setTitle(
+        "<:531927ACA4664A178344A44AB4FCC00D:741970199858905128>" +
+          " | Click Here To Add : " +
+          `${client.user.username}`
+      )
+      .setURL(
+        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
+      ).setDescription(`${client.user.username} Prefix Is ${prefix}
+----------
+<:D09B9B0A34CA46BCBE3F80920CED9581:778276971204575263> | Security Commands :
+${prefix}anti ban [ Number ]
+${prefix}anti kick [ Number ]
+${prefix}anti channel [ Number ]
+${prefix}anti role [ Number ]
+${prefix}anti bot [ on / off ]
+----------
+⚙ | Moderation Commands :
+${prefix}help
+${prefix}invite
+${prefix}lock
+${prefix}unlock
 `);
-
     message.channel.send(help);
   }
 });
-
-//////
-
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "invite")) {
+    let invite = new Discord.MessageEmbed()
+      .setColor(color)
+      .setAuthor(message.author.username, message.author.displayAvatarURL)
+      .setThumbnail(message.author.avatarURL)
+      .setTitle(
+        "<:531927ACA4664A178344A44AB4FCC00D:741970199858905128>" +
+          " | Click Here To Add : " +
+          `${client.user.username}`
+      )
+      .setURL(
+        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
+      );
+    message.channel.send(invite);
+  }
+});
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "lock")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
     if (!message.channel.guild)
       return message.channel.send(
-        "Sorry This Command Only For Servers."
+        ghallat + "** | Sorry This Command Only For Servers .**"
       );
 
     if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
@@ -92,11 +104,20 @@ if (cooldown.has(message.author.id)) {
       SEND_MESSAGES: false
     });
     const lock = new Discord.MessageEmbed()
+      .setTitle(
+        "<:531927ACA4664A178344A44AB4FCC00D:741970199858905128>" +
+          " | Click Here To Add : " +
+          `${client.user.username}`
+      )
+      .setURL(
+        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
+      )
       .setColor(color)
       .setDescription(
         `🔒 | Locked Channel
 Channel Name : <#${message.channel.id}>
 Locked By : <@${message.author.id}>
+Channel Status : Send Message : ${ghallatw}
 `
       )
       .setThumbnail(message.author.avatarURL())
@@ -107,18 +128,9 @@ Locked By : <@${message.author.id}>
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "unlock")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
     if (!message.channel.guild)
       return message.channel.send(
-        "Sorry This Command Only For Servers."
+        ghallat + "** | Sorry This Command Only For Servers .**"
       );
 
     if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
@@ -128,11 +140,20 @@ if (cooldown.has(message.author.id)) {
       SEND_MESSAGES: null
     });
     const unlock = new Discord.MessageEmbed()
+      .setTitle(
+        "<:531927ACA4664A178344A44AB4FCC00D:741970199858905128>" +
+          " | Click Here To Add : " +
+          `${client.user.username}`
+      )
+      .setURL(
+        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
+      )
       .setColor(color)
       .setDescription(
         `🔓 | UnLocked Channel
 Channel Name : <#${message.channel.id}>
 Locked By : <@${message.author.id}>
+Channel Status : Send Message : ${rastw}
 `
       )
       .setThumbnail(message.author.avatarURL())
@@ -140,16 +161,13 @@ Locked By : <@${message.author.id}>
     message.channel.send(unlock);
   }
 });
-
-
-//////
-const rast = "<:3626FA51DBD64815983FB2218F90BF20:812411653794430988>";
-const rastw = "<:3626FA51DBD64815983FB2218F90BF20:812411653794430988>";
-const ghallat = "<:CBC89BE048CF4C5AAB38F87C661962BE:812411654003621989>";
-const ghallatw = "<:CBC89BE048CF4C5AAB38F87C661962BE:812411654003621989>";
-const logosec = "";
-const warn = "<:29E818FD898148B1A054C208A3280C88:812411653806096393>";
-const color = "#000000";
+const rast = "<a:emoji_4:765718726380093451>";
+const rastw = "<:463A4697A27B41909D3D07385C8FF438:767018238524915732>";
+const ghallat = "<a:emoji_5:765720961319960577>";
+const ghallatw = "<:03601F817F154FE68CB7469CEDBDF3F2:767018259324207125>";
+const logosec = "<:D09B9B0A34CA46BCBE3F80920CED9581:778276971204575263>";
+const warn = "<a:1E9D61F4865A4BD19757A97BAD179C7B:767018213660688407>";
+const color = "#F49E1C";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
 client.on("message", message => {
@@ -174,7 +192,7 @@ client.on("message", message => {
       time: 0.1
     };
   if (message.content.startsWith(prefix + "anti")) {
-if (cooldown.has(message.author.id)) {
+   if (cooldown.has(message.author.id)) {
       return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
@@ -186,10 +204,10 @@ if (cooldown.has(message.author.id)) {
   if (message.author.id !== message.guild.ownerID) return;
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A <Number> .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].banLimit = num;
       message.channel.send(
@@ -198,10 +216,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti kick")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A <Number> .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].kickLimits = num;
       message.channel.send(
@@ -210,10 +228,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti roleD")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A <Number> .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].roleDelLimit = num;
       message.channel.send(
@@ -222,10 +240,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti roleC")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A <Number> .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].roleCrLimits = num;
       message.channel.send(
@@ -234,10 +252,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti channelD")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A <Number> .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
@@ -246,10 +264,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti channelC")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A <Number> .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].chaCrLimit = num;
       message.channel.send(
@@ -258,10 +276,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
+        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A <Number> .**"
+          "**" + ghallat + " | Only Type A `Number` .**"
         );
       config[message.guild.id].time = num;
       message.channel.send(
@@ -738,40 +756,6 @@ client.on("guildMemberRemove", async member => {
     ) {
       if (e) throw e;
     });
-  }
-});
-
-///////
-
-client.on("message", message => {
-  let command = message.content.split(" ")[0];
-  if (command == prefix + "unban") {
-    if (!message.member.hasPermission("BAN_MEMBERS")) return;
-    let args = message.content
-      .split(" ")
-      .slice(1)
-      .join(" ");
-    if (args == "all") {
-      message.guild.fetchBans().then(zg => {
-        zg.forEach(Saad => {
-          message.guild.unban(Saad);
-        });
-      });
-      return message.channel.send("**✅ Unbanned all members **");
-    }
-    if (!args) return message.channel.send("**Please Type the member ID**");
-    message.guild
-      .unban(args)
-      .then(m => {
-        message.channel.send(
-          `**Done Unbanned ${m.username}**`
-        );
-      })
-      .catch(stry => {
-        message.channel.send(
-          `**I can't find \`${args}\` in the ban list**`
-        );
-      });
   }
 });
 
