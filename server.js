@@ -885,7 +885,7 @@ client.on("message", message => {
     spread[message.guild.id] = {
       onoff: "Off"
     };
-    message.channel.send(`<:C563F4DA602B4EFA81F9FFA295F87005:813144735912951884> | AntiProblem Is \`Disable\` .`);
+    message.channel.send(`<:C563F4DA602B4EFA81F9FFA295F87005:813144735912951884> | AntiProblem Is Off`);
     fs.writeFile("./spread.json", JSON.stringify(spread), err => {
       if (err)
         console.error(err).catch(err => {
@@ -905,7 +905,7 @@ client.on("message", message => {
     spread[message.guild.id] = {
       onoff: "On"
     };
-    message.channel.send(`<:548439AFF3A9409C883B1E19DBD23365:813144736222674984> | AntiProblem Is \`Enable\` .`);
+    message.channel.send(`<:548439AFF3A9409C883B1E19DBD23365:813144736222674984> | AntiProblem Is On`);
     fs.writeFile("./spread.json", JSON.stringify(spread), err => {
       if (err)
         console.error(err).catch(err => {
@@ -972,7 +972,7 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
   antibots[message.guild.id] = {
   onoff: 'On',
   }
-  message.channel.send(`<:548439AFF3A9409C883B1E19DBD23365:813144736222674984> | AntiBots Join Is On`)
+  message.channel.send(`<:548439AFF3A9409C883B1E19DBD23365:813144736222674984> | AntiBot Join Is On`)
             fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
               if (err) console.error(err)
               .catch(err => {
@@ -990,7 +990,7 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
   antibots[message.guild.id] = {
   onoff: 'Off',
   }
-  message.channel.send(`<:C563F4DA602B4EFA81F9FFA295F87005:813144735912951884> | AntiBots Join Is Off`)
+  message.channel.send(`<:C563F4DA602B4EFA81F9FFA295F87005:813144735912951884> | AntiBot Join Is Off`)
             fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
               if (err) console.error(err)
               .catch(err => {
@@ -1031,7 +1031,8 @@ const embed = new Discord.MessageEmbed()
     .addField('Members',`**[${msg.guild.memberCount}]**`,true)
     .addField('Channels',`**[${msg.guild.channels.cache.size}]**`,true)
     .addField('Region',`**[${msg.guild.region}]**`,true)
-    .addField('Rules', `**[ ${msg.guild.roles.cache.size} ]**`, true)
+    .addField('Owner Bot',`@<769956996476043275>`,true)
+    .addField('Roles', `**[ ${msg.guild.roles.cache.size} ]**`, true)
 msg.channel.send(embed);
 }
 });
@@ -1044,11 +1045,11 @@ const embed = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
 .setColor(color)
 .setTitle(` ${client.user.username} `)
-.addField('``servers``', ` ${client.guilds.cache.size} `, true)
-.addField('``channels``', ` ${client.channels.cache.size} `, true)
-.addField('``Users``', ` ${client.users.cache.size} `, true)
-.addField('``My Name``' , ` ${client.user.tag}` , true)
-.addField('``My ID``' , ` ${client.user.id} ` , true)
+.addField('servers', `**${client.guilds.cache.size}**`, true)
+.addField('channels', `**${client.channels.cache.size}**`, true)
+.addField('Users', `**${client.users.cache.size}**`, true)
+.addField('My Name' , `**${client.user.tag}**` , true)
+.addField('My ID' , `**${client.user.id}**` , true)
 msg.channel.send(embed);
 }
 });
@@ -1062,9 +1063,9 @@ client.on("message",message => {
   .setAuthor(message.author.username,message.author.avatarURL())
   .setThumbnail(message.author.avatarURL())
   .setTitle("Info User")
-  .addField('``Name``', ` ${message.author.tag} `, true)
-  .addField('``ID``', ` ${message.author.id} `, true)  
-  .addField('``Created At``', ` ${message.author.createdAt.toLocaleString()} `, true)
+  .addField('Name', `**${message.author.tag}**`, true)
+  .addField('ID', `**${message.author.id}**`, true)  
+  .addField('Created At', `**${message.author.createdAt.toLocaleString()}**`, true)
   .setTimestamp(); 
   message.channel.send(embed)
   }
