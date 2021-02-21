@@ -73,7 +73,7 @@ client.on("message", async message => {
 ///////
 
 client.on("message", async message => {
-  if (message.content.startsWith(prefix + "anti")) {
+  if (message.content.startsWith(prefix + "show anti")) {
     let help = new Discord.MessageEmbed()
       .setColor(color)
       .setAuthor(message.author.username, message.author.displayAvatarURL)
