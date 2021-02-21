@@ -68,23 +68,7 @@ ${prefix}unlock
     message.channel.send(help);
   }
 });
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "invite")) {
-    let invite = new Discord.MessageEmbed()
-      .setColor(color)
-      .setAuthor(message.author.username, message.author.displayAvatarURL)
-      .setThumbnail(message.author.avatarURL)
-      .setTitle(
-        "<:531927ACA4664A178344A44AB4FCC00D:741970199858905128>" +
-          " | Click Here To Add : " +
-          `${client.user.username}`
-      )
-      .setURL(
-        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
-      );
-    message.channel.send(invite);
-  }
-});
+////////
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "lock")) {
     if (!message.channel.guild)
@@ -99,20 +83,11 @@ client.on("message", async message => {
       SEND_MESSAGES: false
     });
     const lock = new Discord.MessageEmbed()
-      .setTitle(
-        "<:531927ACA4664A178344A44AB4FCC00D:741970199858905128>" +
-          " | Click Here To Add : " +
-          `${client.user.username}`
-      )
-      .setURL(
-        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
-      )
       .setColor(color)
       .setDescription(
         `🔒 | Locked Channel
 Channel Name : <#${message.channel.id}>
 Locked By : <@${message.author.id}>
-Channel Status : Send Message : ${ghallatw}
 `
       )
       .setThumbnail(message.author.avatarURL())
@@ -135,20 +110,11 @@ client.on("message", async message => {
       SEND_MESSAGES: null
     });
     const unlock = new Discord.MessageEmbed()
-      .setTitle(
-        "<:531927ACA4664A178344A44AB4FCC00D:741970199858905128>" +
-          " | Click Here To Add : " +
-          `${client.user.username}`
-      )
-      .setURL(
-        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
-      )
       .setColor(color)
       .setDescription(
         `🔓 | UnLocked Channel
 Channel Name : <#${message.channel.id}>
 Locked By : <@${message.author.id}>
-Channel Status : Send Message : ${rastw}
 `
       )
       .setThumbnail(message.author.avatarURL())
@@ -969,3 +935,57 @@ client.on("message", message => {
     );
   }
 });
+/////
+let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require antihack.json file
+  client.on('message', message => {
+    
+      if(message.content.startsWith(prefix + "antibots on")) {
+          if(!message.channel.guild) return;
+         if (message.author.id !== message.guild.ownerID) return;
+  antibots[message.guild.id] = {
+  onoff: 'On',
+  }
+  message.channel.send(`**AntiBots Join Is On**`)
+            fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
+              if (err) console.error(err)
+              .catch(err => {
+                console.error(err);
+            });
+              });
+            }
+    
+          })
+
+  client.on('message', message => {
+    if(message.content.startsWith(prefix + "antibots off")) {
+          if(!message.channel.guild) return;
+         if (message.author.id !== message.guild.ownerID) return;
+  antibots[message.guild.id] = {
+  onoff: 'Off',
+  }
+  message.channel.send(`**AntiBots Join Is Off**`)
+            fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
+              if (err) console.error(err)
+              .catch(err => {
+                console.error(err);
+            });
+              });
+            }
+  
+          })
+  
+  client.on("guildMemberAdd", member => {
+    if(!antibots[member.guild.id]) antibots[member.guild.id] = {
+  onoff: 'Off'
+  }
+    if(antibots[member.guild.id].onoff === 'Off') return;
+  if(member.user.bot) return member.kick()
+  })
+  
+  fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
+  if (err) console.error(err)
+  .catch(err => {
+  console.error(err);
+  });
+  
+  })
