@@ -73,7 +73,7 @@ if (cooldown.has(message.author.id)) {
 <:36501D170F3F433C8D2A51EA39A0519F:813144028547252276> Moderation
 \`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\`
 \`${prefix}ban\` - \`${prefix}unban\`
-Fun
+<:0BF5BA42A1D54C2BAA948A556D26525C:813187422153736203> Fun
 \`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\`
 
 `);
