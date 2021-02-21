@@ -1204,7 +1204,7 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
         const lvl = Math.floor(Math.random() * 100) + 1 ;
         const owner = message.author ;
-        return message.channel.send(`IQ Level is ${lvl}% 🧠`)
+        return message.channel.send(`**IQ** Level is ${lvl}% 🧠`)
     }
 });
 
@@ -1222,7 +1222,7 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
         const lvl = Math.floor(Math.random() * 100) + 1 ;
         const owner = message.author ;
-        return message.channel.send(`IQ Level is ${lvl}% <:4FE09E8A92C5470B870CB958C5A7216F:813184354628927529>`)
+        return message.channel.send(`**SHIP** Level is ${lvl}% <:4FE09E8A92C5470B870CB958C5A7216F:813184354628927529>`)
     }
 });
 
@@ -1240,6 +1240,6 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
         const lvl = Math.floor(Math.random() * 100) + 1 ;
         const owner = message.author ;
-        return message.channel.send(`IQ Level is ${lvl}% <:998AB84CAB8A43CDB9DD356B1783157F:813184352510148608>`)
+        return message.channel.send(`**GAY** Level is ${lvl}% <:998AB84CAB8A43CDB9DD356B1783157F:813184352510148608>`)
     }
 });
