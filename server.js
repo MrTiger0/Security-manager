@@ -77,7 +77,6 @@ if (cooldown.has(message.author.id)) {
 
 `);
 
-.setFooter(`${message.author.tag}`, message.author.avatarURL());
     message.channel.send(help);
   }
 });
@@ -112,7 +111,6 @@ if (cooldown.has(message.author.id)) {
 \`${prefix}anti problem\` **on** / **off**
 `);
 
-.setFooter(`${message.author.tag}`, message.author.avatarURL());
     message.channel.send(help);
   }
 });
