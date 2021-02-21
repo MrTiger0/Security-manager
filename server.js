@@ -966,7 +966,7 @@ client.on("message", message => {
 let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require antihack.json file
   client.on('message', message => {
     
-      if(message.content.startsWith(prefix + "antibots on")) {
+      if(message.content.startsWith(prefix + "anti bot on")) {
           if(!message.channel.guild) return;
          if (message.author.id !== message.guild.ownerID) return;
   antibots[message.guild.id] = {
@@ -984,7 +984,7 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
           })
 
   client.on('message', message => {
-    if(message.content.startsWith(prefix + "antibots off")) {
+    if(message.content.startsWith(prefix + "anti bot off")) {
           if(!message.channel.guild) return;
          if (message.author.id !== message.guild.ownerID) return;
   antibots[message.guild.id] = {
