@@ -31,13 +31,15 @@ const dateFormat = require("dateformat");
 var table = require("table").table;
 const Discord = require("discord.js");
 const cmd = require("node-cmd");
-const prefix = "*";
-client.login("https:/uth2/authorize?client_id=778689847396401214&permissions=8&scope=bot");
+const prefix = "!";
+const cooldown = new Set()
+const cdtime =5;
+client.login("NzExMzI4NTcwMzc0NjE5MjA3.XsBaWw.isofo38lwV5xz87SGDht8fjsoxY");
 client.on("ready", async () => {
   console.log(`${client.user.username} Ready .`);
   console.log(`${client.guilds.cache.size} Servers .`);
   console.log(`${client.users.cache.size} Users .`);
-  client.user.setActivity(prefix + "help | Special Security .", {
+  client.user.setActivity(prefix + "help | Coming soon", {
     type: "PLAYING"
   });
 });
