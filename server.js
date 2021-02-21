@@ -57,7 +57,6 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
-      .setAuthor(message.author.username, message.author.displayAvatarURL)
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 
@@ -77,6 +76,8 @@ if (cooldown.has(message.author.id)) {
 \`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\`
 
 `);
+
+.setFooter(`${message.author.tag}`, message.author.avatarURL());
     message.channel.send(help);
   }
 });
@@ -96,7 +97,6 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
-      .setAuthor(message.author.username, message.author.displayAvatarURL)
       .setThumbnail(message.author.avatarURL)
       .setDescription(`${client.user.username} Prefix Is [ ${prefix} ]
 
@@ -111,6 +111,8 @@ if (cooldown.has(message.author.id)) {
 \`${prefix}anti bot\` **on** / **off**
 \`${prefix}anti problem\` **on** / **off**
 `);
+
+.setFooter(`${message.author.tag}`, message.author.avatarURL());
     message.channel.send(help);
   }
 });
@@ -1149,16 +1151,16 @@ msg.channel.send(embed);
 
 ////////
 
-client.on("message",message => {
+client.on("message", message => {
     if(message.content.startsWith(prefix + "userinfo")){
-if (cooldown.has(msg.author.id)) {
-      return msg.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
-    cooldown.add(msg.author.id);
+    cooldown.add(message.author.id);
 
     setTimeout(() => {
-      cooldown.delete(msg.author.id);
+      cooldown.delete(message.author.id);
     }, cdtime * 1000);
   let embed = new Discord.MessageEmbed()
   .setColor(color)
