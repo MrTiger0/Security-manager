@@ -50,24 +50,50 @@ client.on("message", async message => {
       .setColor(color)
       .setAuthor(message.author.username, message.author.displayAvatarURL)
       .setThumbnail(message.author.avatarURL)
-      .setDescription(`${client.user.username} Prefix Is ${prefix}
-----------
-Security Commands :
-${prefix}anti ban [ Number ]
-${prefix}anti kick [ Number ]
-${prefix}anti channel [ Number ]
-${prefix}anti role [ Number ]
-${prefix}anti bot [ on / off ]
-----------
-Moderation Commands :
-${prefix}help
-${prefix}invite
-${prefix}lock
-${prefix}unlock
+      .setDescription(`
+
+• To get help on a specific command type \`help <command>!\`
+
+[ Invite ](https://discord.com/oauth2/authorize?client_id=711328570374619207&permissions=21474836398&scope=bot)  -  [ Support ](https://discord.gg/tnMzVGj8yT)  -  [ Website ](https://aerial-catkin-jumbo.glitch.me/)
+
+<:D237646538914FD39A0B144DA35AB584:813144028883320832> General
+${prefix}botinfo - ${prefix}serverinfo - ${prefix}userinfo
+<:47A7E1944A2244649B93FDD70CB2826A:813144028589457439> Security
+${prefix}anti - ${prefix}settings
+<:36501D170F3F433C8D2A51EA39A0519F:813144028547252276> Moderation
+${prefix}lock - ${prefix}unlock - ${prefix}kick
+${prefix}ban - ${prefix}unban
+
 `);
     message.channel.send(help);
   }
 });
+
+///////
+
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "anti")) {
+    let help = new Discord.MessageEmbed()
+      .setColor(color)
+      .setAuthor(message.author.username, message.author.displayAvatarURL)
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`${client.user.username} Prefix Is [ ${prefix} ]
+
+Security Commands :
+${prefix}anti ban
+${prefix}anti kick
+${prefix}anti channelD
+${prefix}anti channelC
+${prefix}anti roleD
+${prefix}anti roleC
+${prefix}anti time
+${prefix}anti bot on / off
+${prefix}anti problem on / off
+`);
+    message.channel.send(help);
+  }
+});
+
 ////////
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "lock")) {
@@ -122,12 +148,12 @@ Locked By : <@${message.author.id}>
     message.channel.send(unlock);
   }
 });
-const rast = "<a:emoji_4:765718726380093451>";
-const rastw = "<:463A4697A27B41909D3D07385C8FF438:767018238524915732>";
-const ghallat = "<a:emoji_5:765720961319960577>";
-const ghallatw = "<:03601F817F154FE68CB7469CEDBDF3F2:767018259324207125>";
-const logosec = "<:D09B9B0A34CA46BCBE3F80920CED9581:778276971204575263>";
-const warn = "<a:1E9D61F4865A4BD19757A97BAD179C7B:767018213660688407>";
+const rast = "<:2F6C2BBB9B814E9DAD8756DA249321BA:813144028869820436>";
+const rastw = "<:2F6C2BBB9B814E9DAD8756DA249321BA:813144028869820436>";
+const ghallat = "<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875>";
+const ghallatw = "<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875>";
+const logosec = "";
+const warn = "<:1BA63B8120B9497085CC2909AC968D77:813144735756714004>";
 const color = "#F49E1C";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
@@ -742,31 +768,31 @@ client.on("message", async message => {
       )
     )
       return message.channel.send(
-        "**❌ | You don't have Permissions do to this.**"
+        "<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875> | You don't have Permissions do to this."
       );
     let user = message.guild.member(
       message.mentions.users.first() ||
         message.guild.members.cache.find(x => x.id == args[0])
     );
-    if (!user) return message.channel.send("**❌ | Member not found!**");
+    if (!user) return message.channel.send("<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875> | Member not found!");
     let bot = message.guild.member(client.user);
     if (user.user.id == client.user.id) return message.channel.send("lol no");
     if (user.user.id == message.guild.owner.id)
-      return message.channel.send(`**❌ | You can't ${mode} the owner!**`);
+      return message.channel.send(`<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875> | You can't ${mode} the owner!`);
     if (
       user.roles.highest.position >= message.member.roles.highest.position &&
       message.author.id !== message.guild.ownerID
     )
       return message.channel.send(
-        `**❌ | You can't ${mode} people higher ranked than yourself!**`
+        `<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875> | You can't ${mode} people higher ranked than yourself!`
       );
     if (user.roles.highest.position >= bot.roles.highest.position)
       return message.channel.send(
-        `**❌ | I can't ${mode} people who are higher ranked than me!**`
+        `<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875> | I can't ${mode} people who are higher ranked than me!`
       );
     if (!user[`${mode == "ban" ? "bann" : mode}able`])
       return message.channel.send(
-        `**❌ | Specified user is not ${mode}able.**`
+        `<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875> | Specified user is not ${mode}able.`
       );
     user[mode](
       mode == "ban"
@@ -775,9 +801,9 @@ client.on("message", async message => {
     )
       .then(() =>
         message.channel.send(
-          `**✅ ${mode == "ban" ? "Bann" : mode}ed __${
+          `<:2F6C2BBB9B814E9DAD8756DA249321BA:813144028869820436> ${mode == "ban" ? "Bann" : mode}ed __${
             user.user.tag
-          }__ (ID: \`${user.user.id}\`)**`
+          }__ (ID: \`${user.user.id}\`)`
         )
       )
       .catch(console.error);
@@ -811,31 +837,31 @@ if (cooldown.has(message.author.id)) {
 
 
 
-        `**Anti Ban Is** :
+        `Anti Ban Is :
 ${config[message.guild.id].banLimit}
 
 •••••
-**Anti Kick Is** :
+Anti Kick Is*l :
 
 ${config[message.guild.id].kickLimits}
 •••••
-**Anti ChannelD Is** :
+Anti ChannelD Is :
 
 ${config[message.guild.id].chaDelLimit}
 •••••
-**Anti ChannelC Is** :
+Anti ChannelC Is :
 
 ${config[message.guild.id].chaCrLimit}
 •••••
-**Anti RoleD Is** :
+Anti RoleD Is :
 
 ${config[message.guild.id].roleDelLimit}
 •••••
-**Anti RoleC Is** :
+Anti RoleC Is :
 
 ${config[message.guild.id].roleCrLimits}
 •••••
-**Anti Time Is** :
+Anti Time Is :
 
  ${config[message.guild.id].time}`
       )
@@ -858,7 +884,7 @@ client.on("message", message => {
     spread[message.guild.id] = {
       onoff: "Off"
     };
-    message.channel.send(`**${rast} | AntiProblem Is \`Disable\` .**`);
+    message.channel.send(`<:C563F4DA602B4EFA81F9FFA295F87005:813144735912951884> | AntiProblem Is \`Disable\` .`);
     fs.writeFile("./spread.json", JSON.stringify(spread), err => {
       if (err)
         console.error(err).catch(err => {
@@ -878,7 +904,7 @@ client.on("message", message => {
     spread[message.guild.id] = {
       onoff: "On"
     };
-    message.channel.send(`**${rast} | AntiProblem Is \`Enable\` .**`);
+    message.channel.send(`<:548439AFF3A9409C883B1E19DBD23365:813144736222674984> | AntiProblem Is \`Enable\` .`);
     fs.writeFile("./spread.json", JSON.stringify(spread), err => {
       if (err)
         console.error(err).catch(err => {
@@ -945,7 +971,7 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
   antibots[message.guild.id] = {
   onoff: 'On',
   }
-  message.channel.send(`**AntiBots Join Is On**`)
+  message.channel.send(`<:548439AFF3A9409C883B1E19DBD23365:813144736222674984> | AntiBots Join Is On`)
             fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
               if (err) console.error(err)
               .catch(err => {
@@ -963,7 +989,7 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
   antibots[message.guild.id] = {
   onoff: 'Off',
   }
-  message.channel.send(`**AntiBots Join Is Off**`)
+  message.channel.send(`<:C563F4DA602B4EFA81F9FFA295F87005:813144735912951884> | AntiBots Join Is Off`)
             fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
               if (err) console.error(err)
               .catch(err => {
@@ -989,3 +1015,57 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
   });
   
   })
+
+///////
+client.on('message', msg =>{
+if(msg.content === prefix + "serverinfo"){
+const embed = new Discord.MessageEmbed()
+.setColor('RANDOM')
+    .setThumbnail(msg.guild.iconURL())
+    .setTitle(`${msg.guild.name}`,true)
+    .setTitle(`${msg.guild.name}`,true)
+    .addField('Server ID',`${msg.guild.id}`,true)
+    .addField('Created On',msg.guild.createdAt.toLocaleString())
+    .addField('Owner Server',`${msg.guild.owner}`,true)
+    .addField('Members',`**[${msg.guild.memberCount}]**`,true)
+    .addField('Channels',`**[${msg.guild.channels.cache.size}]**`,true)
+    .addField('Region',`**[${msg.guild.region}]**`,true)
+    .addField('Rules', `**[ ${msg.guild.roles.cache.size} ]**`, true)
+msg.channel.send(embed);
+}
+});
+
+///////
+client.on('message', msg =>{
+if(msg.content === prefix + "botinfo"){
+const embed = new Discord.MessageEmbed()
+.setAuthor(client.user.username,client.user.avatarURL())
+.setThumbnail(client.user.avatarURL())
+.setColor("RANDOM")
+.setTitle(` ${client.user.username} `)
+.addField('``servers``', ` ${client.guilds.cache.size} `, true)
+.addField('``channels``', ` ${client.channels.cache.size} `, true)
+.addField('``Users``', ` ${client.users.cache.size} `, true)
+.addField('``My Name``' , ` ${client.user.tag}` , true)
+.addField('``My ID``' , ` ${client.user.id} ` , true)
+msg.channel.send(embed);
+}
+});
+
+////////
+
+client.on("message",message => {
+    if(message.content.startsWith(prefix + "userinfo")){
+  let embed = new Discord.MessageEmbed()
+  .setColor("RANDOM")
+  .setAuthor(message.author.username,message.author.avatarURL())
+  .setThumbnail(message.author.avatarURL())
+  .setTitle("Info User")
+  .addField('``Name``', ` ${message.author.tag} `, true)
+  .addField('``ID``', ` ${message.author.id} `, true)  
+  .addField('``Created At``', ` ${message.author.createdAt.toLocaleString()} `, true)
+  .setTimestamp(); 
+  message.channel.send(embed)
+  }
+  });
+      
