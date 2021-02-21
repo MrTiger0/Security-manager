@@ -80,7 +80,7 @@ client.on("message", async message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`${client.user.username} Prefix Is [ ${prefix} ]
 
-Security Commands
+<:47A7E1944A2244649B93FDD70CB2826A:813144028589457439> Security Commands
 \`${prefix}anti ban\`
 \`${prefix}anti kick\`
 \`${prefix}anti channelD\`
