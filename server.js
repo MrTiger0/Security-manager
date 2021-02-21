@@ -46,6 +46,15 @@ client.on("ready", async () => {
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
       .setAuthor(message.author.username, message.author.displayAvatarURL)
@@ -57,13 +66,15 @@ client.on("message", async message => {
 [ Invite ](https://discord.com/oauth2/authorize?client_id=711328570374619207&permissions=21474836398&scope=bot)  -  [ Support ](https://discord.gg/tnMzVGj8yT)  -  [ Website ](https://aerial-catkin-jumbo.glitch.me/)
 
 <:D237646538914FD39A0B144DA35AB584:813144028883320832> General
-\`${prefix}botinfo\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
+\`${prefix}about\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
 \`${prefix}invite\` - \`${prefix}vote\`
 <:47A7E1944A2244649B93FDD70CB2826A:813144028589457439> Security
 \`${prefix}show anti\` - \`${prefix}settings\`
 <:36501D170F3F433C8D2A51EA39A0519F:813144028547252276> Moderation
 \`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\`
 \`${prefix}ban\` - \`${prefix}unban\`
+Fun
+\`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\`
 
 `);
     message.channel.send(help);
@@ -74,6 +85,15 @@ client.on("message", async message => {
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "show anti")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
       .setAuthor(message.author.username, message.author.displayAvatarURL)
@@ -98,6 +118,15 @@ client.on("message", async message => {
 ////////
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "lock")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild)
       return message.channel.send(
         ghallat + "** | Sorry This Command Only For Servers .**"
@@ -125,6 +154,15 @@ Locked By : <@${message.author.id}>
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "unlock")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild)
       return message.channel.send(
         ghallat + "** | Sorry This Command Only For Servers .**"
@@ -876,6 +914,15 @@ Anti Time Is :
 let spread = JSON.parse(fs.readFileSync("./spread.json", "utf8"));
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti problem off")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild) return;
       if (!message.member.hasPermission("MANAGE_GUILD"))
         return message.channel.send(
@@ -896,6 +943,15 @@ client.on("message", message => {
 });
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti problem on")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
     if (!message.channel.guild) return;
       if (!message.member.hasPermission("MANAGE_GUILD"))
         return message.channel.send(
@@ -967,6 +1023,15 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
   client.on('message', message => {
     
       if(message.content.startsWith(prefix + "anti bot on")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
           if(!message.channel.guild) return;
          if (message.author.id !== message.guild.ownerID) return;
   antibots[message.guild.id] = {
@@ -985,6 +1050,15 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
 
   client.on('message', message => {
     if(message.content.startsWith(prefix + "anti bot off")) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
           if(!message.channel.guild) return;
          if (message.author.id !== message.guild.ownerID) return;
   antibots[message.guild.id] = {
@@ -1020,6 +1094,15 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
 ///////
 client.on('message', msg =>{
 if(msg.content === prefix + "serverinfo"){
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
 const embed = new Discord.MessageEmbed()
 .setColor(color)
     .setThumbnail(msg.guild.iconURL())
@@ -1039,7 +1122,16 @@ msg.channel.send(embed);
 
 ///////
 client.on('message', msg =>{
-if(msg.content === prefix + "botinfo"){
+if(msg.content === prefix + "about"){
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
 const embed = new Discord.MessageEmbed()
 .setAuthor(client.user.username,client.user.avatarURL())
 .setThumbnail(client.user.avatarURL())
@@ -1058,6 +1150,15 @@ msg.channel.send(embed);
 
 client.on("message",message => {
     if(message.content.startsWith(prefix + "userinfo")){
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
   let embed = new Discord.MessageEmbed()
   .setColor(color)
   .setAuthor(message.author.username,message.author.avatarURL())
@@ -1075,6 +1176,15 @@ client.on("message",message => {
 
 client.on("message",message => {
   if(message.content.startsWith(prefix + "invite")) 
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
   message.channel.send("https://discord.com/oauth2/authorize?client_id=711328570374619207&permissions=21474836398&scope=bot");
 }
 
@@ -1083,7 +1193,70 @@ client.on("message",message => {
 ///////
 client.on("message",message => {
   if(message.content.startsWith(prefix + "vote")) 
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
   message.channel.send("https://top.gg/bot/711328570374619207");
 }
 
 );
+
+//////
+client.on('message', carnage => {
+    if(carnage.content.startsWith(prefix + 'iq')) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+        const lvl = Math.floor(Math.random() * 100) + 1 ;
+        const owner = carnage.author ;
+        return carnage.channel.send(`IQ Level is ${lvl}% 🧠`)
+    }
+});
+
+//////
+client.on('message', carnage => {
+    if(carnage.content.startsWith(prefix + 'ship')) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+        const lvl = Math.floor(Math.random() * 100) + 1 ;
+        const owner = carnage.author ;
+        return carnage.channel.send(`IQ Level is ${lvl}% <:4FE09E8A92C5470B870CB958C5A7216F:813184354628927529>`)
+    }
+});
+
+/////
+client.on('message', carnage => {
+    if(carnage.content.startsWith(prefix + 'gay')) {
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+        const lvl = Math.floor(Math.random() * 100) + 1 ;
+        const owner = carnage.author ;
+        return carnage.channel.send(`IQ Level is ${lvl}% <:998AB84CAB8A43CDB9DD356B1783157F:813184352510148608>`)
+    }
+});
