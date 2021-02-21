@@ -50,23 +50,16 @@ client.on("message", async message => {
       .setColor(color)
       .setAuthor(message.author.username, message.author.displayAvatarURL)
       .setThumbnail(message.author.avatarURL)
-      .setTitle(
-        "<:531927ACA4664A178344A44AB4FCC00D:741970199858905128>" +
-          " | Click Here To Add : " +
-          `${client.user.username}`
-      )
-      .setURL(
-        `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`
-      ).setDescription(`${client.user.username} Prefix Is ${prefix}
+      .setDescription(`${client.user.username} Prefix Is ${prefix}
 ----------
-<:D09B9B0A34CA46BCBE3F80920CED9581:778276971204575263> | Security Commands :
+Security Commands :
 ${prefix}anti ban [ Number ]
 ${prefix}anti kick [ Number ]
 ${prefix}anti channel [ Number ]
 ${prefix}anti role [ Number ]
 ${prefix}anti bot [ on / off ]
 ----------
-⚙ | Moderation Commands :
+Moderation Commands :
 ${prefix}help
 ${prefix}invite
 ${prefix}lock
@@ -890,15 +883,6 @@ ${config[message.guild.id].roleCrLimits}
 let spread = JSON.parse(fs.readFileSync("./spread.json", "utf8"));
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti problem off")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
     if (!message.channel.guild) return;
       if (!message.member.hasPermission("MANAGE_GUILD"))
         return message.channel.send(
@@ -919,15 +903,6 @@ if (cooldown.has(message.author.id)) {
 });
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti problem on")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
     if (!message.channel.guild) return;
       if (!message.member.hasPermission("MANAGE_GUILD"))
         return message.channel.send(
@@ -992,5 +967,65 @@ client.on("message", message => {
     return message.reply(
       `**${warn} | You Dont Have \`MENTION_EVERYONE\` Permission .**`
     );
+  }
+});
+///// ===== { < anti swear > } ===== /////
+let swear = JSON.parse(fs.readFileSync("./swear.json", "utf8"));
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti swear off")) {
+    if (!message.channel.guild) return;
+      if (!message.member.hasPermission("MANAGE_GUILD"))
+        return message.channel.send(
+          ghallat +
+            "** | Sorry , But You Dont Have `MANAGE_GUILD` Permission .**"
+        );
+    swear[message.guild.id] = {
+      onoff: "Off"
+    };
+    message.channel.send(`**${rast} | AntiSwear Is \`Disable\` .**`);
+    fs.writeFile("./swear.json", JSON.stringify(swear), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "anti swear on")) {
+    if (!message.channel.guild) return;
+      if (!message.member.hasPermission("MANAGE_GUILD"))
+        return message.channel.send(
+          ghallat +
+            "** | Sorry , But You Dont Have `MANAGE_GUILD` Permission .**"
+        );
+    swear[message.guild.id] = {
+      onoff: "On"
+    };
+    message.channel.send(`**${rast} | AntiSwear Is \`Enable\` .**`);
+    fs.writeFile("./swear.json", JSON.stringify(swear), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+const configswear = require("./config2.json");
+client.on("message", message => {
+  var args = message.content.split(/[ ]+/);
+  if (
+    configswear.FILTER_LIST.some(word =>
+      message.content.toLowerCase().includes(word)
+    )
+  ) {
+    if (!message.channel.guild) return;
+    if (!swear[message.guild.id])
+      swear[message.guild.id] = {
+        onoff: "Off"
+      };
+    if (swear[message.guild.id].onoff === "Off") return;
+    message.delete();
+    return message.reply(`**${warn} | Please Dont Swear .**`);
   }
 });
