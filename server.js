@@ -80,16 +80,16 @@ client.on("message", async message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`${client.user.username} Prefix Is [ ${prefix} ]
 
-Security Commands :
-${prefix}anti ban
-${prefix}anti kick
-${prefix}anti channelD
-${prefix}anti channelC
-${prefix}anti roleD
-${prefix}anti roleC
-${prefix}anti time
-${prefix}anti bot on / off
-${prefix}anti problem on / off
+Security Commands
+\`${prefix}anti ban\`
+\`${prefix}anti kick\`
+\`${prefix}anti channelD\`
+\`${prefix}anti channelC\`
+\`${prefix}anti roleD\`
+\`${prefix}anti roleC\`
+\`${prefix}anti time\`
+\`${prefix}anti bot\` **on** / **off**
+\`${prefix}anti problem\` **on** / **off**
 `);
     message.channel.send(help);
   }
@@ -155,7 +155,7 @@ const ghallat = "<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875>";
 const ghallatw = "<:46CDDF4C0D7E4DB793F4688CE56D1BA2:813144028635725875>";
 const logosec = "";
 const warn = "<:1BA63B8120B9497085CC2909AC968D77:813144735756714004>";
-const color = "#F49E1C";
+const color = "#42f5ef";
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
 client.on("message", message => {
@@ -1021,7 +1021,7 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require
 client.on('message', msg =>{
 if(msg.content === prefix + "serverinfo"){
 const embed = new Discord.MessageEmbed()
-.setColor('RANDOM')
+.setColor(color)
     .setThumbnail(msg.guild.iconURL())
     .setTitle(`${msg.guild.name}`,true)
     .setTitle(`${msg.guild.name}`,true)
@@ -1042,7 +1042,7 @@ if(msg.content === prefix + "botinfo"){
 const embed = new Discord.MessageEmbed()
 .setAuthor(client.user.username,client.user.avatarURL())
 .setThumbnail(client.user.avatarURL())
-.setColor("RANDOM")
+.setColor(color)
 .setTitle(` ${client.user.username} `)
 .addField('``servers``', ` ${client.guilds.cache.size} `, true)
 .addField('``channels``', ` ${client.channels.cache.size} `, true)
@@ -1058,7 +1058,7 @@ msg.channel.send(embed);
 client.on("message",message => {
     if(message.content.startsWith(prefix + "userinfo")){
   let embed = new Discord.MessageEmbed()
-  .setColor("RANDOM")
+  .setColor(color)
   .setAuthor(message.author.username,message.author.avatarURL())
   .setThumbnail(message.author.avatarURL())
   .setTitle("Info User")
