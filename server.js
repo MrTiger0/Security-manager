@@ -1092,16 +1092,16 @@ if (cooldown.has(message.author.id)) {
   })
 
 ///////
-client.on('message', msg =>{
+client.on("message", msg =>{
 if(msg.content === prefix + "serverinfo"){
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+if (cooldown.has(msg.author.id)) {
+      return msg.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
-    cooldown.add(message.author.id);
+    cooldown.add(msg.author.id);
 
     setTimeout(() => {
-      cooldown.delete(message.author.id);
+      cooldown.delete(msg.author.id);
     }, cdtime * 1000);
 const embed = new Discord.MessageEmbed()
 .setColor(color)
@@ -1121,16 +1121,16 @@ msg.channel.send(embed);
 });
 
 ///////
-client.on('message', msg =>{
+client.on("message", msg =>{
 if(msg.content === prefix + "about"){
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+if (cooldown.has(msg.author.id)) {
+      return msg.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
-    cooldown.add(message.author.id);
+    cooldown.add(msg.author.id);
 
     setTimeout(() => {
-      cooldown.delete(message.author.id);
+      cooldown.delete(msg.author.id);
     }, cdtime * 1000);
 const embed = new Discord.MessageEmbed()
 .setAuthor(client.user.username,client.user.avatarURL())
@@ -1150,14 +1150,14 @@ msg.channel.send(embed);
 
 client.on("message",message => {
     if(message.content.startsWith(prefix + "userinfo")){
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+if (cooldown.has(msg.author.id)) {
+      return msg.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
-    cooldown.add(message.author.id);
+    cooldown.add(msg.author.id);
 
     setTimeout(() => {
-      cooldown.delete(message.author.id);
+      cooldown.delete(msg.author.id);
     }, cdtime * 1000);
   let embed = new Discord.MessageEmbed()
   .setColor(color)
