@@ -34,7 +34,7 @@ const cmd = require("node-cmd");
 const prefix = ".";
 const cooldown = new Set()
 const cdtime =5;
-client.login("NzkxNjAwODI2MzEyOTQ5NzYw.X-RhuA.9hg7PTvLkkGu_wsk-TtoguoqgDo");
+client.login("NzkxNjAwODI2MzEyOTQ5NzYw.X-RhuA.ljAILpCWZQgBlyMQWefdcc6vKjk");
  client.on("ready", () => {
   console.log(`${client.user.tag}`);
   console.log(`Guilds: ${client.guilds.size}`);
@@ -175,7 +175,7 @@ client.on("message", message => {
     };
   if (message.content.startsWith(prefix + "anti")) {
 if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
     cooldown.add(message.author.id);
@@ -183,13 +183,13 @@ if (cooldown.has(message.author.id)) {
     setTimeout(() => {
       cooldown.delete(message.author.id);
     }, cdtime * 1000);
-  if (message.author.id !== message.guild.ownerID) return;
+  if (message.author.id !== message.guild.ownerID) 
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A <Number> .**"
         );
       config[message.guild.id].banLimit = num;
       message.channel.send(
@@ -198,10 +198,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti kick")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A <Number> .**"
         );
       config[message.guild.id].kickLimits = num;
       message.channel.send(
@@ -210,10 +210,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti roleD")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A <Number> .**"
         );
       config[message.guild.id].roleDelLimit = num;
       message.channel.send(
@@ -222,10 +222,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti roleC")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A <Number> .**"
         );
       config[message.guild.id].roleCrLimits = num;
       message.channel.send(
@@ -234,10 +234,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti channelD")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A <Number> .**"
         );
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
@@ -246,10 +246,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti channelC")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A <Number> .**"
         );
       config[message.guild.id].chaCrLimit = num;
       message.channel.send(
@@ -258,10 +258,10 @@ if (cooldown.has(message.author.id)) {
     }
     if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**" + ghallat + " | Type A <Number> .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**" + ghallat + " | Only Type A <Number> .**"
         );
       config[message.guild.id].time = num;
       message.channel.send(
@@ -740,121 +740,6 @@ client.on("guildMemberRemove", async member => {
     });
   }
 });
-let antibots = JSON.parse(fs.readFileSync("./antibots.json", "utf8")); //require antihack.json file
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "anti bot on")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    if (!message.channel.guild) return;
-    if (message.author.id !== message.guild.ownerID) return;
-    antibots[message.guild.id] = {
-      onoff: "On"
-    };
-    message.channel.send(`**${rast} | AntiBot Is \`Enable\` .**`);
-    fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
-      if (err)
-        console.error(err).catch(err => {
-          console.error(err);
-        });
-    });
-  }
-});
-
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "anti bot off")) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    if (!message.channel.guild) return;
-   if (message.author.id !== message.guild.ownerID) return;
-    antibots[message.guild.id] = {
-      onoff: "Off"
-    };
-    message.channel.send(`**${rast} | AntiBot Is \`Disable\` .**`);
-    fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
-      if (err)
-        console.error(err).catch(err => {
-          console.error(err);
-        });
-    });
-  }
-});
-
-client.on("guildMemberAdd", member => {
-  if (!antibots[member.guild.id])
-    antibots[member.guild.id] = {
-      onoff: "on"
-    };
-  if (antibots[member.guild.id].onoff === "Off") return;
-  if (member.user.bot) return member.kick();
-});
-
-fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
-  if (err)
-    console.error(err).catch(err => {
-      console.error(err);
-    });
-});
-
-
-
-////////
-
-
-
-
-///////
-
-client.on("message", message => {
-  if (message.content.startsWith(`${prefix}bot`)) {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    const tnx = new Discord.MessageEmbed()
-      .setAuthor(client.user.username, client.user.avatarURL())
-      .setColor(color)
-      .setTitle(`Info about ${client.user.username}.`)
-      .addField(
-        "**Ping Bot**",
-        `${Date.now() - message.createdTimestamp}` + "MS",
-        true
-      )
-      .addField(
-        "**Ram Usage**",
-        `${(process.memoryUsage().rss / 1048576).toFixed()}MB`,
-        true
-      )
-      .addField("**Name Bot**", `[ ${client.user.tag} ]`, true)
-      .addField("**ID Bot**", `[ ${client.user.id} ]`, true)
-      .addField("**Prefix Bot**", `[ ${prefix} ]`, true)
-      .addField("**Owner-Bot**", `<@790232202134421554>`, true)
-      .addField("**Bot Language**", `[ Java Script ]`, true)
-      .setFooter("Security");
-
-    message.channel.send(tnx);
-  }
-});
-
-////////
 
 ///////
 
@@ -891,75 +776,6 @@ client.on("message", message => {
 });
 
 ///////
-
-
-/////////
-
-client.on("message", prof => {
-  if (prof.content.startsWith(prefix + "user")) {
-if (cooldown.has(prof.author.id)) {
-      return prof.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(prof.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(prof.author.id);
-    }, cdtime * 1000);
-    var professor = new Discord.MessageEmbed()
-      .setAuthor(client.user.username)
-      .setThumbnail(client.user.avatarURL())
-      .setColor(color)
-      .setTitle("Your Info User")
-      .addField(" ▶️| Your Name", `<@${prof.author.id}>`)
-      .addField(" 🆔| Your ID", `${prof.author.id}`)
-      .addField(" 🌐| Create User", prof.author.createdAt.toLocaleString())
-      .setFooter(`Requested | ${prof.author.tag}`, prof.author.avatarURL())
-      .setTimestamp();
-    prof.channel.send(professor);
-  }
-});
-
-/////////////
-
-
-//////////////mute
-
-//////
-
-client.on("message", prof => {
-  if (prof.content.startsWith(prefix + "server")) {
-if (cooldown.has(prof.author.id)) {
-      return prof.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
-
-    cooldown.add(prof.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(prof.author.id);
-    }, cdtime * 1000);
-    var professor = new Discord.MessageEmbed()
-      .setAuthor(prof.guild.name)
-      .setColor(color)
-      .setThumbnail(prof.guild.iconURL())
-      .setTitle("**Info Server**")
-      .addField(" 📑| **Server Name:**", `${prof.guild.name}`)
-      .addField(" 👑| **Owner Server:**", `${prof.guild.owner}`)
-      .addField(" 🆔| **Server ID:**", `${prof.guild.id}`)
-      .addField(" 📆| **Created:**", `${prof.guild.createdAt.toLocaleString()}`)
-      .addField(" 👥| **Members:**", `${prof.guild.memberCount}`)
-      .addField(" 🎙| **Channels:**", `${prof.guild.channels.cache.size}`)
-      .addField(" 🌐| **Region**:", `${prof.guild.region}`)
-      .addField(" **Roles:**", ` ${prof.guild.roles.cache.size}`)
-      .setFooter(`Requested | ${prof.author.tag}`, prof.author.avatarURL())
-      .setTimestamp();
-    prof.channel.send(professor);
-  }
-});
-
-////////
-
-////////
 
 client.on("message", async message => {
   if (
@@ -1027,7 +843,7 @@ client.on("message", async message => {
 client.on("message", message => {
   if (message.content === prefix + "settings") {
 if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
     cooldown.add(message.author.id);
@@ -1089,7 +905,7 @@ let spread = JSON.parse(fs.readFileSync("./spread.json", "utf8"));
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti problem off")) {
 if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
     cooldown.add(message.author.id);
@@ -1118,7 +934,7 @@ if (cooldown.has(message.author.id)) {
 client.on("message", message => {
   if (message.content.startsWith(prefix + "anti problem on")) {
 if (cooldown.has(message.author.id)) {
-      return message.channel.send(`⏱ Please wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
 
     cooldown.add(message.author.id);
