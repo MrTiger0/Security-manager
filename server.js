@@ -60,7 +60,7 @@ client.on("message", async message => {
 \`${prefix}botinfo\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
 \`${prefix}invite\` - \`${prefix}vote\`
 <:47A7E1944A2244649B93FDD70CB2826A:813144028589457439> Security
-\`${prefix}anti\` - \`${prefix}settings\`
+\`${prefix}show anti\` - \`${prefix}settings\`
 <:36501D170F3F433C8D2A51EA39A0519F:813144028547252276> Moderation
 \`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\`
 \`${prefix}ban\` - \`${prefix}unban\`
