@@ -1242,7 +1242,6 @@ if (cooldown.has(message.author.id)) {
 //////
 client.on("message", message=> {
 if(message.content.startsWith(prefix + "old")){
-  message.delete()
   let year = message.content.slice(4);
   let day = year * 360;
   let hour = day * 24;
