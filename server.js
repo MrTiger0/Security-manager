@@ -1257,7 +1257,7 @@ let spam = JSON.parse(fs.readFileSync("./spam.json", "utf8"));
 
 client.on("message", message => {
   if (!message.guild) return;
-  let value = Value.findOne({ guildID: message.guild.id });
+  let value = value.findOne({ guildID: message.guild.id });
   if (value.spam==="on") {
   const muteRole = message.guild.roles.cache.find(role => role.name === roll);
   if (!muteRole) {
@@ -1281,12 +1281,12 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (
-    message.author.id === "735874386200100974" ||
-    message.author.id === "522793997312327726"
+    message.author.id === "738478465870987425" ||
+    message.author.id === "769956996476043275"
   )
     return;
   if (message.author.bot) return;
-  let value = Value.findOne({ guildID: message.guild.id });
+  let value = value.findOne({ guildID: message.guild.id });
   if (value.spam==="off") return;
   if (usersMap.has(message.author.id)) {
     const userData = usersMap.get(message.author.id);
@@ -1373,7 +1373,7 @@ client.on("message", message => {
 });
 
 client.on("guildMemberAdd", member => {
-  if (member.id === "735874386200100974" || member.id === "522793997312327726")
+  if (member.id === "738478465870987425" || member.id === "769956996476043275")
     return;
   if (spam[member.guild.id + member.id] === "on") {
     const muteRole = member.guild.roles.cache.find(role => role.name === roll);
