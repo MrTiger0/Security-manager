@@ -1247,7 +1247,7 @@ if (cooldown.has(message.author.id)) {
 });
 
 //////
-/*
+
 const usersMap = new Map();
 const LIMIT = 7;
 const TIME = 300000;
@@ -1398,4 +1398,4 @@ client.on("guildMemberAdd", member => {
       member.roles.add(muteRole);
     }
   }
-})*/
+})
