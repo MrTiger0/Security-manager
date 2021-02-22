@@ -1245,3 +1245,157 @@ if (cooldown.has(message.author.id)) {
         return message.channel.send(`**GAY** Level is ${lvl}% <:998AB84CAB8A43CDB9DD356B1783157F:813184352510148608>`)
     }
 });
+
+//////
+/*
+const usersMap = new Map();
+const LIMIT = 7;
+const TIME = 300000;
+const DIFF = 7000;
+const roll = "Spam Muted";
+let spam = JSON.parse(fs.readFileSync("./spam.json", "utf8"));
+
+client.on("message", message => {
+  if (!message.guild) return;
+  let value = Value.findOne({ guildID: message.guild.id });
+  if (value.spam==="on") {
+  const muteRole = message.guild.roles.cache.find(role => role.name === roll);
+  if (!muteRole) {
+    let muteRole = message.guild
+      .roles.create({
+        name: roll,
+        color: "#000000",
+        permissions: []
+      })
+      .then(R => {
+        message.guild.channels.cache.forEach(channel => {
+          channel.updateOverwrite(R, {
+            SEND_MESSAGES: false,
+            CONNECT: false
+          });
+        });
+      });
+  }
+}
+});
+
+client.on("message", message => {
+  if (
+    message.author.id === "735874386200100974" ||
+    message.author.id === "522793997312327726"
+  )
+    return;
+  if (message.author.bot) return;
+  let value = Value.findOne({ guildID: message.guild.id });
+  if (value.spam==="off") return;
+  if (usersMap.has(message.author.id)) {
+    const userData = usersMap.get(message.author.id);
+    const { lastMessage, timer } = userData;
+    const difference = message.createdTimestamp - lastMessage.createdTimestamp;
+    let msgCount = userData.msgCount;
+    if (difference > DIFF) {
+      clearTimeout(timer);
+      userData.msgCount = 1;
+      userData.lastMessage = message;
+      userData.timer = setTimeout(() => {
+        usersMap.delete(message.author.id);
+      }, TIME);
+      usersMap.set(message.author.id, userData);
+    } else {
+      ++msgCount;
+      if (parseInt(msgCount) === LIMIT) {
+        const muteRole = message.guild.roles.cache.find(
+          role => role.name === roll
+        );
+
+        if (!muteRole) {
+          let muteRole = message.guild
+            .roles.create({
+              name: roll,
+              color: "#000000",
+              permissions: []
+            })
+            .then(R => {
+              message.guild.channels.cache.forEach(channel => {
+                channel.updateOverwrite(R, {
+                  SEND_MESSAGES: false,
+                  CONNECT: false
+                });
+              });
+            });
+          message.member.roles.add(muteRole);
+          message.channel.bulkDelete(8, true);
+        } else {
+          message.member.roles.add(muteRole);
+          message.channel.bulkDelete(8, true);
+        }
+        message.channel.send(`<@${message.author.id}> You have been muted.`);
+        if (!spam[message.guild.id + message.author.id]) {
+          spam[message.guild.id + message.author.id] = "on";
+        } else if (spam[message.guild.id + message.author.id] === "off") {
+          spam[message.guild.id + message.author.id] = "on";
+        }
+
+        fs.writeFile("./spam.json", JSON.stringify(spam), err => {
+          if (err) console.error(err);
+        });
+
+        setTimeout(() => {
+          message.member.roles.remove(muteRole).catch(()=>{})
+          message.channel.send(`<@${message.author.id}> You have been unmuted`);
+          if (spam[message.guild.id + message.author.id] === "on") {
+            spam[message.guild.id + message.author.id] = "off";
+          }
+
+          fs.writeFile("./spam.json", JSON.stringify(spam), err => {
+            if (err) console.error(err);
+          });
+        }, TIME);
+      } else {
+        userData.msgCount = msgCount;
+        usersMap.set(message.author.id, userData);
+      }
+    }
+  } else {
+    let fn = setTimeout(() => {
+      usersMap.delete(message.author.id);
+    }, TIME);
+    usersMap.set(message.author.id, {
+      msgCount: 1,
+      lastMessage: message,
+      timer: fn
+    });
+  }
+
+  fs.writeFile("./spam.json", JSON.stringify(spam), err => {
+    if (err) console.error(err);
+  });
+});
+
+client.on("guildMemberAdd", member => {
+  if (member.id === "735874386200100974" || member.id === "522793997312327726")
+    return;
+  if (spam[member.guild.id + member.id] === "on") {
+    const muteRole = member.guild.roles.cache.find(role => role.name === roll);
+
+    if (!muteRole) {
+      let muteRole = member.guild
+        .roles.create({
+          name: roll,
+          color: "#000000",
+          permissions: []
+        })
+        .then(R => {
+          member.guild.channels.cache.forEach(channel => {
+            channel.updateOverwrite(R, {
+              SEND_MESSAGES: false,
+              CONNECT: false
+            });
+          });
+        });
+      member.roles.add(muteRole);
+    } else {
+      member.roles.add(muteRole);
+    }
+  }
+})*/
