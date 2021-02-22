@@ -1306,30 +1306,3 @@ client.on("message", async message => {
     message.channel.send(embed500);
   }
 });
-
-client.on('message', message => {
-  if(message.guild) {
-if(message.content.startsWith(prefix + "kick")) {
-if(!message.member.hasPermission('ADMINISTRATOR'))  return message.channel.send(" **you need the** ``Administrator`` **permission!**").then(msg => msg.delete(3000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))   return message.channel.send(  " **I need the** ``Mange_Messages ``  **permission!** ").then(msg => msg.delete(3000));
-var mention= message.mentions.members.first()
-  if(!mention) return message.channel.send(`** MENTION SOMEONE : :no_entry_sign: **`)
-  let edward = new Discord.RichEmbed()
-  .setAuthor(message.author.username,message.author.avatarURL)
-.setDescription(`**${mention} | Has been Kicked From The Server! **`)
-    .setColor('#000000').setColor('#36393e')
-.setTimestamp()
-
-  .setFooter(mention.user.username,mention.user.avatarURL)
-    mention.kick().then((member) => {
-            // Successmessage
-            message.channel.sendEmbed(edward);
-        }).catch(error => {
-             
-      let errora = new Discord.RichEmbed()
-  .setColor('#000000').setColor('#36393e')
-      .setDescription(`**I Cant Kick ${mention} Its `+"``"+`${error}`+"``"+`**`)
-            message.channel.sendEmbed(errora)
-    })
-}
-}});
