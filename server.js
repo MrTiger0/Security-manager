@@ -67,14 +67,15 @@ if (cooldown.has(message.author.id)) {
 
 <:D237646538914FD39A0B144DA35AB584:813144028883320832> General
 \`${prefix}about\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
-\`${prefix}invite\` - \`${prefix}vote\`
+\`${prefix}invite\` - \`${prefix}vote\` - \`${prefix}inviteinfo\`
 <:47A7E1944A2244649B93FDD70CB2826A:813144028589457439> Security
 \`${prefix}show anti\` - \`${prefix}settings\`
 <:36501D170F3F433C8D2A51EA39A0519F:813144028547252276> Moderation
 \`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\` - \`${prefix}ban\`
 \`${prefix}unban\`
 <:0BF5BA42A1D54C2BAA948A556D26525C:813187422153736203> Fun
-\`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\`
+\`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\` - \`${prefix}old\`
+\`${prefix}love\`
 
 `);
 
@@ -1271,3 +1272,70 @@ if(message.content.startsWith(prefix + "old")){
 });
 
 ////////
+client.on("message", message => {	
+	if (message.content.startsWith(prefix + "love")) {
+	const onetoonehundred = Math.floor(Math.random() * 100)
+	const usser = message.mentions.members.first()
+	
+	if(!usser) {
+	const specify = new Discord.MessageEmbed()
+	.setDescription('Please mention a user!')
+	message.channel.send(specify)
+	} else {
+	
+	if(usser.id === message.author.id) {
+	const love2 = new Discord.MessageEmbed()
+	.setTitle(`Love Rate :heart: `)
+	.setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
+	.setDescription(`${message.author} loves ${usser} 100% <:4FE09E8A92C5470B870CB958C5A7216F:813184354628927529>
+	nah joke.`)
+	message.channel.send(love2)
+	} else {
+	
+	const love = new Discord.MessageEmbed()
+	.setTitle(`Love Rate :heart: `)
+	.setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({dynamic: true})}`)
+	.setDescription(`${message.author} loves ${usser} ${onetoonehundred}%`)
+	.setColor(color)
+	message.channel.send(love)
+	}
+	}
+	}
+	})
+	////////
+client.on('message', async message => {
+var prefix = '!' /// البريفكس هون غيره يا بعد قلبي
+if(message.content.startsWith( prefix + 'inviteinfo')) { //// وهون الامر طبعا
+        let oi = message.mentions.users.first() ? message.mentions.users.first().id : message.author.id;
+        let Tag = message.mentions.users.first() ? message.mentions.users.first().tag : message.author.tag;
+        let Username = message.mentions.users.first() ? message.mentions.users.first().username : message.author.username;
+        let Avatar = message.mentions.users.first() ? message.mentions.users.first().avatarURL : message.author.avatarURL;
+       
+        message.guild.fetchInvites().then(invs => {
+            let member = client.guilds.get(message.guild.id).members.get(oi);
+            let personalInvites = invs.filter(i => i.inviter.id === oi);
+            let urll = invs.filter(i => i.inviter.id === oi);
+            let link = urll.reduce((p , v) => v.url +` , Total de membros recrutados no convite: ${v.uses}.\n`+ p, `\nServidor: ${message.guild.name} \n `);
+            let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+            let inviteCode = personalInvites.reduce((p, v) => v.code);
+            let possibleInvites = [['Total de membros recrutados:']];
+            possibleInvites.push([inviteCount, inviteCode]);
+            let user = message.mentions.users.first() || message.author;
+            let mem = message.guild.member(user);
+            let millisJoined = new Date().getTime() - mem.joinedAt.getTime();
+            let daysJoined = millisJoined / 1000 / 60 / 60 / 24;
+           
+            var inviteInfo = new Discord.RichEmbed()
+            .setTitle(`:incoming_envelope: [INVITE INFO] ${Username}`)
+            .setThumbnail(client.user.avatarURL)
+            .setThumbnail(message.guild.iconURL)
+            .addField('invites', `➜   [${Number(inviteCount)} ]`)
+            .addField('joined server', `➜ [${daysJoined.toFixed(0)} Day ]`)
+            .addField('invite link', `➜ [ https://discord.gg/${inviteCode || 'nT2dRhWuxr'} ]`)
+            .setColor(color)
+            .setTimestamp()
+            .setFooter(Tag, Avatar)   
+            message.channel.send(inviteInfo);
+            });
+    };
+});
