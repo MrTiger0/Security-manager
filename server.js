@@ -867,7 +867,7 @@ client.on("message", message => {
 
       .setAuthor(message.author.username, message.author.AvatarURL)
 
-      .setThumbnail(message.guild.iconURL()).setDescription(
+      .setThumbnail(message.guild.iconURL()).setDescription(`
 AntiBan
 Enabled:🟢 
 Maximum Ban : ${config[message.guild.id].banLimit}
@@ -891,9 +891,9 @@ Enabled:🟢
 Maximum Time : ${config[message.guild.id].time}
 AntiBot:🟢 
 ${antibots[message.guild.id].onoff}
-AntiSpread:🟢
+AntiProblem:🟢
 ${spread[message.guild.id].onoff}
-);
+`);
 
     message.channel.send(LORD);
   }
@@ -1233,62 +1233,3 @@ if (cooldown.has(message.author.id)) {
 });
 
 //////
-client.on("message", async message => {
-  if (
-    message.content.includes(
-      "ker",
-      "Kerm",
-      "kerm",
-      "maza",
-      "qn",
-      "qwn",
-      "daykt",
-      "dakt",
-      "daikt",
-      "bgem",
-      "gawad",
-      "daykt",
-      "دایکت"
-    )
-  ) {
-    
-    if (!message.channel.guild) return;
-    message.delete();
-    var command = message.content.split(" ")[0];
-    let muterole = message.guild.roles.find(`name`, "Muted");
-    if (!muterole) {
-      try {
-        muterole = await message.guild.createRole({
-          name: "User bad Word",
-          color: "#000000",
-          permissions: []
-        });
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(muterole, {
-            SEND_MESSAGES: false,
-            CONNECT: false,
-           SPEAK: false,
-           ADD_REACTIONS: false,
-           READ_MESSAGES: false
-          });
-        });
-      } catch (e) {
-        console.log(e.stack);
-      }
-    }
-    if (!message.channel.guild)
-      return message.reply("** This command only for servers**");
-    message.member.addRole(muterole);
-    const embed500 = new Discord.RichEmbed()
-      .setTitle("Muted BAD WORDS")
-      .addField(
-        `**  You Have Been Muted **`,
-        `**Reason : Using  bad word**`
-      )
-      .setColor("BLACK")
-      .setThumbnail(`${message.author.avatarURL}`)
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setFooter(`${message.guild.name} `);
-    message.channel.send(embed500);
-  }
-});
