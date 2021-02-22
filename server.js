@@ -854,62 +854,48 @@ client.on("message", async message => {
 ///////
 client.on("message", message => {
   if (message.content === prefix + "settings") {
-if (cooldown.has(message.author.id)) {
-      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
-    }
+    if (!message.channel.guild) return message.channel.send("ONLY FOR SERVERS");
 
-    cooldown.add(message.author.id);
-
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-     if (message.author.id !== message.guild.ownerID) return;
-    if (!message.channel.guild)
+    if (message.author.id !== message.guild.ownerID)
       return message.channel.send(
-        "Sorry This Command Only For Servers."
+        you cant use command only administrator can use
       );
-    let embed = new Discord.MessageEmbed()
-      .setTitle("")
-       
-      .setURL("")
-       
-      .setDescription(
 
+    let LORD = new Discord.MessageEmbed()
 
+      .setColor("RANDOM")
 
+      .setAuthor(message.author.username, message.author.AvatarURL)
 
-        `Anti Ban Is :
-${config[message.guild.id].banLimit}
+      .setThumbnail(message.guild.iconURL()).setDescription(
+AntiBan
+Enabled:🟢 
+Maximum Ban : ${config[message.guild.id].banLimit}
+-
+AntiKick
+Enabled:🟢 
+Maximum Kick : ${config[message.guild.id].kickLimits}
+-
+AntiChannel C&D
+Enabled:🟢 
+Maximum Create : ${config[message.guild.id].chaCrLimit}
+Maximum Delete : ${config[message.guild.id].chaDelLimit}
+-
+AntiRole C&D
+Enabled:🟢 
+Maximum Create : ${config[message.guild.id].roleCrLimits}
+Maximum Delete : ${config[message.guild.id].roleDelLimit}
+-
+AntiTime
+Enabled:🟢 
+Maximum Time : ${config[message.guild.id].time}
+AntiBot:🟢 
+${antibots[message.guild.id].onoff}
+AntiSpread:🟢
+${spread[message.guild.id].onoff}
+);
 
-•••••
-Anti Kick Is*l :
-
-${config[message.guild.id].kickLimits}
-•••••
-Anti ChannelD Is :
-
-${config[message.guild.id].chaDelLimit}
-•••••
-Anti ChannelC Is :
-
-${config[message.guild.id].chaCrLimit}
-•••••
-Anti RoleD Is :
-
-${config[message.guild.id].roleDelLimit}
-•••••
-Anti RoleC Is :
-
-${config[message.guild.id].roleCrLimits}
-•••••
-Anti Time Is :
-
- ${config[message.guild.id].time}`
-      )
-      .setColor(color)
-      .setThumbnail(message.author.avatarURL())
-      .setFooter(`${message.author.tag}`, message.author.avatarURL());
-    message.channel.send({ embed });
+    message.channel.send(LORD);
   }
 });
 /////
