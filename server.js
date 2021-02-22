@@ -1251,9 +1251,10 @@ if(message.content.startsWith(prefix + "old")){
   let Microseconds = mill *1000000;
   const msgEmbed = new Discord.MessageEmbed()
     .setThumbnail(`${message.author.avatarURL()}`)
-    .setTitle('How many have you Lived , Day,Hour , Min, Second , Milli second , Microseconds ,')
+    .setTitle('Please Type A `<NUMBER>`')
     .setAuthor(`${message.author.tag}     `)
     .setTimestamp()
+    .setColor(color)
     .addFields( 
       { name: '\u200B', value: '\u200B' },
       { name: ' 💢 Day', value: `${day}`, inline: true },
@@ -1270,33 +1271,3 @@ if(message.content.startsWith(prefix + "old")){
 });
 
 ////////
-client.on('message', message=> {
-  if(message.content.startsWith(prefix + "symbols")){
-    let rmozTitle = [
-      "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬",
-      "⧚ ⧛ ⧜ ⧝ ⧞ ⧟ ⧡ ⧢ ⧣ ⧤  ⧵ ⧶ ⧷ ⧸ ⧹ ⧺ ⧻ ⧼ ⧽ ",
-      "⧥ ⧦ ⧧ ⧨ ⧩ ⧪ ⧫ ⧬ ⧭ ⧮ ⧯ ⧰ ⧱ ⧲ ⧳ ⧴Ɒ ⱱ ⧾➚",
-      " ⬢ ⬣ Ⱡ ⱡ Ɫ Ᵽ Ɽ ⱥ ⱦ Ⱨ ⱨ Ⱪ ⱪ Ⱬ ⱬ Ɑ Ɱ Ɐ  ⬙➛",
-      " ⧿ ⬀ ⬁ ⬂ ⬃ ⬄  ⬐ ⬑ ⬒ ⬓ ⬔ ⬕ ⬖ ⬗ ⬘ ➠ ",
-      "⬈ ⬉ ⬊ ⬋ ⬌ ⬍ ⬎ ⬏⬚ ⬠ ⬡⟝ ⟞ ⟟ ⟠ ⟡ ⟢ ⟣",
-      "⟃ ⟄ ⟇ ⟈ ⟉ ⟊ ⟐ ⟑ ⟒ ⟓ ⟔ ⟕ ⟖ ⟗ ⟘ ⟙ ⟚ ",
-      "⟛ ⟜ ➳ ➴ ➵ ➶ ➷ ➸ ➹ ➺ ➻ ➼ ➽ ➾ ⟀  ",
-      "⟁ ⟂ ➨ ➩ ➪ ➫ ➬ ➭ ➮ ➯ ➱ ➲ ➳➔ ➘ ➙ ",
-      "➚➢ ➣ ➤ ➥ ➦ ➧➜ ➝ ➞ ➟ ✗ ✘ ✙ ✚ ✛ ✜",
-      "✢ ✣ ✤ ✥ ✦ ✧ ✧♱ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ✱ ✲",
-      " ✶ ✷ ✸ ✹ ✺ ✻ ✼ ✽ ✾ ✿ ❀ ❁ ❂ ❃ ✵❡ ",
-      " ❈ ❉ ❊ ❋ ❍ ❏ ❐ ❑ ❒ ❖  ❙ ❚ ❛ ❜ ❝ ❞  ❢ ",
-      "⚭ ⚮ ⚯✃ ✄ ✆ ✇ ♴ ♵ ♶ ♷ ♸ ♹ ♺ ♲ ♳",
-      " ♩ ♪ ♫ ♬ ♭ ♮ ♯ ♰ ♱ ➥・ϟ ⊱⋅⊰► ┗┃ ┣┃៚ ",
-      "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
-    ];
-    const embed1 = new Discord.MessageEmbed()
-    .setTitle('Web Symbols')
-    .setURL('https://coolnames.online/all-characters-decoration')
-    .setColor(color)
-    .setAuthor(`${message.author.tag}`)
-    .setThumbnail(`${message.author.avatarURL()}`)
-    .setDescription(rmozTitle);
-    message.channel.send(embed1)
-  }
-});
