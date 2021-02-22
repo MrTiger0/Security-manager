@@ -896,12 +896,7 @@ Maximum Delete : ${config[message.guild.id].roleDelLimit}
 -
 AntiTime
 Enabled: <:661A84F2A06545B8A3C156E9980D6D6A:813439774848188438>
-Maximum Time : ${config[message.guild.id].time}
--
-AntiBot: <:0130DA8165BB4B9FB8320183A9D0A81D:813438486178037811>
-${antibots[message.guild.id].onoff}
-AntiProblem: <:9C5EE12A1D514A7685DF7878C4FE973F:813438486383427664>
-${spread[message.guild.id].onoff}`
+Maximum Time : ${config[message.guild.id].time}`
       )
       .setColor(color)
       .setThumbnail(message.author.avatarURL())
