@@ -1247,14 +1247,3 @@ if (cooldown.has(message.author.id)) {
 });
 
 //////
-client.on("message", async message => {
-  if (!message.guild) return;
-  if (message.content.startsWith(prefix + "pussywank")) {
-    const GIF = await neko.nsfw.pussyWankGif();
-    const embed = new Discord.RichEmbed()
-      .setColor("#202225")
-      .setTitle(${message.author.tag} here's a random pussy wank gif)
-      .setImage(GIF.url);
-    message.channel.send(embed);
-  }
-});
