@@ -857,9 +857,9 @@ client.on("message", message => {
     if (!message.channel.guild) return message.channel.send("ONLY FOR SERVERS");
 
     if (message.author.id !== message.guild.ownerID)
-      return message.channel.send(
+      return message.channel.send(`
         you cant use command only administrator can use
-      );
+      `);
 
     let LORD = new Discord.MessageEmbed()
 
