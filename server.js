@@ -57,6 +57,7 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
+      .setFooter("Anti Vandalism : Open Source")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 
@@ -96,6 +97,7 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
+      .setFooter("Anti Vandalism : Open Source")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`${client.user.username} Prefix Is [ ${prefix} ]
 
