@@ -1247,3 +1247,89 @@ if (cooldown.has(message.author.id)) {
 });
 
 //////
+client.on("message", async message => {
+  if (
+    message.content.includes(
+      "ker",
+      "Kerm",
+      "kerm",
+      "maza",
+      "qn",
+      "qwn",
+      "daykt",
+      "dakt",
+      "daikt",
+      "bgem",
+      "gawad",
+      "daykt",
+      "دایکت"
+    )
+  ) {
+    
+    if (!message.channel.guild) return;
+    message.delete();
+    var command = message.content.split(" ")[0];
+    let muterole = message.guild.roles.find(`name`, "Muted");
+    if (!muterole) {
+      try {
+        muterole = await message.guild.createRole({
+          name: "User bad Word",
+          color: "#000000",
+          permissions: []
+        });
+        message.guild.channels.forEach(async (channel, id) => {
+          await channel.overwritePermissions(muterole, {
+            SEND_MESSAGES: false,
+            CONNECT: false,
+           SPEAK: false,
+           ADD_REACTIONS: false,
+           READ_MESSAGES: false
+          });
+        });
+      } catch (e) {
+        console.log(e.stack);
+      }
+    }
+    if (!message.channel.guild)
+      return message.reply("** This command only for servers**");
+    message.member.addRole(muterole);
+    const embed500 = new Discord.RichEmbed()
+      .setTitle("Muted BAD WORDS")
+      .addField(
+        `**  You Have Been Muted **`,
+        `**Reason : Using  bad word**`
+      )
+      .setColor("BLACK")
+      .setThumbnail(`${message.author.avatarURL}`)
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setFooter(`${message.guild.name} `);
+    message.channel.send(embed500);
+  }
+});
+
+client.on('message', message => {
+  if(message.guild) {
+if(message.content.startsWith(prefix + "kick")) {
+if(!message.member.hasPermission('ADMINISTRATOR'))  return message.channel.send(" **you need the** ``Administrator`` **permission!**").then(msg => msg.delete(3000));
+if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))   return message.channel.send(  " **I need the** ``Mange_Messages ``  **permission!** ").then(msg => msg.delete(3000));
+var mention= message.mentions.members.first()
+  if(!mention) return message.channel.send(`** MENTION SOMEONE : :no_entry_sign: **`)
+  let edward = new Discord.RichEmbed()
+  .setAuthor(message.author.username,message.author.avatarURL)
+.setDescription(`**${mention} | Has been Kicked From The Server! **`)
+    .setColor('#000000').setColor('#36393e')
+.setTimestamp()
+
+  .setFooter(mention.user.username,mention.user.avatarURL)
+    mention.kick().then((member) => {
+            // Successmessage
+            message.channel.sendEmbed(edward);
+        }).catch(error => {
+             
+      let errora = new Discord.RichEmbed()
+  .setColor('#000000').setColor('#36393e')
+      .setDescription(`**I Cant Kick ${mention} Its `+"``"+`${error}`+"``"+`**`)
+            message.channel.sendEmbed(errora)
+    })
+}
+}});
