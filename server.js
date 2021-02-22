@@ -1240,3 +1240,33 @@ if (cooldown.has(message.author.id)) {
 });
 
 //////
+client.on("message", message=> {
+if(message.content.startsWith(prefix + "old")){
+  message.delete()
+  let year = message.content.slice(4);
+  let day = year * 360;
+  let hour = day * 24;
+  let min =  hour *60;
+  let tuck = min * 60 ;
+  let mill = tuck*1000;
+  let Microseconds = mill *1000000;
+  const msgEmbed = new Discord.MessageEmbed()
+    .setThumbnail(`${message.author.avatarURL()}`)
+    .setTitle('How many have you Lived , Day,Hour , Min, Second , Milli second , Microseconds ,')
+    .setAuthor(`${message.author.tag}     `)
+    .setTimestamp()
+    .addFields( 
+      { name: '\u200B', value: '\u200B' },
+      { name: ' 💢 Day', value: `${day}`, inline: true },
+      { name: ' ⭕ Hour', value: `${hour}`, inline: true },  
+      { name: ' 💤 Min', value: `${min}`, inline: true },
+      { name: ' 💫 Second', value: `${tuck}`, inline: true },
+      { name: ' 💦 Milli second', value: `${mill}`, inline: true },
+      { name: ' ⁉️ Microseconds', value: `${Microseconds}`, inline: true },
+    );
+    message.channel.send(msgEmbed);
+}
+
+
+});
+
