@@ -852,52 +852,68 @@ client.on("message", async message => {
 });
 
 ///////
+
 client.on("message", message => {
   if (message.content === prefix + "settings") {
-    if (!message.channel.guild) return message.channel.send("ONLY FOR SERVERS");
+if (cooldown.has(message.author.id)) {
+      return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
+    }
 
-    if (message.author.id !== message.guild.ownerID)
-      return message.channel.send(`
-        you cant use command only administrator can use
-      `);
+    cooldown.add(message.author.id);
 
-    let LORD = new Discord.MessageEmbed()
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+     if (message.author.id !== message.guild.ownerID) return;
+    if (!message.channel.guild)
+      return message.channel.send(
+        "Sorry This Command Only For Servers."
+      );
+    let embed = new Discord.MessageEmbed()
+      .setTitle("")
+       
+      .setURL("")
+       
+      .setDescription(
 
-      .setColor("RANDOM")
 
-      .setAuthor(message.author.username, message.author.AvatarURL)
 
-      .setThumbnail(message.guild.iconURL()).setDescription(`
-AntiBan
-Enabled:🟢 
-Maximum Ban : ${config[message.guild.id].banLimit}
--
-AntiKick
-Enabled:🟢 
-Maximum Kick : ${config[message.guild.id].kickLimits}
--
-AntiChannel C&D
-Enabled:🟢 
-Maximum Create : ${config[message.guild.id].chaCrLimit}
-Maximum Delete : ${config[message.guild.id].chaDelLimit}
--
-AntiRole C&D
-Enabled:🟢 
-Maximum Create : ${config[message.guild.id].roleCrLimits}
-Maximum Delete : ${config[message.guild.id].roleDelLimit}
--
-AntiTime
-Enabled:🟢 
-Maximum Time : ${config[message.guild.id].time}
-AntiBot:🟢 
-${antibots[message.guild.id].onoff}
-AntiProblem:🟢
-${spread[message.guild.id].onoff}
-`);
 
-    message.channel.send(LORD);
+        `Anti Ban Is :
+${config[message.guild.id].banLimit}
+
+•••••
+Anti Kick Is*l :
+
+${config[message.guild.id].kickLimits}
+•••••
+Anti ChannelD Is :
+
+${config[message.guild.id].chaDelLimit}
+•••••
+Anti ChannelC Is :
+
+${config[message.guild.id].chaCrLimit}
+•••••
+Anti RoleD Is :
+
+${config[message.guild.id].roleDelLimit}
+•••••
+Anti RoleC Is :
+
+${config[message.guild.id].roleCrLimits}
+•••••
+Anti Time Is :
+
+ ${config[message.guild.id].time}`
+      )
+      .setColor(color)
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send({ embed });
   }
 });
+
 /////
 let spread = JSON.parse(fs.readFileSync("./spread.json", "utf8"));
 client.on("message", message => {
