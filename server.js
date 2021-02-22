@@ -1269,3 +1269,34 @@ if(message.content.startsWith(prefix + "old")){
 
 });
 
+////////
+client.on('message', message=> {
+  if(message.content.startsWith(prefix + "symbols")){
+    let rmozTitle = [
+      "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬",
+      "⧚ ⧛ ⧜ ⧝ ⧞ ⧟ ⧡ ⧢ ⧣ ⧤  ⧵ ⧶ ⧷ ⧸ ⧹ ⧺ ⧻ ⧼ ⧽ ",
+      "⧥ ⧦ ⧧ ⧨ ⧩ ⧪ ⧫ ⧬ ⧭ ⧮ ⧯ ⧰ ⧱ ⧲ ⧳ ⧴Ɒ ⱱ ⧾➚",
+      " ⬢ ⬣ Ⱡ ⱡ Ɫ Ᵽ Ɽ ⱥ ⱦ Ⱨ ⱨ Ⱪ ⱪ Ⱬ ⱬ Ɑ Ɱ Ɐ  ⬙➛",
+      " ⧿ ⬀ ⬁ ⬂ ⬃ ⬄  ⬐ ⬑ ⬒ ⬓ ⬔ ⬕ ⬖ ⬗ ⬘ ➠ ",
+      "⬈ ⬉ ⬊ ⬋ ⬌ ⬍ ⬎ ⬏⬚ ⬠ ⬡⟝ ⟞ ⟟ ⟠ ⟡ ⟢ ⟣",
+      "⟃ ⟄ ⟇ ⟈ ⟉ ⟊ ⟐ ⟑ ⟒ ⟓ ⟔ ⟕ ⟖ ⟗ ⟘ ⟙ ⟚ ",
+      "⟛ ⟜ ➳ ➴ ➵ ➶ ➷ ➸ ➹ ➺ ➻ ➼ ➽ ➾ ⟀  ",
+      "⟁ ⟂ ➨ ➩ ➪ ➫ ➬ ➭ ➮ ➯ ➱ ➲ ➳➔ ➘ ➙ ",
+      "➚➢ ➣ ➤ ➥ ➦ ➧➜ ➝ ➞ ➟ ✗ ✘ ✙ ✚ ✛ ✜",
+      "✢ ✣ ✤ ✥ ✦ ✧ ✧♱ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ✱ ✲",
+      " ✶ ✷ ✸ ✹ ✺ ✻ ✼ ✽ ✾ ✿ ❀ ❁ ❂ ❃ ✵❡ ",
+      " ❈ ❉ ❊ ❋ ❍ ❏ ❐ ❑ ❒ ❖  ❙ ❚ ❛ ❜ ❝ ❞  ❢ ",
+      "⚭ ⚮ ⚯✃ ✄ ✆ ✇ ♴ ♵ ♶ ♷ ♸ ♹ ♺ ♲ ♳",
+      " ♩ ♪ ♫ ♬ ♭ ♮ ♯ ♰ ♱ ➥・ϟ ⊱⋅⊰► ┗┃ ┣┃៚ ",
+      "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
+    ];
+    const embed1 = new Discord.MessageEmbed()
+    .setTitle('Web Symbols')
+    .setURL('https://coolnames.online/all-characters-decoration')
+    .setColor(color)
+    .setAuthor(`${message.author.tag}`)
+    .setThumbnail(`${message.author.avatarURL()}`)
+    .setDescription(rmozTitle);
+    message.channel.send(embed1)
+  }
+});
