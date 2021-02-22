@@ -876,36 +876,32 @@ if (cooldown.has(message.author.id)) {
        
       .setDescription(
 
-
-
-
-        `Anti Ban Is :
-${config[message.guild.id].banLimit}
-
-•••••
-Anti Kick Is*l :
-
-${config[message.guild.id].kickLimits}
-•••••
-Anti ChannelD Is :
-
-${config[message.guild.id].chaDelLimit}
-•••••
-Anti ChannelC Is :
-
-${config[message.guild.id].chaCrLimit}
-•••••
-Anti RoleD Is :
-
-${config[message.guild.id].roleDelLimit}
-•••••
-Anti RoleC Is :
-
-${config[message.guild.id].roleCrLimits}
-•••••
-Anti Time Is :
-
- ${config[message.guild.id].time}`
+`AntiBan
+Enabled: <:392D0E91802B4EA4BAC290C6551F76AC:813438486031106089>
+Maximum Ban : ${config[message.guild.id].banLimit}
+-
+AntiKick
+Enabled: <:392D0E91802B4EA4BAC290C6551F76AC:813438486031106089>
+Maximum Kick : ${config[message.guild.id].kickLimits}
+-
+AntiChannel C - D
+Enabled: <:392D0E91802B4EA4BAC290C6551F76AC:813438486031106089>
+Maximum Create : ${config[message.guild.id].chaCrLimit}
+Maximum Delete : ${config[message.guild.id].chaDelLimit}
+-
+AntiRole C - D
+Enabled: <:392D0E91802B4EA4BAC290C6551F76AC:813438486031106089>
+Maximum Create : ${config[message.guild.id].roleCrLimits}
+Maximum Delete : ${config[message.guild.id].roleDelLimit}
+-
+AntiTime
+Enabled: <:661A84F2A06545B8A3C156E9980D6D6A:813439774848188438>
+Maximum Time : ${config[message.guild.id].time}
+-
+AntiBot: <:0130DA8165BB4B9FB8320183A9D0A81D:813438486178037811>
+${antibots[message.guild.id].onoff}
+AntiProblem: <:9C5EE12A1D514A7685DF7878C4FE973F:813438486383427664>
+${spread[message.guild.id].onoff}`
       )
       .setColor(color)
       .setThumbnail(message.author.avatarURL())
