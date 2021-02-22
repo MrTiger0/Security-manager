@@ -1248,154 +1248,19 @@ if (cooldown.has(message.author.id)) {
 
 //////
 
-const usersMap = new Map();
-const LIMIT = 7;
-const TIME = 300000;
-const DIFF = 7000;
-const roll = "Spam Muted";
-let spam = JSON.parse(fs.readFileSync("./spam.json", "utf8"));
-
-client.on("message", message => {
-  if (!message.guild) return;
-  let value = value.findOne({ guildID: message.guild.id });
-  if (value.spam==="on") {
-  const muteRole = message.guild.roles.cache.find(role => role.name === roll);
-  if (!muteRole) {
-    let muteRole = message.guild
-      .roles.create({
-        name: roll,
-        color: "#000000",
-        permissions: []
-      })
-      .then(R => {
-        message.guild.channels.cache.forEach(channel => {
-          channel.updateOverwrite(R, {
-            SEND_MESSAGES: false,
-            CONNECT: false
-          });
-        });
-      });
-  }
-}
+const AntiSpam = require("discord-anti-spam");
+const antiSpam = new AntiSpam({
+  warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
+  kickThreshold: 40, // Amount of messages sent in a row that will cause a ban.
+  maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
+  warnMessage: "{@user}, please stop spamming .", // Message that will be sent in chat upon warning a user.
+  kickMessage: "{user_tag}, kicked for spam .", // Message that will be sent in chat upon kicking a user.
+  maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
+  maxDuplicatesKick: 10, // Amount of duplicate messages that trigger a warning.
+  maxDuplicatesBan: 12, // Amount of duplicate messages that trigger a warning.
+  exemptPermissions: ["ADMINISTRATOR"], // Bypass users with any of these permissions.
+  ignoreBots: true, // Ignore bot messages.
+  verbose: true, // Extended Logs from module.
+  ignoredUsers: [769956996476043275] // Array of User IDs that get ignored.
+  // And many more options... See the documentation.
 });
-
-client.on("message", message => {
-  if (
-    message.author.id === "738478465870987425" ||
-    message.author.id === "769956996476043275"
-  )
-    return;
-  if (message.author.bot) return;
-  let value = value.findOne({ guildID: message.guild.id });
-  if (value.spam==="off") return;
-  if (usersMap.has(message.author.id)) {
-    const userData = usersMap.get(message.author.id);
-    const { lastMessage, timer } = userData;
-    const difference = message.createdTimestamp - lastMessage.createdTimestamp;
-    let msgCount = userData.msgCount;
-    if (difference > DIFF) {
-      clearTimeout(timer);
-      userData.msgCount = 1;
-      userData.lastMessage = message;
-      userData.timer = setTimeout(() => {
-        usersMap.delete(message.author.id);
-      }, TIME);
-      usersMap.set(message.author.id, userData);
-    } else {
-      ++msgCount;
-      if (parseInt(msgCount) === LIMIT) {
-        const muteRole = message.guild.roles.cache.find(
-          role => role.name === roll
-        );
-
-        if (!muteRole) {
-          let muteRole = message.guild
-            .roles.create({
-              name: roll,
-              color: "#000000",
-              permissions: []
-            })
-            .then(R => {
-              message.guild.channels.cache.forEach(channel => {
-                channel.updateOverwrite(R, {
-                  SEND_MESSAGES: false,
-                  CONNECT: false
-                });
-              });
-            });
-          message.member.roles.add(muteRole);
-          message.channel.bulkDelete(8, true);
-        } else {
-          message.member.roles.add(muteRole);
-          message.channel.bulkDelete(8, true);
-        }
-        message.channel.send(`<@${message.author.id}> You have been muted.`);
-        if (!spam[message.guild.id + message.author.id]) {
-          spam[message.guild.id + message.author.id] = "on";
-        } else if (spam[message.guild.id + message.author.id] === "off") {
-          spam[message.guild.id + message.author.id] = "on";
-        }
-
-        fs.writeFile("./spam.json", JSON.stringify(spam), err => {
-          if (err) console.error(err);
-        });
-
-        setTimeout(() => {
-          message.member.roles.remove(muteRole).catch(()=>{})
-          message.channel.send(`<@${message.author.id}> You have been unmuted`);
-          if (spam[message.guild.id + message.author.id] === "on") {
-            spam[message.guild.id + message.author.id] = "off";
-          }
-
-          fs.writeFile("./spam.json", JSON.stringify(spam), err => {
-            if (err) console.error(err);
-          });
-        }, TIME);
-      } else {
-        userData.msgCount = msgCount;
-        usersMap.set(message.author.id, userData);
-      }
-    }
-  } else {
-    let fn = setTimeout(() => {
-      usersMap.delete(message.author.id);
-    }, TIME);
-    usersMap.set(message.author.id, {
-      msgCount: 1,
-      lastMessage: message,
-      timer: fn
-    });
-  }
-
-  fs.writeFile("./spam.json", JSON.stringify(spam), err => {
-    if (err) console.error(err);
-  });
-});
-
-client.on("guildMemberAdd", member => {
-  if (member.id === "738478465870987425" || member.id === "769956996476043275")
-    return;
-  if (spam[member.guild.id + member.id] === "on") {
-    const muteRole = member.guild.roles.cache.find(role => role.name === roll);
-
-    if (!muteRole) {
-      let muteRole = member.guild
-        .roles.create({
-          name: roll,
-          color: "#000000",
-          permissions: []
-        })
-        .then(R => {
-          member.guild.channels.cache.forEach(channel => {
-            channel.updateOverwrite(R, {
-              SEND_MESSAGES: false,
-              CONNECT: false
-            });
-          });
-        });
-      member.roles.add(muteRole);
-    } else {
-      member.roles.add(muteRole);
-    }
-  }
-})
