@@ -147,6 +147,7 @@ if (cooldown.has(message.author.id)) {
         `🔒 | Locked Channel
 Channel Name : <#${message.channel.id}>
 Locked By : <@${message.author.id}>
+Channel Status : Send Message ❌
 `
       )
       .setThumbnail(message.author.avatarURL())
@@ -183,6 +184,7 @@ if (cooldown.has(message.author.id)) {
         `🔓 | UnLocked Channel
 Channel Name : <#${message.channel.id}>
 Locked By : <@${message.author.id}>
+Channel Status : Send Message ✅
 `
       )
       .setThumbnail(message.author.avatarURL())
@@ -878,25 +880,25 @@ if (cooldown.has(message.author.id)) {
       .setDescription(
 
 `AntiBan
-Enabled: <:392D0E91802B4EA4BAC290C6551F76AC:813438486031106089>
+Enabled: ${config[message.guild.id].banLimit}
 Maximum Ban : ${config[message.guild.id].banLimit}
 -
 AntiKick
-Enabled: <:392D0E91802B4EA4BAC290C6551F76AC:813438486031106089>
+Enabled: ${config[message.guild.id].banLimit}
 Maximum Kick : ${config[message.guild.id].kickLimits}
 -
 AntiChannel C - D
-Enabled: <:392D0E91802B4EA4BAC290C6551F76AC:813438486031106089>
+Enabled: ${config[message.guild.id].banLimit}
 Maximum Create : ${config[message.guild.id].chaCrLimit}
 Maximum Delete : ${config[message.guild.id].chaDelLimit}
 -
 AntiRole C - D
-Enabled: <:392D0E91802B4EA4BAC290C6551F76AC:813438486031106089>
+Enabled: ${config[message.guild.id].banLimit}
 Maximum Create : ${config[message.guild.id].roleCrLimits}
 Maximum Delete : ${config[message.guild.id].roleDelLimit}
 -
 AntiTime
-Enabled: <:661A84F2A06545B8A3C156E9980D6D6A:813439774848188438>
+Enabled: ${config[message.guild.id].banLimit}
 Maximum Time : ${config[message.guild.id].time}`
       )
       .setColor(color)
