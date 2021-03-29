@@ -92,11 +92,12 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
-      .setFooter("Anti Vandalism : Open Source")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`${client.user.username} Prefix Is [ ${prefix} ]
+      .setFooter(`${message.author.username}`, "https://cdn.discordapp.com/attachments/825457325845512205/826098521521389648/16-29-25-shield_5.png")
+      .setTimestamp()
+      .setThumbnail(message.author.avatarURL({dynamic: "true"}))
+      .setDescription(`
 
-<:47A7E1944A2244649B93FDD70CB2826A:813144028589457439> Security Commands
+<a:setting:813404135181385759> **Security Commands**
 \`${prefix}anti ban\`
 \`${prefix}anti kick\`
 \`${prefix}anti channelD\`
