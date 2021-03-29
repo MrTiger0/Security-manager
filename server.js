@@ -70,8 +70,8 @@ Hey My name is **Protection** and My Work is to Protection You
 \`${prefix}unban\`
 <a:3arz:823238395895349358> **Fun Commands**
 \`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\` - \`${prefix}old\`- \`${prefix}love\`
-<a:url_link:801227859946373121> **Links**
-**[Invite](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot) - [Support](https://discord.gg/BQDx5cNvXS)**
+<a:links:813729922643263558> **Links**
+**[Invite](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot)** - **[Support](https://discord.gg/BQDx5cNvXS)**
 
 `);
 
