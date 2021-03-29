@@ -60,18 +60,18 @@ if (cooldown.has(message.author.id)) {
       .setDescription(`
 Hey My name is **Protection** and My Work is to Protection You
 
-<a:discord:813406342173818910> General Commands
+<a:discord:813406342173818910> **General Commands**
 \`${prefix}about\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
 \`${prefix}invite\` - \`${prefix}vote\`
-<a:setting:813404135181385759> Security Commands
+<a:setting:813404135181385759> **Security Commands**
 \`${prefix}show anti\` - \`${prefix}settings\`
 <a:emoji_148:768871719561592894> Moderation Commands
 \`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\` - \`${prefix}ban\`
 \`${prefix}unban\`
-<a:3arz:823238395895349358> Fun Commands
+<a:3arz:823238395895349358> **Fun Commands**
 \`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\` - \`${prefix}old\`- \`${prefix}love\`
 <a:links:813729922643263558> Links
-**[INVITE](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot)** | **[SUPPORT](https://discord.gg/BQDx5cNvXS)**
+[INVITE](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot) | [SUPPORT](https://discord.gg/BQDx5cNvXS)
 
 `);
 
