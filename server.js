@@ -54,25 +54,24 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
-      .setFooter("Anti Vandalism : Open Source")
-      .setThumbnail(message.author.avatarURL)
+      .setFooter("${message.author.tag}", `https://cdn.discordapp.com/attachments/825457325845512205/826098521521389648/16-29-25-shield_5.png`)
+      .setTimestamp()
+      .setThumbnail(message.author.avatarURL({dynamic: "true"}))
       .setDescription(`
+Hey My name is **Protection** and My Work is to Protection You
 
-• To get help on a specific command type \`help <command>!\`
-
-[ Invite ](https://discord.com/oauth2/authorize?client_id=711328570374619207&permissions=21474836398&scope=bot)  -  [ Support ](https://discord.gg/tnMzVGj8yT)  -  [ Website ](https://aerial-catkin-jumbo.glitch.me/)
-
-<:D237646538914FD39A0B144DA35AB584:813144028883320832> General
+<a:discord:813406342173818910> **General Commands**
 \`${prefix}about\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
 \`${prefix}invite\` - \`${prefix}vote\`
-<:47A7E1944A2244649B93FDD70CB2826A:813144028589457439> Security
+<a:setting:813404135181385759> **Security Commands**
 \`${prefix}show anti\` - \`${prefix}settings\`
-<:36501D170F3F433C8D2A51EA39A0519F:813144028547252276> Moderation
+<a:emoji_148:768871719561592894> **Moderation Commands
 \`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\` - \`${prefix}ban\`
 \`${prefix}unban\`
-<:0BF5BA42A1D54C2BAA948A556D26525C:813187422153736203> Fun
-\`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\` - \`${prefix}old\`
-\`${prefix}love\`
+<a:3arz:823238395895349358> **Fun Commands**
+\`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\` - \`${prefix}old\`- \`${prefix}love\`
+<a:url_link:801227859946373121> **Links**
+**[Invite](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot) - [Support](https://discord.gg/BQDx5cNvXS)**
 
 `);
 
