@@ -36,8 +36,7 @@ const cooldown = new Set()
 const cdtime =5;
 client.login("ODA0MDY4MDE3MDc1MjU3Mzc0.YBG8sg.vfpMtmEczFrNo70R-WCndSkWltU");
 client.on("ready", async () => {
-  client.user.setActivity(prefix + `help | Protection Is Here`,		
-  client.user.setActivity(`Test`, {
+  client.user.setActivity(prefix + `help | Protection Is Here`, {
     type: "PLAYING"
   });
 });
