@@ -97,7 +97,7 @@ if (cooldown.has(message.author.id)) {
       .setThumbnail(message.author.avatarURL({dynamic: "true"}))
       .setDescription(`
 
-<a:setting:813404135181385759> **Security Commands**
+**Anti Commands**
 \`${prefix}anti ban\`
 \`${prefix}anti kick\`
 \`${prefix}anti channelD\`
@@ -145,8 +145,8 @@ Locked By : <@${message.author.id}>
 Channel Status : Send Message ❌
 `
       )
-      .setThumbnail(message.author.avatarURL())
-      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
+    .setThumbnail(message.author.avatarURL({dynamic: "true"}))
     message.channel.send(lock);
   }
 });
@@ -182,8 +182,8 @@ Locked By : <@${message.author.id}>
 Channel Status : Send Message ✅
 `
       )
-      .setThumbnail(message.author.avatarURL())
-      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
+    .setThumbnail(message.author.avatarURL({dynamic: "true"}))
     message.channel.send(unlock);
   }
 });
