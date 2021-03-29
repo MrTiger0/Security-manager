@@ -41,9 +41,7 @@ client.on("ready", async () => {
   });
 });
 client.on("ready", async () => {
-
-  client.user.setActivity(prefix + "help | Protection Is Here", {
-
+  client.user.setActivity("Servrr | ${client.guilds.cache.size}", {
     type: "PLAYING"
 
   });
