@@ -41,7 +41,7 @@ client.on("ready", async () => {
   });
 });
 client.on("ready", async () => {
-  client.user.setActivity(`Servrr | ${client.guilds.cache.size}`, {
+  client.user.setActivity(`Server | ${client.guilds.cache.size}`, {
     type: "PLAYING"
 
   });
