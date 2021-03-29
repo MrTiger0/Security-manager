@@ -59,7 +59,7 @@ if (cooldown.has(message.author.id)) {
       .setThumbnail(message.author.avatarURL({dynamic: "true"}))
       .setDescription(`
 Hey My name is **Protection** and My Work is to Protection You
-**[Invite](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot**) | **[Support](https://discord.gg/BQDx5cNvXS)**
+**[Invite](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot)** | **[Support](https://discord.gg/BQDx5cNvXS)**
 <a:discord:813406342173818910> **General Commands**
 \`${prefix}about\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
 \`${prefix}invite\` - \`${prefix}vote\`
