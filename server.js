@@ -70,7 +70,6 @@ Hey My name is **Protection** and My Work is to Protection You
 \`${prefix}unban\`
 <a:3arz:823238395895349358> **Fun Commands**
 \`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\` - \`${prefix}old\`- \`${prefix}love\`
-<a:links:813729922643263558> **Links**
 
 `);
 
