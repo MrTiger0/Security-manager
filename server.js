@@ -59,7 +59,7 @@ if (cooldown.has(message.author.id)) {
       .setThumbnail(message.author.avatarURL({dynamic: "true"}))
       .setDescription(`
 Hey My name is **Protection** and My Work is to Protection You
-
+**[Invite](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot**) | **[Support](https://discord.gg/BQDx5cNvXS)**
 <a:discord:813406342173818910> **General Commands**
 \`${prefix}about\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
 \`${prefix}invite\` - \`${prefix}vote\`
@@ -71,7 +71,6 @@ Hey My name is **Protection** and My Work is to Protection You
 <a:3arz:823238395895349358> **Fun Commands**
 \`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\` - \`${prefix}old\`- \`${prefix}love\`
 <a:links:813729922643263558> **Links**
-[INVITE](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot) | [SUPPORT](https://discord.gg/BQDx5cNvXS)
 
 `);
 
