@@ -1125,16 +1125,15 @@ if (cooldown.has(msg.author.id)) {
       cooldown.delete(msg.author.id);
     }, cdtime * 1000);
 const embed = new Discord.MessageEmbed()
+.setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
 .setAuthor(client.user.username,client.user.avatarURL())
 .setThumbnail(client.user.avatarURL())
 .setColor(color)
-.setTitle(` ${client.user.username} `)
-.addField('servers', `\`${client.guilds.cache.size}\``, true)
-.addField('channels', `\`${client.channels.cache.size}\``, true)
+.addField('Servers', `\`${client.guilds.cache.size}\``, true)
+.addField('Channels', `\`${client.channels.cache.size}\``, true)
 .addField('Users', `\`${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}\``, true)
 .addField('My Name' , `\`${client.user.tag}\`` , true)
 .addField('My ID' , `\`${client.user.id}\`` , true)
-.addField('Owner Bot',`<@637299944939585576>`,true)
 
 msg.channel.send(embed);
 }
