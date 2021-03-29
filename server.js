@@ -1134,7 +1134,7 @@ const embed = new Discord.MessageEmbed()
 .addField('Users', `**${client.users.cache.size}**`, true)
 .addField('My Name' , `**${client.user.tag}**` , true)
 .addField('My ID' , `**${client.user.id}**` , true)
-.addField('Owner Bot',`<@769956996476043275>`,true)
+.addField('Owner Bot',`<@637299944939585576>`,true)
 
 msg.channel.send(embed);
 }
@@ -1175,13 +1175,6 @@ client.on("message",message => {
 
 );
 
-///////
-client.on("message",message => {
-  if(message.content.startsWith(prefix + "vote")) 
-  message.channel.send("https://top.gg/bot/711328570374619207");
-}
-
-);
 
 //////
 client.on("message", message => {
