@@ -54,7 +54,7 @@ if (cooldown.has(message.author.id)) {
     }, cdtime * 1000);
     let help = new Discord.MessageEmbed()
       .setColor(color)
-      .setFooter("${message.author.username}", `https://cdn.discordapp.com/attachments/825457325845512205/826098521521389648/16-29-25-shield_5.png`)
+      .setFooter(`${message.author.username}`, "https://cdn.discordapp.com/attachments/825457325845512205/826098521521389648/16-29-25-shield_5.png")
       .setTimestamp()
       .setThumbnail(message.author.avatarURL({dynamic: "true"}))
       .setDescription(`
