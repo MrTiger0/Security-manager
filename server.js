@@ -1125,7 +1125,6 @@ if (cooldown.has(msg.author.id)) {
       cooldown.delete(msg.author.id);
     }, cdtime * 1000);
 const embed = new Discord.MessageEmbed()
-.setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
 .setAuthor(client.user.username,client.user.avatarURL())
 .setThumbnail(client.user.avatarURL())
 .setColor(color)
