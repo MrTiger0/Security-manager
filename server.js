@@ -36,18 +36,11 @@ const cooldown = new Set()
 const cdtime =5;
 client.login("ODA0MDY4MDE3MDc1MjU3Mzc0.YBG8sg.vfpMtmEczFrNo70R-WCndSkWltU");
 client.on("ready", async () => {
-  client.user.setActivity(prefix + `help | Protection Is Here`, {
+  client.user.setActivity(prefix + `help | Protection Is Here`,		
+  client.user.setActivity(`Test`, {
     type: "PLAYING"
   });
 });
-client.on("ready", async () => {
-  client.user.setActivity(`Server | ${client.guilds.cache.size}`, {
-    type: "PLAYING"
-
-  });
-
-});
-
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
