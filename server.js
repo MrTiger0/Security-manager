@@ -61,8 +61,7 @@ if (cooldown.has(message.author.id)) {
 Hey My name is **Protection** and My Work is to Protection You
 **[Invite](https://discord.com/api/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot)** | **[Support](https://discord.gg/BQDx5cNvXS)**
 <a:discord:813406342173818910> **General Commands**
-\`${prefix}about\` - \`${prefix}serverinfo\` - \`${prefix}userinfo\`
-\`${prefix}invite\` - \`${prefix}vote\`
+\`${prefix}about\` - \`${prefix}server\` - \`${prefix}user\`
 <a:setting:813404135181385759> **Security Commands**
 \`${prefix}show anti\` - \`${prefix}settings\`
 <a:emoji_148:768871719561592894> **Moderation Commands**
@@ -1086,7 +1085,7 @@ if (cooldown.has(message.author.id)) {
 
 ///////
 client.on("message", msg =>{
-if(msg.content === prefix + "serverinfo"){
+if(msg.content === prefix + "server"){
 if (cooldown.has(msg.author.id)) {
       return msg.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
@@ -1141,7 +1140,7 @@ msg.channel.send(embed);
 ////////
 
 client.on("message", message => {
-    if(message.content.startsWith(prefix + "userinfo")){
+    if(message.content.startsWith(prefix + "user")){
 if (cooldown.has(message.author.id)) {
       return message.channel.send(`wait for 5 second`).then(m=>{m.delete({timeout:cdtime * 600})})
     }
