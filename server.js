@@ -242,10 +242,10 @@ client.on("message", message => {
     }
     if (message.content.startsWith(prefix + "anti kick")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**<a:halaya:813455108577689601> | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**<a:halaya:813455108577689601> | Only Type A `Number` .**"
         );
       config[message.guild.id].kickLimits = num;
       message.channel.send(
@@ -254,62 +254,62 @@ client.on("message", message => {
     }
     if (message.content.startsWith(prefix + "anti roleD")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**<a:halaya:813455108577689601> | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**<a:halaya:813455108577689601> | Only Type A `Number` .**"
         );
       config[message.guild.id].roleDelLimit = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].roleDelLimit}**`
+        `**<a:like:813847731285393439> | Changed To : ${config[message.guild.id].roleDelLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "anti roleC")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**<a:halaya:813455108577689601> | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**<a:halaya:813455108577689601> | Only Type A `Number` .**"
         );
       config[message.guild.id].roleCrLimits = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].roleCrLimits}**`
+        `**<a:like:813847731285393439> | Changed To : ${config[message.guild.id].roleCrLimits}**`
       );
     }
     if (message.content.startsWith(prefix + "anti channelD")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**<a:halaya:813455108577689601> | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**<a:halaya:813455108577689601> | Only Type A `Number` .**"
         );
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].chaDelLimit}**`
+        `**<a:like:813847731285393439> | Changed To : ${config[message.guild.id].chaDelLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "anti channelC")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**<a:halaya:813455108577689601> | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**<a:halaya:813455108577689601> | Only Type A `Number` .**"
         );
       config[message.guild.id].chaCrLimit = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].chaCrLimit}**`
+        `**<a:like:813847731285393439> | Changed To : ${config[message.guild.id].chaCrLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "anti time")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**<a:halaya:813455108577689601> | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**<a:halaya:813455108577689601> | Only Type A `Number` .**"
         );
       config[message.guild.id].time = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].time}**`
+        `**<a:like:813847731285393439> | Changed To : ${config[message.guild.id].time}**`
       );
     }
     fs.writeFile("./configg.json", JSON.stringify(config, null, 2), function(
