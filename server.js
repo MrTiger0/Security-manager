@@ -1172,8 +1172,8 @@ if (cooldown.has(message.author.id)) {
 //////////
 
 client.on("message",message => {
-  if(message.content.startsWith(prefix + "invite")) 
-  message.channel.send("https://discord.com/oauth2/authorize?client_id=711328570374619207&permissions=21474836398&scope=bot");
+  if(message.content.startsWith(prefix + "invite"))
+	  message.author.send(`https://discord.com/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot`);
 }
 
 );
