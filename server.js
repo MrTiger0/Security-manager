@@ -230,7 +230,7 @@ client.on("message", message => {
   if (message.author.id !== message.guild.ownerID) return;
     if (message.content.startsWith(prefix + "anti ban")) {
       if (!num)
-        return message.channel.send("**" + ghallat + " | Type A `Number` .**");
+        return message.channel.send("**<a:halaya:813455108577689601> | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
           "**<a:halaya:813455108577689601> | Only Type A `Number` .**"
