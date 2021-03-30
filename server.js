@@ -233,11 +233,11 @@ client.on("message", message => {
         return message.channel.send("**" + ghallat + " | Type A `Number` .**");
       if (isNaN(num))
         return message.channel.send(
-          "**" + ghallat + " | Only Type A `Number` .**"
+          "**<a:halaya:813455108577689601> | Only Type A `Number` .**"
         );
       config[message.guild.id].banLimit = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].banLimit} **`
+        `**<a:like:813847731285393439> | Changed To : ${config[message.guild.id].banLimit} **`
       );
     }
     if (message.content.startsWith(prefix + "anti kick")) {
