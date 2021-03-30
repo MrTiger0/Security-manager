@@ -249,7 +249,7 @@ client.on("message", message => {
         );
       config[message.guild.id].kickLimits = num;
       message.channel.send(
-        `**${rast} | Changed To : ${config[message.guild.id].kickLimits}**`
+        `**<a:like:813847731285393439> | Changed To : ${config[message.guild.id].kickLimits}**`
       );
     }
     if (message.content.startsWith(prefix + "anti roleD")) {
