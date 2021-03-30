@@ -1174,7 +1174,7 @@ if (cooldown.has(message.author.id)) {
 client.on("message",message => {
   if(message.content.startsWith(prefix + "invite"))
 	  
-          message.react("<a:emoji_83:779961659631730689>").catch(console.error)
+          message.react("<a:emoji_83:779961659631730689>")
 	  message.author.send(`https://discord.com/oauth2/authorize?client_id=804068017075257374&permissions=8&scope=bot`);
 }
 
