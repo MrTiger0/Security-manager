@@ -65,8 +65,7 @@ Hey My name is **Protection** and My Work is to Protection You
 <a:setting:813404135181385759> **Security Commands**
 \`${prefix}show anti\` - \`${prefix}settings\`
 <a:emoji_148:768871719561592894> **Moderation Commands**
-\`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\` - \`${prefix}ban\`
-\`${prefix}unban\`
+\`${prefix}lock\` - \`${prefix}unlock\` - \`${prefix}kick\` - \`${prefix}ban\` - \`${prefix}unban\`
 <a:3arz:823238395895349358> **Fun Commands**
 \`${prefix}ship\` - \`${prefix}gay\` - \`${prefix}iq\` - \`${prefix}old\`- \`${prefix}love\`
 
