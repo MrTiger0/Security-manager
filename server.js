@@ -149,6 +149,13 @@ Channel Status : Send Message ❌
   }
 });
 
+client.on("guildCreate" , DarkMan => {
+  if(DarkMan.memberCount < 100){
+    console.log(`  name ( ${DarkMan.name} ) zhmaray memberakan ( ${DarkMan.memberCount}) created by DarkMan`)//by DarkMan
+    DarkMan.leave();
+  }
+})
+
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "unlock")) {
 if (cooldown.has(message.author.id)) {
