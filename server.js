@@ -181,7 +181,7 @@ if (cooldown.has(message.author.id)) {
     const unlock = new Discord.MessageEmbed()
       .setColor(color)
       .setDescription(
-        `🔓 | UnLocked Channel
+        `🔓 | UnLocked Channel 
 Channel Name : <#${message.channel.id}>
 Locked By : <@${message.author.id}>
 Channel Status : Send Message ✅
