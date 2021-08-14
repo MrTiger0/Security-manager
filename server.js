@@ -34,7 +34,7 @@ const cmd = require("node-cmd");
 const prefix = "$";
 const cooldown = new Set()
 const cdtime =5;
-client.login("ODA0MDY4MDE3MDc1MjU3Mzc0.YBG8sg.vfpMtmEczFrNo70R-WCndSkWltU");
+client.login("ODAwMzQ4NjUzNjgwMTk3NjYy.YAQ0xA.XmH5N1In3o-j1rlvXOp-90XFJWM");
 client.on("ready", async () => {
   client.user.setActivity(prefix + `help | Protection Is Here`, {
     type: "PLAYING"
